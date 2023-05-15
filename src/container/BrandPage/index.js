@@ -32,9 +32,6 @@ const BrandPage = () => {
   let brandBanner = useSelector(state => state.brandBanner.brandBanner.PageBanner);
   brandBanner = brandBanner ? brandBanner[0] : {};
 
-
-
-
   const onCardClick = (element) => {
     let pId = element?._id;
     navigate(`/brand-page/${pId}`);
@@ -71,9 +68,9 @@ const BrandPage = () => {
           }}
         >
           <img
-            src={brandBanner.bannerImage}
+            src={brandBanner?.bannerImage}
             style={{ width: "100%", height: !responsiveMobile ? "auto" : "62vw", borderRadius: "20px" }}
-            alt={brandBanner.bannerImageAltText}
+            alt={brandBanner?.bannerImageAltText}
           />
         </Box>
 
