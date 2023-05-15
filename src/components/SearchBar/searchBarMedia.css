@@ -1,0 +1,8 @@
+@media screen and (max-width: 768px) {
+  .searchBoxWrapper {
+    width: 235px !important;
+  }
+}
+.searchBoxWrapper {
+  position: relative;
+}

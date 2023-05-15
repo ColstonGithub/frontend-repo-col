@@ -1,0 +1,39 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.image-gallery-slide-wrapper.left {
+  padding-left: 25px;
+}
+.right-info-box {
+  margin-left: 3.125rem;
+}
+
+@media screen and (max-width: 768px) {
+  .right-info-box {
+    margin-left: 0;
+  }
+}
+
+/* "& .MuiOutlinedInput-notchedOutline": {
+    border: "none",
+  },
+  "&:hover": {
+    
+    border: "1px solid grey",
+  }, */
+
+.react-multi-carousel-list {
+  display: block !important;
+}
+.image-gallery-swipe {
+  width: 500px;
+  height: 500px;
+}
+
+
+.react-multi-carousel-item {
+  width:345px
+}

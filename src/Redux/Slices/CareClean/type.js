@@ -1,0 +1,1 @@
+export const GET_CARE_CLEAN = "get-care-clean";

@@ -1,0 +1,6 @@
+export default {
+  products: {
+    name: "Bathroom Cleaners",
+    description: "Disinfectants are very important to be used in public places as there is more risk of germs spreading around due to multiple uses of each and every item. Similarly, in the workplaces, there is frequent use of items from one employee to another. Whether it is a flu season or not, germs are inevitable in nature. Thus, disinfectants comparatively lessen the chance of any germ produced illness or diseases. In order to cut the cost some employees may opt for a cheaper disinfectant, which on a longer run can affect the health of the employees & the infrastructure. This in turn will again lead to health issues and absentees.It is not the employees that roam about in the work spaces of your company but also the possible clients, suppliers or may be the investors. The environment of mess, unorganized and dirty workplace can be a total turn off for the possible clients. This can lead to a very first bad impression, and as it is said 'First impression is the last impression'. Further words are known to travel faster than lightning. Along with it there may be a possibility of the potential germs being dispersed to that very client and can create many problems."
+  },
+};
