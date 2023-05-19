@@ -47,9 +47,9 @@ const CareCleaning = () => {
           }}
         >
           <img
-            src={careClean.bannerImage}
+            src={careClean?.bannerImage}
             style={{ width: "100%", height: "auto" }}
-            alt={careClean.bannerImageAltText}
+            alt={careClean?.bannerImageAltText}
           />
         </div>
 
@@ -65,7 +65,7 @@ const CareCleaning = () => {
               color: "#000000",
             }}
           >
-            {careClean.heading}
+            {careClean?.heading}
           </h3>
           <p
             style={{
@@ -76,7 +76,7 @@ const CareCleaning = () => {
               color: "#717171", 
             }}
           >
-            {careClean.text}
+            {careClean?.text}
           </p>
         </Box>
       </Grid>

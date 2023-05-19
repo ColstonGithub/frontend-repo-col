@@ -9,6 +9,7 @@ import { useMediaQuery } from "@mui/material";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { postFaqId } from "Redux/Slices/FAQ/FaqCategoryId";
+import Footer from "components/Footer";
 import { getfaqcategory } from "Redux/Slices/FAQ/GetFaqCategory";
 import {
   Box,
@@ -134,14 +135,14 @@ const Faq = () => {
               onClick={() => handleCategoryId(item._id)}
               width="sm"
               sx={{
-                color: '#222222',
-                backgroundColor: (faqId === item._id ? '#E6E6E6' : '#FFFFFF'),
+                color: "#222222",
+                backgroundColor: faqId === item._id ? "#E6E6E6" : "#FFFFFF",
                 border: "1px solid #F7F7F7",
                 boxShadow:
                   "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
                 borderRadius: "27px",
                 padding: "0.625rem 1.25rem",
-                margin: "0 5px"
+                margin: "0 5px",
               }}
             >
               {item.name}
@@ -219,6 +220,7 @@ const Faq = () => {
               </Accordion>
             ))}
       </Grid>
+      <Footer />
     </>
   );
 };
