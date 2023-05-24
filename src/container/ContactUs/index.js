@@ -17,11 +17,13 @@ import { postContactUs } from "Redux/Slices/Forms/postContactUs";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
+import Footer from "components/Footer";
 
 const style = {
   bgcolor: "background.paper",
   borderRadius: "20px",
   paddingTop: "40px",
+  paddingBottom: "40px",
 };
 const ContactUs = () => {
   const navigate = useNavigate();
@@ -267,6 +269,7 @@ const ContactUs = () => {
           </Box>
         </Container>
       </Box>
+      <Footer />
     </>
   );
 };

@@ -3,6 +3,7 @@ import Header from "components/SearchBar/Header";
 import { Col, Row } from "react-bootstrap";
 
 import "./PrivacyPolicy.css";
+import Footer from "components/Footer";
 
 const PrivacyPolicy = () => {
   return (
@@ -13,6 +14,7 @@ const PrivacyPolicy = () => {
         style={{
           marginLeft: "50px",
           marginRight: "50px",
+          paddingBottom: "40px",
         }}
       >
          <Col>
@@ -65,6 +67,7 @@ const PrivacyPolicy = () => {
 
 
       </Row>
+      <Footer/>
     </>
   );
 };

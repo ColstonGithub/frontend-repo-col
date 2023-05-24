@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBlogsCategory } from "Redux/Slices/BlogCategory/BlogCateogrySlice";
 import { postBlogsByCategoryId } from "Redux/Slices/BlogsByCategoryId/postBlogsByCategoryIdSlice";
 import allFilters from "../../assets/Frame 18.png";
+import Footer from "components/Footer";
 const Blogs = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -215,6 +216,7 @@ const Blogs = () => {
           ))} 
         </Grid>
       </Grid>
+      <Footer/>
     </>
   );
 };

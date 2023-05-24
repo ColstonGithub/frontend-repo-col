@@ -98,7 +98,7 @@ const Header = () => {
     "Exhibition",
     "Videos",
     "News & Press Release",
-    "Quality Policy",
+    "Privacy Policy",
     "Blog",
     "Orientation Centre",
   ];

@@ -16,6 +16,7 @@ import {
 
 import FMTypography from "components/FMTypography/FMTypography";
 import { postVideo } from "Redux/Slices/Videos/Videos";
+import Footer from "components/Footer";
 const Videos = () => {
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
@@ -104,6 +105,7 @@ const Videos = () => {
           ))}
         </Grid>
       </Grid>
+      <Footer />
     </>
     // <>
     //   <Header />
