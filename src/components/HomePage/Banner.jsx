@@ -29,12 +29,10 @@ const Banner = () => {
   };
 
   const finalData = [];
-  banners.homepageBanner?.forEach((element) => {
-    element.banners.forEach((el) => {
-      finalData.push(el);
-    });
+  banners.homepageBanner?.map((element) => {
+    finalData.push(element.banner);
   });
-
+  console.log("finalData", finalData);
   return (
     <div className="banner_slider">
       <Row className="m-0">
@@ -42,7 +40,7 @@ const Banner = () => {
           <Slider {...settings}>
             {finalData?.map((imageName, index) => (
               <div className="banner_img">
-                <img src={imageName.img} className="img-fluid" alt="" />
+                <img src={imageName} className="img-fluid" alt="" />
               </div>
             ))}
           </Slider>
