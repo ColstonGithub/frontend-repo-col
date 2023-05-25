@@ -249,6 +249,7 @@ const Header = () => {
                                       fontWeight: "400",
                                       fontSize: "18px",
                                       lineHeight: "22px",
+                                      cursor:"pointer",
                                       color: "#717171",
                                       marginBottom: "15px",
                                     }}
@@ -288,6 +289,7 @@ const Header = () => {
                                         fontWeight: "600",
                                         fontSize: "18px",
                                         lineHeight: "22px",
+                                        cursor:"pointer",
                                         color: "#222222",
                                         marginBottom: "8px",
                                       }}
@@ -305,6 +307,7 @@ const Header = () => {
                                               fontStyle: "normal",
                                               fontWeight: "400",
                                               fontSize: "18px",
+                                              cursor:"pointer",
                                               lineHeight: "22px",
                                               color: "#717171",
                                             }}
@@ -351,6 +354,7 @@ const Header = () => {
                                     displayText={elem}
                                     sx={{
                                       fontFamily: "Montserrat",
+                                      cursor:"pointer",
                                       fontStyle: "normal",
                                       fontWeight: "400",
                                       fontSize: "18px",
