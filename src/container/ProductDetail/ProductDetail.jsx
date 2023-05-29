@@ -134,7 +134,7 @@ const ProductDetail = () => {
           paddingRight: "50px",
         }}
       >
-        <Grid sx={{ display: "flex", gap:"3" }}>
+        <Grid sx={{ display: "flex", gap: "3" }}>
           <Row className="gap-5">
             <Col md={6} style={{ display: "flex" }}>
               <ImageGallery
@@ -164,18 +164,25 @@ const ProductDetail = () => {
                   }}
                 />
               </Box>
-              <Grid sx={{ display: "flex" }}>
-                {productDetail?.product?.color?.map((item, i = 1) => (
-                  <Box
-                    key={item._id}
-                    sx={{ display: "flex" }}
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "5px" }}
+              >
+                <FMTypography
+                  displayText={"Color Variant"}
+                  styleData={{
+                    fontSize: "18px",
+                    fontWeight: "500",
+                    fontFamily: "Montserrat",
+                    paddingBottom: "12px",
+                  }}
+                />
+
+                {productDetail?.product?.colors?.map((item, i = 1) => (
+                  <Grid
                     style={{
-                      boxShadow:
-                        "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                      width: "42px",
-                      height: "42px",
-                      marginRight: "20px",
-                      borderRadius: "50%",
+                      border: "1px solid #222",
+                      borderRadius: "10px",
+                      padding: "10px",
                     }}
                   >
                     <Typography
@@ -184,78 +191,47 @@ const ProductDetail = () => {
                       component="div"
                       sx={{
                         fontFamily: "Montserrat",
-                        paddingTop: "50px",
                         fontStyle: "normal",
-                        fontWeight: "400",
-                        fontSize: "10px",
-                        lineHeight: "12px",
+                        fontWeight: "500",
+                        fontSize: "16px",
+                        color: "#000000",
+                        textTransform: "capitalize",
                       }}
                       onClick={() => handleColorClick(i)}
                     >
-                      {item.colorName}
+                      {item?.colorName}
                     </Typography>
-                  </Box>
+
+                    <Box
+                      key={item?._id}
+                      sx={{
+                        gap: "5px",
+                        alignItem: "center",
+                        boxShadow:
+                          "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
+                        width: "50px",
+                        height: "50px",
+                        display: "flex",
+                        borderRadius: "50%",
+                      }}
+                    >
+                      {item?.productPictures?.map((colorPic) => {
+                        return (
+                          <img
+                            src={colorPic?.img}
+                            alt={colorPic?.colorImageAltText}
+                            style={{
+                              width: "50px",
+                              height: "50px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        );
+                      })}
+                    </Box>
+                  </Grid>
                 ))}
-                {/* <Box
-                  sx={{ display: "flex" }}
-                  style={{
-                    background: "#fff",
-                    boxShadow:
-                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                    width: "42px",
-                    height: "42px",
-                    marginRight: "20px",
-                    borderRadius: "50%",
-                  }}
-                >
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{
-                      fontFamily: "Montserrat",
-                      paddingTop: "50px",
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      fontSize: "10px",
-                      lineHeight: "12px",
-                      color: "#000000",
-                    }}
-                  >
-                    White
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{ display: "flex" }}
-                  style={{
-                    background: "#D9D9D9",
-                    boxShadow:
-                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                    width: "42px",
-                    height: "42px",
-
-                    borderRadius: "50%",
-                  }}
-                >
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{
-                      fontFamily: "Montserrat",
-                      paddingTop: "50px",
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      fontSize: "10px",
-                      lineHeight: "12px",
-                      color: "#000000",
-                    }}
-                  >
-                    Grey
-                  </Typography>
-                </Box> */}
-              </Grid>
-
+              </Box>
               <Box sx={{ marginTop: "32px", maxWidth: "334px" }}>
                 <FMTypography
                   displayText={"Specifications"}
@@ -280,55 +256,6 @@ const ProductDetail = () => {
                 >
                   {productDetail?.product?.specification}
                 </p>
-                {/* <p
-                  style={{
-                    fontFamily: "Montserrat",
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "16px",
-                    lineHeight: "140%",
-                    color: "#717171",
-                  }}
-                >
-                  -21 Spinal Jet
-                </p>
-
-                <p
-                  style={{
-                    fontFamily: "Montserrat",
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "16px",
-                    lineHeight: "140%",
-                    color: "#717171",
-                  }}
-                >
-                  -(39+6) Bubble Jet
-                </p>
-                <p
-                  style={{
-                    fontFamily: "Montserrat",
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "16px",
-                    lineHeight: "140%",
-                    color: "#717171",
-                  }}
-                >
-                  -23 Sidelight
-                </p>
-                <p
-                  style={{
-                    fontFamily: "Montserrat",
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "16px",
-                    lineHeight: "140%",
-                    color: "#717171",
-                  }}
-                >
-                  -Ideal for 2 People
-                </p> */}
               </Box>
 
               {/* cart and buy btns */}

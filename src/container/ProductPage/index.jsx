@@ -80,7 +80,7 @@ const ProductPage = () => {
                       height: "317px",
                       width: "317px",
                     }}
-                    image={elem?.productPictures[0].img}
+                    image={elem?.productPictures[0]?.img}
                     alt="green iguana"
                   />
                   <CardContent>
@@ -109,54 +109,3 @@ const ProductPage = () => {
 
 export default ProductPage;
 
-{
-  /* <div>
-<Container fluid className="p-0 m-0">
-  <Row style={{ margin: "0" }}>
-    <Col md={12}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "40px",
-          marginBottom: "40px",
-        }}
-      >
-        <FMTypography
-          displayText={"Water Whirlphool"}
-          styleData={{
-            fontWeight: "600",
-            fontSize: "40px",
-            textAlign: "center",
-          }}
-        />
-      </Box>
-    </Col>
-  </Row>
-
-  <Row>
-    <Col
-      md={12}
-      style={{ display: "flex", justifyContent: "space-evenly" }}
-    >
-      <div style={{ width: "317px", height: "317px" }}>
-        <img src={WaterPool} alt="green iguana" />
-        <div className="cardText">Adonis</div>
-      </div>
-      <div style={{ width: "317px", height: "317px" }}>
-        <img src={Amora} alt="green iguana" />
-        <div className="cardText">Amora</div>
-      </div>
-      <div style={{ width: "317px", height: "317px" }}>
-        <img src={Bille} alt="green iguana" />
-        <div className="cardText">Bille</div>
-      </div>
-      <div style={{ width: "317px", height: "317px" }}>
-        <img src={Casino} alt="green iguana" />
-        <div className="cardText">Casino</div>
-      </div>
-    </Col>
-  </Row>
-</Container>
-</div> */
-}
