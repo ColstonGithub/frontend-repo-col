@@ -120,7 +120,7 @@ const ProductDetail = () => {
 
   const handleColorClick = (i) => {
     setColor(i);
-    console.log("color", i);
+
   };
 
   return (
@@ -140,7 +140,7 @@ const ProductDetail = () => {
               <ImageGallery
                 {...properties}
                 onThumbnailClick={(e, index) => {
-                  console.log("clicked", index);
+
                 }}
               />
             </Col>

@@ -21,7 +21,7 @@ const Footer = () => {
     dispatch(getCategory());
   }, []);
 
-  console.log("see ", accountDetailData);
+
   return (
     <>
       <Container

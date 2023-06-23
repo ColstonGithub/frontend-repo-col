@@ -109,6 +109,9 @@ const ProductPage = () => {
           {/* prodct box ended */}
         </Grid>
       </Grid>
+
+
+      
       <Footer />
     </>
   );

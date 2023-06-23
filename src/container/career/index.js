@@ -39,7 +39,6 @@ const Career = () => {
   let responsive = useMediaQuery("(max-width:500px)");
   const onSubmit = (data) => {
     const formData = new FormData();
-    console.log(data);
     formData.append("name", data?.name?.toString());
     formData.append("email", data?.email?.toString());
     formData.append("mobileNo", data?.mobileNo?.toString());

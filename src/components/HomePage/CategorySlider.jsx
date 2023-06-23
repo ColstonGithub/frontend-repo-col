@@ -22,7 +22,7 @@ const CategorySlider = () => {
     dispatch(postNewArrival());
   }, []);
 
-  console.log(banners);
+
   const category_settings = {
     dots: false,
     infinite: true,

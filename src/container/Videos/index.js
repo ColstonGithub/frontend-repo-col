@@ -28,7 +28,7 @@ const Videos = () => {
   }, [dispatch]);
 
   const video = useSelector((state) => state?.videos?.banners?.videoData);
-  console.log("video", video);
+
   const videos = [
     "https://www.youtube.com/embed/zHlSgxg8Zpk",
     "https://www.youtube.com/embed/zHlSgxg8Zpk",
