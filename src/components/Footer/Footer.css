@@ -1,25 +1,33 @@
-
 .footer-title {
-    color: #000000;
-    font-size: 18px;
-    font-weight: 700;
-    font-size: 1rem;
-    font-family: 'Montserrat';
-    padding-bottom: 1.25rem;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Montserrat";
+  padding-bottom: 1.25rem;
+}
+.footer-content-address {
+  color: #717171;
+  font-weight: 400;
+  font-size: 1rem;
+  padding-bottom: 1.15rem;
+  font-family: "Montserrat";
+}
+.footer-content {
+  color: #717171;
+  font-weight: 400;
+  font-size: 1rem;
+  padding-bottom: 1.15rem;
+  font-family: "Montserrat";
 }
 
-.footer-content {
-    color: #717171;
-    font-weight: 400;
-    font-size: 1rem;
-    padding-bottom: 1.15rem;
-    font-family: 'Montserrat';
+.footer-content:hover {
+  color: #000;
 }
 
 @media screen and (max-width: 500px) {
-    .footer-title,
-    .footer-content {
-        font-size: 3.6vw;
-    }       
+  .footer-title,
+  .footer-content {
+    font-size: 3.6vw;
+  }
 }
-

@@ -10,7 +10,7 @@ import {
   CardMedia,
   Grid,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 
@@ -21,18 +21,18 @@ import products from "../../constants/product";
 import { getCategoryProduct } from "Redux/Slices/CategoryProduct/CategoryProductSlice";
 
 import "./productPage.css";
+import Footer from "components/Footer";
 
 const CategoryPage = () => {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
-  const responsiveMobile = useMediaQuery('(max-width: 500px)');
-  
+  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+
   useEffect(() => {
     dispatch(getCategoryProduct(params));
   }, [dispatch, params]);
 
-  
   const productPageData = useSelector(
     (state) => state.getCategoryProduct.brand
   );
@@ -74,7 +74,12 @@ const CategoryPage = () => {
         >
           {productPageData?.subCategoryList?.map((elem) => (
             <Box onClick={() => onCardClick(elem)}>
-              <Card sx={{ width: responsiveMobile ? "90vw" : "317", borderRadius: "20px" }}>
+              <Card
+                sx={{
+                  width: responsiveMobile ? "90vw" : "317",
+                  borderRadius: "20px",
+                }}
+              >
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -111,6 +116,7 @@ const CategoryPage = () => {
           {/* prodct box ended */}
         </Grid>
       </Grid>
+      <Footer />
     </>
   );
 };

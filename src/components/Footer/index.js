@@ -39,7 +39,7 @@ const Footer = () => {
               <img src={ColstonLogo} />
             </div>
             <div
-              className="footer-content"
+              className="footer-content-address"
               style={{ padding: "32px 0px 25px" }}
             >
               Address: 24, ring Road, Lajpat Nagar - IV,
@@ -167,7 +167,7 @@ const Footer = () => {
                   <Link to="/about-us">
                     <div className="footer-content">About Us</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="/orientation-center">
                     <div className="footer-content">Where to Buy</div>
                   </Link>{" "}
                   <Link to="/">
@@ -176,10 +176,10 @@ const Footer = () => {
                   <Link to="/newspress">
                     <div className="footer-content">Press Release</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="/career">
                     <div className="footer-content">Career</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="/site-map">
                     <div className="footer-content">Site Map</div>
                   </Link>{" "}
                   <Link to="/blogs">
@@ -213,19 +213,19 @@ const Footer = () => {
                   <Link to="/orientation-centre">
                     <div className="footer-content">Orientation Centre</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="/contact-us">
                     <div className="footer-content">Book an Appointment</div>
                   </Link>{" "}
                   <Link to="/catalogue">
                     <div className="footer-content">Catalogue</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="/quotation">
                     <div className="footer-content">Request for Quotation</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="/contact-us">
                     <div className="footer-content">Customer Care</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="//warranty-registration">
                     <div className="footer-content">
                       Warranty and Registration
                     </div>
@@ -254,21 +254,20 @@ const Footer = () => {
         </Row>
         <Row className="p-0 m-0">
           <Col>
-          <div className="text-center text-lg-start">
-            <div className=" float-lg-end" style={{color:"#717171"}}>
-              Made with{" "}
-              <span style={{ fontSize: "170%", color: "red" }}>♥</span> in
-              India, for the World{" "}
+            <div className="text-center text-lg-start">
+              <div className=" float-lg-end" style={{ color: "#717171" }}>
+                Made with{" "}
+                <span style={{ fontSize: "170%", color: "red" }}>♥</span> in
+                India, for the World{" "}
+              </div>
+              <a
+                href="https://thewebgross.com/"
+                className="footer-content"
+                target="_blank"
+              >
+                Website Designed by @Webgross
+              </a>
             </div>
-            <a
-              href="https://thewebgross.com/"
-              className="body-sm float-lg-start"
-              target="_blank"
-              style={{ textDecoration: "none", color:"#717171"}}
-            >
-              Website Designed by @Webgross
-            </a>
-          </div>
           </Col>
         </Row>
       </Container>

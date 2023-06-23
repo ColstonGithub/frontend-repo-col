@@ -142,7 +142,7 @@ const LandingPage = () => {
             <Row class="text-container">
               {/* //If index is even image will render first */}
               {index % 2 !== 0 ? (
-                <Col xs={12}>
+                <Col xs={12} style={{ cursor: "pointer" }}>
                   <img
                     src={item.bannerImage}
                     alt={item.bannerImageAltText}
@@ -166,6 +166,7 @@ const LandingPage = () => {
                     src={item.bannerImageText}
                     alt={item.bannerImageTextAltText}
                     className="banner-image-text"
+                    style={{ cursor: "pointer" }}
                   />
                 </div>
                 {/* <FMButton
@@ -195,7 +196,7 @@ const LandingPage = () => {
                   <img
                     src={item.bannerImage}
                     alt={item.bannerImageAltText}
-                    style={{ width: "81.5%", marginLeft: "18.5%" }}
+                    style={{ width: "81.5%", marginLeft: "18.5%", cursor: "pointer"  }}
                   />
                 </Col>
               )}
@@ -393,33 +394,31 @@ const LandingPage = () => {
         </Container>
       </div>
 
-
-        <Container fluid>
-          <Row
-            style={
-              responsiveMobile
-                ? {
-                    position: "absolute",
-                    width: "343px",
-                    height: "126px",
-                    left: "26px",
-                    // top: "1275px",
-                    // padding: "21px 7px 0",
-                    // marginBottom: "80px",
-                  }
-                : { padding: "80px 85px 0" }
-            }
-          >
-            <Col style={{}}>
-              <img
-                src={finalCorporateBanner}
-                alt={"Corporate Banner"}
-                style={{ width: "100%" }}
-              />
-            </Col>
-          </Row>
-        </Container>
-
+      <Container fluid>
+        <Row
+          style={
+            responsiveMobile
+              ? {
+                  position: "absolute",
+                  width: "343px",
+                  height: "126px",
+                  left: "26px",
+                  // top: "1275px",
+                  // padding: "21px 7px 0",
+                  // marginBottom: "80px",
+                }
+              : { padding: "80px 85px 0" }
+          }
+        >
+          <Col style={{}}>
+            <img
+              src={finalCorporateBanner}
+              alt={"Corporate Banner"}
+              style={{ width: "100%" }}
+            />
+          </Col>
+        </Row>
+      </Container>
 
       <div className="shopbyocca">
         <Container fluid>
