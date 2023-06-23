@@ -62,7 +62,7 @@ const CategoryPage = () => {
         />
       </Box>
 
-      <Grid sx={{ padding: "3.2rem 3.2rem" }}>
+      <Grid sx={{ padding: "3.2rem" }}>
         {/* product box below */}
         <Grid
           sx={{
@@ -97,13 +97,8 @@ const CategoryPage = () => {
                       variant="h5"
                       component="div"
                       sx={{
-                        fontSize: "19px",
-                        color: "#ffffff",
-                        fontWeight: "450",
-                        textAlign: "center",
-                        position: "absolute",
-                        bottom: "10%",
-                        left: "35%",
+                        fontSize: "18px",
+                        color: "#222222",
                       }}
                     >
                       {elem?.name}
@@ -116,6 +111,7 @@ const CategoryPage = () => {
           {/* prodct box ended */}
         </Grid>
       </Grid>
+
       <Footer />
     </>
   );
