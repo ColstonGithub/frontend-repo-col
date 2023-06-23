@@ -287,7 +287,7 @@ const ProductDetail = () => {
                     displayText={"Download Pdf"}
                     variant={"contained"}
                     styleData={{
-                      background: "#C02222",
+                      background: "#c02121",
                       borderRadius: "10px",
                       fontWeight: "700",
                       fontSize: "1rem",

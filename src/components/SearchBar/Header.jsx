@@ -155,7 +155,7 @@ const Header = () => {
               />
               <div>
                 <FMButton
-                  displayText={"Book an appointment"}
+                  displayText={"Book an Appointment"}
                   variant={"outlined"}
                   onClick={() => onContactClick()}
                   styleData={{

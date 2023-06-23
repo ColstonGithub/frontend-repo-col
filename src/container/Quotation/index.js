@@ -679,7 +679,7 @@ const Quotation = () => {
                     fontWeight: "600",
                     fontSize: "16px",
                     lineHeight: "20px",
-                    background: "#C02222",
+                    background: "#c02121",
                     width: "125px",
                     height: "52px",
                     borderRadius: "10px",

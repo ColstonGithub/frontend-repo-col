@@ -2,7 +2,7 @@ export const HeaderStyle = {
   headerFullStyle: { background: "#FFFFFF",boxShadow: "0px 1px 12px rgba(181, 180, 180, 0.12)",},
   
   topHeader: {
-    background: "#C02222",
+    background: "#c02121",
   },
   
   iconGridContainer: {
