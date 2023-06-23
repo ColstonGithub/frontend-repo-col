@@ -19,18 +19,14 @@ import { getBlogs } from "Redux/Slices/Blogs/BlogsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getBlogsCategory } from "Redux/Slices/BlogCategory/BlogCateogrySlice";
 import { postBlogsByCategoryId } from "Redux/Slices/BlogsByCategoryId/postBlogsByCategoryIdSlice";
-import allFilters from "../../assets/Frame 18.png";
 import Footer from "components/Footer";
-
-
-
 
 const Blogs = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [blogCatId, setblogCatId] = useState(0);
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
-  const [allBlogs, setAllBlogs] = useState();
+  const [blogList, setBlogList] = useState();
 
   useEffect(() => {
     dispatch(getBlogs());
@@ -47,21 +43,18 @@ const Blogs = () => {
     (state) => state.blogsByCategoryId.data.blogs
   );
 
-  console.log("Post", blogs);
-  useEffect(() => {
-    console.log("Blogs ", blogs);
-    setAllBlogs(blogs);
-    console.log("Blogs ", blogs);
-  }, []);
-  console.log("allBlogs ", allBlogs);
-
   const onCardClick = (element) => {
     let pId = element?._id;
     navigate(`/blogs/${pId}`);
   };
   const handleCategoryId = (id) => {
+    setBlogList("");
     setblogCatId(id);
   };
+
+  useEffect(() => {
+    setBlogList(blogs);
+  }, []);
 
   return (
     <>
@@ -158,8 +151,8 @@ const Blogs = () => {
             justifyContent: "space-evenly",
           }}
         >
-          {blogs && blogs
-            ? blogs?.map((elem) => {
+          {blogList && blogList
+            ? blogList?.map((elem) => {
                 return (
                   <Box key={elem?._id} onClick={() => onCardClick(elem)}>
                     <Card
