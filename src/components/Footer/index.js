@@ -21,7 +21,6 @@ const Footer = () => {
     dispatch(getCategory());
   }, []);
 
-
   return (
     <>
       <Container
@@ -256,17 +255,14 @@ const Footer = () => {
           <Col>
             <div className="text-center text-lg-start">
               <div className=" float-lg-end" style={{ color: "#717171" }}>
-                Made with{" "}
-                <span style={{ fontSize: "170%", color: "red" }}>♥</span> in
-                India, for the World{" "}
+                <a
+                  href="https://thewebgross.com/"
+                  className="footer-content"
+                  target="_blank"
+                >
+                  Website Designed by @Webgross
+                </a>
               </div>
-              <a
-                href="https://thewebgross.com/"
-                className="footer-content"
-                target="_blank"
-              >
-                Website Designed by @Webgross
-              </a>
             </div>
           </Col>
         </Row>
