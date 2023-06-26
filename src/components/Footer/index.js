@@ -260,7 +260,8 @@ const Footer = () => {
                   className="footer-content"
                   target="_blank"
                 >
-                  Website Designed by @Webgross
+                  Website Designed by{" "}
+                  <span style={{ color: "#ff7f50" }}> @Webgross</span>
                 </a>
               </div>
             </div>

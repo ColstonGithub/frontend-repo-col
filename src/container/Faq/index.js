@@ -60,7 +60,7 @@ const Faq = () => {
 
   return (
     <>
-      <Header />
+      <Header /> 
       <Box
         sx={{
           display: "flex",
@@ -259,6 +259,7 @@ const Faq = () => {
               );
             })}
       </Grid>
+
       <Footer />
     </>
   );
