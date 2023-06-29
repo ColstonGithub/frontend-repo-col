@@ -234,7 +234,7 @@ section .text-container .text-box {
 
 .reveal {
   position: relative;
-  transform: translateY(150px);
+  transform: translateY(100px);
   opacity: 0;
   transition: 1s all ease;
 }
@@ -242,6 +242,14 @@ section .text-container .text-box {
 .reveal.active {
   transform: translateY(0);
   opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .reveal {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
 }
 
 /* close home page animation slider*/
@@ -336,11 +344,14 @@ section .text-container .text-box {
   object-fit: cover;
   margin: 0 14px 0;
 }
+
 .samecard .slick-prev {
   left: -34px;
+  transition: all 0.3s ease;
 }
 .samecard .slick-next {
   right: -52px;
+  transition: all 0.3s ease;
 }
 .samecard .slick-slide a {
   display: grid;

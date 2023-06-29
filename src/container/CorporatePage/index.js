@@ -75,7 +75,7 @@ const CorporatePage = () => {
         >
           <img
             src={corporateBanner?.bannerImage}
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "100%", height: "auto", borderRadius: "35px" }}
             alt={corporateBanner?.bannerImageAltText}
           />
         </Box>
