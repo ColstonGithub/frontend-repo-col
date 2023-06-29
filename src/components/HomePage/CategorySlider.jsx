@@ -10,7 +10,6 @@ import { postNewArrival } from "Redux/Slices/NewArrival/NewArrival";
 import { useDispatch, useSelector } from "react-redux";
 import { Grid, useMediaQuery } from "@mui/material";
 
-
 const CategorySlider = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -22,6 +21,18 @@ const CategorySlider = () => {
     dispatch(postNewArrival());
   }, []);
 
+  // const category_settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 500,
+  //   draggable: true,
+  //   centerPadding: "0px",
+  //   centerMode: true,
+  //   autoplay: false,
+  //   arrows: responsiveMobile ? false : true,
+  //   slidesToShow: responsiveMobile ? 1 : 3,
+  //   slidesToScroll: 1,
+  // };
 
   const category_settings = {
     dots: false,
@@ -33,9 +44,9 @@ const CategorySlider = () => {
     autoplay: false,
     arrows: responsiveMobile ? false : true,
     slidesToShow: responsiveMobile ? 1 : 3,
-    slidesToScroll: 1,
+    slidesToScroll: responsiveMobile ? 1 : 1,
+    // fade: true, // add fade effect
   };
-
   const onCardClick = (element) => {
     let pId = element?._id;
     navigate(`/product-detail/${pId}`);

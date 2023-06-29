@@ -134,7 +134,7 @@ const LandingPage = () => {
         </Row>
       </Grid> */}
       {banners?.map((item, index) => (
-        <section style={{ marginTop: "80px" }}>
+        <section style={{ marginTop: "60px" }}>
           <div
             class="container reveal"
             onClick={() => onCatClick(item.categoryId)}
@@ -148,8 +148,12 @@ const LandingPage = () => {
                     alt={item.bannerImageAltText}
                     style={
                       responsiveMobile
-                        ? { width: "255px", height: "150px" }
-                        : { width: "81.5%" }
+                        ? {
+                            width: "255px",
+                            height: "150px",
+                            marginLeft: "20px",
+                          }
+                        : { width: "86.5%" }
                     }
                   />
                 </Col>
@@ -196,7 +200,19 @@ const LandingPage = () => {
                   <img
                     src={item.bannerImage}
                     alt={item.bannerImageAltText}
-                    style={{ width: "81.5%", marginLeft: "18.5%", cursor: "pointer"  }}
+                    style={
+                      responsiveMobile
+                        ? {
+                            width: "255px",
+                            height: "150px",
+                            marginLeft: "80px",
+                          }
+                        : {
+                            width: "85.5%",
+                            marginLeft: "15.5%",
+                            cursor: "pointer",
+                          }
+                    }
                   />
                 </Col>
               )}
@@ -425,7 +441,17 @@ const LandingPage = () => {
           <Row style={{ margin: "0", marginTop: "80px" }}>
             <Col md={12}>
               <div className="heading_text">
-                <h3>Explore Categories</h3>
+                <h3
+                  style={
+                    responsiveMobile
+                      ? {
+                          paddingBottom: "75px",
+                        }
+                      : {}
+                  }
+                >
+                  Exclusive Collection/ Design
+                </h3>
               </div>
             </Col>
 
