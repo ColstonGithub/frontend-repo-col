@@ -122,7 +122,7 @@ const Footer = () => {
                 </Link>
                 <Link to="/warranty-registration">
                   <div className="footer-content">
-                    Warrenty and Registration
+                    Warranty and Registration
                   </div>
                 </Link>
               </Col>
