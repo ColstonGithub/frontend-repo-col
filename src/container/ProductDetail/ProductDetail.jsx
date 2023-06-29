@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import ImageGallery from "react-image-gallery";
 
@@ -17,7 +17,7 @@ import "./ProductDetail.css";
 import { signUpSchema } from "validationSchema/signupSchema";
 import { Col, Container, Row } from "react-bootstrap";
 
-import products from "../../constants/product";
+// import products from "../../constants/product";
 //import productDetail from "../../constants/productDetail";
 
 import SimilarProduct from "./SimilarProduct";
@@ -30,7 +30,9 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const params = useParams();
   // const { id } = params;
+  const [color, setColor] = useState(0);
   const [open, setOpen] = useState(false);
+  const [apiImgs, setApiImgs] = useState([]);
 
   useEffect(() => {
     dispatch(getProductPageDetail(params));
@@ -65,23 +67,33 @@ const ProductDetail = () => {
 
   // const productDetailedData = products.products;
 
-  const apiImgs = productDetail?.product?.productPictures.map((elem) => ({
-    original: elem?.img,
-    thumbnail: elem?.img,
-    id: elem?._id,
-  }));
-  const [color, setColor] = useState(0);
+  useEffect(() => {
+    const imgs = productDetail?.product?.colors?.[0].productPictures?.map((elem) => ({
+      original: elem?.img,
+      thumbnail: elem?.img,
+      id: elem?._id,
+    }));
+
+    setApiImgs(imgs);
+  }, []);
+
+  const imageGalleryRef = useRef(null);
+
+  const onClickHandler = () => {
+    imageGalleryRef.current.toggleFullScreen();
+  };
 
   const properties = {
     thumbnailPosition: "left",
-    infinite: true,
+    infinite: false,
     autoPlay: false,
     showNav: false,
+    disableThumbnailScroll: true,
     useBrowserFullscreen: false,
     showPlayButton: false,
-    // renderItem: color !== 0 ? color : null,
-
-    originalHeight: "100px",
+    onClick: onClickHandler,
+    originalHeight: "100%",
+    originalWidth: "100%",
     items: apiImgs?.length > 0 ? apiImgs : [],
   };
 
@@ -119,8 +131,15 @@ const ProductDetail = () => {
   const handleClose = () => setOpen(false);
 
   const handleColorClick = (i) => {
+    console.log("Clicking ", i);
+    const imgs = productDetail?.product?.colors?.[i].productPictures?.map((elem) => ({
+      original: elem?.img,
+      thumbnail: elem?.img,
+      id: elem?._id,
+    }));
+
     setColor(i);
-    console.log("color", i);
+    setApiImgs(imgs);
   };
 
   return (
@@ -138,6 +157,7 @@ const ProductDetail = () => {
           <Row className="gap-5">
             <Col md={6} style={{ display: "flex" }}>
               <ImageGallery
+                ref={imageGalleryRef}
                 {...properties}
                 onThumbnailClick={(e, index) => {
                   console.log("clicked", index);
@@ -157,7 +177,7 @@ const ProductDetail = () => {
                 <FMTypography
                   displayText={productDetail?.product?.name}
                   styleData={{
-                    fontSize: "2.8rem",
+                    fontSize: "1.8rem",
                     fontWeight: "600",
                     paddingBottom: "24px",
                     fontFamily: "Montserrat",
@@ -167,70 +187,73 @@ const ProductDetail = () => {
               <Box
                 sx={{ display: "flex", flexDirection: "column", gap: "5px" }}
               >
-                <FMTypography
-                  displayText={"Color Variant"}
-                  styleData={{
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    fontFamily: "Montserrat",
-                    paddingBottom: "12px",
-                  }}
-                />
-
-                {productDetail?.product?.colors?.map((item, i = 1) => (
-                  <Grid
+                <Grid
                     style={{
-                      border: "1px solid #222",
-                      borderRadius: "10px",
-                      padding: "10px",
+                      display: "flex",
+                      flexDirection: "row",
+                      textAlign: "center",
+                      padding: "10px 0",
                     }}
-                  >
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="div"
-                      sx={{
-                        fontFamily: "Montserrat",
-                        fontStyle: "normal",
-                        fontWeight: "500",
-                        fontSize: "16px",
-                        color: "#000000",
-                        textTransform: "capitalize",
-                      }}
+                >
+                  {productDetail?.product?.colors?.map((item, i) => (
+                    <Grid 
+                      style={{
+                        display: "flex", 
+                        flexDirection: "column", 
+                        justifyContent: "center", 
+                        alignItems: "center", 
+                        marginRight: "20px",
+                        cursor: "pointer"
+                      }} 
                       onClick={() => handleColorClick(i)}
                     >
-                      {item?.colorName}
-                    </Typography>
-
-                    <Box
-                      key={item?._id}
-                      sx={{
-                        gap: "5px",
-                        alignItem: "center",
-                        boxShadow:
-                          "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                        width: "50px",
-                        height: "50px",
-                        display: "flex",
-                        borderRadius: "50%",
-                      }}
-                    >
-                      {item?.productPictures?.map((colorPic) => {
-                        return (
-                          <img
-                            src={colorPic?.img}
-                            alt={colorPic?.colorImageAltText}
-                            style={{
-                              width: "50px",
-                              height: "50px",
-                              borderRadius: "50%",
-                            }}
-                          />
-                        );
-                      })}
-                    </Box>
-                  </Grid>
-                ))}
+                      <Box
+                        key={item?._id}
+                        sx={{
+                          gap: "5px",
+                          boxShadow:
+                            "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
+                          width: "47px",
+                          height: "47px",
+                          padding: "5px",
+                          border: color === i ? "2px solid black" : "2px solid transparent",
+                          display: "flex",
+                          borderRadius: "50%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                        <img
+                          src={item?.productPictures[0]?.img}
+                          alt={item?.productPictures[0]?.colorImageAltText}
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            borderRadius: "50%",
+                          }}
+                        />
+                      </Box>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        sx={{
+                          fontFamily: "Montserrat",
+                          fontStyle: "normal",
+                          fontWeight: "500",
+                          fontSize: "14px",
+                          color: "#000000",
+                          textTransform: "capitalize",
+                          textAlign: "center",
+                          marginTop: "5px"
+                        }}
+                      >
+                        {item?.colorName}
+                      </Typography>
+                      </Grid>
+                  ))}
+                </Grid>
               </Box>
               <Box sx={{ marginTop: "32px", maxWidth: "334px" }}>
                 <FMTypography

@@ -40,6 +40,7 @@ const SimilarProduct = () => {
 
   const onCardClick = (element) => {
     navigate(`/product-detail/${element}`);
+    window.scrollTo(0, 0);
   };
 
   return (

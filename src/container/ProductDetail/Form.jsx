@@ -165,9 +165,9 @@ export default function Form({ open, handleClose, setOpen }) {
                   <Col md={6}>
                     <InputBase
                       required
-                      id="subject"
-                      name="subject"
-                      placeholder="Subject"
+                      id="location"
+                      name="location"
+                      placeholder="Location"
                       sx={{
                         ...commonStyle.inputFieldStyle,
                         ...(errors.subject && commonStyle.errorStyle),
