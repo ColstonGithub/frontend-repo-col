@@ -298,7 +298,7 @@ const ProductDetail = () => {
                     fontFamily: "'Montserrat'",
                     color: "#222",
                     border: "1px solid #E6E6E6",
-                    width: "222px",
+                    width: responsiveMobile ? "35vw" :"222px",
                     height: "52px",
                     fontWeight: "700",
                     fontSize: "1rem",
@@ -324,7 +324,7 @@ const ProductDetail = () => {
                       fontFamily: "Montserrat",
                       textTransform: "capitalise",
                       color: "#FFFFFF",
-                      width: "228px",
+                      width: responsiveMobile ? "35vw" :"222px",
                       height: "52px",
                       "&:hover": {
                         background: "#AD1F1F",
