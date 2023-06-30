@@ -70,7 +70,7 @@ const ProductDetail = () => {
 
   // const productDetailedData = products.products;
 
-  // useEffect(() => {
+  useEffect(() => {
     const imgs = productDetail?.product?.colors?.[0].productPictures?.map((elem) => ({
       original: elem?.img,
       thumbnail: elem?.img,
@@ -78,7 +78,7 @@ const ProductDetail = () => {
     }));
 
     setApiImgs(imgs);
-  // }, []);
+  }, []);
 
   const imageGalleryRef = useRef(null);
 
