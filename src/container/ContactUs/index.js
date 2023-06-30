@@ -38,7 +38,6 @@ const ContactUs = () => {
   });
   let responsive = useMediaQuery("(max-width:500px)");
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(postContactUs(data));
     toast("form submited successfully redirect to homepage");
     setTimeout(() => {

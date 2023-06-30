@@ -54,7 +54,6 @@ const Quotation = () => {
     mode: "onChange",
   });
   const onSubmit = (data) => {
-    console.log(data);
 
     dispatch(getQuotation(data));
     toast("Request for Quotation submited successfull ");

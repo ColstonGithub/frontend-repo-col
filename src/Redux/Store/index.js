@@ -44,6 +44,7 @@ import PostVideoSlice from "Redux/Slices/Videos/Videos";
 import getBlogsCategorySlice from "Redux/Slices/BlogCategory/BlogCateogrySlice";
 import postBlogsByCategoryIdSlice from "Redux/Slices/BlogsByCategoryId/postBlogsByCategoryIdSlice";
 import postSearchFaqSlice from "Redux/Slices/SearchFaq/SearchFaq";
+import getFaqsSlice from "Redux/Slices/FAQ/GetFaqs";
 
 const rootReducer = combineReducers({
   menuList: menuListSlice,
@@ -88,6 +89,7 @@ const rootReducer = combineReducers({
   blogsCategory: getBlogsCategorySlice,
   blogsByCategoryId: postBlogsByCategoryIdSlice,
   searchFaq: postSearchFaqSlice,
+  getFaqsList: getFaqsSlice,
 });
 
 const initializeStore = () =>

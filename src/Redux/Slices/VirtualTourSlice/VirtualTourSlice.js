@@ -7,7 +7,7 @@ export const getVirtualTour = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const response = await axiosInstance.post(`api/virtualtour/getvirtualtours`);
-      console.log("response",response.data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error });

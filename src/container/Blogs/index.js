@@ -10,24 +10,28 @@ import {
   useMediaQuery,
   Container,
   Button,
+  CardContent,
+  CardMedia,
 } from "@mui/material";
+
 import FMTypography from "components/FMTypography/FMTypography";
 import { getBlogs } from "Redux/Slices/Blogs/BlogsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getBlogsCategory } from "Redux/Slices/BlogCategory/BlogCateogrySlice";
 import { postBlogsByCategoryId } from "Redux/Slices/BlogsByCategoryId/postBlogsByCategoryIdSlice";
-import allFilters from "../../assets/Frame 18.png";
 import Footer from "components/Footer";
+
 const Blogs = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [blogCatId, setblogCatId] = useState(0);
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const [blogList, setBlogList] = useState();
 
   useEffect(() => {
     dispatch(getBlogs());
     dispatch(getBlogsCategory());
-   dispatch(postBlogsByCategoryId(blogCatId));
+    dispatch(postBlogsByCategoryId(blogCatId));
   }, [dispatch, blogCatId]);
 
   const blogs = useSelector((state) => state.blogs.blogs.blogsList);
@@ -35,17 +39,23 @@ const Blogs = () => {
     (state) => state.blogsCategory.blogsCategory.blogCategoryList
   );
 
-  const blogsByCategory = useSelector((state) => state.blogsByCategoryId.data.blogs);
-
-  console.log("PostFaqIdByCategory", blogsByCategory);
+  const blogsByCategory = useSelector(
+    (state) => state.blogsByCategoryId.data.blogs
+  );
 
   const onCardClick = (element) => {
     let pId = element?._id;
     navigate(`/blogs/${pId}`);
   };
   const handleCategoryId = (id) => {
+    setBlogList("");
     setblogCatId(id);
   };
+
+  useEffect(() => {
+    setBlogList(blogs);
+  }, []);
+
   return (
     <>
       <Header />
@@ -131,7 +141,8 @@ const Blogs = () => {
         </Container>
       </Box>
 
-      <Grid>
+      <Grid sx={{ padding: "3.2rem" }}>
+        {/* product box below */}
         <Grid
           sx={{
             display: "flex",
@@ -140,83 +151,88 @@ const Blogs = () => {
             justifyContent: "space-evenly",
           }}
         >
-          {/* {blogs?.map((elem) => (
-            <Box key={elem._id} onClick={() => onCardClick(elem)}>
-              <Card
-                sx={{
-                  width: responsiveMobile ? "90vw" : "317",
-                  borderRadius: "20px",
-                }}
-              >
-                <CardActionArea>
-                  <Box className="zoomin">
-                    <img src={elem?.image} alt={elem?.imageAltText} />
+          {blogList && blogList
+            ? blogList?.map((elem) => {
+                return (
+                  <Box key={elem?._id} onClick={() => onCardClick(elem)}>
+                    <Card
+                      sx={{
+                        width: responsiveMobile ? "90vw" : "317",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          sx={{
+                            borderRadius: "20px",
+                            height: "317px",
+                            width: "317px",
+                          }}
+                          image={elem?.image}
+                          alt={elem?.imageAltText}
+                        />
+                        <CardContent>
+                          <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            sx={{
+                              fontSize: "18px",
+                              color: "#222222",
+                            }}
+                          >
+                            {elem?.title}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
                   </Box>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{
-                      fontFamily: "Montserrat",
-                      fontStyle: "normal",
-                      fontWeight: "600",
-                      fontSize: "1rem",
-                      lineHeight: "20px",
-                      color: "#FFFFFF",
-                      position: "absolute",
-                      marginLeft: "16px",
-                      bottom: "0",
-                      top: "78%",
-                    }}
-                  >
-                    {elem?.title}
-                    <Link style={{ paddingLeft: "12px" }}></Link>
-                  </Typography>
-                </CardActionArea>
-              </Card>
-            </Box>
-          ))}  */}
-          {blogsByCategory?.map((elem) => (
-            <Box key={elem._id} onClick={() => onCardClick(elem)}>
-              <Card
-                sx={{
-                  width: responsiveMobile ? "90vw" : "317px", 
-                  height: !responsiveMobile ? "auto" : "62vw",
-                  borderRadius: "20px", 
-                  margin: '1rem' 
-                }}
-              >
-                <CardActionArea>
-                  <Box className="zoomin">
-                    <img src={elem?.image} alt={elem?.imageAltText} />
+                );
+              })
+            : blogsByCategory?.map((elem) => {
+                return (
+                  <Box key={elem._id} onClick={() => onCardClick(elem)}>
+                    <Card
+                      sx={{
+                        width: responsiveMobile ? "90vw" : "317",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          sx={{
+                            borderRadius: "20px",
+                            height: "317px",
+                            width: "317px",
+                          }}
+                          image={elem?.image}
+                          alt={elem?.imageAltText}
+                        />
+                        <CardContent>
+                          <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            sx={{
+                              fontSize: "18px",
+                              color: "#222222",
+                            }}
+                          >
+                            {elem?.title}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
                   </Box>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{
-                      fontFamily: "Montserrat",
-                      fontStyle: "normal",
-                      fontWeight: "600",
-                      fontSize: "1rem",
-                      lineHeight: "20px",
-                      color: "#FFFFFF",
-                      position: "absolute",
-                      marginLeft: "16px",
-                      bottom: "0",
-                      top: "78%",
-                    }}
-                  >
-                    {elem?.title}
-                    <Link style={{ paddingLeft: "12px" }}></Link>
-                  </Typography>
-                </CardActionArea>
-              </Card>
-            </Box>
-          ))} 
+                );
+              })}
+          {/* prodct box ended */}
         </Grid>
       </Grid>
-      <Footer/>
+
+      <Footer />
     </>
   );
 };

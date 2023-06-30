@@ -21,7 +21,6 @@ const Footer = () => {
     dispatch(getCategory());
   }, []);
 
-  console.log("see ", accountDetailData);
   return (
     <>
       <Container
@@ -30,7 +29,7 @@ const Footer = () => {
         style={{
           background: "#FCFCFC",
           fontSize: "1.27rem",
-          padding: !responsiveMobile ? "80px 100px" : "40px 24px",
+          padding: !responsiveMobile ? "80px 100px 20px" : "40px 24px",
         }}
       >
         <Row>
@@ -39,7 +38,7 @@ const Footer = () => {
               <img src={ColstonLogo} />
             </div>
             <div
-              className="footer-content"
+              className="footer-content-address"
               style={{ padding: "32px 0px 25px" }}
             >
               Address: 24, ring Road, Lajpat Nagar - IV,
@@ -69,63 +68,63 @@ const Footer = () => {
             <>
               <Col md={2}>
                 <div className="footer-title">About</div>
-                <a href="/about-us">
+                <Link to="/about-us">
                   <div className="footer-content">About Us</div>
-                </a>{" "}
-                <a href="/">
+                </Link>
+                <Link to="/orientation-centre">
                   <div className="footer-content">Where to Buy</div>
-                </a>{" "}
-                <a href="/">
+                </Link>
+                <Link to="/">
                   <div className="footer-content">Concepts by Colston</div>
-                </a>{" "}
-                <a href="/newspress">
+                </Link>
+                <Link to="/newspress">
                   <div className="footer-content">Press Release</div>
-                </a>{" "}
-                <a href="/">
+                </Link>
+                <Link to="/career">
                   <div className="footer-content">Career</div>
-                </a>{" "}
-                <a href="/">
+                </Link>
+                <Link to="/">
                   <div className="footer-content">Site Map</div>
-                </a>{" "}
-                <a href="/blogs">
+                </Link>
+                <Link to="/blogs">
                   <div className="footer-content">Blog</div>
-                </a>
+                </Link>
               </Col>
 
               <Col md={2}>
                 <div className="footer-title">Services</div>
-                <a href="/faq">
+                <Link to="/faq">
                   <div className="footer-content">FAQ</div>
-                </a>{" "}
+                </Link>{" "}
                 {/* <Link to="/virtual-tour">
                 <div className="footer-content">Virtual Tour</div>
               </Link>
               <Link to="/orientation-centre">
                 <div className="footer-content">Orientation Centre</div>
               </Link> */}
-                <a href="/virtual-tour">
+                <Link to="/virtual-tour">
                   <div className="footer-content">Virtual Tour</div>
-                </a>{" "}
-                <a href="/orientation-centre">
+                </Link>
+                <Link to="/orientation-centre">
                   <div className="footer-content">Orientation Centre</div>
-                </a>{" "}
-                <a href="/contact-us">
+                </Link>
+                <Link to="/contact-us">
                   <div className="footer-content">Book an Appointment</div>
-                </a>{" "}
-                <a href="/catalogue">
+                </Link>
+                <Link to="/catalogue">
                   <div className="footer-content">Catalogue</div>
-                </a>{" "}
-                <a href="/Quotation">
+                </Link>
+                <Link to="/Quotation">
                   <div className="footer-content">Request for Quotation</div>
-                </a>{" "}
-                <a href="/">
+                </Link>
+                <Link to="/contact-us">
                   <div className="footer-content">Customer Care</div>
-                </a>{" "}
-                <a href="/warranty-registration">
+                </Link>
+                <Link to="/warranty-registration">
                   <div className="footer-content">
-                    Warrenty and Registration
+                    Warranty and Registration
                   </div>
-                </a>
+                </Link>
               </Col>
 
               <Col md={2}>
@@ -164,27 +163,27 @@ const Footer = () => {
               <Row>
                 <Col xs={7} style={{ padding: 0 }}>
                   <div className="footer-title">About</div>
-                  <a href="/about-us">
+                  <Link to="/about-us">
                     <div className="footer-content">About Us</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="/orientation-center">
                     <div className="footer-content">Where to Buy</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="/">
                     <div className="footer-content">Concepts by Colston</div>
-                  </a>{" "}
-                  <a href="/newspress">
+                  </Link>{" "}
+                  <Link to="/newspress">
                     <div className="footer-content">Press Release</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="/career">
                     <div className="footer-content">Career</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="/site-map">
                     <div className="footer-content">Site Map</div>
-                  </a>{" "}
-                  <a href="/blogs">
+                  </Link>{" "}
+                  <Link to="/blogs">
                     <div className="footer-content">Blog</div>
-                  </a>
+                  </Link>
                 </Col>
                 <Col xs={5} style={{ padding: 0 }}>
                   <div className="footer-title">Products</div>
@@ -204,53 +203,69 @@ const Footer = () => {
               <Row>
                 <Col xs={7} style={{ padding: 0 }}>
                   <div className="footer-title">Services</div>
-                  <a href="/faq">
+                  <Link to="/faq">
                     <div className="footer-content">FAQ</div>
-                  </a>{" "}
-                  <a href="/virtual-tour">
+                  </Link>{" "}
+                  <Link to="/virtual-tour">
                     <div className="footer-content">Virtual Tour</div>
-                  </a>{" "}
-                  <a href="/orientation-centre">
+                  </Link>{" "}
+                  <Link to="/orientation-centre">
                     <div className="footer-content">Orientation Centre</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="/contact-us">
                     <div className="footer-content">Book an Appointment</div>
-                  </a>{" "}
-                  <a href="/catalogue">
+                  </Link>{" "}
+                  <Link to="/catalogue">
                     <div className="footer-content">Catalogue</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="/quotation">
                     <div className="footer-content">Request for Quotation</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="/contact-us">
                     <div className="footer-content">Customer Care</div>
-                  </a>{" "}
-                  <a href="/">
+                  </Link>{" "}
+                  <Link to="//warranty-registration">
                     <div className="footer-content">
-                      Warrenty and Registration
+                      Warranty and Registration
                     </div>
-                  </a>
+                  </Link>
                 </Col>
 
                 <Col xs={5} style={{ padding: 0 }}>
                   <div className="footer-title">Legal</div>
 
-                  <a href="/privacy-policy">
+                  <Link to="/privacy-policy">
                     <div className="footer-content">Privacy Policy</div>
-                  </a>
-                  <a href="/">
+                  </Link>
+                  <Link to="/">
                     <div className="footer-content">Cookies Policy</div>
-                  </a>
-                  <a href="/">
+                  </Link>
+                  <Link to="/">
                     <div className="footer-content">Terms & Conditions</div>
-                  </a>
-                  <a href="/">
+                  </Link>
+                  <Link to="/">
                     <div className="footer-content">Disclamier</div>
-                  </a>
+                  </Link>
                 </Col>
               </Row>
             </>
           )}
+        </Row>
+        <Row className="p-0 m-0">
+          <Col>
+            <div className="text-center text-lg-start">
+              <div className=" float-lg-end" style={{ color: "#717171" }}>
+                <a
+                  href="https://thewebgross.com/"
+                  className="footer-content"
+                  target="_blank"
+                >
+                  Website Designed by{" "}
+                  <span className="webgross-hover">@Webgross</span>
+                </a>
+              </div>
+            </div>
+          </Col>
         </Row>
       </Container>
     </>

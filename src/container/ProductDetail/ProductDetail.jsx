@@ -165,7 +165,7 @@ const ProductDetail = () => {
                 ref={imageGalleryRef}
                 {...properties}
                 onThumbnailClick={(e, index) => {
-                  console.log("clicked", index);
+
                 }}
               />
             </Col>

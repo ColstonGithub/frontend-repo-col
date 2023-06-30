@@ -11,17 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postFaqId } from "Redux/Slices/FAQ/FaqCategoryId";
 import Footer from "components/Footer";
 import { getfaqcategory } from "Redux/Slices/FAQ/GetFaqCategory";
-import {
-  Box,
-  Grid,
-  Container,
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-  Input,
-} from "@mui/material";
+import { Box, Grid, Container, Button, Input } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 import { postSearch } from "Redux/Slices/Search/Search";
 import { SearchStyle } from "../../components/SearchBar/searchBarStyles";
@@ -29,14 +19,19 @@ import "../../components/SearchBar/searchBarMedia.css";
 import SearchIcon from "../../assets/Vector (2).png";
 import { Col, Row } from "react-bootstrap";
 import { postSearchFaq } from "Redux/Slices/SearchFaq/SearchFaq";
+import { getFaqs } from "Redux/Slices/FAQ/GetFaqs";
+
 const Faq = () => {
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
   const dispatch = useDispatch();
   const [faqId, setFaqId] = useState(0);
+  const [faqList, setFaqList] = useState();
+
   let searchResult = useSelector((state) => state?.searchFaq.data.products);
 
   useEffect(() => {
+    dispatch(getFaqs());
     dispatch(postFaqId(faqId));
     dispatch(getfaqcategory());
   }, [dispatch, faqId]);
@@ -49,15 +44,23 @@ const Faq = () => {
     (state) => state.faqCategoryId.data.faqs
   );
 
+  const faqs = useSelector((state) => state.getFaqsList?.faqs.faqData);
+
   const handleCategoryId = (id) => {
+    setFaqList("");
     setFaqId(id);
   };
   const handleSearchFaq = (e) => {
     dispatch(postSearchFaq(e.target.value));
   };
+
+  useEffect(() => {
+    setFaqList(faqs);
+  }, []);
+
   return (
     <>
-      <Header />
+      <Header /> 
       <Box
         sx={{
           display: "flex",
@@ -121,6 +124,7 @@ const Faq = () => {
             </Box>
           </Col>
         </Row>
+
         <Container
           maxWidth="xl"
           sx={{
@@ -162,64 +166,100 @@ const Faq = () => {
           maxWidth: !responsiveMobile ? "60vw" : "90vw",
         }}
       >
-        {searchResult?.length > 0
-          ? searchResult?.map((faq) => (
-              <Accordion
-                sx={{
-                  border: "0",
-                  borderRadius: "20px",
-                  backgroundColor: "transparent",
-                  margin: "20px 0",
-                  boxShadow:
-                    "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
+        {faqList && faqList
+          ? faqList?.map((faq) => {
+              return (
+                <Accordion
                   sx={{
-                    minHeight: "65px",
+                    border: "0",
+                    borderRadius: "20px",
+                    backgroundColor: "transparent",
+                    margin: "20px 0",
+                    boxShadow:
+                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
                   }}
                 >
-                  <Typography sx={{ fontWeight: 500 }}>
-                    {faq?.question}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>{faq?.answer}</Typography>
-                </AccordionDetails>
-              </Accordion>
-            ))
-          : PostFaqIdByCategory?.map((faq) => (
-              <Accordion
-                sx={{
-                  border: "0",
-                  borderRadius: "20px",
-                  backgroundColor: "transparent",
-                  margin: "20px 0",
-                  boxShadow:
-                    "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{
+                      minHeight: "65px",
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 500 }}>
+                      {faq?.question}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>{faq?.answer}</Typography>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })
+          : searchResult?.length > 0
+          ? searchResult?.map((faq) => {
+              return (
+                <Accordion
                   sx={{
-                    minHeight: "65px",
+                    border: "0",
+                    borderRadius: "20px",
+                    backgroundColor: "transparent",
+                    margin: "20px 0",
+                    boxShadow:
+                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
                   }}
                 >
-                  <Typography sx={{ fontWeight: 500 }}>
-                    {faq?.question}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>{faq?.answer}</Typography>
-                </AccordionDetails>
-              </Accordion>
-            ))}
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{
+                      minHeight: "65px",
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 500 }}>
+                      {faq?.question}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>{faq?.answer}</Typography>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })
+          : PostFaqIdByCategory?.map((faq) => {
+              return (
+                <Accordion
+                  sx={{
+                    border: "0",
+                    borderRadius: "20px",
+                    backgroundColor: "transparent",
+                    margin: "20px 0",
+                    boxShadow:
+                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
+                  }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{
+                      minHeight: "65px",
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 500 }}>
+                      {faq?.question}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>{faq?.answer}</Typography>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })}
       </Grid>
+
       <Footer />
     </>
   );

@@ -39,7 +39,6 @@ const Career = () => {
   let responsive = useMediaQuery("(max-width:500px)");
   const onSubmit = (data) => {
     const formData = new FormData();
-    console.log(data);
     formData.append("name", data?.name?.toString());
     formData.append("email", data?.email?.toString());
     formData.append("mobileNo", data?.mobileNo?.toString());
@@ -329,7 +328,7 @@ const Career = () => {
                           fontWeight: "600",
                           fontSize: "16px",
                           lineHeight: "20px",
-                          background: "#C02222",
+                          background: "#c02121",
                           width: "125px",
                           height: "52px",
                           borderRadius: "10px",
@@ -347,7 +346,7 @@ const Career = () => {
                           fontWeight: "600",
                           fontSize: "16px",
                           lineHeight: "20px",
-                          background: "#C02222",
+                          background: "#c02121",
                           width: "265px",
                           height: "44px",
                           borderRadius: "10px",

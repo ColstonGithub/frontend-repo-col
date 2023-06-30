@@ -7,10 +7,10 @@ import {
   Grid,
   Typography,
   IconButton,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 
-import downloadIcon from "assets/download.png"
+import downloadIcon from "assets/download.png";
 import FMTypography from "components/FMTypography/FMTypography";
 import { useNavigate } from "react-router-dom";
 
@@ -21,28 +21,29 @@ import { getCatalogueBanner } from "Redux/Slices/Catalogue/CatalogueBannerSlice"
 const Catalogue = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  const responsiveMobile = useMediaQuery('(max-width: 500px)');
+
+  const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
   useEffect(() => {
-      dispatch(getCatalogue());
-      dispatch(getCatalogueBanner());
+    dispatch(getCatalogue());
+    dispatch(getCatalogueBanner());
   }, [dispatch]);
-  
-  const catalogue = useSelector(state => state.catalogue.catalogue.catalogueList);
-  console.log(catalogue);
-  let catalogueBanner = useSelector(state => state.catalogueBanner.catalogueBanner.PageBanner);
-  
+
+  const catalogue = useSelector(
+    (state) => state.catalogue.catalogue.catalogueList
+  );
+  let catalogueBanner = useSelector(
+    (state) => state.catalogueBanner.catalogueBanner.PageBanner
+  );
+
   catalogueBanner = catalogueBanner ? catalogueBanner[0] : {};
 
-  // console.log(catalogueBanner);
-
   const handleDownload = (pdfLink) => {
-    let alink = document.createElement('a');
+    let alink = document.createElement("a");
     alink.href = pdfLink;
     alink.download = pdfLink;
     alink.click();
-  }
+  };
 
   return (
     <>
@@ -66,7 +67,7 @@ const Catalogue = () => {
       </Box>
 
       <Grid>
-        {/* product box below */}
+        {/* product box below 
 
         <Box
           sx={{
@@ -75,11 +76,12 @@ const Catalogue = () => {
           }}
         >
           <img
-            src={catalogueBanner.bannerImage}
+            src={catalogueBanner?.bannerImage}
             style={{ width: "100%", height: !responsiveMobile ? "auto" : "62vw", borderRadius: "20px" }}
-            alt={catalogueBanner.bannerImageAltText}
+            alt={catalogueBanner?.bannerImageAltText}
           />
         </Box>
+*/}
 
         <Grid
           sx={{
@@ -91,12 +93,14 @@ const Catalogue = () => {
         >
           {catalogue?.map((elem) => (
             <Box>
-              <Card sx={{ 
-                width: responsiveMobile ? "90vw" : "317", 
-                height: !responsiveMobile ? "auto" : "62vw",
-                borderRadius: "20px", 
-                margin: '1rem' 
-               }}>
+              <Card
+                sx={{
+                  width: responsiveMobile ? "90vw" : "317",
+                  height: !responsiveMobile ? "auto" : "62vw",
+                  borderRadius: "20px",
+                  margin: "1rem",
+                }}
+              >
                 <CardActionArea>
                   <Box className="zoomin">
                     <img src={elem?.image} alt={elem?.imageAltText} />
@@ -113,9 +117,9 @@ const Catalogue = () => {
                       lineHeight: "20px",
                       color: "#FFFFFF",
                       position: "absolute",
-                      marginLeft:"16px",
+                      marginLeft: "16px",
                       bottom: "0",
-                      top: !responsiveMobile ? "78%" : "85%", 
+                      top: !responsiveMobile ? "78%" : "85%",
                     }}
                   >
                     {elem?.title}
@@ -124,17 +128,17 @@ const Catalogue = () => {
                     onClick={() => handleDownload(elem?.pdf)}
                     sx={{
                       position: "absolute",
-                      marginRight:"16px",
+                      marginRight: "16px",
                       bottom: "0",
                       color: "#fff",
                       top: !responsiveMobile ? "78%" : "81.5%",
                       right: "-5px",
                       height: "35px",
                       width: "35px",
-                      backgroundColor: "#000"
+                      backgroundColor: "#000",
                     }}
                   >
-                    <img src={downloadIcon} alt="download"/>
+                    <img src={downloadIcon} alt="download" />
                   </IconButton>
                 </CardActionArea>
               </Card>

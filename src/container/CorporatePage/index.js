@@ -7,7 +7,9 @@ import {
   CardActionArea,
   Grid,
   Typography,
-  useMediaQuery
+  useMediaQuery,
+  CardMedia,
+  CardContent,
 } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 import { useNavigate } from "react-router-dom";
@@ -19,19 +21,23 @@ import { getCorporateBanner } from "Redux/Slices/Corporate/CorporateBannerSlice"
 const CorporatePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  const responsiveMobile = useMediaQuery('(max-width: 500px)');
+
+  const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
   useEffect(() => {
-      dispatch(getCorporateProducts());
-      dispatch(getCorporateBanner());
+    dispatch(getCorporateProducts());
+    dispatch(getCorporateBanner());
   }, [dispatch]);
-  
-  const corporateProducts = useSelector(state => state.corporateProducts.corporateProducts.corporateProducts);
-  let corporateBanner = useSelector(state => state.corporateBanner.corporateBanner.PageBanner);
-  
+
+  const corporateProducts = useSelector(
+    (state) => state.corporateProducts.corporateProducts.corporateProducts
+  );
+  let corporateBanner = useSelector(
+    (state) => state.corporateBanner.corporateBanner.PageBanner
+  );
+
   corporateBanner = corporateBanner ? corporateBanner[0] : {};
-    
+
   const onCardClick = (element) => {
     let pId = element?._id;
     navigate(`/corporate-page/${pId}`);
@@ -69,56 +75,59 @@ const CorporatePage = () => {
         >
           <img
             src={corporateBanner?.bannerImage}
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "100%", height: "auto", borderRadius: "35px" }}
             alt={corporateBanner?.bannerImageAltText}
           />
         </Box>
 
-        <Grid
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            flexBasis: "33.333333%",
-            justifyContent: "space-evenly",
-          }}
-        >
-          {corporateProducts?.map((elem) => (
-            <Box key={elem._id} onClick={() => onCardClick(elem)}>
-              <Card sx={{ width: responsiveMobile ? "90vw" : "317", borderRadius: "20px", margin: "20px 0" }}>
-                <CardActionArea>
-                  <Box className="zoomin">
-                    <img src={elem?.image} alt={elem.imageAltText} />
-                  </Box>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{
-                      fontFamily: "Montserrat",
-                      fontStyle: "normal",
-                      fontWeight: "600",
-                      fontSize: "1rem",
-                      lineHeight: "20px",
-                      color: "#FFFFFF",
-                      position: "absolute",
-                      marginLeft:"16px",
-                      bottom: "0",
-                      top: "78%",
-                    }}
-                  >
-                    {elem?.title}
-                    <Link
-                      style={{ paddingLeft: "12px" }}
-                    >
-                      {/* <img src={Vector} alt="" /> */}
-                    </Link>
-                  </Typography>
-                </CardActionArea>
-              </Card>
-            </Box>
-          ))}
-          
-          {/* prodct box ended */}
+        <Grid sx={{ padding: "3.2rem" }}>
+          {/* product box below */}
+          <Grid
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              flexBasis: "33.333333%",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {corporateProducts?.map((elem) => (
+              <Box key={elem._id} onClick={() => onCardClick(elem)}>
+                <Card
+                  sx={{
+                    width: responsiveMobile ? "90vw" : "317",
+                    borderRadius: "20px",
+                  }}
+                >
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        borderRadius: "20px",
+                        height: "317px",
+                        width: "317px",
+                      }}
+                      image={elem?.image}
+                      alt={elem.imageAltText}
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        sx={{
+                          fontSize: "18px",
+                          color: "#222222",
+                        }}
+                      >
+                        {elem?.title}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Box>
+            ))}
+            {/* prodct box ended */}
+          </Grid>
         </Grid>
       </Grid>
       <Footer />
