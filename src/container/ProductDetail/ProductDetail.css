@@ -34,15 +34,15 @@ input::-webkit-inner-spin-button {
   height: 500px;
 } */
 
-.image-gallery {
-  width: 70vw !important;
-}
-
 .image-gallery-thumbnails .image-gallery-thumbnails-container {
   overflow-y: scroll;
 }
 
 @media screen and (max-width: 500px) {
+  .image-gallery {
+    width: 70vw !important;
+  }
+  
   .image-gallery-thumbnails .image-gallery-thumbnails-container {
     overflow-x: scroll;
   }
