@@ -25,15 +25,21 @@ input::-webkit-inner-spin-button {
     border: "1px solid grey",
   }, */
 
-.react-multi-carousel-list {
+/* .react-multi-carousel-list {
   display: block !important;
 }
+
 .image-gallery-swipe {
   width: 500px;
   height: 500px;
+} */
+
+.slick-initialized {
+  display: none !important;
 }
 
 
 .react-multi-carousel-item {
   width:345px
 }
+

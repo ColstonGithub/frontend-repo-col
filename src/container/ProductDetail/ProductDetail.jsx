@@ -23,6 +23,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import SimilarProduct from "./SimilarProduct";
 import Footer from "../../components/Footer";
 import Form from "./Form";
+import { useMediaQuery } from "@mui/material";
 import CategorySlider from "components/HomePage/CategorySlider";
 import { getProductPageDetail } from "Redux/Slices/GetProducts/ProductPageDetails";
 
@@ -33,6 +34,8 @@ const ProductDetail = () => {
   const [color, setColor] = useState(0);
   const [open, setOpen] = useState(false);
   const [apiImgs, setApiImgs] = useState([]);
+  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+
 
   useEffect(() => {
     dispatch(getProductPageDetail(params));
@@ -67,7 +70,7 @@ const ProductDetail = () => {
 
   // const productDetailedData = products.products;
 
-  useEffect(() => {
+  // useEffect(() => {
     const imgs = productDetail?.product?.colors?.[0].productPictures?.map((elem) => ({
       original: elem?.img,
       thumbnail: elem?.img,
@@ -75,7 +78,7 @@ const ProductDetail = () => {
     }));
 
     setApiImgs(imgs);
-  }, []);
+  // }, []);
 
   const imageGalleryRef = useRef(null);
 
@@ -84,7 +87,7 @@ const ProductDetail = () => {
   };
 
   const properties = {
-    thumbnailPosition: "left",
+    thumbnailPosition: responsiveMobile ? "bottom" : "left",
     infinite: false,
     autoPlay: false,
     showNav: false,
@@ -141,6 +144,8 @@ const ProductDetail = () => {
     setColor(i);
     setApiImgs(imgs);
   };
+
+  const specif = productDetail?.product?.specification.split(';').map((sp) => {return <li>{sp}</li>});
 
   return (
     <>
@@ -267,7 +272,7 @@ const ProductDetail = () => {
                     paddingBottom: "12px",
                   }}
                 />
-                <p
+                <ul
                   style={{
                     fontFamily: "Montserrat",
                     fontStyle: "normal",
@@ -277,8 +282,10 @@ const ProductDetail = () => {
                     color: "#717171",
                   }}
                 >
-                  {productDetail?.product?.specification}
-                </p>
+                  {productDetail?.product?.specification.split(';').map((sp) => {
+                    if(sp) return <li>{sp}</li>
+                  })}
+                </ul>
               </Box>
 
               {/* cart and buy btns */}
@@ -342,7 +349,7 @@ const ProductDetail = () => {
                     paddingBottom: "12px",
                   }}
                 />
-                <p
+                <ul
                   style={{
                     fontFamily: "Montserrat",
                     fontStyle: "normal",
@@ -352,8 +359,11 @@ const ProductDetail = () => {
                     color: "#717171",
                   }}
                 >
-                  {productDetail?.product?.description}
-                </p>
+                  {/* {productDetail?.product?.description} */}
+                  {productDetail?.product?.description.split(';').map((sp) => {
+                    if(sp) return <li>{sp}</li>
+                  })}
+                </ul>
               </Box>
 
               {/* reviews scrolls */}
