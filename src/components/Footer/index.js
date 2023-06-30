@@ -261,7 +261,7 @@ const Footer = () => {
                   target="_blank"
                 >
                   Website Designed by{" "}
-                  <span style={{ color: "#ff7f50" }}> @Webgross</span>
+                  <span className="webgross-hover">@Webgross</span>
                 </a>
               </div>
             </div>

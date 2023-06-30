@@ -24,7 +24,13 @@
 .footer-content:hover {
   color: #000;
 }
-
+.webgross-hover {
+  color: #c02121;
+  transition: color 0.3s ease;
+}
+.webgross-hover:hover {
+  color: #ff7f50; /* Change this to the desired hover color */
+}
 @media screen and (max-width: 500px) {
   .footer-title,
   .footer-content {
