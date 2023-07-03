@@ -103,7 +103,7 @@ const CategoryPage = () => {
                               borderRadius: "30px",
                             }
                           : {
-                              borderRadius: "20px",
+                              borderBottom: "20px",
                               height: "317px",
                               width: "317px",
                             }
