@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "components/SearchBar/Header";
 import Typography from "@mui/material/Typography";
 import {
@@ -27,20 +27,19 @@ const Blogs = () => {
   const [blogCatId, setblogCatId] = useState(0);
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
   const [blogList, setBlogList] = useState();
+  const [blogListById, setBlogListById] = useState();
 
   useEffect(() => {
     dispatch(getBlogs());
     dispatch(getBlogsCategory());
     dispatch(postBlogsByCategoryId(blogCatId));
   }, [dispatch, blogCatId]);
-
-  const blogs = useSelector((state) => state.blogs.blogs.blogsList);
   const blogsCategory = useSelector(
-    (state) => state.blogsCategory.blogsCategory.blogCategoryList
+    (state) => state.blogsCategory?.blogsCategory?.blogCategoryList
   );
-
+  const blogs = useSelector((state) => state.blogs?.blogs?.blogsList);
   const blogsByCategory = useSelector(
-    (state) => state.blogsByCategoryId.data.blogs
+    (state) => state.blogsByCategoryId?.data?.blogs
   );
 
   const onCardClick = (element) => {
@@ -49,12 +48,20 @@ const Blogs = () => {
   };
   const handleCategoryId = (id) => {
     setBlogList("");
+    setBlogListById("");
     setblogCatId(id);
   };
 
   useEffect(() => {
+    setBlogListById(blogsByCategory);
+  }, [blogsByCategory]);
+
+  useEffect(() => {
     setBlogList(blogs);
-  }, []);
+  }, [blogs]);
+
+  console.log("blogs", blogList);
+  console.log("blogs By Category", blogListById);
 
   return (
     <>
@@ -103,26 +110,9 @@ const Blogs = () => {
             alignItems: "center",
           }}
         >
-          {/* <Button
-            onClick={handleCategoryId}
-            width="sm"
-            sx={{
-              color: "#222222",
-              background: "#E6E6E6",
-              border: "1px solid #E6E6E6",
-              borderRadius: "19px",
-              padding: "10px 20px",
-              margin: "0 5px",
-            }}
-          >
-            <div>
-              <img src={allFilters} alt="" />
-            </div>{" "}
-            <span className="mx-2">All Filtters</span>
-          </Button> */}
           {blogsCategory?.map((item) => (
             <Button
-              onClick={() => handleCategoryId(item._id)}
+              onClick={() => handleCategoryId(item?._id)}
               width="sm"
               sx={{
                 color: "#222222",
@@ -135,7 +125,7 @@ const Blogs = () => {
                 margin: "0 5px",
               }}
             >
-              {item.name}
+              {item?.name}
             </Button>
           ))}
         </Container>
@@ -151,8 +141,8 @@ const Blogs = () => {
             justifyContent: "space-evenly",
           }}
         >
-          {blogList && blogList
-            ? blogList?.map((elem) => {
+          {blogListById && blogListById
+            ? blogListById?.map((elem) => {
                 return (
                   <Box key={elem?._id} onClick={() => onCardClick(elem)}>
                     <Card
@@ -190,7 +180,8 @@ const Blogs = () => {
                   </Box>
                 );
               })
-            : blogsByCategory?.map((elem) => {
+            : blogList &&
+              blogList?.map((elem) => {
                 return (
                   <Box key={elem?._id} onClick={() => onCardClick(elem)}>
                     <Card

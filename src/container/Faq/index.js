@@ -6,14 +6,12 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useMediaQuery } from "@mui/material";
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { postFaqId } from "Redux/Slices/FAQ/FaqCategoryId";
 import Footer from "components/Footer";
 import { getfaqcategory } from "Redux/Slices/FAQ/GetFaqCategory";
 import { Box, Grid, Container, Button, Input } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
-import { postSearch } from "Redux/Slices/Search/Search";
 import { SearchStyle } from "../../components/SearchBar/searchBarStyles";
 import "../../components/SearchBar/searchBarMedia.css";
 import SearchIcon from "../../assets/Vector (2).png";
@@ -60,10 +58,7 @@ const Faq = () => {
   useEffect(() => {
     setFaqListById(PostFaqIdByCategory);
   }, [PostFaqIdByCategory]);
-  console.log("faqList ", faqList);
-  console.log("faqs ", faqs);
-  console.log("PostFaqIdByCategory ", PostFaqIdByCategory);
-  console.log("searchResult ", searchResult);
+
   return (
     <>
       <Header />
