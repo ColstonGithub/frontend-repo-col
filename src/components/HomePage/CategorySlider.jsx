@@ -21,19 +21,6 @@ const CategorySlider = () => {
     dispatch(postNewArrival());
   }, []);
 
-  // const category_settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   draggable: true,
-  //   centerPadding: "0px",
-  //   centerMode: true,
-  //   autoplay: false,
-  //   arrows: responsiveMobile ? false : true,
-  //   slidesToShow: responsiveMobile ? 1 : 3,
-  //   slidesToScroll: 1,
-  // };
-
   const category_settings = {
     dots: false,
     infinite: true,
@@ -43,7 +30,7 @@ const CategorySlider = () => {
     centerMode: true,
     autoplay: false,
     arrows: responsiveMobile ? false : true,
-    slidesToShow: responsiveMobile ? 1 : 3,
+    slidesToShow: responsiveMobile ? 2 : 4,
     slidesToScroll: responsiveMobile ? 1 : 1,
     // fade: true, // add fade effect
   };
@@ -62,10 +49,23 @@ const CategorySlider = () => {
             </div>
           </Col>
           <Col>
+            {/* <Slider {...settings}>
+              {banners?.map((card) => (
+                <div key={card.id}>
+                  <div className="card">
+                    <img
+                      src={card?.productPictures[0]?.img}
+                      alt={card?.productPictures[0]?.imageAltText}
+                    />
+                    <h3 style={{ textAlign: "center" }}>{card?.name}</h3>
+                  </div>
+                </div>
+              ))}
+            </Slider> */}
             <Slider {...category_settings}>
               {banners?.map((idata, i) => (
                 <div
-                  className="banner_img text-center"
+                  // className=" "
                   key={idata._id}
                   onClick={() => onCardClick(idata)}
                   style={{ cursor: "pointer" }}
@@ -76,7 +76,7 @@ const CategorySlider = () => {
                     alt={idata?.productPictures[0]?.imageAltText}
                   />
                   <div className="card_name">
-                    <h4>{idata?.name}</h4>
+                    <h4 style={{ textAlign: "center" }}>{idata?.name}</h4>
                   </div>
                 </div>
               ))}
