@@ -35,21 +35,27 @@ input::-webkit-inner-spin-button {
 } */
 
 .image-gallery-thumbnails .image-gallery-thumbnails-container {
+  width: 100px !important;
   overflow-y: scroll;
+}
+
+.image-gallery-thumbnails .image-gallery-thumbnails-container::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (max-width: 500px) {
   .image-gallery {
-    width: 70vw !important;
+    width: 100% !important;
   }
   
   .image-gallery-thumbnails .image-gallery-thumbnails-container {
+    width: 100% !important;
     overflow-x: scroll;
   }
 }
 
 .slick-initialized {
-  display: none !important;
+  z-index: 1;
 }
 
 

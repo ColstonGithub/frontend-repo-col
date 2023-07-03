@@ -24,6 +24,7 @@ import FMInputLabel from "components/FMInputLabel/FMInputLabel";
 //import { notify } from "components/FMToaster/FMToaster";
 import Cross from "../../assets/ProductPage/Vector.png";
 import { Row, Col, Container } from "react-bootstrap";
+import { useMediaQuery } from "@mui/material";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -39,6 +40,7 @@ const style = {
 
 export default function Form({ open, handleClose, setOpen }) {
   const [passwordType, setPasswordType] = useState(true);
+  const responsiveMobile = useMediaQuery("(max-width: 800px)");
 
   const {
     register,
@@ -81,8 +83,9 @@ export default function Form({ open, handleClose, setOpen }) {
             <Container
               fluid
               style={{
-                width: "635px",
+                width: responsiveMobile ? "90vw" : "635px",
                 height: "586px",
+                overflowY: responsiveMobile ? "scroll" : "none",
                 background: "#FFFFFF",
                 boxShadow:
                   "0px -1px 12px rgb(181 180 180 / 12%), 0px 1px 12px rgb(181 180 180 / 12%)",
@@ -189,8 +192,8 @@ export default function Form({ open, handleClose, setOpen }) {
                       sx={{
                         ...commonStyle.inputFieldStyle,
                         ...(errors.description && commonStyle.errorStyle),
-                        width: "555px",
-                        height: "165px",
+                        width: responsiveMobile ? "100%" : "555px",
+                        height: responsiveMobile ? "70px" : "165px",
                         border: "1px solid #E6E6E6",
                         borderRadius: "10px",
                       }}

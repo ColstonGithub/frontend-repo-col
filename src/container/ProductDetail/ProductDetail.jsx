@@ -31,7 +31,7 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const params = useParams();
   // const { id } = params;
-  const [color, setColor] = useState(0);
+  const [color, setColor] = useState();
   const [open, setOpen] = useState(false);
   const [apiImgs, setApiImgs] = useState([]);
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
@@ -64,21 +64,13 @@ const ProductDetail = () => {
 
   const navigate = useNavigate();
 
-  // const product = products.products.find((item) => item._id == id);
+  console.log(productDetail);
 
-  // console.log("p", product.name);
-
-  // const productDetailedData = products.products;
-
-  useEffect(() => {
-    const imgs = productDetail?.product?.colors?.[0].productPictures?.map((elem) => ({
-      original: elem?.img,
-      thumbnail: elem?.img,
-      id: elem?._id,
-    }));
-
-    setApiImgs(imgs);
-  }, []);
+  let firstImgs = productDetail?.product?.productPictures?.map((elem) => ({
+    original: elem?.img,
+    thumbnail: elem?.img,
+    id: elem?._id,
+  }));
 
   const imageGalleryRef = useRef(null);
 
@@ -97,7 +89,7 @@ const ProductDetail = () => {
     onClick: onClickHandler,
     originalHeight: "100%",
     originalWidth: "100%",
-    items: apiImgs?.length > 0 ? apiImgs : [],
+    items: apiImgs && apiImgs.length > 0 ? apiImgs : (firstImgs && firstImgs.length > 0 ? firstImgs : []) 
   };
 
   const responsive = {
@@ -141,6 +133,7 @@ const ProductDetail = () => {
       id: elem?._id,
     }));
 
+    firstImgs = [];
     setColor(i);
     setApiImgs(imgs);
   };
