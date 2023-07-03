@@ -377,7 +377,7 @@ section .text-container .text-box {
   width: 317px !important;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px), screen and (max-width: 768px) {
   .bestseller {
     padding: 0px 5px 0;
   }
@@ -438,6 +438,7 @@ section .text-container .text-box {
     width: 155px !important;
   }
 }
+
 /* .samecard .slick-slide .card_name p {
   color:#222222;
   padding: 0;

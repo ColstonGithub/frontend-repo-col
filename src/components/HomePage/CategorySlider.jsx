@@ -17,6 +17,8 @@ const CategorySlider = () => {
     (state) => state.newArrival?.banners?.newArrivals
   );
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile2 = useMediaQuery("(max-width: 770px)");
+
   useEffect(() => {
     dispatch(postNewArrival());
   }, []);
@@ -29,7 +31,8 @@ const CategorySlider = () => {
     centerPadding: "0px",
     centerMode: true,
     autoplay: false,
-    arrows: responsiveMobile ? false : true,
+    arrows: responsiveMobile || responsiveMobile2 ? false : true,
+    // slidesToShow: responsiveMobile && !responsiveMobile2 ? 2 : 4,
     slidesToShow: responsiveMobile ? 2 : 4,
     slidesToScroll: responsiveMobile ? 1 : 1,
     // fade: true, // add fade effect
