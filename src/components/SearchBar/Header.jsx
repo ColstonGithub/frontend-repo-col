@@ -243,13 +243,14 @@ const Header = () => {
                                 <div className="cate_area">
                                   <FMTypography
                                     displayText={elem}
+                                    className="nav-link"
                                     sx={{
                                       fontFamily: "Montserrat",
                                       fontStyle: "normal",
                                       fontWeight: "400",
                                       fontSize: "18px",
                                       lineHeight: "22px",
-                                      cursor:"pointer",
+                                      cursor: "pointer",
                                       color: "#717171",
                                       marginBottom: "15px",
                                     }}
@@ -282,6 +283,7 @@ const Header = () => {
                                 <Col sm={6}>
                                   <div className="cate_area">
                                     <FMTypography
+                                      className="nav-link"
                                       displayText={elem?.name}
                                       sx={{
                                         fontFamily: "Montserrat",
@@ -289,7 +291,7 @@ const Header = () => {
                                         fontWeight: "600",
                                         fontSize: "18px",
                                         lineHeight: "22px",
-                                        cursor:"pointer",
+                                        cursor: "pointer",
                                         color: "#222222",
                                         marginBottom: "8px",
                                       }}
@@ -301,13 +303,14 @@ const Header = () => {
                                       <Col md={12}>
                                         <div className="">
                                           <FMTypography
+                                            className="nav-link"
                                             displayText={secElem?.name}
                                             sx={{
                                               fontFamily: "Montserrat",
                                               fontStyle: "normal",
                                               fontWeight: "400",
                                               fontSize: "18px",
-                                              cursor:"pointer",
+                                              cursor: "pointer",
                                               lineHeight: "22px",
                                               color: "#717171",
                                             }}
@@ -324,6 +327,7 @@ const Header = () => {
                             ) : (
                               // </NavLink>
                               <NavLink
+                                className="nav-link"
                                 title={elem?.name}
                                 // onClick={() => onCardClick()}
                               >
@@ -352,9 +356,10 @@ const Header = () => {
                                 <div className="cate_area">
                                   <FMTypography
                                     displayText={elem}
+                                    className="nav-link"
                                     sx={{
                                       fontFamily: "Montserrat",
-                                      cursor:"pointer",
+                                      cursor: "pointer",
                                       fontStyle: "normal",
                                       fontWeight: "400",
                                       fontSize: "18px",
