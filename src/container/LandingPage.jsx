@@ -137,15 +137,15 @@ const LandingPage = () => {
         <section style={{ marginTop: "60px" }}>
           <div
             class="container reveal"
-            onClick={() => onCatClick(item.categoryId)}
+            onClick={() => onCatClick(item?.categoryId)}
           >
             <Row class="text-container">
               {/* //If index is even image will render first */}
               {index % 2 !== 0 ? (
                 <Col xs={12} style={{ cursor: "pointer" }}>
                   <img
-                    src={item.bannerImage}
-                    alt={item.bannerImageAltText}
+                    src={item?.bannerImage}
+                    alt={item?.bannerImageAltText}
                     style={
                       responsiveMobile
                         ? {
@@ -167,8 +167,8 @@ const LandingPage = () => {
               >
                 <div>
                   <img
-                    src={item.bannerImageText}
-                    alt={item.bannerImageTextAltText}
+                    src={item?.bannerImageText}
+                    alt={item?.bannerImageTextAltText}
                     className="banner-image-text"
                     style={{ cursor: "pointer" }}
                   />
@@ -198,8 +198,8 @@ const LandingPage = () => {
               ) : (
                 <Col>
                   <img
-                    src={item.bannerImage}
-                    alt={item.bannerImageAltText}
+                    src={item?.bannerImage}
+                    alt={item?.bannerImageAltText}
                     style={
                       responsiveMobile
                         ? {
@@ -484,11 +484,11 @@ const LandingPage = () => {
                       className="overlay"
                     >
                       <img
-                        src={item.image}
+                        src={item?.image}
                         className="img-fluid"
-                        alt={item.imageAltText}
+                        alt={item?.imageAltText}
                       />
-                      <p>{item.imageTitle}</p>
+                      <p>{item?.imageTitle}</p>
                     </Link>
                   </div>
                 </div>

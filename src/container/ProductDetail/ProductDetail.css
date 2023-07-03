@@ -42,18 +42,16 @@ input::-webkit-inner-spin-button {
   .image-gallery {
     width: 70vw !important;
   }
-  
+
   .image-gallery-thumbnails .image-gallery-thumbnails-container {
     overflow-x: scroll;
   }
 }
 
-.slick-initialized {
+/* .slick-initialized {
   display: none !important;
-}
-
+} */
 
 .react-multi-carousel-item {
-  width:345px
+  width: 345px;
 }
-

@@ -192,7 +192,7 @@ const Blogs = () => {
               })
             : blogsByCategory?.map((elem) => {
                 return (
-                  <Box key={elem._id} onClick={() => onCardClick(elem)}>
+                  <Box key={elem?._id} onClick={() => onCardClick(elem)}>
                     <Card
                       sx={{
                         width: responsiveMobile ? "90vw" : "317",
