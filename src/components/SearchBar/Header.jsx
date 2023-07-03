@@ -218,7 +218,7 @@ const Header = () => {
                   <Navbar.Collapse id="navbarScroll">
                     <Nav className="" navbarScroll>
                       <NavLink
-                        className="nav-link"
+                        className="link-hover"
                         title="Home"
                         id="navbarScrollingDropdown"
                         onClick={() => navigate("/")}
@@ -243,7 +243,7 @@ const Header = () => {
                                 <div className="cate_area">
                                   <FMTypography
                                     displayText={elem}
-                                    className="nav-link"
+                                    className="link-hover"
                                     sx={{
                                       fontFamily: "Montserrat",
                                       fontStyle: "normal",
@@ -283,7 +283,6 @@ const Header = () => {
                                 <Col sm={6}>
                                   <div className="cate_area">
                                     <FMTypography
-                                      className="nav-link"
                                       displayText={elem?.name}
                                       sx={{
                                         fontFamily: "Montserrat",
@@ -301,9 +300,9 @@ const Header = () => {
                                     />
                                     {elem?.children?.map((secElem) => (
                                       <Col md={12}>
-                                        <div className="">
+                                        <div>
                                           <FMTypography
-                                            className="nav-link"
+                                            className="link-hover"
                                             displayText={secElem?.name}
                                             sx={{
                                               fontFamily: "Montserrat",
@@ -327,7 +326,7 @@ const Header = () => {
                             ) : (
                               // </NavLink>
                               <NavLink
-                                className="nav-link"
+                                className="link-hover"
                                 title={elem?.name}
                                 // onClick={() => onCardClick()}
                               >
@@ -356,7 +355,7 @@ const Header = () => {
                                 <div className="cate_area">
                                   <FMTypography
                                     displayText={elem}
-                                    className="nav-link"
+                                    className="link-hover"
                                     sx={{
                                       fontFamily: "Montserrat",
                                       cursor: "pointer",
