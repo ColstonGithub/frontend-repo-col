@@ -47,7 +47,7 @@ input::-webkit-inner-spin-button {
   .image-gallery {
     width: 100% !important;
   }
-  
+
   .image-gallery-thumbnails .image-gallery-thumbnails-container {
     width: 100% !important;
     overflow-x: scroll;
@@ -60,6 +60,5 @@ input::-webkit-inner-spin-button {
 
 
 .react-multi-carousel-item {
-  width:345px
+  width: 345px;
 }
-

@@ -30,7 +30,7 @@ const Banner = () => {
 
   const finalData = [];
   banners.homepageBanner?.map((element) => {
-    finalData.push(element.banner);
+    finalData.push(element?.banner);
   });
   console.log("finalData", finalData);
   return (

@@ -6,14 +6,12 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useMediaQuery } from "@mui/material";
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { postFaqId } from "Redux/Slices/FAQ/FaqCategoryId";
 import Footer from "components/Footer";
 import { getfaqcategory } from "Redux/Slices/FAQ/GetFaqCategory";
 import { Box, Grid, Container, Button, Input } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
-import { postSearch } from "Redux/Slices/Search/Search";
 import { SearchStyle } from "../../components/SearchBar/searchBarStyles";
 import "../../components/SearchBar/searchBarMedia.css";
 import SearchIcon from "../../assets/Vector (2).png";
@@ -27,40 +25,43 @@ const Faq = () => {
   const dispatch = useDispatch();
   const [faqId, setFaqId] = useState(0);
   const [faqList, setFaqList] = useState();
-
-  let searchResult = useSelector((state) => state?.searchFaq.data.products);
+  const [faqListById, setFaqListById] = useState();
 
   useEffect(() => {
     dispatch(getFaqs());
     dispatch(postFaqId(faqId));
     dispatch(getfaqcategory());
   }, [dispatch, faqId]);
+  const faqs = useSelector((state) => state.getFaqsList?.faqs?.faqList);
 
   const GetFaqCategory = useSelector(
     (state) => state.getFaqCategory?.data?.faqCategoryList
   );
 
   const PostFaqIdByCategory = useSelector(
-    (state) => state.faqCategoryId.data.faqs
+    (state) => state.faqCategoryId?.data?.faqs
   );
-
-  const faqs = useSelector((state) => state.getFaqsList?.faqs.faqData);
 
   const handleCategoryId = (id) => {
     setFaqList("");
+    setFaqListById("");
     setFaqId(id);
   };
   const handleSearchFaq = (e) => {
+    setFaqList("");
     dispatch(postSearchFaq(e.target.value));
   };
-
+  let searchResult = useSelector((state) => state?.searchFaq.data.products);
   useEffect(() => {
     setFaqList(faqs);
-  }, []);
+  }, [faqs]);
+  useEffect(() => {
+    setFaqListById(PostFaqIdByCategory);
+  }, [PostFaqIdByCategory]);
 
   return (
     <>
-      <Header /> 
+      <Header />
       <Box
         sx={{
           display: "flex",
@@ -104,7 +105,7 @@ const Faq = () => {
             }}
           >
             <Box
-              sx={{ ...SearchStyle.searchBoxWrapper }}
+              sx={{ ...SearchStyle?.searchBoxWrapper }}
               className="searchBoxWrapper"
             >
               <Input
@@ -114,7 +115,7 @@ const Faq = () => {
                   handleSearchFaq(e);
                 }}
                 // value={value}
-                sx={SearchStyle.inputField}
+                sx={SearchStyle?.inputField}
                 disableUnderline
               />
               {/* <SearchIcon sx={SearchStyle.searchIcon} /> */}
@@ -136,11 +137,11 @@ const Faq = () => {
         >
           {GetFaqCategory?.map((item) => (
             <Button
-              onClick={() => handleCategoryId(item._id)}
+              onClick={() => handleCategoryId(item?._id)}
               width="sm"
               sx={{
                 color: "#222222",
-                backgroundColor: faqId === item._id ? "#E6E6E6" : "#FFFFFF",
+                backgroundColor: faqId === item?._id ? "#E6E6E6" : "#FFFFFF",
                 border: "1px solid #F7F7F7",
                 boxShadow:
                   "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
@@ -149,7 +150,7 @@ const Faq = () => {
                 margin: "0 5px",
               }}
             >
-              {item.name}
+              {item?.name}
             </Button>
           ))}
         </Container>
@@ -166,38 +167,7 @@ const Faq = () => {
           maxWidth: !responsiveMobile ? "60vw" : "90vw",
         }}
       >
-        {faqList && faqList
-          ? faqList?.map((faq) => {
-              return (
-                <Accordion
-                  sx={{
-                    border: "0",
-                    borderRadius: "20px",
-                    backgroundColor: "transparent",
-                    margin: "20px 0",
-                    boxShadow:
-                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                    sx={{
-                      minHeight: "65px",
-                    }}
-                  >
-                    <Typography sx={{ fontWeight: 500 }}>
-                      {faq?.question}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography>{faq?.answer}</Typography>
-                  </AccordionDetails>
-                </Accordion>
-              );
-            })
-          : searchResult?.length > 0
+        {searchResult && searchResult
           ? searchResult?.map((faq) => {
               return (
                 <Accordion
@@ -228,7 +198,39 @@ const Faq = () => {
                 </Accordion>
               );
             })
-          : PostFaqIdByCategory?.map((faq) => {
+          : faqListById && faqListById
+          ? faqListById?.map((faq) => {
+              return (
+                <Accordion
+                  sx={{
+                    border: "0",
+                    borderRadius: "20px",
+                    backgroundColor: "transparent",
+                    margin: "20px 0",
+                    boxShadow:
+                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
+                  }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{
+                      minHeight: "65px",
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 500 }}>
+                      {faq?.question}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>{faq?.answer}</Typography>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })
+          : faqList &&
+            faqList?.map((faq) => {
               return (
                 <Accordion
                   sx={{

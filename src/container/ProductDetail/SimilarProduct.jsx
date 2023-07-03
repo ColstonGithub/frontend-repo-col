@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getProductPageDetail } from "Redux/Slices/GetProducts/ProductPageDetails";
 import { Grid, useMediaQuery } from "@mui/material";
+
 const SimilarProduct = () => {
   const [idata, setIdata] = useState(Data);
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const SimilarProduct = () => {
           </Col>
           <Col md={13}>
             <Slider {...category_settings}>
-              {productDetail?.map((idata, i) => (
+              {productDetail && productDetail?.map((idata, i) => (
                 <div
                   className="banner_img text-center"
                   // key={}
