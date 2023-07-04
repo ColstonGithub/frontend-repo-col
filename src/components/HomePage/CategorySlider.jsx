@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Slider from "react-slick-slider";
 import { Container, Row, Col } from "react-bootstrap";
-import Data from "../../JsonDatas/JsonData";
 import { useNavigate } from "react-router-dom";
-import { postNewArrival } from "Redux/Slices/NewArrival/NewArrival";
-// import homepageBanner1 from "../../assets/homebanner1.jpg";
-// import homepageBanner2 from "../../assets/homebanner2.jpg";
-// import homepageBanner3 from "../../assets/homebanner3.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { Grid, useMediaQuery } from "@mui/material";
+import Slider from "react-slick-slider";
+import { postNewArrival } from "Redux/Slices/NewArrival/NewArrival";
 
 const CategorySlider = () => {
   const navigate = useNavigate();
@@ -32,11 +28,10 @@ const CategorySlider = () => {
     centerMode: true,
     autoplay: false,
     arrows: responsiveMobile || responsiveMobile2 ? false : true,
-    // slidesToShow: responsiveMobile && !responsiveMobile2 ? 2 : 4,
     slidesToShow: responsiveMobile ? 2 : 4,
     slidesToScroll: responsiveMobile ? 1 : 1,
-    // fade: true, // add fade effect
   };
+
   const onCardClick = (element) => {
     let pId = element?._id;
     navigate(`/product-detail/${pId}`);
@@ -52,30 +47,15 @@ const CategorySlider = () => {
             </div>
           </Col>
           <Col>
-            {/* <Slider {...settings}>
-              {banners?.map((card) => (
-                <div key={card.id}>
-                  <div className="card">
-                    <img
-                      src={card?.productPictures[0]?.img}
-                      alt={card?.productPictures[0]?.imageAltText}
-                    />
-                    <h3 style={{ textAlign: "center" }}>{card?.name}</h3>
-                  </div>
-                </div>
-              ))}
-            </Slider> */}
             <Slider {...category_settings}>
               {banners?.map((idata, i) => (
                 <div
-                  // className=" "
                   key={idata._id}
                   onClick={() => onCardClick(idata)}
                   style={{ cursor: "pointer" }}
                 >
                   <img
                     src={idata?.productPictures[0]?.img}
-                    // className="img-fluid"
                     alt={idata?.productPictures[0]?.imageAltText}
                   />
                   <div className="card_name">
@@ -84,19 +64,6 @@ const CategorySlider = () => {
                 </div>
               ))}
             </Slider>
-            {/* <Slide>
-              {banners?.map((idata, i) => (
-                <div className="banner_img text-center">
-                  <div
-                    className="img-fluid"
-                    style={{ backgroundImage: idata?.productPictures[0]?.img }}
-                  ></div>
-                  <div className="card_name">
-                    <h4>{idata?.name}</h4>
-                  </div>
-                </div>
-              ))}
-            </Slide> */}
           </Col>
         </Row>
       </Container>

@@ -36,9 +36,10 @@ const ProductDetail = () => {
   const [apiImgs, setApiImgs] = useState([]);
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
-
   useEffect(() => {
     dispatch(getProductPageDetail(params));
+    setApiImgs([]);
+    setColor(null);
   }, [dispatch, params]);
 
   const productDetail = useSelector((state) => state.ProductPageDetail.data);
@@ -89,7 +90,12 @@ const ProductDetail = () => {
     onClick: onClickHandler,
     originalHeight: "100%",
     originalWidth: "100%",
-    items: apiImgs && apiImgs.length > 0 ? apiImgs : (firstImgs && firstImgs.length > 0 ? firstImgs : []) 
+    items:
+      apiImgs && apiImgs.length > 0
+        ? apiImgs
+        : firstImgs && firstImgs.length > 0
+        ? firstImgs
+        : [],
   };
 
   const responsive = {
@@ -127,18 +133,22 @@ const ProductDetail = () => {
 
   const handleColorClick = (i) => {
     console.log("Clicking ", i);
-    const imgs = productDetail?.product?.colors?.[i].productPictures?.map((elem) => ({
-      original: elem?.img,
-      thumbnail: elem?.img,
-      id: elem?._id,
-    }));
+    const imgs = productDetail?.product?.colors?.[i].productPictures?.map(
+      (elem) => ({
+        original: elem?.img,
+        thumbnail: elem?.img,
+        id: elem?._id,
+      })
+    );
 
     firstImgs = [];
     setColor(i);
     setApiImgs(imgs);
   };
 
-  const specif = productDetail?.product?.specification.split(';').map((sp) => {return <li>{sp}</li>});
+  const specif = productDetail?.product?.specification.split(";").map((sp) => {
+    return <li>{sp}</li>;
+  });
 
   return (
     <>
@@ -149,6 +159,7 @@ const ProductDetail = () => {
           paddingTop: "40px",
           paddingLeft: "50px",
           paddingRight: "50px",
+          paddingBottom: "40px",
         }}
       >
         <Grid sx={{ display: "flex", gap: "3" }}>
@@ -157,9 +168,7 @@ const ProductDetail = () => {
               <ImageGallery
                 ref={imageGalleryRef}
                 {...properties}
-                onThumbnailClick={(e, index) => {
-
-                }}
+                onThumbnailClick={(e, index) => {}}
               />
             </Col>
 
@@ -186,23 +195,23 @@ const ProductDetail = () => {
                 sx={{ display: "flex", flexDirection: "column", gap: "5px" }}
               >
                 <Grid
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      textAlign: "center",
-                      padding: "10px 0",
-                    }}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    textAlign: "center",
+                    padding: "10px 0",
+                  }}
                 >
                   {productDetail?.product?.colors?.map((item, i) => (
-                    <Grid 
+                    <Grid
                       style={{
-                        display: "flex", 
-                        flexDirection: "column", 
-                        justifyContent: "center", 
-                        alignItems: "center", 
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
                         marginRight: "20px",
-                        cursor: "pointer"
-                      }} 
+                        cursor: "pointer",
+                      }}
                       onClick={() => handleColorClick(i)}
                     >
                       <Box
@@ -214,12 +223,15 @@ const ProductDetail = () => {
                           width: "47px",
                           height: "47px",
                           padding: "5px",
-                          border: color === i ? "2px solid black" : "2px solid transparent",
+                          border:
+                            color === i
+                              ? "2px solid black"
+                              : "2px solid transparent",
                           display: "flex",
                           borderRadius: "50%",
                           display: "flex",
                           justifyContent: "center",
-                          alignItems: "center"
+                          alignItems: "center",
                         }}
                       >
                         <img
@@ -244,12 +256,12 @@ const ProductDetail = () => {
                           color: "#000000",
                           textTransform: "capitalize",
                           textAlign: "center",
-                          marginTop: "5px"
+                          marginTop: "5px",
                         }}
                       >
                         {item?.colorName}
                       </Typography>
-                      </Grid>
+                    </Grid>
                   ))}
                 </Grid>
               </Box>
@@ -275,9 +287,11 @@ const ProductDetail = () => {
                     color: "#717171",
                   }}
                 >
-                  {productDetail?.product?.specification.split(';').map((sp) => {
-                    if(sp) return <li>{sp}</li>
-                  })}
+                  {productDetail?.product?.specification
+                    .split(";")
+                    .map((sp) => {
+                      if (sp) return <li>{sp}</li>;
+                    })}
                 </ul>
               </Box>
 
@@ -291,7 +305,7 @@ const ProductDetail = () => {
                     fontFamily: "'Montserrat'",
                     color: "#222",
                     border: "1px solid #E6E6E6",
-                    width: responsiveMobile ? "35vw" :"222px",
+                    width: responsiveMobile ? "35vw" : "222px",
                     height: "52px",
                     fontWeight: "700",
                     fontSize: "1rem",
@@ -317,7 +331,7 @@ const ProductDetail = () => {
                       fontFamily: "Montserrat",
                       textTransform: "capitalise",
                       color: "#FFFFFF",
-                      width: responsiveMobile ? "35vw" :"222px",
+                      width: responsiveMobile ? "35vw" : "222px",
                       height: "52px",
                       "&:hover": {
                         background: "#AD1F1F",
@@ -353,8 +367,8 @@ const ProductDetail = () => {
                   }}
                 >
                   {/* {productDetail?.product?.description} */}
-                  {productDetail?.product?.description.split(';').map((sp) => {
-                    if(sp) return <li>{sp}</li>
+                  {productDetail?.product?.description.split(";").map((sp) => {
+                    if (sp) return <li>{sp}</li>;
                   })}
                 </ul>
               </Box>
