@@ -134,7 +134,7 @@ const Quotation = () => {
                 <FMTypography
                   displayText="Request For Quotation"
                   styleData={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontWeight: "600",
                     fontSize: "30px",
                     lineHeight: "49px",

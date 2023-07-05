@@ -19,7 +19,7 @@ export const SearchStyle = {
   inputField: {
     "&.MuiInput-input": {
       lineHeight: "1.3125rem",
-      fontFamily: "'Montserrat'",
+      fontFamily: "'Rajdhani'",
       fontStyle: "normal",
       fontWeight: "400",
       color: "black",
@@ -27,7 +27,7 @@ export const SearchStyle = {
     },
 
     "&::placeholder": {
-      fontFamily: "'Montserrat'",
+      fontFamily: "'Rajdhani'",
       fontWeight: "300",
       fontSize: "16px",
       color: "#717171",

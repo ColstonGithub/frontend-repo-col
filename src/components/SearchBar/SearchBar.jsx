@@ -6,11 +6,9 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { postSearch } from "Redux/Slices/Search/Search";
-
 import { SearchStyle } from "./searchBarStyles";
 import "./searchBarMedia.css";
-import { useState, useEffect } from "react";
-import { Row } from "react-bootstrap";
+
 // import { useHistory } from "react-router-dom";
 import { Table, TableBody, TableCell, TableRow } from "@mui/material";
 

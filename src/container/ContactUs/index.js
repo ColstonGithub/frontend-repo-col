@@ -86,7 +86,7 @@ const ContactUs = () => {
                 <FMTypography
                   displayText="Contact Us"
                   styleData={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontWeight: "600",
                     fontSize: "2.8rem",
                     lineHeight: "49px",
@@ -224,7 +224,7 @@ const ContactUs = () => {
                   styleData={
                     !responsive
                       ? {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontStyle: "normal",
                           fontWeight: "600",
                           fontSize: "16px",
@@ -242,7 +242,7 @@ const ContactUs = () => {
                           },
                         }
                       : {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontStyle: "normal",
                           fontWeight: "600",
                           fontSize: "16px",

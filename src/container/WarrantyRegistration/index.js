@@ -92,7 +92,7 @@ const WarrantyRegisteration = () => {
                   styleData={
                     !responsive
                       ? {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontWeight: "600",
                           fontSize: "2.8rem",
                           lineHeight: "49px",
@@ -100,7 +100,7 @@ const WarrantyRegisteration = () => {
                           color: "#000000",
                         }
                       : {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontWeight: "600",
                           fontSize: "2.8rem",
                           lineHeight: "49px",
@@ -370,7 +370,7 @@ const WarrantyRegisteration = () => {
                   styleData={
                     !responsive
                       ? {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontStyle: "normal",
                           fontWeight: "600",
                           fontSize: "16px",
@@ -388,7 +388,7 @@ const WarrantyRegisteration = () => {
                           },
                         }
                       : {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontStyle: "normal",
                           fontWeight: "600",
                           fontSize: "16px",
@@ -414,7 +414,7 @@ const WarrantyRegisteration = () => {
           </Box>
         </Container>
       </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 };

@@ -110,7 +110,7 @@ const Catalogue = () => {
                     variant="h5"
                     component="div"
                     sx={{
-                      fontFamily: "Montserrat",
+                      fontFamily: "Rajdhani",
                       fontStyle: "normal",
                       fontWeight: "600",
                       fontSize: !responsiveMobile ? "1rem" : "1.6rem",

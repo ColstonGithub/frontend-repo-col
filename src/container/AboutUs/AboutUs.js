@@ -63,7 +63,7 @@ const AboutUs = () => {
         <Box>
           <h3
             style={{
-              fontFamily: "Montserrat",
+              fontFamily: "Rajdhani",
               fontStyle: "normal",
               fontWeight: "500",
               fontSize: "1.5rem",
@@ -76,7 +76,7 @@ const AboutUs = () => {
           </h3>
           <p
             style={{
-              fontFamily: "Montserrat",
+              fontFamily: "Rajdhani",
               fontStyle: "normal",
               fontWeight: "400",
               fontSize: "1rem",

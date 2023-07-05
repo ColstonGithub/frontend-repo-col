@@ -10,15 +10,17 @@ import { getBrandDetail } from "Redux/Slices/Brand/BrandDetailSlice";
 import { useDispatch, useSelector } from "react-redux";
 const BrandDetail = () => {
   const params = useParams();
-  const responsiveMobile = useMediaQuery('(max-width: 500px)');
+  const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
-      dispatch(getBrandDetail(params));
+    dispatch(getBrandDetail(params));
   }, [dispatch, params]);
 
-  const brandDetail = useSelector(state => state.brandDetail.brand.brandproduct);
+  const brandDetail = useSelector(
+    (state) => state.brandDetail.brand.brandproduct
+  );
   // console.log(brandDetail);
 
   return (
@@ -35,6 +37,7 @@ const BrandDetail = () => {
         <FMTypography
           displayText={"The Brands Colston"}
           styleData={{
+            fontFamily: "Rajdhani",
             fontWeight: "600",
             fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",
             textAlign: "center",
@@ -51,7 +54,12 @@ const BrandDetail = () => {
         >
           <img
             src={brandDetail?.image}
-            style={{ width: "100%", height: !responsiveMobile ? "auto" : "62vw", maxHeight: "550px", borderRadius: "20px" }}
+            style={{
+              width: "100%",
+              height: !responsiveMobile ? "auto" : "62vw",
+              maxHeight: "550px",
+              borderRadius: "20px",
+            }}
             alt={brandDetail?.imageAltText}
           />
         </div>
@@ -59,7 +67,7 @@ const BrandDetail = () => {
         <Box>
           <h3
             style={{
-              fontFamily: "Montserrat",
+              fontFamily: "Rajdhani",
               fontStyle: "normal",
               fontWeight: "500",
               fontSize: "1.6rem",
@@ -72,14 +80,14 @@ const BrandDetail = () => {
           </h3>
           <p
             style={{
-              fontFamily: "Montserrat",
+              fontFamily: "Rajdhani",
               fontStyle: "normal",
               fontWeight: "400",
               fontSize: "1.2rem",
               color: "#222222",
             }}
           >
-            {brandDetail?.text}          
+            {brandDetail?.text}
           </p>
         </Box>
       </Grid>

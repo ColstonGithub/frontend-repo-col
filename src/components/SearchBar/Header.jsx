@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import FMTypography from "components/FMTypography/FMTypography";
-
 import { Grid, useMediaQuery } from "@mui/material";
-
 import {
   Col,
   Container,
@@ -15,17 +12,12 @@ import {
   Row,
 } from "react-bootstrap";
 import "./HeaderBootstrapMenu.css";
-
 import FMButton from "components/FMButton/FMButton";
 import SearchBar from "components/SearchBar/SearchBar";
-
 import { HeaderStyle } from "./HeaderStyle";
 import { commonStyle } from "../../Styles/commonStyles";
-
 import ColstonLogo from "../../assets/ColstonLogo.svg";
 import WorldIcon from "../../assets/WorldIcon.svg";
-// import SearchIcon from "../../assets/SearchIcon.svg";
-
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { LANDING_PAGE } from "Routes/Routes";
@@ -34,7 +26,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -123,7 +114,7 @@ const Header = () => {
               <FMTypography
                 displayText={"Colston World"}
                 sx={{
-                  fontFamily: "Montserrat",
+                  fontFamily: "Rajdhani",
                   fontWeight: "400",
                   fontSize: "16px",
                   color: "#FFFFFF",
@@ -146,7 +137,7 @@ const Header = () => {
               <FMTypography
                 displayText={"Dealership Query"}
                 sx={{
-                  fontFamily: "Montserrat",
+                  fontFamily: "Rajdhani",
                   fontWeight: "400",
                   fontSize: "16px",
                   color: "#FFFFFF",
@@ -159,7 +150,7 @@ const Header = () => {
                   variant={"outlined"}
                   onClick={() => onContactClick()}
                   styleData={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontWeight: "400",
                     fontSize: "10px",
                     background: "#FFF",
@@ -245,7 +236,7 @@ const Header = () => {
                                     displayText={elem}
                                     className="link-hover"
                                     sx={{
-                                      fontFamily: "Montserrat",
+                                      fontFamily: "Rajdhani",
                                       fontStyle: "normal",
                                       fontWeight: "400",
                                       fontSize: "18px",
@@ -285,7 +276,7 @@ const Header = () => {
                                     <FMTypography
                                       displayText={elem?.name}
                                       sx={{
-                                        fontFamily: "Montserrat",
+                                        fontFamily: "Rajdhani",
                                         fontStyle: "normal",
                                         fontWeight: "600",
                                         fontSize: "18px",
@@ -305,7 +296,7 @@ const Header = () => {
                                             className="link-hover"
                                             displayText={secElem?.name}
                                             sx={{
-                                              fontFamily: "Montserrat",
+                                              fontFamily: "Rajdhani",
                                               fontStyle: "normal",
                                               fontWeight: "400",
                                               fontSize: "18px",
@@ -357,7 +348,7 @@ const Header = () => {
                                     displayText={elem}
                                     className="link-hover"
                                     sx={{
-                                      fontFamily: "Montserrat",
+                                      fontFamily: "Rajdhani",
                                       cursor: "pointer",
                                       fontStyle: "normal",
                                       fontWeight: "400",

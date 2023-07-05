@@ -30,11 +30,6 @@ const LandingPage = () => {
 
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
-  // const corporateBanner = useSelector(
-  //   (state) => state.PostcorporateBanner.banners.PageBanner
-  // );
-  //  const finalCorporateBanner = corporateBanner ? corporateBanner[0] : {};
-
   let newexploreCategory = useSelector(
     (state) => state.exploreCategory?.banners?.exploreCategory
   );
@@ -158,8 +153,6 @@ const LandingPage = () => {
                 ? { margin: "0", marginTop: "80px" }
                 : {
                     margin: "10px",
-                    // marginTop: "80px",
-                    // marginBottom: "80px",
                   }
             }
           >
@@ -184,9 +177,6 @@ const LandingPage = () => {
                   width: "343px",
                   height: "126px",
                   left: "26px",
-                  // top: "1275px",
-                  // padding: "21px 7px 0",
-                  // marginBottom: "80px",
                 }
               : { padding: "80px 85px 0" }
           }
@@ -259,142 +249,6 @@ const LandingPage = () => {
                 </div>
               </Col>
             ))}
-
-            {/* <Col md={6}>
-              <Row>
-                <Col md={3}>
-                  <div className="heighautoimg">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                  <div className="heighautoimg">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                  <div className="heighautoimg">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                </Col>
-                <Col md={3}>
-                  <div className="heighautoimg second_row ">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                  <div className="heighautoimg second_row">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                  <div className="heighautoimg second_row">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                </Col>
-                <Col md={3}>
-                  <div className="heighautoimg">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                  <div className="heighautoimg">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                  <div className="heighautoimg">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                </Col>
-                <Col md={3}>
-                  <div className="heighautoimg forth_row">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                  <div className="heighautoimg forth_row">
-                    <a href="/" className="overlay">
-                      <img
-                        src="../../../images/one.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <p>Wedding</p>
-                    </a>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-            <Col md={6}>
-              <div className="overlay position-relative">
-                <img src="../../../images/one.png" alt="" />
-                <div className="twobandata">
-                  <h4>The Anniversary Edit</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Sequi, alias!
-                  </p>
-                  <a href="/">Gift Now</a>
-                </div>
-              </div>
-            </Col> */}
           </Row>
         </Container>
       </div>

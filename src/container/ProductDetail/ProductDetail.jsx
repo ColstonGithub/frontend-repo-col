@@ -179,7 +179,7 @@ const ProductDetail = () => {
                     fontSize: "1.8rem",
                     fontWeight: "600",
                     paddingBottom: "24px",
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                   }}
                 />
               </Box>
@@ -241,7 +241,7 @@ const ProductDetail = () => {
                         variant="h5"
                         component="div"
                         sx={{
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontStyle: "normal",
                           fontWeight: "500",
                           fontSize: "14px",
@@ -261,7 +261,7 @@ const ProductDetail = () => {
                 <FMTypography
                   displayText={"Specifications"}
                   styleData={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontStyle: "normal",
                     fontWeight: "500",
                     fontSize: "18px",
@@ -271,7 +271,7 @@ const ProductDetail = () => {
                 />
                 <ul
                   style={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontStyle: "normal",
                     fontWeight: "400",
                     fontSize: "16px",
@@ -294,7 +294,7 @@ const ProductDetail = () => {
                   variant="outlined"
                   styleData={{
                     borderRadius: "10px",
-                    fontFamily: "'Montserrat'",
+                    fontFamily: "'Rajdhani'",
                     color: "#222",
                     border: "1px solid #E6E6E6",
                     width: responsiveMobile ? "35vw" : "222px",
@@ -320,7 +320,7 @@ const ProductDetail = () => {
                       borderRadius: "10px",
                       fontWeight: "700",
                       fontSize: "1rem",
-                      fontFamily: "Montserrat",
+                      fontFamily: "Rajdhani",
                       textTransform: "capitalise",
                       color: "#FFFFFF",
                       width: responsiveMobile ? "35vw" : "222px",
@@ -340,7 +340,7 @@ const ProductDetail = () => {
                 <FMTypography
                   displayText={"Product Description"}
                   styleData={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontStyle: "normal",
                     fontWeight: "500",
                     fontSize: "18px",
@@ -350,7 +350,7 @@ const ProductDetail = () => {
                 />
                 <ul
                   style={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontStyle: "normal",
                     fontWeight: "400",
                     fontSize: "16px",

@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 // A custom theme for this app
 const theme = createTheme({
   typography: {
-    fontFamily: ["Montserrat"],
+    fontFamily: ["Rajdhani"],
     color: "red",
     fontSize: 14,
   },

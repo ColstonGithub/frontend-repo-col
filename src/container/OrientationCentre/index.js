@@ -84,7 +84,7 @@ const OrientationCentre = () => {
                         background: "#FFFFFF",
                         boxShadow: "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
                         borderRadius: "20px",
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Rajdhani',
                         fontStyle: 'normal',            
                         fontSize: !responsiveMobile ? "1rem" : "1.4rem",
                         fontColor: "#717171",

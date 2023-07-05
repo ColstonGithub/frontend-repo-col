@@ -30,12 +30,6 @@ export const commonStyle = {
     flexDirection: "column",
   },
 
-
-
-
-
-
-
   inputFieldStyle: {
     width: "265px",
     height: "52px",
@@ -43,7 +37,7 @@ export const commonStyle = {
     borderRadius: "10px",
     marginBottom: "15px",
     color: "black",
-    fontFamily: "Montserrat",
+    fontFamily: "Rajdhani",
     fontStyle: "normal",
     fontWeight: "400",
     paddingLeft: "20px",
@@ -53,7 +47,7 @@ export const commonStyle = {
       color: "black",
     },
     "&::placeholder": {
-      fontFamily: "Montserrat",
+      fontFamily: "Rajdhani",
       fontStyle: "normal",
       fontWeight: "400",
       fontSize: "16px",
@@ -80,16 +74,13 @@ export const commonStyle = {
     paddingBottom: "30px",
   },
 
-
-
-
   inputFieldContactStyle: {
     width: "265px",
     height: "52px",
     border: "1px solid #E6E6E6",
     borderRadius: "10px",
     color: "black",
-    fontFamily: "Montserrat",
+    fontFamily: "Rajdhani",
     fontStyle: "normal",
     fontWeight: "400",
     paddingLeft: "20px",
@@ -99,7 +90,7 @@ export const commonStyle = {
       color: "black",
     },
     "&::placeholder": {
-      fontFamily: "Montserrat",
+      fontFamily: "Rajdhani",
       fontStyle: "normal",
       fontWeight: "400",
       fontSize: "16px",
@@ -125,12 +116,6 @@ export const commonStyle = {
     fontSize: "0.875rem",
   },
 
-
-
-
-
-
-
   paddingZero: {
     padding: 0,
   },
@@ -154,7 +139,7 @@ export const commonStyle = {
   },
   textTransformStyle: {
     textTransform: "none",
-    fontFamily: " 'Poppins', sans-serif",
+    fontFamily: " 'Rajdhani', sans-serif",
     fontWeight: "600",
   },
   disableRippleStyle: {
@@ -166,7 +151,7 @@ export const commonStyle = {
   },
   inputLabelStyle: {
     fontStyle: "normal",
-    fontFamily: " 'Poppins', sans-serif",
+    fontFamily: " 'Rajdhani', sans-serif",
     fontSize: "1.063rem",
     marginTop: "1rem",
     lineHeight: "1.25rem",
@@ -174,7 +159,6 @@ export const commonStyle = {
     fontWeight: "600",
   },
   headingStyle: {
-    // fontFamily: " 'Poppins', sans-serif",
     fontWeight: "600",
     fontSize: "1.5rem",
   },

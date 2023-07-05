@@ -94,7 +94,7 @@ const Career = () => {
                 <FMTypography
                   displayText="Career"
                   styleData={{
-                    fontFamily: "Montserrat",
+                    fontFamily: "Rajdhani",
                     fontWeight: "600",
                     fontSize: "2.8rem",
                     lineHeight: "49px",
@@ -323,7 +323,7 @@ const Career = () => {
                   styleData={
                     !responsive
                       ? {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontStyle: "normal",
                           fontWeight: "600",
                           fontSize: "16px",
@@ -341,7 +341,7 @@ const Career = () => {
                           },
                         }
                       : {
-                          fontFamily: "Montserrat",
+                          fontFamily: "Rajdhani",
                           fontStyle: "normal",
                           fontWeight: "600",
                           fontSize: "16px",

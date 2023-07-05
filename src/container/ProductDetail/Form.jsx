@@ -84,8 +84,10 @@ export default function Form({ open, handleClose, setOpen }) {
               fluid
               style={{
                 width: responsiveMobile ? "90vw" : "635px",
-                height: "586px",
-                overflowY: responsiveMobile ? "scroll" : "none",
+                height: "auto",
+                overflowY: 
+                
+                "hidden",
                 background: "#FFFFFF",
                 boxShadow:
                   "0px -1px 12px rgb(181 180 180 / 12%), 0px 1px 12px rgb(181 180 180 / 12%)",
@@ -210,7 +212,7 @@ export default function Form({ open, handleClose, setOpen }) {
                       displayText={"Submit"}
                       variant="outlined"
                       styleData={{
-                        fontFamily: "Montserrat",
+                        fontFamily: "Rajdhani",
                         fontStyle: "normal",
                         fontWeight: "600",
                         fontSize: "16px",
@@ -391,7 +393,7 @@ export default function Form({ open, handleClose, setOpen }) {
 // //             <FMTypography
 // //               displayText="Enquiry"
 // //               styleData={{
-// //                 fontFamily: "Montserrat",
+// //                 fontFamily: "Rajdhani",
 // //                 fontStyle: "normal",
 // //                 fontWeight: "600",
 // //                 fontSize: "24px",

@@ -6,6 +6,7 @@ import { Grid, useMediaQuery } from "@mui/material";
 import Slider from "react-slick-slider";
 import { postNewArrival } from "Redux/Slices/NewArrival/NewArrival";
 import { CircularProgress } from "@mui/material";
+
 const loadingWrapper = {
   display: "flex",
   justifyContent: "center",
@@ -14,6 +15,7 @@ const loadingWrapper = {
 };
 
 const CategorySlider = () => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -21,6 +23,7 @@ const CategorySlider = () => {
   const responsiveMobile2 = useMediaQuery("(max-width: 770px)");
 
   const category_settings = {
+
     dots: false,
     infinite: true,
     speed: 500,
@@ -33,6 +36,7 @@ const CategorySlider = () => {
     autoplay: false,
 
     responsive: [
+
       {
         breakpoint: 1024,
         settings: {
@@ -57,7 +61,9 @@ const CategorySlider = () => {
           slidesToScroll: 1,
         },
       },
+
     ],
+    
   };
 
   const onCardClick = (element) => {

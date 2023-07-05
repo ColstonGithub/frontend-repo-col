@@ -57,6 +57,7 @@ const BrandPage = () => {
         <FMTypography
           displayText={"The Brands Colston"}
           styleData={{
+            fontFamily:"Rajdhani",
             fontWeight: "600",
             fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",
             textAlign: "center",
@@ -121,6 +122,7 @@ const BrandPage = () => {
                         sx={{
                           fontSize: "18px",
                           color: "#222222",
+                          fontFamily:"Rajdhani"
                         }}
                       >
                         {elem?.title}
