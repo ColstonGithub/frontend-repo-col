@@ -5,31 +5,59 @@ import { useDispatch, useSelector } from "react-redux";
 import { Grid, useMediaQuery } from "@mui/material";
 import Slider from "react-slick-slider";
 import { postNewArrival } from "Redux/Slices/NewArrival/NewArrival";
+import { CircularProgress } from "@mui/material";
+const loadingWrapper = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "200px" /* Adjust height as needed */,
+};
 
 const CategorySlider = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const banners = useSelector(
-    (state) => state.newArrival?.banners?.newArrivals
-  );
+
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
   const responsiveMobile2 = useMediaQuery("(max-width: 770px)");
-
-  useEffect(() => {
-    dispatch(postNewArrival());
-  }, []);
 
   const category_settings = {
     dots: false,
     infinite: true,
     speed: 500,
+    lazyLoad: true,
     draggable: true,
     centerPadding: "0px",
-    centerMode: true,
-    autoplay: false,
     arrows: responsiveMobile || responsiveMobile2 ? false : true,
-    slidesToShow: responsiveMobile ? 2 : 4,
-    slidesToScroll: responsiveMobile ? 1 : 1,
+    slidesToShow: responsiveMobile ? 2 : 6,
+    slidesToScroll: 1,
+    autoplay: false,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const onCardClick = (element) => {
@@ -37,33 +65,46 @@ const CategorySlider = () => {
     navigate(`/product-detail/${pId}`);
   };
 
+  useEffect(() => {
+    dispatch(postNewArrival());
+  }, []);
+  const banners = useSelector(
+    (state) => state.newArrival?.banners?.newArrivals
+  );
   return (
-    <div className="bestseller samecard">
+    <div>
       <Container fluid>
-        <Row>
+        <Row className="m-0 p-0">
           <Col md={12}>
             <div className="heading_text">
               <h3>New Arrivals</h3>
             </div>
           </Col>
           <Col>
-            <Slider {...category_settings}>
-              {banners?.map((idata, i) => (
-                <div
-                  key={idata._id}
-                  onClick={() => onCardClick(idata)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    src={idata?.productPictures[0]?.img}
-                    alt={idata?.productPictures[0]?.imageAltText}
-                  />
-                  <div className="card_name">
-                    <h4 style={{ textAlign: "center" }}>{idata?.name}</h4>
+            {banners && banners.length > 0 ? (
+              <Slider {...category_settings}>
+                {banners.map((idata, i) => (
+                  <div
+                    key={idata?._id}
+                    onClick={() => onCardClick(idata)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img
+                      className="img-fluid"
+                      src={idata?.productPictures[0]?.img}
+                      alt={idata?.productPictures[0]?.imageAltText}
+                    />
+                    <div>
+                      <h4 style={{ textAlign: "center" }}>{idata?.name}</h4>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Slider>
+                ))}
+              </Slider>
+            ) : (
+              <div style={{ ...loadingWrapper }}>
+                <CircularProgress />
+              </div>
+            )}
           </Col>
         </Row>
       </Container>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Banner from "../components/HomePage/Banner";
 import Header from "components/SearchBar/Header";
 import { Row, Col, Container } from "react-bootstrap";
@@ -80,313 +80,78 @@ const LandingPage = () => {
         <Banner />
       </div>
 
-      {/* <Grid style={{ display: "flex", justifyContent: "center" }}>
-        <Row
-          style={{ margin: "80px 366px 80px 50px", justifyContent: "center" }}
-        >
-          <div style={{ position: "relative" }}>
-            {" "}
-            <Col md={6}>
-              <div>
-                <img src={FaucetImage} alt="" />
-              </div>
-            </Col>
-            <Col
-              md={6}
-              style={{
-                position: "absolute",
-                top: 0,
-                right: 0,
-                marginTop: "7.5rem",
-                animation: "2s slidein-right",
-                animationDelay: "5s",
-                transition: " all 0.5s ease-in-out",
-                animationIterationCount: 1,
-                animationFillMode: "both",
-              }}
+      {banners &&
+        banners?.map((item, index) => (
+          <section style={{ marginTop: "60px" }}>
+            <div
+              class="container reveal"
+              onClick={() => onCatClick(item?.categoryId)}
             >
-              <div style={{ marginLeft: "14.1rem" }}>
-                <img src={FaucetsText} alt="" />
-                <FMButton
-                  sx={{
-                    // width: 317px;
-                    // height: 79px;
-                    marginLeft: "8rem",
-                    padding: "12px 87px",
-                    background: "#C02222",
-                    boxShadow:
-                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                    borderRadius: "10px",
-                    fontFamily: "'Montserrat'",
-                    textTransform: "capitalize",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    fontSize: "32px",
-                    "&:hover": {
-                      background: "#AD1F1F",
-                    },
-                  }}
-                  displayText={"Discover"}
-                />
-              </div>
-            </Col>
-          </div>
-        </Row>
-      </Grid> */}
-      {banners?.map((item, index) => (
-        <section style={{ marginTop: "60px" }}>
-          <div
-            class="container reveal"
-            onClick={() => onCatClick(item?.categoryId)}
-          >
-            <Row class="text-container">
-              {/* //If index is even image will render first */}
-              {index % 2 !== 0 ? (
-                <Col xs={12} style={{ cursor: "pointer" }}>
-                  <img
-                    src={item?.bannerImage}
-                    alt={item?.bannerImageAltText}
-                    style={
-                      responsiveMobile
-                        ? {
-                            width: "255px",
-                            height: "150px",
-                            marginLeft: "20px",
-                          }
-                        : { width: "86.5%" }
-                    }
-                  />
+              <Row class="text-container">
+                {/* //If index is even image will render first */}
+                {index % 2 !== 0 ? (
+                  <Col xs={12} style={{ cursor: "pointer" }}>
+                    <img
+                      src={item?.bannerImage}
+                      alt={item?.bannerImageAltText}
+                      style={
+                        responsiveMobile
+                          ? {
+                              width: "255px",
+                              height: "150px",
+                              marginLeft: "20px",
+                            }
+                          : { width: "86.5%" }
+                      }
+                    />
+                  </Col>
+                ) : (
+                  ""
+                )}
+
+                <Col
+                  class="text-box"
+                  style={index % 2 !== 0 ? Style.two : Style.one}
+                >
+                  <div>
+                    <img
+                      src={item?.bannerImageText}
+                      alt={item?.bannerImageTextAltText}
+                      className="banner-image-text"
+                      style={{ cursor: "pointer" }}
+                    />
+                  </div>
                 </Col>
-              ) : (
-                ""
-              )}
-
-              <Col
-                class="text-box"
-                style={index % 2 !== 0 ? Style.two : Style.one}
-              >
-                <div>
-                  <img
-                    src={item?.bannerImageText}
-                    alt={item?.bannerImageTextAltText}
-                    className="banner-image-text"
-                    style={{ cursor: "pointer" }}
-                  />
-                </div>
-                {/* <FMButton
-                  sx={{
-                    marginLeft: index % 2 === 0 ? "8.88vw" : "13.33vw",
-                    padding: "0.83vw 6vw",
-                    background: "#C02222",
-                    boxShadow:
-                      "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                    borderRadius: "10px",
-                    fontFamily: "'Montserrat'",
-                    textTransform: "capitalize",
-                    fontStyle: "normal",
-                    fontWeight: "500",
-                    fontSize: "2.22vw",
-                    "&:hover": {
-                      background: "#AD1F1F",
-                    },
-                  }}
-                  displayText={item.buttonText}
-                /> */}
-              </Col>
-              {index % 2 !== 0 ? (
-                ""
-              ) : (
-                <Col>
-                  <img
-                    src={item?.bannerImage}
-                    alt={item?.bannerImageAltText}
-                    style={
-                      responsiveMobile
-                        ? {
-                            width: "255px",
-                            height: "150px",
-                            marginLeft: "80px",
-                          }
-                        : {
-                            width: "85.5%",
-                            marginLeft: "15.5%",
-                            cursor: "pointer",
-                          }
-                    }
-                  />
-                </Col>
-              )}
-            </Row>
-          </div>
-        </section>
-      ))}
-
-      {/* <section style={{ marginTop: "80px" }}>
-        <div class="container reveal" onClick={() => onCatClick("Faucets")}>
-          <Row class="text-container">
-            <Col class="text-box">
-              <img src={FaucetImage} alt="" />
-            </Col>
-            <Col
-              className="text-box"
-              style={{
-                position: "absolute",
-                left: "46.1rem",
-                top: "7.5rem",
-              }}f
-            >
-              <div>
-                <img src={FaucetsText} alt="" />
-              </div>
-              <FMButton
-                sx={{
-                  marginLeft: "8rem",
-                  padding: "12px 87px",
-                  background: "#C02222",
-                  boxShadow:
-                    "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                  borderRadius: "10px",
-                  fontFamily: "'Montserrat'",
-                  textTransform: "capitalize",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  fontSize: "32px",
-                  "&:hover": {
-                    background: "#AD1F1F",
-                  },
-                }}
-                displayText={"Discover"}
-              />
-            </Col>
-          </Row>
-        </div>
-      </section>
-
-      <section style={{ marginTop: "80px" }}>
-        <div className="container reveal" onClick={() => onCatClick("Wellness")}>
-          <Row className="text-container">
-            <Col
-              className="text-box"
-              style={{
-                position: "absolute",
-                top: "9.5rem",
-                right: "2.7rem",
-              }}
-            >
-              <div>
-                <img src={Wellness} alt="" />
-              </div>
-              <FMButton
-                sx={{
-                  marginLeft: "12rem",
-                  padding: "12px 87px",
-                  background: "#C02222",
-                  boxShadow:
-                    "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                  borderRadius: "10px",
-                  fontFamily: "'Montserrat'",
-                  textTransform: "capitalize",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  fontSize: "32px",
-                  "&:hover": {
-                    background: "#AD1F1F",
-                  },
-                }}
-                displayText={"Discover"}
-              />
-            </Col>
-            <Col className="text-box" style={{ textAlign: "end" }}>
-              <img src={WellnessImage} alt="" />
-            </Col>
-          </Row>
-        </div>
-      </section>
-
-      <section style={{ marginTop: "80px" }}>
-        <div className="container reveal" onClick={() => onCatClick("Showers")}>
-          <Row className="text-container">
-            <Col className="text-box">
-              <img src={ShowersImage} alt="" />
-            </Col>
-            <Col
-              className="text-box"
-              style={{
-                position: "absolute",
-                left: "41.6rem",
-                top: "7.5rem",
-              }}
-            >
-              <div s>
-                <img src={ShowersText} alt="" />
-              </div>
-              <FMButton
-                sx={{
-                  marginLeft: "17rem",
-                  padding: "12px 87px",
-                  background: "#C02222",
-                  boxShadow:
-                    "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                  borderRadius: "10px",
-                  fontFamily: "'Montserrat'",
-                  textTransform: "capitalize",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  fontSize: "32px",
-                  "&:hover": {
-                    background: "#AD1F1F",
-                  },
-                }}
-                displayText={"Discover"}
-              />
-            </Col>
-          </Row>
-        </div>
-      </section>
-
-      <section style={{ marginTop: "80px", marginBottom: "80px" }}>
-        <div className="container reveal" onClick={() => onCatClick("Basins")}>
-          <Row className="text-container">
-            <Col
-              className="text-box"
-              style={{
-                position: "absolute",
-                top: "9.5rem",
-                right: "2.7rem",
-              }}
-            >
-              <div>
-                <img src={BasinsText} alt="" />
-              </div>
-              <FMButton
-                sx={{
-                  marginLeft: "8rem",
-                  padding: "12px 87px",
-                  background: "#C02222",
-                  boxShadow:
-                    "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
-                  borderRadius: "10px",
-                  fontFamily: "'Montserrat'",
-                  textTransform: "capitalize",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  fontSize: "32px",
-                  "&:hover": {
-                    background: "#AD1F1F",
-                  },
-                }}
-                displayText={"Discover"}
-              />
-            </Col>
-            <Col className="text-box" style={{ textAlign: "end" }}>
-              <img src={BasinsImage} alt="" />
-            </Col>
-          </Row>
-        </div>
-      </section> */}
+                {index % 2 !== 0 ? (
+                  ""
+                ) : (
+                  <Col>
+                    <img
+                      src={item?.bannerImage}
+                      alt={item?.bannerImageAltText}
+                      style={
+                        responsiveMobile
+                          ? {
+                              width: "255px",
+                              height: "150px",
+                              marginLeft: "80px",
+                            }
+                          : {
+                              width: "85.5%",
+                              marginLeft: "15.5%",
+                              cursor: "pointer",
+                            }
+                      }
+                    />
+                  </Col>
+                )}
+              </Row>
+            </div>
+          </section>
+        ))}
 
       <div>
-        <Container fluid>
+        <Container fluid style={{ padding: "80px 80px 0px" }}>
           <Row
             style={
               !responsiveMobile

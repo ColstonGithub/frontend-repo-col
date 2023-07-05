@@ -17,20 +17,15 @@ import "./ProductDetail.css";
 import { signUpSchema } from "validationSchema/signupSchema";
 import { Col, Container, Row } from "react-bootstrap";
 
-// import products from "../../constants/product";
-//import productDetail from "../../constants/productDetail";
-
 import SimilarProduct from "./SimilarProduct";
 import Footer from "../../components/Footer";
 import Form from "./Form";
 import { useMediaQuery } from "@mui/material";
-import CategorySlider from "components/HomePage/CategorySlider";
 import { getProductPageDetail } from "Redux/Slices/GetProducts/ProductPageDetails";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  // const { id } = params;
   const [color, setColor] = useState();
   const [open, setOpen] = useState(false);
   const [apiImgs, setApiImgs] = useState([]);
@@ -43,8 +38,6 @@ const ProductDetail = () => {
   }, [dispatch, params]);
 
   const productDetail = useSelector((state) => state.ProductPageDetail.data);
-
-  // console.log("products", productDetail);
 
   const {
     register,
@@ -132,7 +125,6 @@ const ProductDetail = () => {
   const handleClose = () => setOpen(false);
 
   const handleColorClick = (i) => {
-    console.log("Clicking ", i);
     const imgs = productDetail?.product?.colors?.[i].productPictures?.map(
       (elem) => ({
         original: elem?.img,

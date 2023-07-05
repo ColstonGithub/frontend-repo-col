@@ -317,13 +317,11 @@ section .text-container .text-box {
   background-color: #fff;
 }
 .slick-prev {
-  left: 17px;
   padding: 15px 20px 13px 15px;
 }
 
 .slick-next {
   padding: 15px 15px 13px 20px;
-  right: 20px;
 }
 
 .bestseller {
