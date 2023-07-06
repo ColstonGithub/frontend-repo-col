@@ -86,7 +86,7 @@ const Header = () => {
   const company = [
     "The Brand Colston",
     "Corporate",
-    "Exhibition",
+    "Exhibitions",
     "Videos",
     "News & Press Release",
     "Privacy Policy",

@@ -30,7 +30,7 @@ const Exhibition = () => {
         }}
       >
         <FMTypography
-          displayText={"Exhibition"}
+          displayText={"Exhibitions"}
           styleData={{
             fontWeight: "600",
             fontSize: "2.8rem",

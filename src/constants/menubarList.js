@@ -30,7 +30,7 @@ export default {
         },
         {
           "_id": "63e74cad4d118f475c8542dc",
-          "name": "Exhibition",
+          "name": "Exhibitions",
           "slug": "Gifts-By-Choice",
           "parentId": "63e740a34d118f475c8542c4",
         }

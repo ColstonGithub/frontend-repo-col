@@ -205,7 +205,7 @@ const LandingPage = () => {
                       : {}
                   }
                 >
-                  Exclusive Collection/ Design
+                  Exclusive Design
                 </h3>
               </div>
             </Col>
