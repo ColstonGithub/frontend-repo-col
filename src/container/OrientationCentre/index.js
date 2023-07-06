@@ -6,12 +6,13 @@ import orientationCentreDetail from "constants/orientationCentre";
 
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
-
-
+import { Link } from "react-router-dom";
+import locationIcon from "../../assets/location.png";
+import DirectionsIcon from "@mui/icons-material/Directions";
 const OrientationCentre = () => {
   const orientationCentreData = orientationCentreDetail.orientation;
-  const responsiveTablet = useMediaQuery('(max-width: 1000px)');
-  const responsiveMobile = useMediaQuery('(max-width: 500px)');
+  const responsiveTablet = useMediaQuery("(max-width: 1000px)");
+  const responsiveMobile = useMediaQuery("(max-width: 500px)");
 
   return (
     <>
@@ -45,7 +46,11 @@ const OrientationCentre = () => {
         >
           <img
             src={orientationCentre}
-            style={{ width: "100%", height: !responsiveMobile ? "auto" : "62vw", borderRadius: "20px" }}
+            style={{
+              width: "100%",
+              height: !responsiveMobile ? "auto" : "62vw",
+              borderRadius: "20px",
+            }}
             alt="orientation"
           />
         </Box>
@@ -53,57 +58,75 @@ const OrientationCentre = () => {
         <Grid>
           <Box
             sx={{
-            display: "flex",
-            justifyContent: "center",
-            paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-            paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
+              display: "flex",
+              justifyContent: "center",
+              paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
+              paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
             }}
           >
             <FMTypography
-            displayText={"List Of Colston World & Orientation Centres"}
-            styleData={{
+              displayText={"List Of Colston World & Orientation Centres"}
+              styleData={{
                 fontWeight: "600",
                 fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",
                 textAlign: "center",
-            }}
+              }}
             />
           </Box>
           <Grid
             sx={{
-                display: "flex",
-                flexDirection: responsiveTablet ? "column" : "row",
-                flexBasis: "30%",
-                justifyContent: "space-evenly",
-                padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
+              display: "flex",
+              flexDirection: responsiveTablet ? "column" : "row",
+              flexBasis: "30%",
+              justifyContent: "space-evenly",
+              padding: !responsiveMobile
+                ? "0px 3.2rem 5rem"
+                : "0px 1.4rem 5rem",
             }}
           >
             {orientationCentreData?.map((elem) => (
-                <Box
-                    sx={{
-                        padding: "24px",
-                        background: "#FFFFFF",
-                        boxShadow: "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
-                        borderRadius: "20px",
-                        fontFamily: 'Rajdhani',
-                        fontStyle: 'normal',            
-                        fontSize: !responsiveMobile ? "1rem" : "1.4rem",
-                        fontColor: "#717171",
-                        margin: !responsiveMobile ? "1.5rem" : "1rem 0"
-                    }}
-                >
-                    <h3>{elem.city.toUpperCase()}</h3>
-                    <p>{elem.centre}</p>
-                    <p>{elem.address}</p>
-                    <p><b>OC Appointment</b>: {elem.appointment}</p>
-                    <p><b>Service</b>: {elem.service}</p>
-                    <p><b>Purchase Assistance</b> : {elem.assistance}</p>
-                    <p><b>Email</b> : {elem.email}</p>
-                </Box>
+              <Box
+                sx={{
+                  padding: "24px",
+                  background: "#FFFFFF",
+                  boxShadow:
+                    "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
+                  borderRadius: "20px",
+                  fontFamily: "Rajdhani",
+                  fontStyle: "normal",
+                  fontSize: !responsiveMobile ? "1rem" : "1.4rem",
+                  fontColor: "#717171",
+                  margin: !responsiveMobile ? "1.5rem" : "1rem 0",
+                }}
+              >
+                <h3>{elem?.city.toUpperCase()}</h3>
+                <p>{elem?.centre}</p>
+                <p>{elem?.address}</p>
+                <p>
+                  <b>OC Appointment</b>: {elem?.appointment}
+                </p>
+                <p>
+                  <b>Service</b>: {elem?.service}
+                </p>
+                <p>
+                  <b>Purchase Assistance</b> : {elem?.assistance}
+                </p>
+                <p>
+                  <b>Email</b> : {elem?.email}
+                </p>
+                <p>
+                  <b>Location</b> : &nbsp;
+                  <Link to={elem?.location} target="_blank">
+                    <DirectionsIcon style={{ width: "25px", height: "25px" }} />
+                    Get Directions
+                  </Link>
+                </p>
+              </Box>
             ))}
           </Grid>
         </Grid>
       </Grid>
-      
+
       <Footer />
     </>
   );
