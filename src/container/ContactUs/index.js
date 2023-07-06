@@ -163,7 +163,7 @@ const ContactUs = () => {
                   required
                   id="subject"
                   name="subject"
-                  placeholder="Subject"
+                  placeholder="Location"
                   sx={{
                     ...commonStyle.inputFieldContactStyle,
                     ...(errors.subject && commonStyle.errorContactStyle),
