@@ -289,7 +289,7 @@ const Header = () => {
                                         onCategoryCardClick(elem._id)
                                       }
                                     />
-                                    {elem?.children?.map((secElem) => (
+                                    {elem?.children?.slice().reverse().map((secElem) => (
                                       <Col md={12}>
                                         <div>
                                           <FMTypography
