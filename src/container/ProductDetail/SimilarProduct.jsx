@@ -74,19 +74,24 @@ const SimilarProduct = () => {
   const onCardClick = (element) => {
     let pId = element?._id;
     navigate(`/product-detail/${pId}`);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <div className="bestseller samecard">
+    <div>
       <Container fluid style={{ paddingBottom: "40px" }}>
-        <Row>
+        <Row className="m-0 p-0">
           <Col md={12}>
             <div className="heading_text">
               <h3>Similar Products</h3>
             </div>
           </Col>
 
-          <Col>
+          <Col style={{ paddingLeft: "50px", paddingRight: "50px" }}>
             {productDetail && productDetail.length > 0 ? (
               <Slider {...category_settings}>
                 {productDetail?.map((idata, i) => (

@@ -269,13 +269,7 @@ section .text-container .text-box {
   text-decoration: none;
   position: relative;
 }
-/* .slick-slide img {
-  width: 200px;
-  height: 250px;
-  border-radius: 104px;
-  object-fit: cover;
-  margin: 0 35px 0;
-} */
+
 .slick-slide h4 {
   font-size: 1.125rem;
   font-weight: 400;
@@ -353,12 +347,7 @@ section .text-container .text-box {
 .samecard .slick-slide a {
   display: grid;
 }
-/* .samecard .slick-slide .card_name {
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-} */
+
 .samecard .slick-slide .card_name h4 {
   color: #222222;
   padding: 16px 0px 0px 0px;
@@ -396,29 +385,17 @@ section .text-container .text-box {
     margin: 3px 0px 13px;
     padding: 0px;
   }
-  /* .samecard .slick-prev {
-    left: -10px;
-  }
-  .samecard .slick-next {
-    right: -15px;
-  } */
+
   .samecard .slick-slide a {
     display: grid;
   }
-  /* .samecard .slick-slide .card_name {
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-} */
+
   .samecard .slick-slide .card_name h4 {
     color: #222222;
     padding: 4px 11px 30px 0px;
 
     width: 145px;
     height: 15px;
-    /* left: 27px; */
-    /* top: 1236px; */
 
     font-family: "Rajdhani";
     font-style: normal;
@@ -567,7 +544,6 @@ section .text-container .text-box {
     width: 233px;
     height: 29px;
     left: 71px;
-    /* top: 1425px; */
     margin: 0 auto;
     padding: 70px 0 46px;
   }
@@ -615,7 +591,6 @@ section .text-container .text-box {
     content: "";
     left: 0;
     top: 0;
-    /* background-color: #00000040; */
   }
 
   .shopbyocca .heighautoimg {
@@ -627,7 +602,6 @@ section .text-container .text-box {
   .shopbyocca .heighautoimg a {
     position: relative;
     overflow: hidden;
-    /* margin-bottom: 25px; */
     display: block;
   }
   .shopbyocca .heighautoimg a img {
@@ -662,7 +636,6 @@ section .text-container .text-box {
   .shopbyocca .heighautoimg2 a {
     position: relative;
     overflow: hidden;
-    /* margin-bottom: 25px; */
     display: block;
   }
   .shopbyocca .heighautoimg2 a img {
@@ -675,7 +648,6 @@ section .text-container .text-box {
     width: 52px;
     height: 15px;
     left: 66px;
-    /* top: 1799px; */
     font-family: "Rajdhani";
     font-style: normal;
     font-weight: 500;
