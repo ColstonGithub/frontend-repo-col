@@ -310,10 +310,48 @@ const ProductDetail = () => {
                   }}
                   onClick={handleOpen}
                 />
-
-                <a href={productDetail?.product?.pdf}>
+                {productDetail?.product?.pdf &&
+                productDetail?.product?.pdf.length > 0 ? (
+                  <a
+                    href={
+                      productDetail?.product?.pdf &&
+                      productDetail?.product?.pdf != ""
+                        ? productDetail?.product?.pdf
+                        : ""
+                    }
+                  >
+                    <FMButton
+                      displayText={
+                        productDetail?.product?.pdf &&
+                        productDetail?.product?.pdf != ""
+                          ? "Download Pdf"
+                          : "No Pdf Available"
+                      }
+                      variant={"contained"}
+                      styleData={{
+                        background: "#c02121",
+                        borderRadius: "10px",
+                        fontWeight: "700",
+                        fontSize: "1rem",
+                        fontFamily: "Rajdhani",
+                        textTransform: "capitalise",
+                        color: "#FFFFFF",
+                        width: responsiveMobile ? "35vw" : "222px",
+                        height: "52px",
+                        "&:hover": {
+                          background: "#AD1F1F",
+                        },
+                      }}
+                    />
+                  </a>
+                ) : (
                   <FMButton
-                    displayText={"Download Pdf"}
+                    displayText={
+                      productDetail?.product?.pdf &&
+                      productDetail?.product?.pdf != ""
+                        ? "Download Pdf"
+                        : "No Pdf Available"
+                    }
                     variant={"contained"}
                     styleData={{
                       background: "#c02121",
@@ -330,8 +368,7 @@ const ProductDetail = () => {
                       },
                     }}
                   />
-                </a>
-
+                )}
                 <input type={"submit"} hidden />
               </Box>
 
