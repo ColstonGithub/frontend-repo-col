@@ -21,14 +21,14 @@ export const SearchStyle = {
       lineHeight: "1.3125rem",
       fontFamily: "'Rajdhani'",
       fontStyle: "normal",
-      fontWeight: "400",
+      fontWeight: "500",
       color: "black",
       fontSize: "0.875rem",
     },
 
     "&::placeholder": {
       fontFamily: "'Rajdhani'",
-      fontWeight: "300",
+      fontWeight: "500",
       fontSize: "16px",
       color: "#717171",
     },

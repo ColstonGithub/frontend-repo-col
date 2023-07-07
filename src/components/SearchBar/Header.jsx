@@ -115,7 +115,7 @@ const Header = () => {
                 displayText={"Colston World"}
                 sx={{
                   fontFamily: "Rajdhani",
-                  fontWeight: "400",
+                  fontWeight: "500",
                   fontSize: "16px",
                   color: "#FFFFFF",
                   marginRight: "8px",
@@ -138,7 +138,7 @@ const Header = () => {
                 displayText={"Dealership Query"}
                 sx={{
                   fontFamily: "Rajdhani",
-                  fontWeight: "400",
+                  fontWeight: "500",
                   fontSize: "16px",
                   color: "#FFFFFF",
                   marginRight: "24px",
@@ -151,7 +151,7 @@ const Header = () => {
                   onClick={() => onContactClick()}
                   styleData={{
                     fontFamily: "Rajdhani",
-                    fontWeight: "400",
+                    fontWeight: "500",
                     fontSize: "10px",
                     background: "#FFF",
                     color: "#000",
@@ -238,7 +238,7 @@ const Header = () => {
                                     sx={{
                                       fontFamily: "Rajdhani",
                                       fontStyle: "normal",
-                                      fontWeight: "400",
+                                      fontWeight: "500",
                                       fontSize: "18px",
                                       lineHeight: "22px",
                                       cursor: "pointer",
@@ -298,7 +298,7 @@ const Header = () => {
                                             sx={{
                                               fontFamily: "Rajdhani",
                                               fontStyle: "normal",
-                                              fontWeight: "400",
+                                              fontWeight: "500",
                                               fontSize: "18px",
                                               cursor: "pointer",
                                               lineHeight: "22px",
@@ -351,7 +351,7 @@ const Header = () => {
                                       fontFamily: "Rajdhani",
                                       cursor: "pointer",
                                       fontStyle: "normal",
-                                      fontWeight: "400",
+                                      fontWeight: "500",
                                       fontSize: "18px",
                                       lineHeight: "22px",
                                       color: "#717171",

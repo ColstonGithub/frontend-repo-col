@@ -273,7 +273,7 @@ const ProductDetail = () => {
                   style={{
                     fontFamily: "Rajdhani",
                     fontStyle: "normal",
-                    fontWeight: "400",
+                    fontWeight: "500",
                     fontSize: "16px",
                     lineHeight: "140%",
                     color: "#717171",
@@ -389,7 +389,7 @@ const ProductDetail = () => {
                   style={{
                     fontFamily: "Rajdhani",
                     fontStyle: "normal",
-                    fontWeight: "400",
+                    fontWeight: "500",
                     fontSize: "16px",
                     lineHeight: "140%",
                     color: "#717171",

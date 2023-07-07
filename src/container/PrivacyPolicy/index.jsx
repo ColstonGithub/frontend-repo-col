@@ -87,7 +87,7 @@ const PrivacyPolicy = () => {
             confidential to the brand. At any point Colston is doesn’t hold any
             sort of liability to the individual who has uploaded personal
             information over the website i.e.{" "}
-            <span>
+            <span className="privacy-policy-content-hover">
               <Link to="https://www.colstonconcepts.com/" target="_blank">
                 www.colstonconcepts.com&nbsp;
               </Link>
@@ -173,7 +173,9 @@ const PrivacyPolicy = () => {
             Please drop the mail at{" "}
             <span>
               <Link to="mailto: abc@example.com" target="_blank">
-                <span>info@colstonconcepts.com&nbsp;</span>
+                <span className="privacy-policy-content-hover">
+                  info@colstonconcepts.com&nbsp;
+                </span>
               </Link>
             </span>
             for any updates or queries relevant to our privacy policy.

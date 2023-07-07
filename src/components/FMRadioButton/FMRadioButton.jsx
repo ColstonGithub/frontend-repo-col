@@ -22,7 +22,7 @@ const styles = {
   formControlLabelStyles: {
     ".MuiFormControlLabel-label": {
       color: BLACK,
-      fontWeight: 400,
+      fontWeight: 500,
     },
   },
   radioStyles: {

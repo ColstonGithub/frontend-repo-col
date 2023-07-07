@@ -62,7 +62,7 @@
 }
 .banner_slider .banner_img .banner_content p {
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 500;
   color: #fff;
   margin: 0;
   padding: 15px 0;
@@ -272,7 +272,7 @@ section .text-container .text-box {
 
 .slick-slide h4 {
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   padding: 10px 0 0;
 }
@@ -351,7 +351,7 @@ section .text-container .text-box {
 .samecard .slick-slide .card_name h4 {
   color: #222222;
   padding: 16px 0px 0px 0px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 20px;
 }
 .slick-slide.slick-active.slick-cloned.banner_img {

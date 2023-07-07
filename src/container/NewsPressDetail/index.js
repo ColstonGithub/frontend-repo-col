@@ -72,7 +72,7 @@ const NewsPressDetail = () => {
             style={{
               fontFamily: "Rajdhani",
               fontStyle: "normal",
-              fontWeight: "400",
+              fontWeight: "500",
               fontSize: "1rem",
               color: "#222222",
             }}

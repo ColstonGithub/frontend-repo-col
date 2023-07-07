@@ -39,7 +39,7 @@ export const commonStyle = {
     color: "black",
     fontFamily: "Rajdhani",
     fontStyle: "normal",
-    fontWeight: "400",
+    fontWeight: "500",
     paddingLeft: "20px",
     fontSize: "16px",
     "& .MuiOutlinedInput-notchedOutline": {
@@ -49,7 +49,7 @@ export const commonStyle = {
     "&::placeholder": {
       fontFamily: "Rajdhani",
       fontStyle: "normal",
-      fontWeight: "400",
+      fontWeight: "500",
       fontSize: "16px",
       lineHeight: "20px",
       paddingLeft: "20px",
@@ -82,7 +82,7 @@ export const commonStyle = {
     color: "black",
     fontFamily: "Rajdhani",
     fontStyle: "normal",
-    fontWeight: "400",
+    fontWeight: "500",
     paddingLeft: "20px",
     fontSize: "16px",
     "& .MuiOutlinedInput-notchedOutline": {
@@ -92,7 +92,7 @@ export const commonStyle = {
     "&::placeholder": {
       fontFamily: "Rajdhani",
       fontStyle: "normal",
-      fontWeight: "400",
+      fontWeight: "500",
       fontSize: "16px",
       lineHeight: "20px",
       paddingLeft: "20px",

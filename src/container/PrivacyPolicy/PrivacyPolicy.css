@@ -1,35 +1,80 @@
+.privacy-policy-container {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-bottom: 40px;
+}
+
+.privacy-policy-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.privacy-policy-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.privacy-policy-content {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.privacy-policy-content a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.privacy-policy-content a:hover {
+  text-decoration: underline;
+}
+
 .privacy_policy_title {
+  font-size: 24px;
   font-family: "Rajdhani";
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
 
   margin-top: 40px;
   margin-bottom: 40px;
   font-size: 40px;
   line-height: 49px;
   text-align: center;
-  color: #222222;
+  color: #000;
 }
 
 .privacy_policy_heading {
   font-family: "Rajdhani";
   font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: bold;
   line-height: 29px;
-  color: #222222;
+  color: #000;
 }
 
 .privacy_policy_content {
   font-family: "Rajdhani";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: #717171;
+  color: #000;
 }
 
 .row {
   display: flex;
   margin-top: 0%;
 }
+
+.privacy-policy-content-hover {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.privacy-policy-content-hover:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+

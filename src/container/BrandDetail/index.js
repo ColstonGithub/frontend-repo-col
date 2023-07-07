@@ -82,7 +82,7 @@ const BrandDetail = () => {
             style={{
               fontFamily: "Rajdhani",
               fontStyle: "normal",
-              fontWeight: "400",
+              fontWeight: "500",
               fontSize: "1.2rem",
               color: "#222222",
             }}
