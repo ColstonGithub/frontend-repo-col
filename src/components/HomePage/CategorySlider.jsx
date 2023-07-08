@@ -18,7 +18,7 @@ const CategorySlider = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const responsiveMobile2 = useMediaQuery("(max-width: 770px)");
 
   const category_settings = {
@@ -54,7 +54,7 @@ const CategorySlider = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },

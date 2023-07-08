@@ -146,7 +146,13 @@ const LandingPage = () => {
         ))}
 
       <div>
-        <Container fluid style={{ padding: "80px 80px 0px" }}>
+        <Container
+          fluid
+          className="shopbyocca"
+          style={{
+            padding: responsiveMobile ? "0px 80px 40px" : "0px 80px 50px",
+          }}
+        >
           <Row
             style={
               !responsiveMobile
@@ -170,16 +176,9 @@ const LandingPage = () => {
 
       <Container fluid>
         <Row
-          style={
-            responsiveMobile
-              ? {
-                  position: "absolute",
-                  width: "343px",
-                  height: "126px",
-                  left: "26px",
-                }
-              : { padding: "80px 85px 0" }
-          }
+          style={{
+            padding: !responsiveMobile ? "0px 40px 0 40px" : "40px 40px 0px",
+          }}
         >
           <Col style={{}}>
             <img
@@ -196,17 +195,7 @@ const LandingPage = () => {
           <Row style={{ margin: "0", marginTop: "80px" }}>
             <Col md={12}>
               <div className="heading_text">
-                <h3
-                  style={
-                    responsiveMobile
-                      ? {
-                          paddingBottom: "75px",
-                        }
-                      : {}
-                  }
-                >
-                  Exclusive Design
-                </h3>
+                <h3>Exclusive Design</h3>
               </div>
             </Col>
 
