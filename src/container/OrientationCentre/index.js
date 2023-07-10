@@ -40,7 +40,7 @@ const OrientationCentre = () => {
         <Box
           sx={{
             borderRadius: "20px",
-            padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
+            padding: !responsiveMobile ? "0px 3.2rem 0rem" : "0px 1.4rem 0rem",
           }}
         >
           <img

@@ -88,7 +88,6 @@ const LandingPage = () => {
                   <Col
                     xs={12}
                     style={{ cursor: "pointer" }}
-                    className="category-hover"
                   >
                     <img
                       src={item?.bannerImage}
@@ -100,7 +99,7 @@ const LandingPage = () => {
                               height: "150px",
                               marginLeft: "20px",
                             }
-                          : { width: "86.5%" }
+                          : { width: "100%" }
                       }
                     />
                   </Col>
@@ -109,7 +108,7 @@ const LandingPage = () => {
                 )}
 
                 <Col
-                  class="text-box category-hover"
+                  class="text-box"
                   style={index % 2 !== 0 ? Style.two : Style.one}
                 >
                   <div>
@@ -124,7 +123,7 @@ const LandingPage = () => {
                 {index % 2 !== 0 ? (
                   ""
                 ) : (
-                  <Col className="category-hover">
+                  <Col>
                     <img
                       src={item?.bannerImage}
                       alt={item?.bannerImageAltText}
@@ -136,8 +135,7 @@ const LandingPage = () => {
                               marginLeft: "80px",
                             }
                           : {
-                              width: "85.5%",
-                              marginLeft: "15.5%",
+                              width: "100%",
                               cursor: "pointer",
                             }
                       }

@@ -289,28 +289,31 @@ const Header = () => {
                                         onCategoryCardClick(elem._id)
                                       }
                                     />
-                                    {elem?.children?.slice().reverse().map((secElem) => (
-                                      <Col md={12}>
-                                        <div>
-                                          <FMTypography
-                                            className="link-hover"
-                                            displayText={secElem?.name}
-                                            sx={{
-                                              fontFamily: "Rajdhani",
-                                              fontStyle: "normal",
-                                              fontWeight: "500",
-                                              fontSize: "18px",
-                                              cursor: "pointer",
-                                              lineHeight: "22px",
-                                              color: "#2b2a29",
-                                            }}
-                                            onClick={() =>
-                                              onProductCardClick(secElem._id)
-                                            }
-                                          />
-                                        </div>
-                                      </Col>
-                                    ))}
+                                    {elem?.children
+                                      ?.slice()
+                                      .reverse()
+                                      .map((secElem) => (
+                                        <Col md={12}>
+                                          <div>
+                                            <FMTypography
+                                              className="link-hover"
+                                              displayText={secElem?.name}
+                                              sx={{
+                                                fontFamily: "Rajdhani",
+                                                fontStyle: "normal",
+                                                fontWeight: "500",
+                                                fontSize: "18px",
+                                                cursor: "pointer",
+                                                lineHeight: "22px",
+                                                color: "#2b2a29",
+                                              }}
+                                              onClick={() =>
+                                                onProductCardClick(secElem._id)
+                                              }
+                                            />
+                                          </div>
+                                        </Col>
+                                      ))}
                                   </div>
                                 </Col>
                               </Row>
