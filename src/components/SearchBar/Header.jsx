@@ -182,7 +182,7 @@ const Header = () => {
         >
           <Col
             xs={10}
-            md={2}
+            md={3}
             style={{
               ...commonStyle.flexDisplayStyle,
               padding: !responsiveMobile
@@ -201,7 +201,7 @@ const Header = () => {
             </Link>
           </Col>
 
-          <Col xs={2} md={7} style={{ ...commonStyle.flexDisplayStyle }}>
+          <Col xs={2} md={6} style={{ ...commonStyle.flexDisplayStyle }}>
             <div className="main_header">
               <Navbar bg="" expand="lg" className="p-0">
                 <Container fluid>
