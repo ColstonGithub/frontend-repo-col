@@ -106,7 +106,7 @@ const Footer = () => {
                   <div className="footer-content">Virtual Tour</div>
                 </Link>
                 <Link to="/orientation-centre">
-                  <div className="footer-content">Orientation Centre</div>
+                  <div className="footer-content">Live Display Centre</div>
                 </Link>
                 <Link to="/contact-us">
                   <div className="footer-content">Book an Appointment</div>

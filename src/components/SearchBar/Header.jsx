@@ -91,7 +91,7 @@ const Header = () => {
     "News & Press Release",
     "Privacy Policy",
     "Blog",
-    "Orientation Centre",
+    "Live Display Centre",
   ];
   const services = [
     "Careers",
