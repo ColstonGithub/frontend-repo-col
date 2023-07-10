@@ -78,7 +78,7 @@ const ProductPage = () => {
                   borderRadius: "20px",
                 }}
               >
-                <CardActionArea>
+                <CardActionArea className="zoomin-img">
                   <CardMedia
                     component="img"
                     sx={{
@@ -110,9 +110,8 @@ const ProductPage = () => {
         </Grid>
       </Grid>
 
-
-      
       <Footer />
+      
     </>
   );
 };

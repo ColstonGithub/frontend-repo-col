@@ -69,6 +69,22 @@ a {
   transform: scale(1.1);
 }
 
+
+.zoomin-img {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.zoomin-img img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+
+.zoomin-img:hover img {
+  transform: scale(1.05);
+}
+
+
 @media screen and (max-width: 500px) {
   .zoomin {
     border-radius: 20px;
@@ -81,4 +97,8 @@ a {
     height: 62vw;
     transition: 0.5s all ease-in-out;
   }
+}
+
+.category-hover:hover {
+  opacity: 0.9;
 }

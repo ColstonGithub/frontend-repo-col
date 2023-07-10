@@ -16,7 +16,6 @@ import FMTypography from "components/FMTypography/FMTypography";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-import products from "../../constants/product";
 import { getCategoryProduct } from "Redux/Slices/CategoryProduct/CategoryProductSlice";
 
 import "./productPage.css";
@@ -92,7 +91,7 @@ const CategoryPage = () => {
                     marginBottom: "1rem",
                   }}
                 >
-                  <CardActionArea>
+                  <CardActionArea className="zoomin-img">
                     <CardMedia
                       component="img"
                       sx={

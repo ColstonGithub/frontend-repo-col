@@ -93,6 +93,7 @@ const CategorySlider = () => {
                     key={idata?._id}
                     onClick={() => onCardClick(idata)}
                     style={{ cursor: "pointer" }}
+                    className="zoomin-img"
                   >
                     <img
                       className="img-fluid"

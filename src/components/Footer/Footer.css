@@ -1,5 +1,5 @@
 .footer-title {
-  color: #000000;
+  color: #2b2a29;
   font-size: 18px;
   font-weight: 700;
   font-size: 1rem;
@@ -7,22 +7,23 @@
   padding-bottom: 1.25rem;
 }
 .footer-content-address {
-  color: #717171;
+  color: #2b2a29;
   font-weight: 500;
   font-size: 1rem;
   padding-bottom: 1.15rem;
   font-family: "Rajdhani";
 }
 .footer-content {
-  color: #717171;
+  color: #2b2a29;
   font-weight: 500;
   font-size: 1rem;
   padding-bottom: 1.15rem;
   font-family: "Rajdhani";
+  cursor: pointer;
 }
 
 .footer-content:hover {
-  color: #000;
+  color: #717171;
 }
 .webgross-hover {
   color: #c02121;

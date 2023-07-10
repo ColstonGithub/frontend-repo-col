@@ -16,7 +16,7 @@ import FMButton from "components/FMButton/FMButton";
 import SearchBar from "components/SearchBar/SearchBar";
 import { HeaderStyle } from "./HeaderStyle";
 import { commonStyle } from "../../Styles/commonStyles";
-import ColstonLogo from "../../assets/ColstonLogo.svg";
+import ColstonLogo from "../../assets/ColstonLogo.png";
 import WorldIcon from "../../assets/WorldIcon.svg";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
@@ -242,7 +242,7 @@ const Header = () => {
                                       fontSize: "18px",
                                       lineHeight: "22px",
                                       cursor: "pointer",
-                                      color: "#717171",
+                                      color: "#2b2a29",
                                       marginBottom: "15px",
                                     }}
                                     onClick={() => onCompanyCardClick(i)}
@@ -282,7 +282,7 @@ const Header = () => {
                                         fontSize: "18px",
                                         lineHeight: "22px",
                                         cursor: "pointer",
-                                        color: "#222222",
+                                        color: "#2b2a29",
                                         marginBottom: "8px",
                                       }}
                                       onClick={() =>
@@ -302,7 +302,7 @@ const Header = () => {
                                               fontSize: "18px",
                                               cursor: "pointer",
                                               lineHeight: "22px",
-                                              color: "#717171",
+                                              color: "#2b2a29",
                                             }}
                                             onClick={() =>
                                               onProductCardClick(secElem._id)
@@ -354,7 +354,7 @@ const Header = () => {
                                       fontWeight: "500",
                                       fontSize: "18px",
                                       lineHeight: "22px",
-                                      color: "#717171",
+                                      color: "#2b2a29",
                                       marginBottom: "15px",
                                     }}
                                     onClick={() => onServiceCardClick(i)}

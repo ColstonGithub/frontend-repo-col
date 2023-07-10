@@ -7,7 +7,6 @@ import orientationCentreDetail from "constants/orientationCentre";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 import { Link } from "react-router-dom";
-import locationIcon from "../../assets/location.png";
 import DirectionsIcon from "@mui/icons-material/Directions";
 const OrientationCentre = () => {
   const orientationCentreData = orientationCentreDetail.orientation;
@@ -26,7 +25,7 @@ const OrientationCentre = () => {
         }}
       >
         <FMTypography
-          displayText={"Orientation Centre"}
+          displayText={"Live Display Centre"}
           styleData={{
             fontWeight: "600",
             fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",
@@ -65,7 +64,7 @@ const OrientationCentre = () => {
             }}
           >
             <FMTypography
-              displayText={"List Of Colston World & Orientation Centres"}
+              displayText={"Colston World & Showroom"}
               styleData={{
                 fontWeight: "600",
                 fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",

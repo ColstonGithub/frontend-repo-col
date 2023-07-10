@@ -85,7 +85,11 @@ const LandingPage = () => {
               <Row class="text-container">
                 {/* //If index is even image will render first */}
                 {index % 2 !== 0 ? (
-                  <Col xs={12} style={{ cursor: "pointer" }}>
+                  <Col
+                    xs={12}
+                    style={{ cursor: "pointer" }}
+                    className="category-hover"
+                  >
                     <img
                       src={item?.bannerImage}
                       alt={item?.bannerImageAltText}
@@ -105,7 +109,7 @@ const LandingPage = () => {
                 )}
 
                 <Col
-                  class="text-box"
+                  class="text-box category-hover"
                   style={index % 2 !== 0 ? Style.two : Style.one}
                 >
                   <div>
@@ -120,7 +124,7 @@ const LandingPage = () => {
                 {index % 2 !== 0 ? (
                   ""
                 ) : (
-                  <Col>
+                  <Col className="category-hover">
                     <img
                       src={item?.bannerImage}
                       alt={item?.bannerImageAltText}
@@ -215,11 +219,11 @@ const LandingPage = () => {
                   className={
                     !responsiveMobile
                       ? i === 0 || i % 5 === 0
-                        ? "heighautoimg"
-                        : "heighautoimg2"
+                        ? "heighautoimg zoomin-img"
+                        : "heighautoimg2 zoomin-img"
                       : i === 0 || i % 3 === 0
-                      ? "heighautoimg"
-                      : "heighautoimg2"
+                      ? "heighautoimg zoomin-img"
+                      : "heighautoimg2 zoomin-img"
                   }
                 >
                   <div>
