@@ -5,6 +5,7 @@ import { GET_ORIENTATION_CENTER } from "./type";
 export const getOrientationCenter = createAsyncThunk(
   GET_ORIENTATION_CENTER,
   async (payload, thunkAPI) => {
+    console.log("inner getOrientationCenter")
     try {
       const response = await axiosInstance.get(
         `api/orientationCenter/getOrientationCenters`

@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
 import Footer from "components/Footer";
 import orientationCentre from "../../assets/orientationCentre/OrientationCentre.png";
-import orientationCentreDetail from "constants/orientationCentre";
 
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 import { Link } from "react-router-dom";
 import DirectionsIcon from "@mui/icons-material/Directions";
+
+import { getOrientationCenter } from "Redux/Slices/OrientationCenter/OrientationCenterSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 const OrientationCentre = () => {
-  const orientationCentreData = orientationCentreDetail.orientation;
+
   const responsiveTablet = useMediaQuery("(max-width: 1000px)");
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {(
+    dispatch(getOrientationCenter()));
+    console.log("inner");
+  }, [dispatch]);
+
+  const orientationCentreData = useSelector(
+    (state) =>
+      state?.orientationCenter?.orientationCenter?.orientationProducts
+  );
+
+  console.log("added ", orientationCentreData);
 
   return (
     <>
@@ -83,7 +100,7 @@ const OrientationCentre = () => {
                 : "0px 1.4rem 5rem",
             }}
           >
-            {orientationCentreData?.map((elem) => (
+            {orientationCentreData && orientationCentreData?.map((elem) => (
               <Box
                 sx={{
                   padding: "24px",
@@ -99,16 +116,16 @@ const OrientationCentre = () => {
                 }}
               >
                 <h3>{elem?.city.toUpperCase()}</h3>
-                <p>{elem?.centre}</p>
-                <p>{elem?.address}</p>
+                <p>{elem?.centerName}</p>
+                <p>{elem?.centerAddress}</p>
                 <p>
-                  <b>OC Appointment</b>: {elem?.appointment}
+                  <b>OC Appointment</b> : {elem?.ocAppointment}
                 </p>
                 <p>
-                  <b>Service</b>: {elem?.service}
+                  <b>Service</b > : {elem?.service}
                 </p>
                 <p>
-                  <b>Purchase Assistance</b> : {elem?.assistance}
+                  <b>Purchase Assistance</b> : {elem?.purchaseAssistance}
                 </p>
                 <p>
                   <b>Email</b> : {elem?.email}
