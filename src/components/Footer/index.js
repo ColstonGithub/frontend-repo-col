@@ -1,14 +1,16 @@
 import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
-import ColstonLogo from "../../assets/homepage/colston-logo-new.png";
+import ColstonLogo from "../../assets/ColstonLogo.png";
 import "./Footer.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 
 import { useMediaQuery } from "@mui/material";
 import { wrap } from "@sentry/react";
-
+import { LANDING_PAGE } from "Routes/Routes";
+import { HeaderStyle } from "../SearchBar/HeaderStyle";
+import { commonStyle } from "../../Styles/commonStyles";
 const Footer = () => {
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
   const dispatch = useDispatch();
@@ -34,9 +36,22 @@ const Footer = () => {
       >
         <Row>
           <Col sm={1} md={4} style={{ padding: responsiveMobile ? 0 : "" }}>
-            <div>
-              <img src={ColstonLogo} />
-            </div>
+            <Col md={10}
+              style={{
+                ...commonStyle.flexDisplayStyle,
+              }}
+            >
+              <Link to={LANDING_PAGE}>
+                <div style={{}}>
+                  <img
+                    src={ColstonLogo}
+                    alt="ColstonLogo"
+                    style={{ ...HeaderStyle.imageStyle }}
+                  />
+                </div>
+              </Link>
+            </Col>
+
             <div
               className="footer-content-address"
               style={{ padding: "32px 0px 25px" }}

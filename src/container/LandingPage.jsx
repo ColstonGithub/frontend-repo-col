@@ -150,7 +150,6 @@ const LandingPage = () => {
       <div>
         <Container
           fluid
-          className="shopbyocca"
           style={{
             padding: responsiveMobile ? "0px 80px 40px" : "0px 80px 50px",
           }}

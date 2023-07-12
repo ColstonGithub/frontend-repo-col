@@ -14,13 +14,13 @@ import {
 import "./HeaderBootstrapMenu.css";
 import FMButton from "components/FMButton/FMButton";
 import SearchBar from "components/SearchBar/SearchBar";
-import { HeaderStyle } from "./HeaderStyle";
-import { commonStyle } from "../../Styles/commonStyles";
 import ColstonLogo from "../../assets/ColstonLogo.png";
 import WorldIcon from "../../assets/WorldIcon.svg";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { LANDING_PAGE } from "Routes/Routes";
+import { HeaderStyle } from "./HeaderStyle";
+import { commonStyle } from "../../Styles/commonStyles";
 
 const Header = () => {
   const dispatch = useDispatch();
