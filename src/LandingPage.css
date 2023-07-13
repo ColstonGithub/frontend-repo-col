@@ -460,10 +460,10 @@ section .text-container .text-box {
 }
 
 .shopbyocca .heighautoimg {
-  margin: 10px;
+  padding-bottom: 20px;
 }
 .shopbyocca .heighautoimg2 {
-  margin: 10px;
+  padding-bottom: 20px;
 }
 .shopbyocca .heighautoimg a {
   position: relative;
@@ -545,7 +545,6 @@ section .text-container .text-box {
     height: 29px;
     left: 71px;
     margin: 0 auto;
-    padding: 70px 0 46px;
   }
   .shopbyocca {
     padding: 0px 11px 0;
@@ -594,10 +593,10 @@ section .text-container .text-box {
   }
 
   .shopbyocca .heighautoimg {
-    margin: 10px;
+    padding-bottom: 15px;
   }
   .shopbyocca .heighautoimg2 {
-    margin: 10px;
+    padding-bottom: 15px;
   }
   .shopbyocca .heighautoimg a {
     position: relative;

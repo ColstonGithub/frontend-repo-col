@@ -80,7 +80,7 @@ const CorporatePage = () => {
           />
         </Box>
 
-        <Grid sx={{ padding: "3.2rem" }}>
+        <Grid>
           {/* product box below */}
           <Grid
             sx={{

@@ -8,7 +8,7 @@ import {
   Typography,
   useMediaQuery,
   CardMedia,
-  CardContent
+  CardContent,
 } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +57,7 @@ const BrandPage = () => {
         <FMTypography
           displayText={"The Brands Colston"}
           styleData={{
-            fontFamily:"Rajdhani",
+            fontFamily: "Rajdhani",
             fontWeight: "600",
             fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",
             textAlign: "center",
@@ -85,7 +85,7 @@ const BrandPage = () => {
           />
         </Box>
 
-        <Grid sx={{ padding: "3.2rem" }}>
+        <Grid>
           {/* product box below */}
           <Grid
             sx={{
@@ -96,7 +96,10 @@ const BrandPage = () => {
             }}
           >
             {brandProducts?.map((elem) => (
-              <Box onClick={() => onCardClick(elem)}>
+              <Box
+                onClick={() => onCardClick(elem)}
+                style={{ paddingBottom: "20px" }}
+              >
                 <Card
                   sx={{
                     width: responsiveMobile ? "90vw" : "317",
@@ -122,7 +125,7 @@ const BrandPage = () => {
                         sx={{
                           fontSize: "18px",
                           color: "#222222",
-                          fontFamily:"Rajdhani"
+                          fontFamily: "Rajdhani",
                         }}
                       >
                         {elem?.title}

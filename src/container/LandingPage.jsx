@@ -85,10 +85,7 @@ const LandingPage = () => {
               <Row class="text-container">
                 {/* //If index is even image will render first */}
                 {index % 2 !== 0 ? (
-                  <Col
-                    xs={12}
-                    style={{ cursor: "pointer" }}
-                  >
+                  <Col xs={12} style={{ cursor: "pointer" }}>
                     <img
                       src={item?.bannerImage}
                       alt={item?.bannerImageAltText}
@@ -151,7 +148,7 @@ const LandingPage = () => {
         <Container
           fluid
           style={{
-            padding: responsiveMobile ? "0px 80px 40px" : "0px 80px 50px",
+            padding: responsiveMobile ? "0px" : "0px 80px 50px",
           }}
         >
           <Row
@@ -178,7 +175,7 @@ const LandingPage = () => {
       <Container fluid>
         <Row
           style={{
-            padding: !responsiveMobile ? "0px 40px 0 40px" : "40px 40px 0px",
+            padding: !responsiveMobile ? "0px 40px 0 40px" : "0px 20px",
           }}
         >
           <Col style={{}}>
