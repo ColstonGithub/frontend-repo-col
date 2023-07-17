@@ -31,7 +31,7 @@ import Catalogue from "container/Catalogue";
 import WarrantyRegisteration from "container/WarrantyRegistration";
 import Career from "container/career";
 import Quotation from "container/Quotation";
-
+import WhereToBuy from "container/WhereToBuy";
 
 const App = () => {
   return (
@@ -44,7 +44,7 @@ const App = () => {
             {/* private routes below */}
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/Career" element={<Career />} />
-            
+
             <Route path="/Quotation" element={<Quotation />} />
             <Route
               path="/warranty-registration"
@@ -52,7 +52,7 @@ const App = () => {
             />
 
             <Route path="product-page/:id" element={<ProductPage />} />
-            
+
             <Route path="category-page/:id" element={<CategoryPage />} />
 
             <Route path="product-detail/:id" element={<ProductDetail />} />
@@ -60,7 +60,6 @@ const App = () => {
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
 
             <Route path="/brand-page" element={<BrandPage />} />
-    
 
             <Route path="/brand-page/:id" element={<BrandDetail />} />
 
@@ -69,6 +68,8 @@ const App = () => {
             <Route path="/corporate-page/:id" element={<CorporateDetail />} />
 
             <Route path="/orientation-centre" element={<OrientationCentre />} />
+            
+            <Route path="/where-to-buy" element={<WhereToBuy />} />
 
             <Route path="/virtual-tour" element={<VirtualTour />} />
 
