@@ -1,19 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "components/SearchBar/Header";
 import Footer from "components/Footer";
 import orientationCentre from "../../assets/orientationCentre/OrientationCentre.png";
 
 import { Box, Grid, useMediaQuery } from "@mui/material";
+
 import FMTypography from "components/FMTypography/FMTypography";
 import { Link } from "react-router-dom";
 import DirectionsIcon from "@mui/icons-material/Directions";
-
-import { getWhereToBuyData } from "Redux/Slices/WhereToBuy/WhereToBuySlice";
+import { Row, Col } from "react-bootstrap";
+import {
+  getWhereToBuyData,
+  getWhereToBuyFilterData,
+} from "Redux/Slices/WhereToBuy/WhereToBuySlice";
 import { useDispatch, useSelector } from "react-redux";
+import LocationDropdowns from "components/LocationDropdowns";
+import IconButton from "@mui/material/IconButton";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 const WhereToBuy = () => {
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+
   const responsiveTablet = useMediaQuery("(max-width: 1000px)");
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   const dispatch = useDispatch();
 
@@ -25,6 +35,18 @@ const WhereToBuy = () => {
     (state) => state?.whereToBuy?.getWhereToBuyListData?.whereToBuyProducts
   );
 
+  const filterWhereToBuy = () => {
+    // dispatch(getWhereToBuyFilterData(selectedCity));
+  };
+
+  const handleStateChange = (state) => {
+    setSelectedState(state);
+    setSelectedCity("");
+  };
+
+  const handleCityChange = (city) => {
+    setSelectedCity(city);
+  };
   return (
     <>
       <Header />
@@ -72,7 +94,7 @@ const WhereToBuy = () => {
               display: "flex",
               justifyContent: "center",
               paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-              paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
+              paddingBottom: !responsiveMobile ? "2rem" : "1.65rem",
             }}
           >
             <FMTypography
@@ -84,6 +106,58 @@ const WhereToBuy = () => {
               }}
             />
           </Box>
+
+          <Grid
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              paddingBottom: "20px",
+            }}
+          >
+            <Row>
+              <Col xs={12} md={12}>
+                <FMTypography
+                  displayText={"Filter Centers By City :"}
+                  styleData={{
+                    fontWeight: "600",
+                    fontSize: !responsiveMobile ? "2rem" : "2rem",
+                    marginRight: "20px",
+                    textAlign: "center",
+                    paddingBottom: "10px",
+                  }}
+                />
+              </Col>{" "}
+              <Col
+                xs={12}
+                md={12}
+                className={
+                  !responsiveMobile
+                    ? "d-flex justify-content-center"
+                    : "d-flex justify-content-center"
+                }
+                style={
+                  responsiveMobile
+                    ? { paddingRight: "60px", paddingLeft: "60px" }
+                    : null
+                }
+              >
+                <LocationDropdowns
+                  selectedState={selectedState}
+                  selectedCity={selectedCity}
+                  handleCityChange={handleCityChange}
+                  handleStateChange={handleStateChange}
+                />
+                <IconButton
+                  size="large"
+                  style={{ marginLeft: "10px" }}
+                  onClick={filterWhereToBuy}
+                >
+                  <FilterAltIcon />
+                </IconButton>
+              </Col>
+            </Row>
+          </Grid>
+
           <Grid
             sx={{
               display: "flex",

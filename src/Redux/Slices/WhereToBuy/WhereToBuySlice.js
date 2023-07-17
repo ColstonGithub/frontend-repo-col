@@ -1,14 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axiosInstance from "services/AxiosInstance";
-import { WHERE_TO_BUY_DATA, WHERE_TO_BUY_DETAIL_PAGE } from "./type";
+import {
+  WHERE_TO_BUY_DATA,
+  WHERE_TO_BUY_DETAIL_PAGE,
+  WHERE_TO_BUY_FILTER_DATA,
+} from "./type";
 
 export const getWhereToBuyData = createAsyncThunk(
   WHERE_TO_BUY_DATA,
   async (thunkAPI) => {
     try {
-      console.log("added in redux");
       const response = await axiosInstance.get(
         `api/whereToBuy/getWhereToBuyCenters`
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue({ error: error });
+    }
+  }
+);
+export const getWhereToBuyFilterData = createAsyncThunk(
+  WHERE_TO_BUY_FILTER_DATA,
+  async (selectedCity, thunkAPI) => {
+    try {
+      console.log("selectedCity ", selectedCity);
+      const response = await axiosInstance.post(
+        `api/whereToBuy/getFilterWhereToBuyByCity`,
+        { selectedCity }
       );
       return response.data;
     } catch (error) {
@@ -35,6 +53,7 @@ const whereToBuySlice = createSlice({
   initialState: {
     getWhereToBuyListData: [],
     getWhereToBuyData: [],
+    getWhereToBuyFilterData: [],
     error: "",
     isFetching: false,
     isError: false,
@@ -75,6 +94,22 @@ const whereToBuySlice = createSlice({
       state.isError = true;
     });
     //
+    builder.addCase(getWhereToBuyFilterData.pending, (state) => {
+      state.getWhereToBuyFilterData = [];
+      state.isFetching = true;
+      state.isError = false;
+    });
+
+    builder.addCase(getWhereToBuyFilterData.fulfilled, (state, action) => {
+      state.getWhereToBuyFilterData = action.payload;
+      state.isFetching = false;
+      state.isError = false;
+    });
+    builder.addCase(getWhereToBuyFilterData.rejected, (state, action) => {
+      state.getWhereToBuyFilterData = [];
+      state.isFetching = false;
+      state.isError = true;
+    });
   },
 });
 
