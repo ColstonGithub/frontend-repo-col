@@ -14,7 +14,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import LocationDropdowns from "components/LocationDropdowns";
 import IconButton from "@mui/material/IconButton";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import SearchIcon from "@mui/icons-material/Search";
 import { ToastContainer, toast } from "react-toastify";
 const WhereToBuy = () => {
   const [selectedState, setSelectedState] = useState("");
@@ -174,7 +174,7 @@ const WhereToBuy = () => {
                   style={{ marginLeft: "10px" }}
                   onClick={filterWhereToBuy}
                 >
-                  <FilterAltIcon />
+                  <SearchIcon /> <span style={{fontSize:"20px"}}>Search</span>
                 </IconButton>
               </Col>
             </Row>
