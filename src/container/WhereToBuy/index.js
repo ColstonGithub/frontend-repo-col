@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "components/SearchBar/Header";
 import Footer from "components/Footer";
 import orientationCentre from "../../assets/orientationCentre/OrientationCentre.png";
-
 import { Box, Grid, useMediaQuery } from "@mui/material";
-
 import FMTypography from "components/FMTypography/FMTypography";
 import { Link } from "react-router-dom";
 import DirectionsIcon from "@mui/icons-material/Directions";
@@ -17,10 +15,13 @@ import { useDispatch, useSelector } from "react-redux";
 import LocationDropdowns from "components/LocationDropdowns";
 import IconButton from "@mui/material/IconButton";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-
+import { ToastContainer, toast } from "react-toastify";
 const WhereToBuy = () => {
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
+  const [whereToBuyListData, setWhereToBuyListData] = useState();
+  const [filteredWhereToBuyListData, setFilteredWhereToBuyListData] =
+    useState();
 
   const responsiveTablet = useMediaQuery("(max-width: 1000px)");
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
@@ -36,8 +37,25 @@ const WhereToBuy = () => {
   );
 
   const filterWhereToBuy = () => {
-    // dispatch(getWhereToBuyFilterData(selectedCity));
+    //dispatch(getWhereToBuyFilterData(selectedCity));
+
+    // // Dispatch the async thunk action
+    // dispatch(getWhereToBuyFilterData(selectedCity))
+    //   .then((response) => {
+    //     // Handle successful response
+    //     if (response?.payload?.error?.response?.data?.error) {
+    //       toast.error(response?.payload?.error?.response?.data?.error);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     // Handle error and access the error object values
+    //     toast.error(error?.message);
+    //   });
   };
+
+  const filteredWhereToBuyData = useSelector(
+    (state) => state?.whereToBuy?.getWhereToBuyFilterData?.whereToBuyFiltered
+  );
 
   const handleStateChange = (state) => {
     setSelectedState(state);
@@ -47,6 +65,12 @@ const WhereToBuy = () => {
   const handleCityChange = (city) => {
     setSelectedCity(city);
   };
+  useEffect(() => {
+    setWhereToBuyListData(WhereToBuyData);
+  }, [WhereToBuyData]);
+  useEffect(() => {
+    setFilteredWhereToBuyListData(filteredWhereToBuyData);
+  }, [filteredWhereToBuyData]);
   return (
     <>
       <Header />
@@ -169,50 +193,93 @@ const WhereToBuy = () => {
                 : "0px 1.4rem 5rem",
             }}
           >
-            {WhereToBuyData &&
-              WhereToBuyData?.map((elem) => (
-                <Box
-                  sx={{
-                    padding: "24px",
-                    background: "#FFFFFF",
-                    boxShadow:
-                      "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
-                    borderRadius: "20px",
-                    fontFamily: "Rajdhani",
-                    fontStyle: "normal",
-                    fontSize: !responsiveMobile ? "1rem" : "1.4rem",
-                    fontColor: "#717171",
-                    margin: !responsiveMobile ? "1.5rem" : "1rem 0",
-                  }}
-                >
-                  <h3>{elem?.city.toUpperCase()}</h3>
-                  <p>{elem?.centerName}</p>
-                  <p>{elem?.centerAddress}</p>
-                  <p>
-                    <b>OC Appointment</b> : {elem?.ocAppointment}
-                  </p>
-                  <p>
-                    <b>Service</b> : {elem?.service}
-                  </p>
-                  <p>
-                    <b>Purchase Assistance</b> : {elem?.purchaseAssistance}
-                  </p>
-                  <p>
-                    <b>Email</b> : {elem?.email}
-                  </p>
-                  <p>
-                    <b>Location</b> : &nbsp;
-                    <Link to={elem?.location} target="_blank">
-                      <DirectionsIcon
-                        style={{ width: "25px", height: "25px" }}
-                      />
-                      Get Directions
-                    </Link>
-                  </p>
-                </Box>
-              ))}
+            {filteredWhereToBuyListData && filteredWhereToBuyListData
+              ? filteredWhereToBuyListData?.map((elem) => (
+                  <Box
+                    sx={{
+                      padding: "24px",
+                      background: "#FFFFFF",
+                      boxShadow:
+                        "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
+                      borderRadius: "20px",
+                      fontFamily: "Rajdhani",
+                      fontStyle: "normal",
+                      fontSize: !responsiveMobile ? "1rem" : "1.4rem",
+                      fontColor: "#717171",
+                      margin: !responsiveMobile ? "1.5rem" : "1rem 0",
+                    }}
+                  >
+                    <h3>{elem?.city.toUpperCase()}</h3>
+                    <p>{elem?.centerName}</p>
+                    <p>{elem?.centerAddress}</p>
+                    <p>
+                      <b>OC Appointment</b> : {elem?.ocAppointment}
+                    </p>
+                    <p>
+                      <b>Service</b> : {elem?.service}
+                    </p>
+                    <p>
+                      <b>Purchase Assistance</b> : {elem?.purchaseAssistance}
+                    </p>
+                    <p>
+                      <b>Email</b> : {elem?.email}
+                    </p>
+                    <p>
+                      <b>Location</b> : &nbsp;
+                      <Link to={elem?.location} target="_blank">
+                        <DirectionsIcon
+                          style={{ width: "25px", height: "25px" }}
+                        />
+                        Get Directions
+                      </Link>
+                    </p>
+                  </Box>
+                ))
+              : whereToBuyListData &&
+                whereToBuyListData?.map((elem) => (
+                  <Box
+                    sx={{
+                      padding: "24px",
+                      background: "#FFFFFF",
+                      boxShadow:
+                        "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
+                      borderRadius: "20px",
+                      fontFamily: "Rajdhani",
+                      fontStyle: "normal",
+                      fontSize: !responsiveMobile ? "1rem" : "1.4rem",
+                      fontColor: "#717171",
+                      margin: !responsiveMobile ? "1.5rem" : "1rem 0",
+                    }}
+                  >
+                    <h3>{elem?.city.toUpperCase()}</h3>
+                    <p>{elem?.centerName}</p>
+                    <p>{elem?.centerAddress}</p>
+                    <p>
+                      <b>OC Appointment</b> : {elem?.ocAppointment}
+                    </p>
+                    <p>
+                      <b>Service</b> : {elem?.service}
+                    </p>
+                    <p>
+                      <b>Purchase Assistance</b> : {elem?.purchaseAssistance}
+                    </p>
+                    <p>
+                      <b>Email</b> : {elem?.email}
+                    </p>
+                    <p>
+                      <b>Location</b> : &nbsp;
+                      <Link to={elem?.location} target="_blank">
+                        <DirectionsIcon
+                          style={{ width: "25px", height: "25px" }}
+                        />
+                        Get Directions
+                      </Link>
+                    </p>
+                  </Box>
+                ))}
           </Grid>
         </Grid>
+        <ToastContainer />
       </Grid>
 
       <Footer />

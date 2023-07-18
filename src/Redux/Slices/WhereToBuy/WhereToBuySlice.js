@@ -23,7 +23,6 @@ export const getWhereToBuyFilterData = createAsyncThunk(
   WHERE_TO_BUY_FILTER_DATA,
   async (selectedCity, thunkAPI) => {
     try {
-      console.log("selectedCity ", selectedCity);
       const response = await axiosInstance.post(
         `api/whereToBuy/getFilterWhereToBuyByCity`,
         { selectedCity }
