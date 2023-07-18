@@ -60,8 +60,6 @@ const Blogs = () => {
     setBlogList(blogs);
   }, [blogs]);
 
-  console.log("blogs", blogList);
-  console.log("blogs By Category", blogListById);
 
   return (
     <>

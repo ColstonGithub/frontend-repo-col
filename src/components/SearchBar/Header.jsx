@@ -244,6 +244,7 @@ const Header = () => {
                                       cursor: "pointer",
                                       color: "#2b2a29",
                                       marginBottom: "15px",
+                                      textTransform: "capitalize",
                                     }}
                                     onClick={() => onCompanyCardClick(i)}
                                   />
@@ -284,6 +285,7 @@ const Header = () => {
                                         cursor: "pointer",
                                         color: "#2b2a29",
                                         marginBottom: "8px",
+                                        textTransform: "capitalize",
                                       }}
                                       onClick={() =>
                                         onCategoryCardClick(elem._id)
@@ -306,6 +308,7 @@ const Header = () => {
                                                 cursor: "pointer",
                                                 lineHeight: "22px",
                                                 color: "#2b2a29",
+                                                textTransform: "capitalize",
                                               }}
                                               onClick={() =>
                                                 onProductCardClick(secElem._id)
@@ -323,6 +326,7 @@ const Header = () => {
                                 className="link-hover"
                                 title={elem?.name}
                                 // onClick={() => onCardClick()}
+                                style={{ textTransform: "capitalize" }}
                               >
                                 {elem?.name}
                               </NavLink>
@@ -359,6 +363,7 @@ const Header = () => {
                                       lineHeight: "22px",
                                       color: "#2b2a29",
                                       marginBottom: "15px",
+                                      textTransform: "capitalize",
                                     }}
                                     onClick={() => onServiceCardClick(i)}
                                   />

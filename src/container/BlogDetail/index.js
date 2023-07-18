@@ -11,20 +11,21 @@ const BlogDetail = () => {
   const params = useParams();
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
-      dispatch(getBlogDetail(params));
+    dispatch(getBlogDetail(params));
   }, [dispatch]);
 
-  const blogDetail = useSelector(state => state.blog.blog.Blogs);
-  
+  const blogDetail = useSelector((state) => state.blog.blog.Blogs);
+  console.log(blogDetail);
+
   return (
     <>
       <Header />
 
-      { blogDetail ? 
+      {blogDetail && blogDetail ? (
         <>
-        <Box
+          <Box
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -33,14 +34,13 @@ const BlogDetail = () => {
             }}
           >
             <FMTypography
-              displayText={blogDetail.type}
+              displayText={blogDetail?.pageTitle}
               styleData={{
                 color: "#EF1068",
                 fontWeight: "500",
                 fontSize: "1.5rem",
                 textAlign: "center",
                 textTransform: "uppercase",
-
               }}
             />
           </Box>
@@ -53,7 +53,7 @@ const BlogDetail = () => {
               }}
             >
               <img
-                src={blogDetail.image}
+                src={blogDetail?.image}
                 style={{ width: "100%", height: "auto", maxHeight: "500px" }}
                 alt="blog"
               />
@@ -71,7 +71,7 @@ const BlogDetail = () => {
                   color: "#222222",
                 }}
               >
-                {blogDetail.title}
+                {blogDetail?.pageHeading}
               </h3>
               <p
                 style={{
@@ -82,13 +82,14 @@ const BlogDetail = () => {
                   color: "#222222",
                 }}
               >
-                {blogDetail.text}
+                {blogDetail?.text}
               </p>
             </Box>
           </Grid>
-          </>
-          :
-          ""}
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };

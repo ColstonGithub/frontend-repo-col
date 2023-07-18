@@ -55,7 +55,7 @@ const ProductPage = () => {
           styleData={{
             fontWeight: "600",
             fontSize: "2.8rem",
-            textAlign: "center",
+            textAlign: "center",   textTransform:"capitalize"
           }}
         />
       </Box>
