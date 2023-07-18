@@ -76,7 +76,13 @@ const LocationDropdowns = ({
         className={!responsiveMobile ? "me-4" : ""}
         style={responsiveMobile ? { paddingBottom: "10px" } : null}
       >
-        <InputLabel>State</InputLabel>
+        <InputLabel
+          sx={{
+            fontSize: "large",
+          }}
+        >
+          State
+        </InputLabel>
 
         <Select
           value={selectedState}
@@ -88,7 +94,7 @@ const LocationDropdowns = ({
           id="grouped-native-select"
           sx={{
             height: "2.5rem",
-            marginTop: ".3rem",
+            marginTop: "10px",
             border: "0.0625rem solid #1a1a1a1f",
             "&:hover": { border: "0.0625rem solid #1a1a1a1f" },
             "& .MuiSelect-root": {
@@ -116,7 +122,13 @@ const LocationDropdowns = ({
       </FormControl>
 
       <FormControl sx={{ minWidth: 240 }}>
-        <InputLabel>City</InputLabel>
+        <InputLabel
+          sx={{
+            fontSize: "large",
+          }}
+        >
+          City
+        </InputLabel>
 
         <Select
           value={selectedCity}
@@ -129,7 +141,7 @@ const LocationDropdowns = ({
           id="grouped-native-select"
           sx={{
             height: "2.5rem",
-            marginTop: ".3rem",
+            marginTop: "10px",
             border: "0.0625rem solid #1a1a1a1f",
             "&:hover": { border: "0.0625rem solid #1a1a1a1f" },
             "& .MuiSelect-root": {
