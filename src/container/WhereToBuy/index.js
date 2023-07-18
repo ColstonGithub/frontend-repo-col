@@ -139,7 +139,7 @@ const WhereToBuy = () => {
             <Row>
               <Col xs={12} md={12}>
                 <FMTypography
-                  displayText={"Filter Centers By City "}
+                  displayText={"Filter Centers By City"}
                   styleData={{
                     fontWeight: "600",
                     fontSize: !responsiveMobile ? "2rem" : "2rem",
