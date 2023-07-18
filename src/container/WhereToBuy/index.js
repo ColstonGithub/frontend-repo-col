@@ -37,20 +37,18 @@ const WhereToBuy = () => {
   );
 
   const filterWhereToBuy = () => {
-    //dispatch(getWhereToBuyFilterData(selectedCity));
-
-    // Dispatch the async thunk action
-    // dispatch(getWhereToBuyFilterData(selectedCity))
-    //   .then((response) => {
-    //     // Handle successful response
-    //     if (response?.payload?.error?.response?.data?.error) {
-    //       toast.error(response?.payload?.error?.response?.data?.error);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     // Handle error and access the error object values
-    //     toast.error(error?.message);
-    //   });
+    //Dispatch the async thunk action
+    dispatch(getWhereToBuyFilterData(selectedCity))
+      .then((response) => {
+        // Handle successful response
+        if (response?.payload?.error?.response?.data?.error) {
+          toast.error(response?.payload?.error?.response?.data?.error);
+        }
+      })
+      .catch((error) => {
+        // Handle error and access the error object values
+        toast.error(error?.message);
+      });
   };
 
   const filteredWhereToBuyData = useSelector(
@@ -141,7 +139,7 @@ const WhereToBuy = () => {
             <Row>
               <Col xs={12} md={12}>
                 <FMTypography
-                  displayText={"Filter Centers By City :"}
+                  displayText={"Filter Centers By City "}
                   styleData={{
                     fontWeight: "600",
                     fontSize: !responsiveMobile ? "2rem" : "2rem",
@@ -188,6 +186,7 @@ const WhereToBuy = () => {
               flexDirection: responsiveTablet ? "column" : "row",
               flexBasis: "30%",
               justifyContent: "space-evenly",
+              alignItems: "center",
               padding: !responsiveMobile
                 ? "0px 3.2rem 5rem"
                 : "0px 1.4rem 5rem",
@@ -249,11 +248,15 @@ const WhereToBuy = () => {
                       fontSize: !responsiveMobile ? "1rem" : "1.4rem",
                       fontColor: "#717171",
                       margin: !responsiveMobile ? "1.5rem" : "1rem 0",
+
+                      width: !responsiveMobile ? "350px" : "300px",
                     }}
                   >
                     <h3>{elem?.city.toUpperCase()}</h3>
                     <p>{elem?.centerName}</p>
+
                     <p>{elem?.centerAddress}</p>
+
                     <p>
                       <b>OC Appointment</b> : {elem?.ocAppointment}
                     </p>
