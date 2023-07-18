@@ -137,6 +137,7 @@ const LocationDropdowns = ({
             },
           }}
         >
+          <option disabled></option>
           {cities && cities ? (
             cities?.map((city) => (
               <>
