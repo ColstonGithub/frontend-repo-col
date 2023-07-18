@@ -39,18 +39,18 @@ const WhereToBuy = () => {
   const filterWhereToBuy = () => {
     //dispatch(getWhereToBuyFilterData(selectedCity));
 
-    // // Dispatch the async thunk action
-    // dispatch(getWhereToBuyFilterData(selectedCity))
-    //   .then((response) => {
-    //     // Handle successful response
-    //     if (response?.payload?.error?.response?.data?.error) {
-    //       toast.error(response?.payload?.error?.response?.data?.error);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     // Handle error and access the error object values
-    //     toast.error(error?.message);
-    //   });
+    // Dispatch the async thunk action
+    dispatch(getWhereToBuyFilterData(selectedCity))
+      .then((response) => {
+        // Handle successful response
+        if (response?.payload?.error?.response?.data?.error) {
+          toast.error(response?.payload?.error?.response?.data?.error);
+        }
+      })
+      .catch((error) => {
+        // Handle error and access the error object values
+        toast.error(error?.message);
+      });
   };
 
   const filteredWhereToBuyData = useSelector(
