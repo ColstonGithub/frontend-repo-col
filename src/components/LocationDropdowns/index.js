@@ -72,7 +72,7 @@ const LocationDropdowns = ({
   return (
     <div>
       <FormControl
-        sx={{ minWidth: 200 }}
+        sx={{ minWidth: 240 }}
         className={!responsiveMobile ? "me-4" : ""}
         style={responsiveMobile ? { paddingBottom: "10px" } : null}
       >
@@ -115,7 +115,7 @@ const LocationDropdowns = ({
         </Select>
       </FormControl>
 
-      <FormControl sx={{ minWidth: 200 }}>
+      <FormControl sx={{ minWidth: 240 }}>
         <InputLabel>City</InputLabel>
 
         <Select

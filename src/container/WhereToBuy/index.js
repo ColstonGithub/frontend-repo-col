@@ -40,17 +40,17 @@ const WhereToBuy = () => {
     //dispatch(getWhereToBuyFilterData(selectedCity));
 
     // Dispatch the async thunk action
-    dispatch(getWhereToBuyFilterData(selectedCity))
-      .then((response) => {
-        // Handle successful response
-        if (response?.payload?.error?.response?.data?.error) {
-          toast.error(response?.payload?.error?.response?.data?.error);
-        }
-      })
-      .catch((error) => {
-        // Handle error and access the error object values
-        toast.error(error?.message);
-      });
+    // dispatch(getWhereToBuyFilterData(selectedCity))
+    //   .then((response) => {
+    //     // Handle successful response
+    //     if (response?.payload?.error?.response?.data?.error) {
+    //       toast.error(response?.payload?.error?.response?.data?.error);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     // Handle error and access the error object values
+    //     toast.error(error?.message);
+    //   });
   };
 
   const filteredWhereToBuyData = useSelector(
@@ -161,7 +161,7 @@ const WhereToBuy = () => {
                 }
                 style={
                   responsiveMobile
-                    ? { paddingRight: "60px", paddingLeft: "60px" }
+                    ? { paddingRight: "80px", paddingLeft: "80px" }
                     : null
                 }
               >
