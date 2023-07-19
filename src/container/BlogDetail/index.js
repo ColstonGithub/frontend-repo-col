@@ -74,6 +74,7 @@ const BlogDetail = () => {
                 {blogDetail?.pageHeading}
               </h3>
               <div
+                style={{ whiteSpace: "pre-wrap" }}
                 dangerouslySetInnerHTML={{ __html: blogDetail?.text }}
               />
             </Box>
