@@ -54,7 +54,7 @@ const BlogDetail = () => {
             >
               <img
                 src={blogDetail?.image}
-                style={{ width: "100%", height: "auto", maxHeight: "500px" }}
+                style={{ width: "100%", height: "auto", minHeight: "550px" }}
                 alt="blog"
               />
             </div>

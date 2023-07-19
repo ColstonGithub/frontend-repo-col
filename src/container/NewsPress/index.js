@@ -22,7 +22,7 @@ import { getNewsPressBanner } from "Redux/Slices/NewsPress/NewsPressBannerSlice"
 const NewsPress = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     dispatch(getNewsPress());
@@ -50,8 +50,8 @@ const NewsPress = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-          paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -77,6 +77,7 @@ const NewsPress = () => {
             src={newsPressBanner?.bannerImage}
             style={{
               width: "100%",
+              minHeight: "550px",
               height: !responsiveMobile ? "auto" : "62vw",
               borderRadius: "20px",
             }}
@@ -108,8 +109,8 @@ const NewsPress = () => {
                       component="img"
                       sx={{
                         borderRadius: "20px",
-                        height: "317px",
-                        width: "317px",
+                        height: "350px",
+                        width: "350px",
                       }}
                       image={elem?.image}
                       alt={elem?.imageAltText}
@@ -123,6 +124,7 @@ const NewsPress = () => {
                           fontSize: "18px",
                           color: "#2b2a29",
                           fontWeight: "600",
+                          width: "325px",
                         }}
                       >
                         {elem?.title}

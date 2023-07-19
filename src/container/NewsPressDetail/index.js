@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 
 import Footer from "components/Footer";
@@ -10,14 +10,18 @@ import { getNewsPressDetail } from "Redux/Slices/NewsPress/NewsPressDetailSlice"
 const NewsPressDetail = () => {
   const params = useParams();
 
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
+
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
-      dispatch(getNewsPressDetail(params));
+    dispatch(getNewsPressDetail(params));
   }, [dispatch, params]);
 
-  const newsPressDetail = useSelector(state => state.newsPressDetail.newsDetail.newsPress);
-//   console.log(newsPressDetail);
+  const newsPressDetail = useSelector(
+    (state) => state.newsPressDetail.newsDetail.newsPress
+  );
+  //   console.log(newsPressDetail);
 
   return (
     <>
@@ -26,8 +30,8 @@ const NewsPressDetail = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "2.8rem",
-          paddingBottom: "2.8rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -49,7 +53,7 @@ const NewsPressDetail = () => {
         >
           <img
             src={newsPressDetail?.image}
-            style={{ width: "100%", height: "auto", maxHeight: "500px" }}
+            style={{ width: "100%", height: "auto", minHeight: "550px" }}
             alt={newsPressDetail?.imageAltText}
           />
         </div>
