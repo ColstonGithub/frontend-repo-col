@@ -71,7 +71,6 @@ const Blogs = () => {
           flexDirection: "column",
           justifyContent: "center",
           paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-          paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
         }}
       >
         <FMTypography
@@ -129,7 +128,7 @@ const Blogs = () => {
         </Container>
       </Box>
 
-      <Grid sx={{ padding: "3.2rem" }}>
+      <Grid sx={{ padding: "0 3.2rem 3.2rem 3.2rem" }}>
         {/* product box below */}
         <Grid
           sx={{
@@ -155,7 +154,7 @@ const Blogs = () => {
                           sx={{
                             borderRadius: "20px",
                             height: "317px",
-                            width: "317px",
+                            width: "100%",
                           }}
                           image={elem?.image}
                           alt={elem?.imageAltText}
@@ -194,7 +193,7 @@ const Blogs = () => {
                           sx={{
                             borderRadius: "20px",
                             height: "317px",
-                            width: "317px",
+                            width: "100%",
                           }}
                           image={elem?.image}
                           alt={elem?.imageAltText}
@@ -206,7 +205,8 @@ const Blogs = () => {
                             component="div"
                             sx={{
                               fontSize: "18px",
-                              color: "#222222",
+                              color: "#2b2a29",
+                              fontWeight: "600",
                             }}
                           >
                             {elem?.title}

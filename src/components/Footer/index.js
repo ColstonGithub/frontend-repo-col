@@ -148,7 +148,7 @@ const Footer = () => {
                 {accountDetailData?.map((displayCategory) => {
                   return (
                     <Link to={`/category-page/${displayCategory._id}`}>
-                      <div className="footer-content">
+                      <div className="footer-content" style={{textTransform:"capitalize"}}>
                         {displayCategory.name}
                       </div>
                     </Link>

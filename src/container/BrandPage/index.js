@@ -93,6 +93,7 @@ const BrandPage = () => {
               flexWrap: "wrap",
               flexBasis: "33.333333%",
               justifyContent: "space-evenly",
+              gap: "1rem",
             }}
           >
             {brandProducts?.map((elem) => (
@@ -124,7 +125,8 @@ const BrandPage = () => {
                         component="div"
                         sx={{
                           fontSize: "18px",
-                          color: "#222222",
+                          color: "#2b2a29",
+                          fontWeight: "600",
                           fontFamily: "Rajdhani",
                         }}
                       >

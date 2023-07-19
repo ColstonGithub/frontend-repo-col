@@ -56,7 +56,8 @@ const CategoryPage = () => {
             styleData={{
               fontWeight: "600",
               fontSize: "2.8rem",
-              textAlign: "center",   textTransform:"capitalize"
+              textAlign: "center",
+              textTransform: "capitalize",
             }}
           />
         </Box>
@@ -70,15 +71,13 @@ const CategoryPage = () => {
                     justifyContent: "center",
                     flexWrap: "wrap",
                     gap: "1rem",
-                    // padding: "2rem",
-                    width: "315px",
-                    // height: "356px",
                   }
                 : {
                     display: "flex",
                     flexWrap: "wrap",
                     flexBasis: "33.333333%",
                     justifyContent: "space-evenly",
+                    gap: "1rem",
                   }
             }
           >
@@ -117,7 +116,8 @@ const CategoryPage = () => {
                         component="div"
                         sx={{
                           fontSize: "18px",
-                          color: "#222222",
+                          color: "#2b2a29",
+                          fontWeight: "600",
                         }}
                       >
                         {elem?.name}

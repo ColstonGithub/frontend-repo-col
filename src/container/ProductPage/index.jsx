@@ -55,7 +55,8 @@ const ProductPage = () => {
           styleData={{
             fontWeight: "600",
             fontSize: "2.8rem",
-            textAlign: "center",   textTransform:"capitalize"
+            textAlign: "center",
+            textTransform: "capitalize",
           }}
         />
       </Box>
@@ -68,6 +69,7 @@ const ProductPage = () => {
             flexWrap: "wrap",
             flexBasis: "33.333333%",
             justifyContent: "space-evenly",
+            gap: "1.5rem",
           }}
         >
           {productPageData?.map((elem) => (
@@ -96,7 +98,8 @@ const ProductPage = () => {
                       component="div"
                       sx={{
                         fontSize: "18px",
-                        color: "#222222",
+                        color: "#2b2a29",
+                        fontWeight: "600",
                       }}
                     >
                       {elem?.name}
@@ -111,7 +114,6 @@ const ProductPage = () => {
       </Grid>
 
       <Footer />
-      
     </>
   );
 };

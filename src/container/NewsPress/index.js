@@ -92,6 +92,7 @@ const NewsPress = () => {
               flexWrap: "wrap",
               flexBasis: "33.333333%",
               justifyContent: "space-evenly",
+              gap: "1rem",
             }}
           >
             {newsPress?.map((elem) => (
@@ -108,7 +109,7 @@ const NewsPress = () => {
                       sx={{
                         borderRadius: "20px",
                         height: "317px",
-                        width: "317px",
+                        width: "100%",
                       }}
                       image={elem?.image}
                       alt={elem?.imageAltText}
@@ -120,7 +121,8 @@ const NewsPress = () => {
                         component="div"
                         sx={{
                           fontSize: "18px",
-                          color: "#222222",
+                          color: "#2b2a29",
+                          fontWeight: "600",
                         }}
                       >
                         {elem?.title}
