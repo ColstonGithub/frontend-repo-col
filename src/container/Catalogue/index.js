@@ -67,22 +67,6 @@ const Catalogue = () => {
       </Box>
 
       <Grid>
-        {/* product box below 
-
-        <Box
-          sx={{
-            borderRadius: "20px",
-            padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
-          }}
-        >
-          <img
-            src={catalogueBanner?.bannerImage}
-            style={{ width: "100%", height: !responsiveMobile ? "auto" : "62vw", borderRadius: "20px" }}
-            alt={catalogueBanner?.bannerImageAltText}
-          />
-        </Box>
-*/}
-
         <Grid
           sx={{
             display: "flex",

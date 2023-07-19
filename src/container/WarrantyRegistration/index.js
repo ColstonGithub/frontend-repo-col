@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Box, Grid, InputBase } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, InputBase } from "@mui/material";
 
 import FMButton from "components/FMButton/FMButton";
 import FMTypography from "components/FMTypography/FMTypography";
@@ -14,8 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { postWarrantyRegisteration } from "Redux/Slices/Forms/postWarrantyRegistration";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useMediaQuery } from "@mui/material";
 import Footer from "components/Footer";
 
@@ -27,8 +26,10 @@ const style = {
 };
 
 const WarrantyRegisteration = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [imagePreview, setImagePreview] = useState(null);
+  const [image, setImage] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -38,15 +39,43 @@ const WarrantyRegisteration = () => {
     mode: "onChange",
   });
 
-  let responsive = useMediaQuery("(max-width:500px)");
+  let responsive = useMediaQuery("(max-width:600px)");
+
+  const handleImage = (e) => {
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+    setImage(e.target.files[0]);
+  };
+
   const onSubmit = (data) => {
-    delete data.confirmPassword;
-    console.log(data);
-    dispatch(postWarrantyRegisteration(data));
-    toast("form submited successfully redirect to homepage");
-    // setTimeout(() => {
-    //   navigate("/");
-    // }, 5000);
+    const formData = new FormData();
+    formData.append("name", data?.title?.toString());
+    formData.append("email", data?.text?.toString());
+    formData.append("mobileNo", data?.imageAltText?.toString());
+    formData.append("subject", data?.subject?.toString());
+    formData.append("image", image);
+
+    //Dispatch the async thunk action
+    dispatch(postWarrantyRegisteration(formData))
+      .then((response) => {
+        // Handle successful response
+        if (response) {
+          const usersListData = { page: 1 };
+          dispatch(getBrandPage(usersListData));
+          setOpen(false);
+          setValue("name", "");
+          setValue("email", "");
+          setValue("mobileNo", "");
+          setValue("subject", "");
+          setImage("");
+          notify({ type: "success", messgae: "Data Added Successfully" });
+        } else {
+          toast.error("form submission failed");
+        }
+      })
+      .catch((error) => {
+        // Handle error and access the error object values
+        toast.error(error?.message);
+      });
   };
 
   return (
@@ -126,6 +155,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                       : {
                           ...commonStyle.inputFieldContactStyle,
@@ -135,6 +165,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                   }
                   {...register("name")}
@@ -164,6 +195,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                       : {
                           ...commonStyle.inputFieldContactStyle,
@@ -173,6 +205,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                   }
                   {...register("email")}
@@ -202,6 +235,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                       : {
                           ...commonStyle.inputFieldContactStyle,
@@ -211,6 +245,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                   }
                   {...register("mobileNo")}
@@ -240,6 +275,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                       : {
                           ...commonStyle.inputFieldContactStyle,
@@ -249,6 +285,7 @@ const WarrantyRegisteration = () => {
                           height: "52px",
                           border: "1px solid #E6E6E6",
                           borderRadius: "10px",
+                          fontWeight: "600",
                         }
                   }
                   {...register("subject")}
@@ -262,12 +299,16 @@ const WarrantyRegisteration = () => {
                   displayText={errors.subject?.message}
                 />
               </Col>
-              <Col md={12} style={{ paddingBottom: "10px" }}>
+
+              <Col md={12} style={{ paddingBottom: "15px" }}>
                 <InputBase
-                  required
-                  id="password"
-                  name="password"
-                  placeholder="Password"
+                  // required
+                  id="image"
+                  name="image"
+                  type="file"
+                  placeholder="Image"
+                  accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
+                  onClick={handleImage}
                   sx={
                     !responsive
                       ? {
@@ -289,81 +330,26 @@ const WarrantyRegisteration = () => {
                           borderRadius: "10px",
                         }
                   }
-                  {...register("password")}
-                  error={errors.password ? true : false}
-                />
-                <FMTypography
-                  styleData={{
-                    ...commonStyle.errorContactText,
-                    fontSize: "11px",
-                  }}
-                  displayText={errors.password?.message}
                 />
               </Col>
-              <Col md={12} style={{ paddingBottom: "10px" }}>
-                <InputBase
-                  required
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  placeholder="confirmPassword"
-                  sx={
-                    !responsive
-                      ? {
-                          ...commonStyle.inputFieldContactStyle,
-                          ...(errors.description &&
-                            commonStyle.errorContactStyle),
-                          width: "555px",
-                          height: "52px",
-                          border: "1px solid #E6E6E6",
-                          borderRadius: "10px",
-                        }
-                      : {
-                          ...commonStyle.inputFieldContactStyle,
-                          ...(errors.description &&
-                            commonStyle.errorContactStyle),
-                          width: "265px",
-                          height: "52px",
-                          border: "1px solid #E6E6E6",
-                          borderRadius: "10px",
-                        }
-                  }
-                  {...register("confirmPassword")}
-                  error={errors.confirmPassword ? true : false}
-                />
-                <FMTypography
-                  styleData={{
-                    ...commonStyle.errorContactText,
-                    fontSize: "11px",
-                  }}
-                  displayText={errors.confirmPassword?.message}
-                />
+              <Col md={12}>
+                {imagePreview && (
+                  <Box className="my-4">
+                    <div style={commonStyle.commonModalTitleStyle}>
+                      {`Image Preview`}
+                    </div>
+                    <img
+                      src={imagePreview}
+                      style={{
+                        width: "300px",
+                        height: "300px",
+                      }}
+                    />
+                  </Box>
+                )}
               </Col>
-              {/* <Col md={12} style={{ paddingBottom: "40px" }}>
-                <InputBase
-                  required
-                  id="message"
-                  name="message"
-                  placeholder="Your Message"
-                  sx={{
-                    ...commonStyle.inputFieldContactStyle,
-                    ...(errors.description && commonStyle.errorContactStyle),
-                    width: "555px",
-                    height: "165px",
-                    border: "1px solid #E6E6E6",
-                    borderRadius: "10px",
-                  }}
-                  {...register("message")}
-                  error={errors.description ? true : false}
-                />
-                <FMTypography
-                  styleData={{
-                    ...commonStyle.errorContactText,
-                    fontSize: "11px",
-                  }}
-                  displayText={errors.message?.message}
-                />
-              </Col> */}
-              <Col style={{ paddingBottom: "40px" }}>
+
+              <Col md={12} style={{ paddingBottom: "40px" }}>
                 <FMButton
                   displayText={"Submit"}
                   variant="outlined"
