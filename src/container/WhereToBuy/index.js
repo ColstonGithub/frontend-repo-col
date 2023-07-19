@@ -155,11 +155,15 @@ const WhereToBuy = () => {
                 className={
                   !responsiveMobile
                     ? "d-flex justify-content-center"
-                    : "d-flex justify-content-center"
+                    : "d-flex justify-content-center flex-direction-column"
                 }
                 style={
                   responsiveMobile
-                    ? { paddingRight: "80px", paddingLeft: "80px" }
+                    ? {
+                        paddingRight: "80px",
+                        paddingLeft: "80px",
+                        flexDirection: "column",
+                      }
                     : null
                 }
               >
@@ -171,10 +175,11 @@ const WhereToBuy = () => {
                 />
                 <IconButton
                   size="large"
-                  style={{ marginLeft: "10px" }}
+                  style={{ marginLeft: responsiveMobile ? null : "10px" }}
                   onClick={filterWhereToBuy}
                 >
-                  <SearchIcon /> <span style={{fontSize:"20px"}}>Search</span>
+                  <SearchIcon />{" "}
+                  <span style={{ fontSize: "18px" }}>Search</span>
                 </IconButton>
               </Col>
             </Row>
@@ -207,6 +212,7 @@ const WhereToBuy = () => {
                       fontColor: "#717171",
                       margin: !responsiveMobile ? "1.5rem" : "1rem 0",
                       width: !responsiveMobile ? "350px" : "300px",
+                      height: "430px",
                     }}
                   >
                     <h3>{elem?.city.toUpperCase()}</h3>
@@ -249,7 +255,7 @@ const WhereToBuy = () => {
                       fontSize: !responsiveMobile ? "1rem" : "1.4rem",
                       fontColor: "#717171",
                       margin: !responsiveMobile ? "1.5rem" : "1rem 0",
-
+                      height: "430px",
                       width: !responsiveMobile ? "350px" : "300px",
                     }}
                   >

@@ -109,7 +109,7 @@ const NewsPress = () => {
                       sx={{
                         borderRadius: "20px",
                         height: "317px",
-                        width: "100%",
+                        width: "317px",
                       }}
                       image={elem?.image}
                       alt={elem?.imageAltText}

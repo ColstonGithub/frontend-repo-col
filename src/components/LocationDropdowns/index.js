@@ -93,8 +93,7 @@ const LocationDropdowns = ({
           defaultValue=""
           id="grouped-native-select"
           sx={{
-            height: "2.5rem",
-            marginTop: "10px",
+            height: responsiveMobile ? null : "3.5rem",
             border: "0.0625rem solid #1a1a1a1f",
             "&:hover": { border: "0.0625rem solid #1a1a1a1f" },
             "& .MuiSelect-root": {
@@ -140,8 +139,7 @@ const LocationDropdowns = ({
           defaultValue=""
           id="grouped-native-select"
           sx={{
-            height: "2.5rem",
-            marginTop: "10px",
+            height: responsiveMobile ? null : "3.5rem",
             border: "0.0625rem solid #1a1a1a1f",
             "&:hover": { border: "0.0625rem solid #1a1a1a1f" },
             "& .MuiSelect-root": {

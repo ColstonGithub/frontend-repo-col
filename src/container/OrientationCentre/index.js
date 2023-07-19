@@ -113,6 +113,7 @@ const OrientationCentre = () => {
                     fontColor: "#717171",
                     margin: !responsiveMobile ? "1.5rem" : "1rem 0",
                     width: !responsiveMobile ? "350px" : "300px",
+                    height: "430px",
                   }}
                 >
                   <h3>{elem?.city.toUpperCase()}</h3>

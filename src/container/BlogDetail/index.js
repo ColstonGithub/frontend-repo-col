@@ -73,17 +73,9 @@ const BlogDetail = () => {
               >
                 {blogDetail?.pageHeading}
               </h3>
-              <p
-                style={{
-                  fontFamily: "Rajdhani",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  fontSize: "1rem",
-                  color: "#222222",
-                }}
-              >
-                {blogDetail?.text}
-              </p>
+              <div
+                dangerouslySetInnerHTML={{ __html: blogDetail?.text }}
+              />
             </Box>
           </Grid>
         </>

@@ -60,7 +60,6 @@ const Blogs = () => {
     setBlogList(blogs);
   }, [blogs]);
 
-
   return (
     <>
       <Header />
@@ -153,8 +152,8 @@ const Blogs = () => {
                           component="img"
                           sx={{
                             borderRadius: "20px",
-                            height: "317px",
-                            width: "100%",
+                            height: "350px",
+                            width: "350px",
                           }}
                           image={elem?.image}
                           alt={elem?.imageAltText}
@@ -166,7 +165,10 @@ const Blogs = () => {
                             component="div"
                             sx={{
                               fontSize: "18px",
-                              color: "#222222",
+                              color: "#2b2a29",
+                              textAlign: "center",
+                              width: "325px",
+                              textTransform: "capitalize",
                             }}
                           >
                             {elem?.title}
@@ -192,8 +194,8 @@ const Blogs = () => {
                           component="img"
                           sx={{
                             borderRadius: "20px",
-                            height: "317px",
-                            width: "100%",
+                            height: "350px",
+                            width: "350px",
                           }}
                           image={elem?.image}
                           alt={elem?.imageAltText}
@@ -207,6 +209,9 @@ const Blogs = () => {
                               fontSize: "18px",
                               color: "#2b2a29",
                               fontWeight: "600",
+                              textAlign: "center",
+                              width: "325px",
+                              textTransform: "capitalize",
                             }}
                           >
                             {elem?.title}

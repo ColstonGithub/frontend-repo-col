@@ -99,6 +99,7 @@ const CategoryPage = () => {
                               padding: "1rem",
                               marginTop: "1rem",
                               borderRadius: "30px",
+                              width: "317px",
                             }
                           : {
                               borderBottom: "20px",

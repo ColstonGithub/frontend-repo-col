@@ -85,8 +85,8 @@ const ProductPage = () => {
                     component="img"
                     sx={{
                       borderRadius: "20px",
-                      height: "317px",
-                      width: "317px",
+                      height: "350px",
+                      width: "350px",
                     }}
                     image={elem?.productPictures[0]?.img}
                     alt="green iguana"
@@ -99,7 +99,9 @@ const ProductPage = () => {
                       sx={{
                         fontSize: "18px",
                         color: "#2b2a29",
-                        fontWeight: "600",
+                        fontWeight: "600",                       textAlign: "center",
+                        width: "325px",
+                        textTransform: "capitalize",
                       }}
                     >
                       {elem?.name}
