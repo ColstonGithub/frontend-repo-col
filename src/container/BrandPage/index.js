@@ -50,8 +50,8 @@ const BrandPage = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-          paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -112,8 +112,8 @@ const BrandPage = () => {
                       component="img"
                       sx={{
                         borderRadius: "20px",
-                        height: "317px",
-                        width: "317px",
+                        height: "350px",
+                        width: "350px",
                       }}
                       image={elem?.image}
                       alt={elem?.imageAltText}
@@ -128,6 +128,7 @@ const BrandPage = () => {
                           color: "#2b2a29",
                           fontWeight: "600",
                           fontFamily: "Rajdhani",
+                          width: "320px",
                         }}
                       >
                         {elem?.title}

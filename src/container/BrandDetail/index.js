@@ -30,8 +30,8 @@ const BrandDetail = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-          paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -57,7 +57,7 @@ const BrandDetail = () => {
             style={{
               width: "100%",
               height: !responsiveMobile ? "auto" : "62vw",
-              maxHeight: "550px",
+              minHeight: "550px",
               borderRadius: "20px",
             }}
             alt={brandDetail?.imageAltText}

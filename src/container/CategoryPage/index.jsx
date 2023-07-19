@@ -99,12 +99,13 @@ const CategoryPage = () => {
                               padding: "1rem",
                               marginTop: "1rem",
                               borderRadius: "30px",
-                              width: "317px",
+                              width: "360px",
+                              height: "360px",
                             }
                           : {
                               borderBottom: "20px",
-                              height: "317px",
-                              width: "317px",
+                              height: "360px",
+                              width: "360px",
                             }
                       }
                       image={elem?.categoryImage}
@@ -119,6 +120,7 @@ const CategoryPage = () => {
                           fontSize: "18px",
                           color: "#2b2a29",
                           fontWeight: "600",
+                          width: "320px",
                         }}
                       >
                         {elem?.name}
