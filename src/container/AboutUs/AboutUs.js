@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
 
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 
 import "./BrandDetail.css";
@@ -10,7 +10,7 @@ import { postAboutUs } from "Redux/Slices/AboutUs/AboutUs";
 import { useDispatch, useSelector } from "react-redux";
 const AboutUs = () => {
   const dispatch = useDispatch();
-
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   useEffect(() => {
     dispatch(postAboutUs());
   }, [dispatch]);
@@ -26,8 +26,8 @@ const AboutUs = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "2.8rem",
-          paddingBottom: "40px",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -52,15 +52,14 @@ const AboutUs = () => {
             src={AboutUs[0]?.bannerImage}
             style={{
               width: "100%",
-              height: "auto",
-              maxHeight: "550px",
-              borderRadius: "20px",
+              height: !responsiveMobile ? "650px" : "62vw",
+              borderRadius: "35px",
             }}
             alt={AboutUs[0]?.bannerImageAltText}
           />
         </div>
 
-        <Box>
+        <Box style={{ paddingTop: "2rem" }}>
           <h3
             style={{
               fontFamily: "Rajdhani",

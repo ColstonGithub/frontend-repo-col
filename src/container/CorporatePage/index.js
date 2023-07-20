@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
-import { Link } from "react-router-dom";
 import {
   Box,
   Card,
