@@ -44,7 +44,11 @@ const NewsPressDetail = () => {
         />
       </Box>
 
-      <Grid sx={{ padding: "0 3.2rem" }}>
+      <Grid
+        sx={{
+          padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
+        }}
+      >
         {/* product box below */}
         <div
           style={{
@@ -53,12 +57,15 @@ const NewsPressDetail = () => {
         >
           <img
             src={newsPressDetail?.image}
-            style={{ width: "100%", height: "auto", minHeight: "550px" }}
+            style={{
+              width: "100%",
+              height: !responsiveMobile ? "650px" : "62vw",
+            }}
             alt={newsPressDetail?.imageAltText}
           />
         </div>
 
-        <Box>
+        <Box style={{ paddingTop: "2rem" }}>
           <h3
             style={{
               fontFamily: "Rajdhani",

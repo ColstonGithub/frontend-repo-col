@@ -76,9 +76,7 @@ const NewsPress = () => {
           <img
             src={newsPressBanner?.bannerImage}
             style={{
-              width: "100%",
-              minHeight: "550px",
-              height: !responsiveMobile ? "auto" : "62vw",
+              height: !responsiveMobile ? "650px" : "62vw",
               borderRadius: "20px",
             }}
             alt={newsPressBanner?.bannerImageAltText}

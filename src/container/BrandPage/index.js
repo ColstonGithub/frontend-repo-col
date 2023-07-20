@@ -23,7 +23,7 @@ const BrandPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     dispatch(getBrandProducts());
@@ -78,14 +78,13 @@ const BrandPage = () => {
             src={brandBanner?.bannerImage}
             style={{
               width: "100%",
-              height: !responsiveMobile ? "auto" : "62vw",
+              height: !responsiveMobile ? "650px" : "62vw",
               borderRadius: "20px",
             }}
             alt={brandBanner?.bannerImageAltText}
           />
         </Box>
-
-        <Grid>
+        <Grid sx={{ padding: "3.2rem" }}>
           {/* product box below */}
           <Grid
             sx={{
@@ -103,7 +102,7 @@ const BrandPage = () => {
               >
                 <Card
                   sx={{
-                    width: responsiveMobile ? "90vw" : "317",
+                    width: responsiveMobile ? "90vw" : "350",
                     borderRadius: "20px",
                   }}
                 >
@@ -112,8 +111,8 @@ const BrandPage = () => {
                       component="img"
                       sx={{
                         borderRadius: "20px",
-                        height: "350px",
-                        width: "350px",
+                        height: "360px",
+                        width: "360px",
                       }}
                       image={elem?.image}
                       alt={elem?.imageAltText}

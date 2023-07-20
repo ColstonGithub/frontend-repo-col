@@ -35,8 +35,8 @@ const OrientationCentre = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-          paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -62,7 +62,7 @@ const OrientationCentre = () => {
             src={orientationCentre}
             style={{
               width: "100%",
-              height: !responsiveMobile ? "auto" : "62vw",
+              height: !responsiveMobile ? "650px" : "62vw",
               borderRadius: "20px",
             }}
             alt="orientation"

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 
 import Footer from "components/Footer";
@@ -10,11 +10,14 @@ import { getCareClean } from "Redux/Slices/CareClean/CareCleanSlice";
 const CareCleaning = () => {
   const dispatch = useDispatch();
 
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   useEffect(() => {
-      dispatch(getCareClean());
+    dispatch(getCareClean());
   }, [dispatch]);
-  
-  let careClean = useSelector(state => state.careClean.careClean.careCleanData);
+
+  let careClean = useSelector(
+    (state) => state.careClean.careClean.careCleanData
+  );
   careClean = careClean ? careClean[0] : {};
   // console.log(careClean);
 
@@ -25,8 +28,8 @@ const CareCleaning = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "40px",
-          paddingBottom: "40px",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -48,12 +51,16 @@ const CareCleaning = () => {
         >
           <img
             src={careClean?.bannerImage}
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: !responsiveMobile ? "650px" : "62vw",
+              borderRadius: "20px",
+            }}
             alt={careClean?.bannerImageAltText}
           />
         </div>
 
-        <Box>
+        <Box style={{ paddingTop: "1rem" }}>
           <h3
             style={{
               fontFamily: "Rajdhani",
@@ -73,7 +80,7 @@ const CareCleaning = () => {
               fontStyle: "normal",
               fontWeight: "500",
               fontSize: "1rem",
-              color: "#717171", 
+              color: "#717171",
             }}
           >
             {careClean?.text}

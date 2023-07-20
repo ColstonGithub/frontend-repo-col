@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 
 import { getBlogDetail } from "Redux/Slices/BlogDetailSlice/BlogDetailSlice";
@@ -9,7 +9,7 @@ import { useParams } from "react-router";
 
 const BlogDetail = () => {
   const params = useParams();
-
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,23 +29,29 @@ const BlogDetail = () => {
             sx={{
               display: "flex",
               justifyContent: "center",
-              paddingTop: "2.8rem",
-              paddingBottom: "40px",
+              paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+              paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
             }}
           >
             <FMTypography
               displayText={blogDetail?.pageTitle}
               styleData={{
                 color: "#EF1068",
-                fontWeight: "500",
-                fontSize: "1.5rem",
+                fontWeight: "600",
+                fontSize: "2.8rem",
                 textAlign: "center",
                 textTransform: "uppercase",
               }}
             />
           </Box>
 
-          <Grid sx={{ padding: "0px 50px" }}>
+          <Grid
+            sx={{
+              padding: !responsiveMobile
+                ? "0px 3.2rem 5rem"
+                : "0px 1.4rem 5rem",
+            }}
+          >
             {/* product box below */}
             <div
               style={{
@@ -54,12 +60,16 @@ const BlogDetail = () => {
             >
               <img
                 src={blogDetail?.image}
-                style={{ width: "100%", height: "auto", minHeight: "550px" }}
+                style={{
+                  width: "100%",
+                  borderRadius: "20px",
+                  height: !responsiveMobile ? "650px" : "62vw",
+                }}
                 alt="blog"
               />
             </div>
 
-            <Box>
+            <Box style={{ paddingTop: "2rem" }}>
               <h3
                 style={{
                   fontFamily: "Rajdhani",

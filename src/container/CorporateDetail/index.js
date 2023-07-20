@@ -1,22 +1,23 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
-
 import Footer from "components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getCorporateDetail } from "Redux/Slices/Corporate/CorporateDetailSlice";
 const CorporateDetail = () => {
   const params = useParams();
-
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
-      dispatch(getCorporateDetail(params));
+    dispatch(getCorporateDetail(params));
   }, [dispatch, params]);
 
-  const corporateDetail = useSelector(state => state.corporateDetail.corporate.corporateproduct);
+  const corporateDetail = useSelector(
+    (state) => state.corporateDetail.corporate.corporateproduct
+  );
   // console.log(corporateDetails);
 
   return (
@@ -26,8 +27,8 @@ const CorporateDetail = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "2.8rem",
-          paddingBottom: "2.8rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -49,12 +50,15 @@ const CorporateDetail = () => {
         >
           <img
             src={corporateDetail?.image}
-            style={{ width: "100%", height: "auto", maxHeight: "500px" }}
+            style={{
+              width: "100%",
+              height: !responsiveMobile ? "650px" : "62vw",
+            }}
             alt={corporateDetail?.imageAltText}
           />
         </div>
 
-        <Box>
+        <Box style={{ paddingTop: "2rem" }}>
           <h3
             style={{
               fontFamily: "Rajdhani",

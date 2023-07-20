@@ -22,7 +22,7 @@ const CorporatePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     dispatch(getCorporateProducts());
@@ -50,8 +50,8 @@ const CorporatePage = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "2.8rem",
-          paddingBottom: "2.8rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -64,18 +64,22 @@ const CorporatePage = () => {
         />
       </Box>
 
-      <Grid>
+      <Grid sx={{ padding: "3.2rem" }}>
         {/* product box below */}
 
         <Box
           sx={{
             borderRadius: "20px",
-            padding: "0px 3.2rem 5rem",
+            padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
           }}
         >
           <img
             src={corporateBanner?.bannerImage}
-            style={{ width: "100%", height: "auto", borderRadius: "35px" }}
+            style={{
+              width: "100%",
+              height: !responsiveMobile ? "650px" : "62vw",
+              borderRadius: "35px",
+            }}
             alt={corporateBanner?.bannerImageAltText}
           />
         </Box>
@@ -95,7 +99,7 @@ const CorporatePage = () => {
               <Box key={elem._id} onClick={() => onCardClick(elem)}>
                 <Card
                   sx={{
-                    width: responsiveMobile ? "90vw" : "317",
+                    width: responsiveMobile ? "90vw" : "350",
                     borderRadius: "20px",
                   }}
                 >
@@ -104,8 +108,8 @@ const CorporatePage = () => {
                       component="img"
                       sx={{
                         borderRadius: "20px",
-                        height: "317px",
-                        width: "317px",
+                        height: "350px",
+                        width: "350px",
                       }}
                       image={elem?.image}
                       alt={elem.imageAltText}
@@ -119,6 +123,7 @@ const CorporatePage = () => {
                           fontSize: "18px",
                           color: "#2b2a29",
                           fontWeight: "600",
+                          width: "320px",
                         }}
                       >
                         {elem?.title}

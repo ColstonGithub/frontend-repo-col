@@ -10,7 +10,7 @@ import { getBrandDetail } from "Redux/Slices/Brand/BrandDetailSlice";
 import { useDispatch, useSelector } from "react-redux";
 const BrandDetail = () => {
   const params = useParams();
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   const dispatch = useDispatch();
 
@@ -45,7 +45,11 @@ const BrandDetail = () => {
         />
       </Box>
 
-      <Grid sx={{ padding: !responsiveMobile ? "0px 3.2rem" : "0px 1.4rem" }}>
+      <Grid
+        sx={{
+          padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
+        }}
+      >
         {/* product box below */}
         <div
           style={{
@@ -56,15 +60,14 @@ const BrandDetail = () => {
             src={brandDetail?.image}
             style={{
               width: "100%",
-              height: !responsiveMobile ? "auto" : "62vw",
-              minHeight: "550px",
+              height: !responsiveMobile ? "650px" : "62vw",
               borderRadius: "20px",
             }}
             alt={brandDetail?.imageAltText}
           />
         </div>
 
-        <Box>
+        <Box style={{ paddingTop: "2rem" }}>
           <h3
             style={{
               fontFamily: "Rajdhani",
