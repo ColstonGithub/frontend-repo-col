@@ -11,7 +11,7 @@ import FMButton from "components/FMButton/FMButton";
 import FMTypography from "components/FMTypography/FMTypography";
 import Header from "components/SearchBar/Header";
 import Footer from "components/Footer";
-import { notify, getImagePreview } from "constants/utils";
+import { notify } from "constants/utils";
 import { postWarrantyRegisteration } from "Redux/Slices/Forms/postWarrantyRegistration";
 
 import { commonStyle } from "Styles/commonStyles";
@@ -75,15 +75,15 @@ const WarrantyRegisteration = () => {
       setImagePreview(URL.createObjectURL(e.target.files[0]));
       setImage(selectedImage);
     } else {
-      notify({ type: "error", message: "Image not loaded try again" });
+      toast.error("Image not loaded try again");
     }
   };
 
   const handleFormSubmit = (data) => {
     const formData = new FormData();
-    formData.append("name", data?.title?.toString());
-    formData.append("email", data?.text?.toString());
-    formData.append("mobileNo", data?.imageAltText?.toString());
+    formData.append("name", data?.name?.toString());
+    formData.append("email", data?.email?.toString());
+    formData.append("mobileNo", data?.mobileNo?.toString());
     formData.append("subject", data?.subject?.toString());
     formData.append("image", image);
 
@@ -95,13 +95,14 @@ const WarrantyRegisteration = () => {
           setValue("mobileNo", "");
           setValue("subject", "");
           setImage("");
-          notify({ type: "success", message: "Data Added Successfully" });
+          setImagePreview("");
+          toast("Form Submited Successfully");
         } else {
           toast.error("Form submission failed");
         }
       })
       .catch((error) => {
-        toast.error(error?.message);
+        toast.error(`Something went wrong ${error?.message}`);
       });
   };
 
@@ -151,14 +152,14 @@ const WarrantyRegisteration = () => {
                   placeholder="Name"
                   sx={inputFieldStyle}
                   {...register("name")}
-                  error={errors.name ? true : false}
+                  error={errors?.name ? true : false}
                 />
                 <FMTypography
                   styleData={{
                     ...commonStyle.errorContactText,
                     fontSize: "11px",
                   }}
-                  displayText={errors.name?.message}
+                  displayText={errors?.name?.message}
                 />
               </Col>
               <Col md={12} style={{ paddingBottom: "10px" }}>
@@ -169,14 +170,14 @@ const WarrantyRegisteration = () => {
                   placeholder="Email"
                   sx={inputFieldStyle}
                   {...register("email")}
-                  error={errors.email ? true : false}
+                  error={errors?.email ? true : false}
                 />
                 <FMTypography
                   styleData={{
-                    ...commonStyle.errorContactText,
+                    ...commonStyle?.errorContactText,
                     fontSize: "11px",
                   }}
-                  displayText={errors.email?.message}
+                  displayText={errors?.email?.message}
                 />
               </Col>
               <Col md={12} style={{ paddingBottom: "10px" }}>
@@ -187,14 +188,14 @@ const WarrantyRegisteration = () => {
                   placeholder="Mobile Number"
                   sx={inputFieldStyle}
                   {...register("mobileNo")}
-                  error={errors.mobileNo ? true : false}
+                  error={errors?.mobileNo ? true : false}
                 />
                 <FMTypography
                   styleData={{
-                    ...commonStyle.errorContactText,
+                    ...commonStyle?.errorContactText,
                     fontSize: "11px",
                   }}
-                  displayText={errors.mobileNo?.message}
+                  displayText={errors?.mobileNo?.message}
                 />
               </Col>
               <Col md={12} style={{ paddingBottom: "10px" }}>
@@ -205,14 +206,14 @@ const WarrantyRegisteration = () => {
                   placeholder="Subject"
                   sx={inputFieldStyle}
                   {...register("subject")}
-                  error={errors.subject ? true : false}
+                  error={errors?.subject ? true : false}
                 />
                 <FMTypography
                   styleData={{
-                    ...commonStyle.errorContactText,
+                    ...commonStyle?.errorContactText,
                     fontSize: "11px",
                   }}
-                  displayText={errors.subject?.message}
+                  displayText={errors?.subject?.message}
                 />
               </Col>
               <Col md={12} style={{ paddingBottom: "15px" }}>
@@ -222,7 +223,7 @@ const WarrantyRegisteration = () => {
                   type="file"
                   placeholder="Image"
                   accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
-                  onChange={handleImage} 
+                  onChange={handleImage}
                   sx={inputFieldStyle}
                 />
                 {imagePreview && imagePreview ? (

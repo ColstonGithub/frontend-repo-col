@@ -8,7 +8,7 @@ export const postWarrantyRegisteration = createAsyncThunk(
     try {
       const response = await axiosInstance.post(
         "api/warrentyregistration/create",
-        { ...payload }
+        payload
       );
       return response.data;
     } catch (error) {

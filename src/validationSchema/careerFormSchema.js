@@ -13,7 +13,7 @@ export const careerFormSchema = Yup.object().shape({
     .required("Phone number is mandatory")
     .test("check_all_zero", "Phone number is invalid", (val) => +val > 0)
     .matches(MOBILE_NUMBER_REGEX, "Phone number is invalid")
-    .max(10, "Phone number should not exceed 10 digits"),
+    .max(11, "Phone number should not exceed 10 digits"),
 
   subject: Yup.string().required("Subject is mandatory"),
   pdf: Yup.mixed(),

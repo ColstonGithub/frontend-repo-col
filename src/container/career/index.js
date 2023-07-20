@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Grid, InputBase } from "@mui/material";
+import { Box, InputBase } from "@mui/material";
 
 import FMButton from "components/FMButton/FMButton";
 import FMTypography from "components/FMTypography/FMTypography";
@@ -8,14 +8,14 @@ import { commonStyle } from "Styles/commonStyles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { careerFormSchema } from "validationSchema/careerFormSchema";
-import { Row, Col, Container, Button } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import Header from "components/SearchBar/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { postCareer } from "Redux/Slices/Forms/postCareer";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import Footer from "components/Footer";
 const style = {
@@ -32,11 +32,12 @@ const Career = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: yupResolver(careerFormSchema),
     mode: "onChange",
   });
-  let responsive = useMediaQuery("(max-width:500px)");
+  let responsive = useMediaQuery("(max-width:600px)");
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("name", data?.name?.toString());
@@ -46,8 +47,26 @@ const Career = () => {
     formData.append("pdf", data?.pdf[0]);
     formData.append("message", data?.message?.toString());
 
-    dispatch(postCareer(formData));
-    toast("form submited successfully redirect to homepage");
+    console.log("formData ", formData);
+
+    dispatch(postCareer(formData))
+      .then((response) => {
+        if (response) {
+          setValue("name", "");
+          setValue("email", "");
+          setValue("mobileNo", "");
+          setValue("subject", "");
+          setValue("message", "");
+          setValue("pdf", "");
+          toast("Form Submited Successfully");
+        } else {
+          toast.error("Form Submission Failed");
+        }
+      })
+      .catch((error) => {
+        toast.error(error?.message);
+      });
+
     // setTimeout(() => {
     //   navigate("/");
     // }, 5000);
@@ -367,7 +386,7 @@ const Career = () => {
           </Box>
         </Container>
       </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 };
