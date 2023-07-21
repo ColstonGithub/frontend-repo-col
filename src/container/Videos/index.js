@@ -123,7 +123,7 @@ const Videos = () => {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/video/getvideos?pageToken=${pageToken}`
+        `http://64.227.150.49:5000/api/video/getvideos?pageToken=${pageToken}`
       );
       console.log("response ", response);
       if (response.data) {
