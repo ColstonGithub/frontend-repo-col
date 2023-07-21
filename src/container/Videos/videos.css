@@ -1,0 +1,61 @@
+/* .video-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail {
+  position: relative;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.play-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.video-info {
+  padding: 12px;
+}
+
+.video-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.video-description {
+  font-size: 14px;
+  color: #666;
+} */
+
+/* If using a separate CSS file */
+.youtube-icon {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.youtube-icon:hover {
+  color: #ff0000;
+}

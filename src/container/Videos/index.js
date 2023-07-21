@@ -1,51 +1,153 @@
-import React, { useEffect, useState } from "react";
-import Header from "components/SearchBar/Header";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import ReactPlayer from "react-player";
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import {
   Box,
-  Grid,
-  CardMedia,
-  Card,
-  CardActionArea,
-  CardContent,
   Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  IconButton,
   useMediaQuery,
 } from "@mui/material";
-
-import FMTypography from "components/FMTypography/FMTypography";
-import { postVideo } from "Redux/Slices/Videos/Videos";
+import { makeStyles } from "@mui/styles";
+import { FaYoutube } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
 import Footer from "components/Footer";
-const Videos = () => {
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+import Header from "components/SearchBar/Header";
+import videoBanner from "assets/videoBanner.png";
+import FMTypography from "components/FMTypography/FMTypography";
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+const useStyles = makeStyles((theme) => ({
+  headerContainer: {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: theme.breakpoints.up("sm") ? "1.8rem" : "1rem",
+    paddingBottom: theme.breakpoints.up("sm") ? "1.8rem" : "1rem",
+  },
+
+  bannerImage: {
+    width: "100%",
+    borderRadius: theme.spacing(3),
+  },
+  videoContainer: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "2rem",
+    padding: theme.spacing(3, 0),
+  },
+  videoCard: {
+    border: `1px solid ${theme.palette.grey[300]}`,
+    borderRadius: theme.spacing(2),
+    overflow: "hidden",
+    boxShadow: theme.shadows[2],
+    cursor: "pointer",
+    transition: "transform 0.2s ease",
+    "&:hover": {
+      transform: "scale(1.02)",
+    },
+  },
+  videoThumbnail: {
+    position: "relative",
+  },
+  playButton: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    borderRadius: "50%",
+    padding: theme.spacing(2),
+    color: theme.palette.common.white,
+  },
+  videoInfo: {
+    padding: theme.spacing(2),
+  },
+  videoTitle: {
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    marginBottom: theme.spacing(1),
+  },
+  videoDescription: {
+    fontSize: theme.typography.pxToRem(14),
+    color: theme.palette.text.secondary,
+  },
+
+  youtubeIcon: {
+    color: "#fff",
+    transition: "color 0.3s ease",
+    "&:hover": {
+      color: "#ff0000",
+    },
+  },
+}));
+
+const Videos = () => {
+  const classes = useStyles();
+  const [videos, setVideos] = useState([]);
+  const [pageToken, setPageToken] = useState("");
+  const containerRef = useRef(null);
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(postVideo());
-  }, [dispatch]);
+    fetchData();
+  }, []);
 
-  const video = useSelector((state) => state?.videos?.banners?.videoData);
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleObserver, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    });
 
-  const videos = [
-    "https://www.youtube.com/embed/zHlSgxg8Zpk",
-    "https://www.youtube.com/embed/zHlSgxg8Zpk",
-    "https://www.youtube.com/embed/zHlSgxg8Zpk",
-  ];
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [videos]);
+
+  const handleObserver = (entries) => {
+    const target = entries[0];
+    if (target.isIntersecting && !isLoading) {
+      fetchData();
+    }
+  };
+
+  const fetchData = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(
+        `http://localhost:5000/api/video/getvideos?pageToken=${pageToken}`
+      );
+      console.log("response ", response);
+      if (response.data) {
+        const { videoData, nextPageToken } = response.data;
+        setVideos((prevVideos) => [...prevVideos, ...videoData]);
+        setPageToken(nextPageToken);
+      } else {
+        toast.error("Error fetching videos");
+      }
+    } catch (err) {
+      toast.error("Error fetching videos:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handlePlayVideo = (videoId) => {
+    window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
+  };
+
   return (
     <>
       <Header />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          paddingTop: "2.8rem",
-          paddingBottom: "2.8rem",
-        }}
-      >
+      <Box className={classes.headerContainer}>
         <FMTypography
           displayText={"Videos"}
           styleData={{
@@ -56,131 +158,59 @@ const Videos = () => {
         />
       </Box>
 
-      <Grid sx={{ padding: "3.2rem 3.2rem" }}>
-        <Box
-          sx={{
-            borderRadius: "20px",
-            padding: "0px 3.2rem 5rem",
-          }}
-        >
-          <ReactPlayer
-            height="800px"
-            width="800px"
-            position="absolute"
-            url={
-              "https://colston-app.s3.ap-south-1.amazonaws.com/oUDGOTCnjU-big_buck_bunny_240p_30mb.mp4"
-            }
-            playing={true}
-            controls={true}
-          />
-        </Box>
+      <Grid container sx={{ padding: "0 3.2rem 3.2rem 3.2rem" }}>
+        {/* Banner Image */}
+        <Grid item xs={12}>
+          <Box className={classes.bannerImage}>
+            <img
+              src={videoBanner}
+              alt="youtube banner"
+              className={classes.bannerImage}
+              style={{ height: !responsiveMobile ? "650px" : "62vw" }}
+            />
+          </Box>
+        </Grid>
 
-        <Grid
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            flexBasis: "33.333333%",
-            justifyContent: "space-evenly",
-          }}
-        >
-          {video?.map((video) => (
-            <Box>
-              <Card
-                sx={{
-                  width: responsiveMobile ? "90vw" : "317",
-                  borderRadius: "20px",
-                }}
-              >
-                <ReactPlayer
-                  component="iframe"
-                  url={video.video}
-                  sx={{
-                    borderRadius: "20px",
-                    height: "317px",
-                    width: "317px",
-                  }}
-                />
-              </Card>
-            </Box>
-          ))}
+        {/* Video Cards */}
+        <Grid item xs={12} style={{ paddingTop: "2rem" }}>
+          <Box className={classes.videoContainer}>
+            {videos &&
+              videos.map((video) => (
+                <Card
+                  key={video.id.videoId}
+                  className={classes.videoCard}
+                  onClick={() => handlePlayVideo(video.id.videoId)}
+                >
+                  <div className={classes.videoThumbnail}>
+                    <CardMedia
+                      component="img"
+                      image={video.snippet.thumbnails.medium.url}
+                      alt={video.snippet.title}
+                    />
+                    <IconButton className={classes.playButton}>
+                      <FaYoutube size={32} className={classes.youtubeIcon} />
+                    </IconButton>
+                  </div>
+                  <CardContent className={classes.videoInfo}>
+                    <Typography className={classes.videoTitle} variant="h3">
+                      {video.snippet.title}
+                    </Typography>
+                    <Typography
+                      className={classes.videoDescription}
+                      variant="body2"
+                    >
+                      {video.snippet.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            <div ref={containerRef}></div>
+          </Box>
         </Grid>
       </Grid>
+      <ToastContainer />
       <Footer />
     </>
-    // <>
-    //   <Header />
-    //   <Box
-    //     sx={{
-    //       display: "flex",
-    //       justifyContent: "center",
-    //       marginTop: "2.8rem",
-    //     }}
-    //   >
-    //     <FMTypography
-    //       displayText={"Videos"}
-    //       styleData={{
-    //         fontWeight: "600",
-    //         fontSize: "2.8rem",
-    //         textAlign: "center",
-    //       }}
-    //     />
-    //   </Box>
-
-    //   <Grid sx={{ padding: "3.2rem 3.2rem" }}>
-    //     {/* product box below */}
-    //     <Grid
-    //       sx={{
-    //         display: "flex",
-    //         flexWrap: "wrap",
-    //         flexBasis: "33.333333%",
-    //         justifyContent: "space-evenly",
-    //       }}
-    //     >
-    //       {videos?.map((elem) => (
-    //         <Box>
-    //           <Card
-    //             sx={{
-    //               width: responsiveMobile ? "90vw" : "317",
-    //               borderRadius: "20px",
-    //             }}
-    //           >
-    //             <CardActionArea>
-    //               <CardMedia
-    //                 component="img"
-    //                 sx={{
-    //                   borderRadius: "20px",
-    //                   height: "317px",
-    //                   width: "317px",
-    //                 }}
-    //                 image={elem?.categoryImage}
-    //                 alt={elem?.imageAltText}
-    //               />
-    //               <CardContent>
-    //                 <Typography
-    //                   gutterBottom
-    //                   variant="h5"
-    //                   component="div"
-    //                   sx={{
-    //                     fontSize: "19px",
-    //                     color: "#ffffff",
-    //                     fontWeight: "450",
-    //                     textAlign: "center",
-    //                     position: "absolute",
-    //                     bottom: "10%",
-    //                     left: "35%",
-    //                   }}
-    //                 >
-    //                   {elem?.name}
-    //                 </Typography>
-    //               </CardContent>
-    //             </CardActionArea>
-    //           </Card>
-    //         </Box>
-    //       ))}
-    //       {/* prodct box ended */}
-    //     </Grid>
-    // </Grid>
-    // </>
   );
 };
 

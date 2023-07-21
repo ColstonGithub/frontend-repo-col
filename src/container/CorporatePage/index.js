@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Header from "components/SearchBar/Header";
 import {
   Box,
   Card,
@@ -13,6 +12,7 @@ import {
 import FMTypography from "components/FMTypography/FMTypography";
 import { useNavigate } from "react-router-dom";
 import Footer from "components/Footer";
+import Header from "components/SearchBar/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { getCorporateProducts } from "Redux/Slices/Corporate/CorporateSlice";
 import { getCorporateBanner } from "Redux/Slices/Corporate/CorporateBannerSlice";

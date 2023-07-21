@@ -2,22 +2,22 @@ import React, { useEffect } from "react";
 import Slider from "react-slick-slider";
 import Header from "components/SearchBar/Header";
 import Footer from "components/Footer";
-
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 import { getVirtualTour } from "Redux/Slices/VirtualTourSlice/VirtualTourSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-
 const VirtualTour = () => {
-  const responsiveMobile = useMediaQuery('(max-width: 500px)');
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(getVirtualTour());
+    dispatch(getVirtualTour());
   }, [dispatch]);
-  
-  let virtualTourData = useSelector(state => state.virtualTour.virtualTour.PageBanner);
+
+  let virtualTourData = useSelector(
+    (state) => state.virtualTour?.virtualTour?.PageBanner
+  );
 
   const settings = {
     dots: true,
@@ -38,8 +38,8 @@ const VirtualTour = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: !responsiveMobile ? "2.8rem" : "1.65rem",
-          paddingBottom: !responsiveMobile ? "2.8rem" : "1.65rem",
+          paddingTop: !responsiveMobile ? "1.8rem" : "1rem",
+          paddingBottom: !responsiveMobile ? "1.8rem" : "1rem",
         }}
       >
         <FMTypography
@@ -54,18 +54,21 @@ const VirtualTour = () => {
 
       <Grid>
         <Slider {...settings}>
-          {virtualTourData?.map(virtual => (
-              <Box>
-                <img
-                  src={virtual.bannerImage}
-                  style={{ width: "100%", height: "auto", maxHeight: "500px" }}
-                  alt={virtual.bannerImageAltText}
-                />
-              </Box>
+          {virtualTourData?.map((virtual) => (
+            <Box>
+              <img
+                src={virtual?.bannerImage}
+                style={{
+                  width: "100%",
+                  height: !responsiveMobile ? "650px" : "62vw",
+                }}
+                alt={virtual?.bannerImageAltText}
+              />
+            </Box>
           ))}
         </Slider>
       </Grid>
-      
+
       <Footer />
     </>
   );

@@ -16,7 +16,7 @@ const AboutUs = () => {
   }, [dispatch]);
 
   const AboutUs = useSelector(
-    (state) => state.aboutUs.banners?.aboutUsData || {}
+    (state) => state.aboutUs?.banners?.aboutUsData || {}
   );
 
   return (
