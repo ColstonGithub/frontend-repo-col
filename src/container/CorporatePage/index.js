@@ -29,10 +29,10 @@ const CorporatePage = () => {
   }, [dispatch]);
 
   const corporateProducts = useSelector(
-    (state) => state.corporateProducts.corporateProducts.corporateProducts
+    (state) => state.corporateProducts?.corporateProducts?.corporateProducts
   );
   let corporateBanner = useSelector(
-    (state) => state.corporateBanner.corporateBanner.PageBanner
+    (state) => state.corporateBanner?.corporateBanner?.PageBanner
   );
 
   corporateBanner = corporateBanner ? corporateBanner[0] : {};
@@ -63,13 +63,16 @@ const CorporatePage = () => {
         />
       </Box>
 
-      <Grid sx={{ padding: "0 3.2rem 3.2rem 3.2rem" }}>
+      <Grid
+        sx={{
+          padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
+        }}
+      >
         {/* product box below */}
 
         <Box
           sx={{
             borderRadius: "20px",
-            padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
           }}
         >
           <img
@@ -83,7 +86,7 @@ const CorporatePage = () => {
           />
         </Box>
 
-        <Grid>
+        <Grid sx={{ paddingTop: "2.5rem" }}>
           {/* product box below */}
           <Grid
             sx={{
@@ -91,11 +94,11 @@ const CorporatePage = () => {
               flexWrap: "wrap",
               flexBasis: "33.333333%",
               justifyContent: "space-evenly",
-              gap: "1rem",
+              gap: "1.5rem",
             }}
           >
             {corporateProducts?.map((elem) => (
-              <Box key={elem._id} onClick={() => onCardClick(elem)}>
+              <Box key={elem?._id} onClick={() => onCardClick(elem)}>
                 <Card
                   sx={{
                     width: responsiveMobile ? "90vw" : "350",
@@ -111,7 +114,7 @@ const CorporatePage = () => {
                         width: "350px",
                       }}
                       image={elem?.image}
-                      alt={elem.imageAltText}
+                      alt={elem?.imageAltText}
                     />
                     <CardContent>
                       <Typography
