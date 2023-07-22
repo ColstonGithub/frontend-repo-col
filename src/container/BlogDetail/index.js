@@ -17,7 +17,12 @@ const BlogDetail = () => {
   }, [dispatch]);
 
   const blogDetail = useSelector((state) => state.blog.blog.Blogs);
-  console.log(blogDetail);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

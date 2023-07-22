@@ -18,7 +18,12 @@ const CorporateDetail = () => {
   const corporateDetail = useSelector(
     (state) => state.corporateDetail.corporate.corporateproduct
   );
-  // console.log(corporateDetails);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

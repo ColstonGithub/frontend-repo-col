@@ -21,7 +21,13 @@ const NewsPressDetail = () => {
   const newsPressDetail = useSelector(
     (state) => state.newsPressDetail.newsDetail.newsPress
   );
-  //   console.log(newsPressDetail);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

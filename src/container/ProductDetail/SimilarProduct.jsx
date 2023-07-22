@@ -79,6 +79,7 @@ const SimilarProduct = () => {
       top: 0,
       behavior: "smooth",
     });
+    
   };
 
   return (

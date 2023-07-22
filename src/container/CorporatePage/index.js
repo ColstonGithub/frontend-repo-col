@@ -41,7 +41,12 @@ const CorporatePage = () => {
     let pId = element?._id;
     navigate(`/corporate-page/${pId}`);
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />
@@ -86,7 +91,7 @@ const CorporatePage = () => {
           />
         </Box>
 
-        <Grid sx={{ paddingTop: "2.5rem" }}>
+        <Grid sx={{ paddingTop: "3rem" }}>
           {/* product box below */}
           <Grid
             sx={{

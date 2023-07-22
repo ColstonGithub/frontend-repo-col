@@ -18,7 +18,12 @@ const AboutUs = () => {
   const AboutUs = useSelector(
     (state) => state.aboutUs?.banners?.aboutUsData || {}
   );
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

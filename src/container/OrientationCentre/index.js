@@ -26,7 +26,12 @@ const OrientationCentre = () => {
     (state) => state?.orientationCenter?.orientationCenter?.orientationProducts
   );
 
-  console.log("added ", orientationCentreData);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

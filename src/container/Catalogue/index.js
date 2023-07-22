@@ -44,7 +44,12 @@ const Catalogue = () => {
     alink.download = pdfLink;
     alink.click();
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

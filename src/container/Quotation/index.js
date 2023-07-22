@@ -30,7 +30,7 @@ const style = {
   bgcolor: "background.paper",
   borderRadius: "20px",
   paddingTop: "40px",
-  paddingBottom:"40px"
+  paddingBottom: "40px",
 };
 
 const Quotation = () => {
@@ -54,7 +54,6 @@ const Quotation = () => {
     mode: "onChange",
   });
   const onSubmit = (data) => {
-
     dispatch(getQuotation(data));
     toast("Request for Quotation submited successfull ");
     // setTimeout(() => {
@@ -92,7 +91,12 @@ const Quotation = () => {
     "Uttarakhand",
     "West Bengal",
   ];
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />
@@ -698,7 +702,7 @@ const Quotation = () => {
           </Box>
         </Container>
       </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 };

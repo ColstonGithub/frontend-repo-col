@@ -142,6 +142,13 @@ const ProductDetail = () => {
     return <li>{sp}</li>;
   });
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   return (
     <>
       <Header />

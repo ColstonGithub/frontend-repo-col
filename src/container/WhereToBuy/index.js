@@ -69,6 +69,12 @@ const WhereToBuy = () => {
   useEffect(() => {
     setFilteredWhereToBuyListData(filteredWhereToBuyData);
   }, [filteredWhereToBuyData]);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

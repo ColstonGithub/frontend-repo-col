@@ -39,7 +39,12 @@ const CategoryPage = () => {
     let id = element?._id;
     navigate(`/product-page/${id}`);
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

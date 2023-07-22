@@ -21,7 +21,12 @@ const BrandDetail = () => {
   const brandDetail = useSelector(
     (state) => state.brandDetail.brand.brandproduct
   );
-  // console.log(brandDetail);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

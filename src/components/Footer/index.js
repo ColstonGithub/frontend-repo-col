@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import ColstonLogo from "../../assets/ColstonLogo.png";
@@ -15,7 +15,6 @@ const Footer = () => {
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
   const dispatch = useDispatch();
   //  const navigate = useNavigate();
-
   const reply = useSelector((state) => state?.getCategoryList);
   const accountDetailData = reply.category.categoryList;
 
@@ -36,7 +35,8 @@ const Footer = () => {
       >
         <Row>
           <Col sm={1} md={4} style={{ padding: responsiveMobile ? 0 : "" }}>
-            <Col md={10}
+            <Col
+              md={10}
               style={{
                 ...commonStyle.flexDisplayStyle,
               }}
@@ -148,7 +148,10 @@ const Footer = () => {
                 {accountDetailData?.map((displayCategory) => {
                   return (
                     <Link to={`/category-page/${displayCategory._id}`}>
-                      <div className="footer-content" style={{textTransform:"capitalize"}}>
+                      <div
+                        className="footer-content"
+                        style={{ textTransform: "capitalize" }}
+                      >
                         {displayCategory.name}
                       </div>
                     </Link>
@@ -159,18 +162,18 @@ const Footer = () => {
               <Col md={2}>
                 <div className="footer-title">Legal</div>
 
-                <a href="/privacy-policy">
+                <Link to="/privacy-policy">
                   <div className="footer-content">Privacy Policy</div>
-                </a>
-                <a href="/">
+                </Link>
+                <Link to="/">
                   <div className="footer-content">Cookies Policy</div>
-                </a>
-                <a href="/">
+                </Link>
+                <Link to="/">
                   <div className="footer-content">Terms & Conditions</div>
-                </a>
-                <a href="/">
+                </Link>
+                <Link to="/">
                   <div className="footer-content">Disclaimer</div>
-                </a>
+                </Link>
               </Col>
             </>
           ) : (
@@ -270,14 +273,14 @@ const Footer = () => {
           <Col>
             <div className="text-center text-lg-start">
               <div className=" float-lg-end" style={{ color: "#717171" }}>
-                <a
-                  href="https://thewebgross.com/"
+                <Link
+                  to="https://thewebgross.com/"
                   className="footer-content"
                   target="_blank"
                 >
                   Website Designed by{" "}
                   <span className="webgross-hover">@Webgross</span>
-                </a>
+                </Link>
               </div>
             </div>
           </Col>

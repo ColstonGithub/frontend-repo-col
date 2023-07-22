@@ -143,7 +143,12 @@ const Videos = () => {
   const handlePlayVideo = (videoId) => {
     window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

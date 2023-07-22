@@ -39,7 +39,12 @@ const ProductPage = () => {
     let id = element?._id;
     navigate(`/product-detail/${id}`);
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />
@@ -99,7 +104,8 @@ const ProductPage = () => {
                       sx={{
                         fontSize: "18px",
                         color: "#2b2a29",
-                        fontWeight: "600",                       textAlign: "center",
+                        fontWeight: "600",
+                        textAlign: "center",
                         width: "325px",
                         textTransform: "capitalize",
                       }}

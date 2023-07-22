@@ -18,7 +18,12 @@ const Exhibition = () => {
     (state) => state.exhibition.exhibition.PageBanner
   );
   exhibitionData = exhibitionData ? exhibitionData[0] : {};
-  // console.log(exhibitionData)
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
 import { Col, Row } from "react-bootstrap";
 
@@ -7,6 +7,12 @@ import Footer from "components/Footer";
 import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

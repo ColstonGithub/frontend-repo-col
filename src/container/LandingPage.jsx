@@ -68,6 +68,12 @@ const LandingPage = () => {
   const onCatClick = (e) => {
     navigate(`/category-page/${e}`);
   };
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

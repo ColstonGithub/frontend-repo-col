@@ -71,7 +71,12 @@ const Career = () => {
     //   navigate("/");
     // }, 5000);
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

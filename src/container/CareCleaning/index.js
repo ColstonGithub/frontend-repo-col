@@ -19,7 +19,12 @@ const CareCleaning = () => {
     (state) => state.careClean.careClean.careCleanData
   );
   careClean = careClean ? careClean[0] : {};
-  // console.log(careClean);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

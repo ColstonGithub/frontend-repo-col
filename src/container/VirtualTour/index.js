@@ -30,7 +30,12 @@ const VirtualTour = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

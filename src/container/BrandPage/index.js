@@ -42,7 +42,12 @@ const BrandPage = () => {
     let pId = element?._id;
     navigate(`/brand-page/${pId}`);
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />

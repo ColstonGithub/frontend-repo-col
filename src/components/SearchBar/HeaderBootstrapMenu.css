@@ -78,6 +78,7 @@
 
 .link-hover:hover {
   color: #717171;
+  text-decoration: underline;
 }
 
 /* .searchBar-col{

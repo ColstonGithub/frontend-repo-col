@@ -24,6 +24,7 @@
 
 .footer-content:hover {
   color: #717171;
+  text-decoration: underline;
 }
 .webgross-hover {
   color: #c02121;
@@ -31,6 +32,7 @@
 }
 .webgross-hover:hover {
   color: #ff7f50; /* Change this to the desired hover color */
+  text-decoration: underline;
 }
 @media screen and (max-width: 500px) {
   .footer-title,

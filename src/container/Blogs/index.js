@@ -59,7 +59,12 @@ const Blogs = () => {
   useEffect(() => {
     setBlogList(blogs);
   }, [blogs]);
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />
