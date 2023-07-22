@@ -212,21 +212,12 @@ const WhereToBuy = () => {
                       fontColor: "#717171",
                       margin: !responsiveMobile ? "1.5rem" : "1rem 0",
                       width: !responsiveMobile ? "350px" : "300px",
-                      height: "430px",
+                      height: "350px",
                     }}
                   >
                     <h3>{elem?.city.toUpperCase()}</h3>
                     <p>{elem?.centerName}</p>
                     <p>{elem?.centerAddress}</p>
-                    <p>
-                      <b>OC Appointment</b> : {elem?.ocAppointment}
-                    </p>
-                    <p>
-                      <b>Service</b> : {elem?.service}
-                    </p>
-                    <p>
-                      <b>Purchase Assistance</b> : {elem?.purchaseAssistance}
-                    </p>
                     <p>
                       <b>Email</b> : {elem?.email}
                     </p>
@@ -255,7 +246,7 @@ const WhereToBuy = () => {
                       fontSize: !responsiveMobile ? "1rem" : "1.4rem",
                       fontColor: "#717171",
                       margin: !responsiveMobile ? "1.5rem" : "1rem 0",
-                      height: "430px",
+                      height: "350px",
                       width: !responsiveMobile ? "350px" : "300px",
                     }}
                   >
@@ -263,16 +254,6 @@ const WhereToBuy = () => {
                     <p>{elem?.centerName}</p>
 
                     <p>{elem?.centerAddress}</p>
-
-                    <p>
-                      <b>OC Appointment</b> : {elem?.ocAppointment}
-                    </p>
-                    <p>
-                      <b>Service</b> : {elem?.service}
-                    </p>
-                    <p>
-                      <b>Purchase Assistance</b> : {elem?.purchaseAssistance}
-                    </p>
                     <p>
                       <b>Email</b> : {elem?.email}
                     </p>
