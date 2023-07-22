@@ -60,12 +60,20 @@ const VirtualTour = () => {
       <Grid>
         <Slider {...settings}>
           {virtualTourData?.map((virtual) => (
-            <Box>
+            <Box
+              sx={{
+                borderRadius: "20px",
+                padding: !responsiveMobile
+                  ? "0px 3.2rem 5rem"
+                  : "0px 1.4rem 5rem",
+              }}
+            >
               <img
                 src={virtual?.bannerImage}
                 style={{
                   width: "100%",
                   height: !responsiveMobile ? "650px" : "62vw",
+                  borderRadius: "20px",
                 }}
                 alt={virtual?.bannerImageAltText}
               />
