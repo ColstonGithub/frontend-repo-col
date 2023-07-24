@@ -137,6 +137,7 @@ const Blogs = () => {
         <Grid
           sx={{
             display: "flex",
+            gap: "1.5rem",
             flexWrap: "wrap",
             flexBasis: "33.333333%",
             justifyContent: "space-evenly",
