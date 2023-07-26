@@ -149,7 +149,7 @@ const Blogs = () => {
                   <Box key={elem?._id} onClick={() => onCardClick(elem)}>
                     <Card
                       sx={{
-                        width: responsiveMobile ? "90vw" : "317",
+                        width: responsiveMobile ? "90vw" : "317px",
                         borderRadius: "20px",
                       }}
                     >
