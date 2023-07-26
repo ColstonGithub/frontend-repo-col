@@ -1,30 +1,52 @@
 import React, { useEffect } from "react";
-import Header from "components/SearchBar/Header";
-import { Box, Grid, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardActionArea,
+  Grid,
+  Typography,
+  useMediaQuery,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
-
+import { useNavigate } from "react-router-dom";
 import Footer from "components/Footer";
-import { getExhibition } from "Redux/Slices/Exhibition/ExhibitionSlice";
+import Header from "components/SearchBar/Header";
 import { useDispatch, useSelector } from "react-redux";
+import { getExhibition } from "Redux/Slices/Exhibition/ExhibitionSlice";
+import { getExhibitionProducts } from "Redux/Slices/Exhibition/ExhibitionProductSlice";
 
 const Exhibition = () => {
   const dispatch = useDispatch();
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const navigate = useNavigate();
+
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
+
   useEffect(() => {
     dispatch(getExhibition());
+    dispatch(getExhibitionProducts());
   }, [dispatch]);
 
   let exhibitionData = useSelector(
     (state) => state.exhibition.exhibition.PageBanner
   );
   exhibitionData = exhibitionData ? exhibitionData[0] : {};
+
+  const ExhibitionProducts = useSelector(
+    (state) => state.exhibitionProduct?.exhibitionProducts?.exhibitionProducts
+  );
+
+  const onCardClick = (element) => {
+    let pId = element?._id;
+    navigate(`/exhibition-page/${pId}`);
+  };
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }, []);
-
   return (
     <>
       <Header />
@@ -46,10 +68,15 @@ const Exhibition = () => {
         />
       </Box>
 
-      <Grid sx={{ padding: "0px 3.5rem" }}>
+      <Grid
+        sx={{
+          padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
+        }}
+      >
         {/* product box below */}
-        <div
-          style={{
+
+        <Box
+          sx={{
             borderRadius: "20px",
           }}
         >
@@ -57,12 +84,65 @@ const Exhibition = () => {
             src={exhibitionData?.bannerImage}
             style={{
               width: "100%",
-              borderRadius: "20px",
               height: !responsiveMobile ? "650px" : "62vw",
+              borderRadius: "35px",
             }}
             alt={exhibitionData?.bannerImageAltText}
           />
-        </div>
+        </Box>
+
+        <Grid sx={{ paddingTop: "3rem" }}>
+          {/* product box below */}
+          <Grid
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              flexBasis: "33.333333%",
+              justifyContent: "space-evenly",
+              gap: "1.5rem",
+            }}
+          >
+            {ExhibitionProducts?.map((elem) => (
+              <Box key={elem?._id} onClick={() => onCardClick(elem)}>
+                <Card
+                  sx={{
+                    width: responsiveMobile ? "90vw" : "350",
+                    borderRadius: "20px",
+                  }}
+                >
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        borderRadius: "20px",
+                        height: "350px",
+                        width: "350px",
+                      }}
+                      image={elem?.image}
+                      alt={elem?.imageAltText}
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        sx={{
+                          fontSize: "18px",
+                          color: "#2b2a29",
+                          fontWeight: "600",
+                          width: "320px",
+                        }}
+                      >
+                        {elem?.title}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Box>
+            ))}
+            {/* prodct box ended */}
+          </Grid>
+        </Grid>
       </Grid>
       <Footer />
     </>

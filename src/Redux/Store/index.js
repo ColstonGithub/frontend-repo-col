@@ -48,6 +48,7 @@ import getFaqsSlice from "Redux/Slices/FAQ/GetFaqs";
 import orientationCenterSlice from "Redux/Slices/OrientationCenter/OrientationCenterSlice";
 
 import whereToBuySlice from "Redux/Slices/WhereToBuy/WhereToBuySlice";
+import ExhibitionProductSlice from "Redux/Slices/Exhibition/ExhibitionProductSlice";
 
 const rootReducer = combineReducers({
   menuList: menuListSlice,
@@ -95,6 +96,7 @@ const rootReducer = combineReducers({
   getFaqsList: getFaqsSlice,
   orientationCenter: orientationCenterSlice,
   whereToBuy: whereToBuySlice,
+  exhibitionProduct: ExhibitionProductSlice,
 });
 
 const initializeStore = () =>
