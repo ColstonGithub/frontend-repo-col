@@ -60,6 +60,7 @@ const ExhibitionDetail = () => {
             style={{
               width: "100%",
               height: !responsiveMobile ? "650px" : "62vw",
+              borderRadius: "20px",
             }}
             alt={exhibitionDetail?.imageAltText}
           />
