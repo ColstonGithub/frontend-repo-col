@@ -29,7 +29,7 @@ const Exhibition = () => {
   }, [dispatch]);
 
   let exhibitionData = useSelector(
-    (state) => state.exhibition.exhibition.PageBanner
+    (state) => state.exhibition?.exhibition?.PageBanner
   );
   exhibitionData = exhibitionData ? exhibitionData[0] : {};
 
@@ -39,7 +39,7 @@ const Exhibition = () => {
 
   const onCardClick = (element) => {
     let pId = element?._id;
-    navigate(`/exhibition-page/${pId}`);
+  //  navigate(`/exhibition/${pId}`);
   };
   useEffect(() => {
     window.scrollTo({
@@ -73,8 +73,6 @@ const Exhibition = () => {
           padding: !responsiveMobile ? "0px 3.2rem 5rem" : "0px 1.4rem 5rem",
         }}
       >
-        {/* product box below */}
-
         <Box
           sx={{
             borderRadius: "20px",
@@ -92,7 +90,6 @@ const Exhibition = () => {
         </Box>
 
         <Grid sx={{ paddingTop: "3rem" }}>
-          {/* product box below */}
           <Grid
             sx={{
               display: "flex",
@@ -116,7 +113,7 @@ const Exhibition = () => {
                       sx={{
                         borderRadius: "20px",
                         height: "350px",
-                        width: "350px",
+                        width: "360px",
                       }}
                       image={elem?.image}
                       alt={elem?.imageAltText}
@@ -140,7 +137,6 @@ const Exhibition = () => {
                 </Card>
               </Box>
             ))}
-            {/* prodct box ended */}
           </Grid>
         </Grid>
       </Grid>

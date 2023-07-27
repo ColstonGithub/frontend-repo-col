@@ -5,19 +5,21 @@ import FMTypography from "components/FMTypography/FMTypography";
 import Footer from "components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getCorporateDetail } from "Redux/Slices/Corporate/CorporateDetailSlice";
+import { getExhibitionDetail } from "Redux/Slices/Exhibition/ExhibitionDetailSlice";
+
 const ExhibitionDetail = () => {
   const params = useParams();
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCorporateDetail(params));
+    dispatch(getExhibitionDetail(params));
   }, [dispatch, params]);
 
-  const corporateDetail = useSelector(
-    (state) => state.corporateDetail.corporate.corporateproduct
+  const exhibitionDetail = useSelector(
+    (state) => state.exhibitionDetail.exhibition.exhibitionproduct
   );
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -37,7 +39,7 @@ const ExhibitionDetail = () => {
         }}
       >
         <FMTypography
-          displayText={"Corporate"}
+          displayText={"Exhibition"}
           styleData={{
             fontWeight: "600",
             fontSize: "2.8rem",
@@ -54,12 +56,12 @@ const ExhibitionDetail = () => {
           }}
         >
           <img
-            src={corporateDetail?.image}
+            src={exhibitionDetail?.image}
             style={{
               width: "100%",
               height: !responsiveMobile ? "650px" : "62vw",
             }}
-            alt={corporateDetail?.imageAltText}
+            alt={exhibitionDetail?.imageAltText}
           />
         </div>
 
@@ -75,7 +77,7 @@ const ExhibitionDetail = () => {
               color: "#222222",
             }}
           >
-            {corporateDetail?.title}
+            {exhibitionDetail?.title}
           </h3>
           <p
             style={{
@@ -86,7 +88,7 @@ const ExhibitionDetail = () => {
               color: "#222222",
             }}
           >
-            {corporateDetail?.text}
+            {exhibitionDetail?.text}
           </p>
         </Box>
       </Grid>

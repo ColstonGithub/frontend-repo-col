@@ -32,6 +32,7 @@ import WarrantyRegisteration from "container/WarrantyRegistration";
 import Career from "container/career";
 import Quotation from "container/Quotation";
 import WhereToBuy from "container/WhereToBuy";
+import ExhibitionDetail from "container/ExhibitionDetail";
 
 const App = () => {
   return (
@@ -76,7 +77,7 @@ const App = () => {
             <Route path="/care-cleaning" element={<CareCleaning />} />
 
             <Route path="/exhibition" element={<Exhibition />} />
-
+            <Route path="/exhibition/:id" element={<ExhibitionDetail />} />
             <Route path="/contact-us" element={<ContactUs />} />
 
             <Route path="/faq" element={<Faq />} />

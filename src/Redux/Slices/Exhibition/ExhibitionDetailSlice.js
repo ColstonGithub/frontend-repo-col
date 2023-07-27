@@ -9,7 +9,6 @@ export const getExhibitionDetail = createAsyncThunk(
       const response = await axiosInstance.get(
         `api/exhibitionproduct/${payload.id}`
       );
-      //   console.log("response",response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error });
