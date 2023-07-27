@@ -22,7 +22,6 @@ import FMTypography from "components/FMTypography/FMTypography";
 
 // Styles for the component and its elements using Material UI's styling library - makeStyles() hook is
 const useStyles = makeStyles((theme) => ({
-
   headerContainer: {
     display: "flex",
     justifyContent: "center",
@@ -51,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
     transition: "transform 0.2s ease",
     "&:hover": {
       transform: "scale(1.02)",
+    },
+    "&:hover $youtubeIcon": {
+      color: "#ff0000",
     },
   },
 
@@ -106,18 +108,15 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "#C02121 !important",
     },
   },
-
 }));
 
 const Videos = () => {
-
   const classes = useStyles();
   const [videos, setVideos] = useState([]);
   const [pageToken, setPageToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasMoreVideos, setHasMoreVideos] = useState(true);
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
-
 
   useEffect(() => {
     fetchData();
@@ -163,12 +162,6 @@ const Videos = () => {
     });
   }, []);
 
-
-
-
-
-
-
   return (
     <>
       <Header />
@@ -211,7 +204,10 @@ const Videos = () => {
                       alt={video?.snippet?.title}
                     />
                     <IconButton className={classes.playButton}>
-                      <FaYoutube size={32} className={classes.youtubeIcon} />
+                      <FaYoutube
+                        size={32}
+                        className={`${classes.youtubeIcon}`}
+                      />
                     </IconButton>
                   </div>
                   <CardContent className={classes.videoInfo}>
