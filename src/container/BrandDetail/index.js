@@ -40,7 +40,7 @@ const BrandDetail = () => {
         }}
       >
         <FMTypography
-          displayText={"The Brands Colston"}
+          displayText={"The Brand Colston"}
           styleData={{
             fontFamily: "Rajdhani",
             fontWeight: "600",
@@ -77,11 +77,14 @@ const BrandDetail = () => {
             style={{
               fontFamily: "Rajdhani",
               fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.6rem",
+              fontWeight: "600",
+              fontSize: "2.3rem",
+              paddingBottom: "10px",
               lineHeight: "29px",
               paddingTop: "24px",
-              color: "#222222",
+              color: "#2b2a29",
+              textAlign: "center",
+              textTransform: "capitalize",
             }}
           >
             {brandDetail?.title}
@@ -91,8 +94,8 @@ const BrandDetail = () => {
               fontFamily: "Rajdhani",
               fontStyle: "normal",
               fontWeight: "500",
-              fontSize: "1.2rem",
-              color: "#222222",
+              fontSize: "1.3rem",
+              color: "#2b2a29",
             }}
           >
             {brandDetail?.text}

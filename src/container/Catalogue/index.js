@@ -107,6 +107,7 @@ const Catalogue = () => {
                       color: "#FFFFFF",
                       position: "absolute",
                       marginLeft: "16px",
+                      textTransform: "capitalize",
                       bottom: "0",
                       top: !responsiveMobile ? "78%" : "85%",
                     }}

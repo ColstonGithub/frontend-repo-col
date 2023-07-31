@@ -70,11 +70,14 @@ const CareCleaning = () => {
             style={{
               fontFamily: "Rajdhani",
               fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.5rem",
+              fontWeight: "600",
+              fontSize: "2.3rem",
               lineHeight: "29px",
+              textAlign: "center",
+              paddingBottom: "10px",
               paddingTop: "24px",
-              color: "#000000",
+              textTransform: "capitalize",
+              color: "#2b2a29",
             }}
           >
             {careClean?.heading}
@@ -84,8 +87,8 @@ const CareCleaning = () => {
               fontFamily: "Rajdhani",
               fontStyle: "normal",
               fontWeight: "500",
-              fontSize: "1rem",
-              color: "#717171",
+              fontSize: "1.3rem",
+              color: "#2b2a29",
             }}
           >
             {careClean?.text}

@@ -30,7 +30,7 @@ const Footer = () => {
         style={{
           background: "#FCFCFC",
           fontSize: "1.27rem",
-          padding: !responsiveMobile ? "80px 100px 20px" : "40px 24px",
+          padding: !responsiveMobile ? "40px 100px 20px" : "30px 24px",
         }}
       >
         <Row>
@@ -51,31 +51,43 @@ const Footer = () => {
                 </div>
               </Link>
             </Col>
-
+            <div style={{ paddingTop: "25px" }}>
+              DELHI Colston FLC (Flagship Live Centre)
+            </div>
             <div
               className="footer-content-address"
-              style={{ padding: "32px 0px 25px" }}
+              style={{ padding: "5px 0px 15px" }}
             >
-              Address: 24, ring Road, Lajpat Nagar - IV,
+              Address: 24, Ring Road, Lajpat Nagar - IV,
               <br />
               Lower Ground, New Delhi, Delhi 110024
             </div>
+            <div>MUMBAI Colston Design Centre (DC) Shakti mills</div>{" "}
+            <div
+              className="footer-content-address"
+              style={{ padding: "5px 0px 15px" }}
+            >
+              Address: 6-A, Ground Floor, Laxmi Woollen Mill Estate,
+              <br />
+              Dr. E Moses Road, Shakti Mills Ln, Jacob Circle,
+              <br />
+              Mumbai, Maharashtra 400011
+            </div>
             <div>
-              <p>
+              <div>
                 <span className="footer-title">Mobile:</span>{" "}
                 <span className="footer-content">+91-7428201028</span>
-              </p>
+              </div>
             </div>
-
             <div>
-              <p>
+              <div>
                 <span className="footer-title">Email:</span>{" "}
-                <Link to="mailto: abc@example.com">
+                <Link to="mailto: info@colstonconcepts.com">
                   <span className="footer-content">
                     info@colstonconcepts.com
                   </span>
                 </Link>
-              </p>
+              </div>
             </div>
           </Col>
 
@@ -178,7 +190,7 @@ const Footer = () => {
             </>
           ) : (
             <>
-              <Row>
+              <Row style={{ paddingTop: "20px" }}>
                 <Col xs={7} style={{ padding: 0 }}>
                   <div className="footer-title">About</div>
                   <Link to="/about-us">

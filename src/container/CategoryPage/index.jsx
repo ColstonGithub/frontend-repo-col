@@ -125,7 +125,7 @@ const CategoryPage = () => {
                           fontSize: "18px",
                           color: "#2b2a29",
                           fontWeight: "600",
-                          width: "320px",
+                          width: "320px",                            textTransform: "capitalize",
                         }}
                       >
                         {elem?.name}

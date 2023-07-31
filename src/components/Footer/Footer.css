@@ -9,7 +9,7 @@
 .footer-content-address {
   color: #2b2a29;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding-bottom: 1.15rem;
   font-family: "Rajdhani";
 }
@@ -38,5 +38,10 @@
   .footer-title,
   .footer-content {
     font-size: 3.6vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer-content-address {
+    font-size: 1.3rem;
   }
 }

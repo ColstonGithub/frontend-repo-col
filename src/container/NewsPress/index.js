@@ -130,6 +130,7 @@ const NewsPress = () => {
                           color: "#2b2a29",
                           fontWeight: "600",
                           width: "325px",
+                          textTransform: "capitalize",
                         }}
                       >
                         {elem?.title}

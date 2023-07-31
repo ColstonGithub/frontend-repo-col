@@ -79,17 +79,20 @@ const BlogDetail = () => {
                 style={{
                   fontFamily: "Rajdhani",
                   fontStyle: "normal",
-                  fontWeight: "500",
-                  fontSize: "1.5rem",
+                  fontWeight: "600",
                   lineHeight: "29px",
                   paddingTop: "24px",
-                  color: "#222222",
+                  textAlign: "center",
+                  color: "#2b2a29",
+                  fontSize: "2.3rem",
+                  paddingBottom: "10px",
+                  textTransform: "capitalize",
                 }}
               >
                 {blogDetail?.pageHeading}
               </h3>
               <div
-                style={{ whiteSpace: "pre-wrap" }}
+                style={{ whiteSpace: "pre-wrap", fontSize: "1.3rem" }}
                 dangerouslySetInnerHTML={{ __html: blogDetail?.text }}
               />
             </Box>

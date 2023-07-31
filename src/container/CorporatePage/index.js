@@ -131,6 +131,7 @@ const CorporatePage = () => {
                           color: "#2b2a29",
                           fontWeight: "600",
                           width: "320px",
+                          textTransform: "capitalize",
                         }}
                       >
                         {elem?.title}

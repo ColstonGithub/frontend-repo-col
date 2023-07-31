@@ -68,11 +68,14 @@ const CorporateDetail = () => {
             style={{
               fontFamily: "Rajdhani",
               fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.5rem",
+              fontWeight: "600",
+              fontSize: "2.3rem",
+              paddingBottom: "10px",
               lineHeight: "29px",
               paddingTop: "24px",
-              color: "#222222",
+              color: "#2b2a29",
+              textAlign: "center",
+              textTransform: "capitalize",
             }}
           >
             {corporateDetail?.title}
@@ -81,9 +84,9 @@ const CorporateDetail = () => {
             style={{
               fontFamily: "Rajdhani",
               fontStyle: "normal",
-              fontWeight: "400",
-              fontSize: "1rem",
-              color: "#222222",
+              fontWeight: "500",
+              fontSize: "1.3rem",
+              color: "#2b2a29",
             }}
           >
             {corporateDetail?.text}

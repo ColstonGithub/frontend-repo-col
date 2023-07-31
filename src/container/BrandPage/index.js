@@ -60,7 +60,7 @@ const BrandPage = () => {
         }}
       >
         <FMTypography
-          displayText={"The Brands Colston"}
+          displayText={"The Brand Colston"}
           styleData={{
             fontFamily: "Rajdhani",
             fontWeight: "600",
@@ -133,6 +133,7 @@ const BrandPage = () => {
                           fontWeight: "600",
                           fontFamily: "Rajdhani",
                           width: "320px",
+                          textTransform: "capitalize",
                         }}
                       >
                         {elem?.title}

@@ -76,11 +76,14 @@ const NewsPressDetail = () => {
             style={{
               fontFamily: "Rajdhani",
               fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.5rem",
+              fontWeight: "600",
+              fontSize: "2.3rem",
+              paddingBottom: "10px",
               lineHeight: "29px",
               paddingTop: "24px",
-              color: "#222222",
+              textAlign: "center",
+              color: "#2b2a29",
+              textTransform: "capitalize",
             }}
           >
             {newsPressDetail?.title}
@@ -90,8 +93,8 @@ const NewsPressDetail = () => {
               fontFamily: "Rajdhani",
               fontStyle: "normal",
               fontWeight: "500",
-              fontSize: "1rem",
-              color: "#222222",
+              fontSize: "1.3rem",
+              color: "#2b2a29",
             }}
           >
             {newsPressDetail?.text}
