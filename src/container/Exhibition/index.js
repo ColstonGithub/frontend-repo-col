@@ -39,7 +39,7 @@ const Exhibition = () => {
 
   const onCardClick = (element) => {
     let pId = element?._id;
-  //  navigate(`/exhibition/${pId}`);
+    navigate(`/exhibition/${pId}`);
   };
   useEffect(() => {
     window.scrollTo({
