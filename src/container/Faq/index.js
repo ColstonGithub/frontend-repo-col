@@ -27,6 +27,7 @@ import "../../components/SearchBar/searchBarMedia.css";
 import Footer from "components/Footer";
 import { postSearchFaq } from "Redux/Slices/SearchFaq/SearchFaq";
 import { Col, Row } from "react-bootstrap";
+import "./faq.css";
 
 const Faq = () => {
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
