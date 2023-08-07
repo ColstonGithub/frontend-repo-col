@@ -25,7 +25,7 @@ const ProductPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
 
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     dispatch(postProductPage(params));
