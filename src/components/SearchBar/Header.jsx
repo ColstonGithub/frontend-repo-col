@@ -22,11 +22,13 @@ import { LANDING_PAGE } from "Routes/Routes";
 import { HeaderStyle } from "./HeaderStyle";
 import { commonStyle } from "../../Styles/commonStyles";
 
+const axios = require("axios");
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [subCategories, setSubCategories] = React.useState([]);
   const open = Boolean(anchorEl);
 
   useEffect(() => {
@@ -99,6 +101,25 @@ const Header = () => {
     "Contact Us",
     "Warranty & Registration",
   ];
+
+  useEffect(() => {
+    const updatedSubCategories = [];
+    accountDetailData?.map(async (elem) => {
+      if (elem?.children && elem?.children?.length > 0) {
+        await axios
+          .get(`http://localhost:5000/api/category/${elem?._id}/children/`)
+          .then((response) => {
+            const data = response.data;
+            updatedSubCategories.push(data);
+            setSubCategories(updatedSubCategories);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    });
+  }, [accountDetailData]);
+
   return (
     <>
       <Grid style={{ ...HeaderStyle.headerFullStyle }}>
@@ -291,32 +312,48 @@ const Header = () => {
                                         onCategoryCardClick(elem._id)
                                       }
                                     />
-                                    {elem?.children
+                                    {subCategories
                                       ?.slice()
                                       .reverse()
-                                      .map((secElem) => (
-                                        <Col md={12}>
-                                          <div>
-                                            <FMTypography
-                                              className="link-hover"
-                                              displayText={secElem?.name}
-                                              sx={{
-                                                fontFamily: "Rajdhani",
-                                                fontStyle: "normal",
-                                                fontWeight: "500",
-                                                fontSize: "18px",
-                                                cursor: "pointer",
-                                                lineHeight: "22px",
-                                                color: "#2b2a29",
-                                                textTransform: "capitalize",
-                                              }}
-                                              onClick={() =>
-                                                onProductCardClick(secElem._id)
-                                              }
-                                            />
-                                          </div>
-                                        </Col>
-                                      ))}
+                                      .map((secElem) => {
+                                        return elem?._id ===
+                                          secElem?.parentId ? (
+                                          secElem.subCategoryList.map(
+                                            (childCat) => {
+                                              return (
+                                                <Col md={12}>
+                                                  <div>
+                                                    <FMTypography
+                                                      className="link-hover"
+                                                      displayText={
+                                                        childCat?.name
+                                                      }
+                                                      sx={{
+                                                        fontFamily: "Rajdhani",
+                                                        fontStyle: "normal",
+                                                        fontWeight: "500",
+                                                        fontSize: "18px",
+                                                        cursor: "pointer",
+                                                        lineHeight: "22px",
+                                                        color: "#2b2a29",
+                                                        textTransform:
+                                                          "capitalize",
+                                                      }}
+                                                      onClick={() =>
+                                                        onProductCardClick(
+                                                          childCat?._id
+                                                        )
+                                                      }
+                                                    />
+                                                  </div>
+                                                </Col>
+                                              );
+                                            }
+                                          )
+                                        ) : (
+                                          <></>
+                                        );
+                                      })}
                                   </div>
                                 </Col>
                               </Row>

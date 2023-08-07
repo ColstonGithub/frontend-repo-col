@@ -27,10 +27,60 @@ import "../../components/SearchBar/searchBarMedia.css";
 import Footer from "components/Footer";
 import { postSearchFaq } from "Redux/Slices/SearchFaq/SearchFaq";
 import { Col, Row } from "react-bootstrap";
+import { makeStyles } from "@mui/styles";
 import "./faq.css";
+const useStyles = makeStyles((theme) => ({
+  questionStyle: {
+    color: "#2b2a29",
+    transition: "1s all ease",
+    fontWeight: "600 !important",
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "1.2rem !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1.2rem !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.2rem !important",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "1.3rem !important",
+    },
+    [theme.breakpoints.up("xl")]: {
+      fontSize: "1.5rem",
+    },
+    [theme.breakpoints.up("xxl")]: {
+      fontSize: "1.5rem",
+    },
+  },
+
+  answerStyle: {
+    color: "#2b2a29",
+    transition: "1s all ease",
+    fontWeight: "500 !important",
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "1.1rem !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1.1rem !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.1rem !important",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "1.2rem !important",
+    },
+    [theme.breakpoints.up("xl")]: {
+      fontSize: "1.4rem",
+    },
+    [theme.breakpoints.up("xxl")]: {
+      fontSize: "1.4rem",
+    },
+  },
+}));
 
 const Faq = () => {
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
   const [faqId, setFaqId] = useState(0);
   const [faqList, setFaqList] = useState([]);
@@ -38,6 +88,7 @@ const Faq = () => {
   const [showFaqList, setShowFaqList] = useState(true);
   const [faqListById, setFaqListById] = useState([]);
   const [loading, setLoading] = useState(true); // Added loading state
+  const classes = useStyles();
 
   useEffect(() => {
     setLoading(true); // Set loading state to true before API calls
@@ -249,6 +300,7 @@ const Faq = () => {
             padding: !responsiveMobile ? "0px 50px 80px" : "0 0 20px",
             margin: "0 auto",
             maxWidth: !responsiveMobile ? "60vw" : "90vw",
+            transition: "1s all ease",
           }}
         >
           {showFaqList
@@ -260,6 +312,7 @@ const Faq = () => {
                     borderRadius: "20px",
                     backgroundColor: "transparent",
                     margin: "20px 0",
+                    transition: "1s all ease",
                     boxShadow:
                       "0px -1px 12px rgba(181, 180, 180, 0.12), 0px 1px 12px rgba(181, 180, 180, 0.12)",
                   }}
@@ -272,12 +325,14 @@ const Faq = () => {
                       minHeight: "65px",
                     }}
                   >
-                    <Typography sx={{ fontWeight: 500 }}>
+                    <Typography className={classes.questionStyle}>
                       {faq?.question}
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography>{faq?.answer}</Typography>
+                    <Typography className={classes.answerStyle}>
+                      {faq?.answer}
+                    </Typography>
                   </AccordionDetails>
                 </Accordion>
               ))

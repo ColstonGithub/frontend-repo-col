@@ -65,7 +65,6 @@ const ProductPage = () => {
           }}
         />
       </Box>
-
       <Grid sx={{ padding: "3.2rem" }}>
         {/* product box below */}
         <Grid
