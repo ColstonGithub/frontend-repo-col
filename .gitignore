@@ -26,5 +26,5 @@ yarn-error.log*
 
 .vercel
 
-# Ignore internal files
+# Axios instance
 src/services/AxiosInstance.js
