@@ -12,7 +12,7 @@ import { LANDING_PAGE } from "Routes/Routes";
 import { HeaderStyle } from "../SearchBar/HeaderStyle";
 import { commonStyle } from "../../Styles/commonStyles";
 const Footer = () => {
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
   //  const navigate = useNavigate();
   const reply = useSelector((state) => state?.getCategoryList);
