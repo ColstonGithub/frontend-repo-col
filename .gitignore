@@ -25,6 +25,3 @@ yarn-error.log*
 # package file
 
 .vercel
-
-# Axios instance
-src/services/AxiosInstance.js
