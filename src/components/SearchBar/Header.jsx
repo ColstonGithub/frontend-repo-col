@@ -112,7 +112,7 @@ const Header = () => {
       accountDetailData?.map(async (elem) => {
         if (elem?.children && elem?.children?.length > 0) {
           await axios
-            .get(`http://64.227.150.49:5000/api/category/${elem?._id}/children/`)
+            .get(`http://localhost:5000/api/category/${elem?._id}/children/`)
             .then((response) => {
               const data = response.data;
               updatedSubCategories.push(data);
@@ -128,7 +128,7 @@ const Header = () => {
 
     fetchSubcategories();
   }, [accountDetailData]);
-
+  console.log("subCategory ", subCategories);
   return (
     <>
       <Grid style={{ ...HeaderStyle.headerFullStyle }}>
@@ -347,7 +347,7 @@ const Header = () => {
                                                       <FMTypography
                                                         className="link-hover"
                                                         displayText={
-                                                          childCat?.name
+                                                          childCat?._doc?.name
                                                         }
                                                         sx={{
                                                           fontFamily:
@@ -363,7 +363,7 @@ const Header = () => {
                                                         }}
                                                         onClick={() =>
                                                           onProductCardClick(
-                                                            childCat?._id
+                                                            childCat?._doc?._id
                                                           )
                                                         }
                                                       />
