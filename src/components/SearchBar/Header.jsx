@@ -112,7 +112,7 @@ const Header = () => {
       accountDetailData?.map(async (elem) => {
         if (elem?.children && elem?.children?.length > 0) {
           await axios
-            .get(`http://localhost:5000/api/category/${elem?._id}/children/`)
+            .get(`http://64.227.150.49:5000/api/category/${elem?._id}/children/`)
             .then((response) => {
               const data = response.data;
               updatedSubCategories.push(data);
