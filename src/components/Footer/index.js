@@ -123,12 +123,15 @@ const Footer = () => {
                 <Link to="/faq">
                   <div className="footer-content">FAQ</div>
                 </Link>{" "}
-                {/* <Link to="/virtual-tour">
-                <div className="footer-content">Virtual Tour</div>
-              </Link>
-              <Link to="/orientation-centre">
-                <div className="footer-content">Orientation Centre</div>
-              </Link> */}
+                <Link
+                  to="https://my.matterport.com/show/?m=qR6V1k73wja"
+                  target="_blank"
+                >
+                  <div className="footer-content">Virtual Tour</div>
+                </Link>
+                <Link to="/orientation-centre">
+                  <div className="footer-content">Orientation Centre</div>
+                </Link>
                 <Link to="/virtual-tour">
                   <div className="footer-content">Virtual Tour</div>
                 </Link>

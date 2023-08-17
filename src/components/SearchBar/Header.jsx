@@ -128,7 +128,7 @@ const Header = () => {
 
     fetchSubcategories();
   }, [accountDetailData]);
-
+  console.log("subCategory ", subCategories);
   return (
     <>
       <Grid style={{ ...HeaderStyle.headerFullStyle }}>
