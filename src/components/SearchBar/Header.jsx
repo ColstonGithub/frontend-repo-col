@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FMTypography from "components/FMTypography/FMTypography";
 import { Grid, useMediaQuery } from "@mui/material";
-import axios from "axios";
 import {
   Col,
   Container,
@@ -23,6 +22,7 @@ import { LANDING_PAGE } from "Routes/Routes";
 import { HeaderStyle } from "./HeaderStyle";
 import { commonStyle } from "../../Styles/commonStyles";
 import CircularProgress from "@mui/material/CircularProgress";
+import { getCategoryProduct } from "Redux/Slices/CategoryProduct/CategoryProductSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -111,10 +111,10 @@ const Header = () => {
     const fetchSubcategories = async () => {
       accountDetailData?.map(async (elem) => {
         if (elem?.children && elem?.children?.length > 0) {
-          await axios
-            .get(`http://64.227.150.49:5000/api/category/${elem?._id}/children/`)
+          dispatch(getCategoryProduct({ id: elem?._id }))
             .then((response) => {
-              const data = response.data;
+              const data = response.payload;
+              updatedSubCategories.push(data);
               updatedSubCategories.push(data);
             })
             .catch((error) => {
@@ -347,7 +347,7 @@ const Header = () => {
                                                       <FMTypography
                                                         className="link-hover"
                                                         displayText={
-                                                          childCat?.name
+                                                          childCat?._doc?.name
                                                         }
                                                         sx={{
                                                           fontFamily:
@@ -363,7 +363,7 @@ const Header = () => {
                                                         }}
                                                         onClick={() =>
                                                           onProductCardClick(
-                                                            childCat?._id
+                                                            childCat?._doc?._id
                                                           )
                                                         }
                                                       />

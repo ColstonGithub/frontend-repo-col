@@ -19,6 +19,8 @@ import Footer from "components/Footer";
 import Header from "components/SearchBar/Header";
 import videoBanner from "assets/videoBanner.png";
 import FMTypography from "components/FMTypography/FMTypography";
+import { postVideo } from "Redux/Slices/Videos/Videos";
+import { useDispatch } from "react-redux";
 
 // Styles for the component and its elements using Material UI's styling library - makeStyles() hook is
 const useStyles = makeStyles((theme) => ({
@@ -117,7 +119,7 @@ const Videos = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasMoreVideos, setHasMoreVideos] = useState(true);
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
-
+  const dispatch = useDispatch();
   useEffect(() => {
     fetchData();
   }, []);
@@ -125,21 +127,20 @@ const Videos = () => {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(
-        `http://64.227.150.49:5000/api/video/getvideos?pageToken=${pageToken}`
-      );
-      if (response.data) {
-        const { videoData, nextPageToken } = response.data;
+      dispatch(postVideo(pageToken)).then((response) => {
+        if (response.payload) {
+          const { videoData, nextPageToken } = response.payload;
 
-        if (!nextPageToken) {
-          setHasMoreVideos(false);
+          if (!nextPageToken) {
+            setHasMoreVideos(false);
+          }
+
+          setVideos((prevVideos) => [...prevVideos, ...videoData]);
+          setPageToken(nextPageToken);
+        } else {
+          toast.error("Error fetching videos");
         }
-
-        setVideos((prevVideos) => [...prevVideos, ...videoData]);
-        setPageToken(nextPageToken);
-      } else {
-        toast.error("Error fetching videos");
-      }
+      });
     } catch (err) {
       toast.error("Error fetching videos", err);
     } finally {

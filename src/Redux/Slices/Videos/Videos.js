@@ -4,10 +4,12 @@ import { POST_VIDEO } from "./type";
 
 export const postVideo = createAsyncThunk(
   POST_VIDEO,
-  async (payload, thunkAPI) => {
+  async (pageToken, thunkAPI) => {
     try {
-      const response = await axiosInstance.post(`api/video/getvideos`);
-      // console.log("response", response.data);
+      const response = await axiosInstance.get(
+        `api/video/getvideos?pageToken=${pageToken}`
+      );
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error });
