@@ -347,7 +347,7 @@ const Header = () => {
                                                       <FMTypography
                                                         className="link-hover"
                                                         displayText={
-                                                          childCat?._doc?.name
+                                                          childCat?.name
                                                         }
                                                         sx={{
                                                           fontFamily:
@@ -363,7 +363,7 @@ const Header = () => {
                                                         }}
                                                         onClick={() =>
                                                           onProductCardClick(
-                                                            childCat?._doc?._id
+                                                            childCat?._id
                                                           )
                                                         }
                                                       />
