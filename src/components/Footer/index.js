@@ -284,7 +284,7 @@ const Footer = () => {
             </>
           )}
         </Row>
-        <Row className="p-0 m-0">
+        <Row className="p-0 m-0" style={{ display: "none" }}>
           <Col>
             <div className="text-center text-lg-start">
               <div className=" float-lg-end" style={{ color: "#717171" }}>
