@@ -50,6 +50,7 @@ import orientationCenterSlice from "Redux/Slices/OrientationCenter/OrientationCe
 import whereToBuySlice from "Redux/Slices/WhereToBuy/WhereToBuySlice";
 import ExhibitionProductSlice from "Redux/Slices/Exhibition/ExhibitionProductSlice";
 import ExhibitionDetailSlice from "Redux/Slices/Exhibition/ExhibitionDetailSlice";
+import CareerDetailsSlice from "Redux/Slices/CareerDeatils/CareerDetailsSlice";
 const rootReducer = combineReducers({
   menuList: menuListSlice,
   blogs: blogsSlice,
@@ -98,6 +99,7 @@ const rootReducer = combineReducers({
   whereToBuy: whereToBuySlice,
   exhibitionProduct: ExhibitionProductSlice,
   exhibitionDetail: ExhibitionDetailSlice,
+  CareerDetails: CareerDetailsSlice,
 });
 
 const initializeStore = () =>

@@ -15,7 +15,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { postCareer } from "Redux/Slices/Forms/postCareer";
-
+import { getCareerDetails } from "Redux/Slices/CareerDeatils/CareerDetailsSlice";
 const style = {
   bgcolor: "background.paper",
   borderRadius: "20px",
@@ -26,7 +26,6 @@ const style = {
 const Career = () => {
   const params = useParams();
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
-
   const dispatch = useDispatch();
 
   const {
@@ -47,8 +46,6 @@ const Career = () => {
     formData.append("subject", data?.subject?.toString());
     formData.append("pdf", data?.pdf[0]);
     formData.append("message", data?.message?.toString());
-
-    console.log("formData ", formData);
 
     dispatch(postCareer(formData))
       .then((response) => {
@@ -86,6 +83,15 @@ const Career = () => {
   // const Career = useSelector(
   //   (state) => state.Career.brand.brandproduct
   // );
+  useEffect(() => {
+    dispatch(getCareerDetails());
+  }, [dispatch]);
+
+  let careerDetail = useSelector(
+    (state) => state?.CareerDetails?.careerDetails?.careerDetailsList
+  );
+
+  careerDetail = careerDetail ? careerDetail[0] : {};
 
   return (
     <>
@@ -121,13 +127,17 @@ const Career = () => {
           }}
         >
           <img
-            src={careerBanner}
+            src={careerDetail?.image}
             style={{
               width: "100%",
               height: !responsiveMobile ? "650px" : "62vw",
               borderRadius: "20px",
             }}
-            alt="imageAltText"
+            alt={
+              careerDetail?.imageAltText
+                ? careerDetail?.imageAltText
+                : "imageAltText"
+            }
           />
         </div>
 
@@ -146,7 +156,7 @@ const Career = () => {
               textTransform: "capitalize",
             }}
           >
-            Content Heading
+            {careerDetail?.contentHeading}
           </h3>
           <p
             style={{
@@ -157,7 +167,7 @@ const Career = () => {
               color: "#2b2a29",
             }}
           >
-            Career Text
+            {careerDetail?.contentText}
           </p>
         </Box>
         <Box sx={style}>
