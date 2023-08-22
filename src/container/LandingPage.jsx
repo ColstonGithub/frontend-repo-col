@@ -154,7 +154,7 @@ const LandingPage = () => {
         <Container
           fluid
           style={{
-            padding: responsiveMobile ? "0px" : "0px 80px 50px",
+            padding: responsiveMobile ? "0px" : "0px 70px 50px",
           }}
         >
           <Row
@@ -181,7 +181,7 @@ const LandingPage = () => {
       <Container fluid>
         <Row
           style={{
-            padding: !responsiveMobile ? "0px 40px 0 40px" : "0px 20px",
+            padding: !responsiveMobile ? "0px 70px" : "0px 20px",
           }}
         >
           <Col style={{}}>

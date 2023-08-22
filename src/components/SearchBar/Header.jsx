@@ -115,7 +115,6 @@ const Header = () => {
             .then((response) => {
               const data = response.payload;
               updatedSubCategories.push(data);
-              updatedSubCategories.push(data);
             })
             .catch((error) => {
               console.error("Error:", error);
@@ -127,8 +126,8 @@ const Header = () => {
     };
 
     fetchSubcategories();
-  }, [accountDetailData]);
-  console.log("subCategory ", subCategories);
+  }, []);
+
   return (
     <>
       <Grid style={{ ...HeaderStyle.headerFullStyle }}>
@@ -251,13 +250,13 @@ const Header = () => {
                         key={123}
                         id="123"
                         onMouseEnter={() => showDropdown(123)}
-                        onMouseLeave={hideDropdown}
+                      onMouseLeave={hideDropdown}
                         show={show === 123}
                       >
                         <Nav className="" navbarScroll>
                           <Row
                             className="rowOnHover"
-                            style={{ padding: "2rem" }}
+                            style={{ padding: "2rem 1.2rem" }}
                           >
                             {company?.map((elem, i) => (
                               <Row md={1}>
@@ -292,7 +291,7 @@ const Header = () => {
                         key={321}
                         id="321"
                         onMouseEnter={() => showDropdown(321)}
-                        onMouseLeave={hideDropdown}
+                     //   onMouseLeave={hideDropdown}
                         show={show === 321}
                       >
                         <Nav sm={1} className="" navbarScroll>
@@ -311,7 +310,7 @@ const Header = () => {
                               return elem?.children?.length > 0 ? (
                                 <Row
                                   className="rowOnHover"
-                                  style={{ padding: "2rem" }}
+                                  style={{ padding: "2rem 1.2rem" }}
                                 >
                                   <Col sm={6}>
                                     <div className="cate_area">
@@ -403,7 +402,7 @@ const Header = () => {
                         <Nav className="" navbarScroll>
                           <Row
                             className="rowOnHover"
-                            style={{ padding: "2rem" }}
+                            style={{ padding: "2rem 1.2rem" }}
                           >
                             {services?.map((elem, i) => (
                               <Row md={1}>

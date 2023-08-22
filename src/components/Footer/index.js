@@ -132,9 +132,6 @@ const Footer = () => {
                 <Link to="/orientation-centre">
                   <div className="footer-content">Orientation Centre</div>
                 </Link>
-                <Link to="/virtual-tour">
-                  <div className="footer-content">Virtual Tour</div>
-                </Link>
                 <Link to="/orientation-centre">
                   <div className="footer-content">Live Display Centre</div>
                 </Link>
