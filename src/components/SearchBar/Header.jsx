@@ -36,10 +36,33 @@ const Header = () => {
 
   useEffect(() => {
     dispatch(getCategory());
-  }, []);
+  }, [dispatch]);
 
   const reply = useSelector((state) => state?.getCategoryList);
   const accountDetailData = reply.category.categoryList;
+
+  useEffect(() => {
+    const updatedSubCategories = [];
+
+    const fetchSubcategories = async () => {
+      accountDetailData?.map(async (elem) => {
+        if (elem?.children && elem?.children?.length > 0) {
+          dispatch(getCategoryProduct({ id: elem?._id }))
+            .then((response) => {
+              const data = response.payload;
+              updatedSubCategories.push(data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+      });
+      setSubCategories(updatedSubCategories);
+      setLoadingSubcategories(false); // Set loading state to false when data is ready
+    };
+
+    fetchSubcategories();
+  }, [accountDetailData, dispatch]);
 
   const [show, setShow] = useState("");
   const showDropdown = (id) => {
@@ -104,29 +127,6 @@ const Header = () => {
     "Contact Us",
     "Warranty & Registration",
   ];
-
-  useEffect(() => {
-    const updatedSubCategories = [];
-
-    const fetchSubcategories = async () => {
-      accountDetailData?.map(async (elem) => {
-        if (elem?.children && elem?.children?.length > 0) {
-          dispatch(getCategoryProduct({ id: elem?._id }))
-            .then((response) => {
-              const data = response.payload;
-              updatedSubCategories.push(data);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        }
-      });
-      setSubCategories(updatedSubCategories);
-      setLoadingSubcategories(false); // Set loading state to false when data is ready
-    };
-
-    fetchSubcategories();
-  }, []);
 
   return (
     <>
@@ -250,7 +250,7 @@ const Header = () => {
                         key={123}
                         id="123"
                         onMouseEnter={() => showDropdown(123)}
-                      onMouseLeave={hideDropdown}
+                        onMouseLeave={hideDropdown}
                         show={show === 123}
                       >
                         <Nav className="" navbarScroll>
@@ -291,7 +291,7 @@ const Header = () => {
                         key={321}
                         id="321"
                         onMouseEnter={() => showDropdown(321)}
-                     //   onMouseLeave={hideDropdown}
+                        //   onMouseLeave={hideDropdown}
                         show={show === 321}
                       >
                         <Nav sm={1} className="" navbarScroll>

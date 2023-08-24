@@ -28,7 +28,7 @@ const LandingPage = () => {
     (state) => state.categoryBanner.banners.CategoryBanner
   );
 
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   let newexploreCategory = useSelector(
     (state) => state.exploreCategory?.banners?.exploreCategory
