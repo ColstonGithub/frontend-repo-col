@@ -291,7 +291,7 @@ const Header = () => {
                         key={321}
                         id="321"
                         onMouseEnter={() => showDropdown(321)}
-                        //   onMouseLeave={hideDropdown}
+                        onMouseLeave={hideDropdown}
                         show={show === 321}
                       >
                         <Nav sm={1} className="" navbarScroll>
