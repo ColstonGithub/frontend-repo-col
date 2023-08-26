@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Box, Grid, InputBase } from "@mui/material";
+import React, {useEffect } from "react";
+import { Box, InputBase } from "@mui/material";
 
 import FMButton from "components/FMButton/FMButton";
 import FMTypography from "components/FMTypography/FMTypography";
@@ -14,8 +14,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { postContactUs } from "Redux/Slices/Forms/postContactUs";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import Footer from "components/Footer";
 

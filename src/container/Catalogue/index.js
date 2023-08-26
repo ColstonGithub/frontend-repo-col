@@ -12,7 +12,6 @@ import {
 
 import downloadIcon from "assets/download.png";
 import FMTypography from "components/FMTypography/FMTypography";
-import { useNavigate } from "react-router-dom";
 
 import Footer from "components/Footer";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +19,6 @@ import { getCatalogue } from "Redux/Slices/Catalogue/CatalogueSlice";
 import { getCatalogueBanner } from "Redux/Slices/Catalogue/CatalogueBannerSlice";
 const Catalogue = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const responsiveMobile = useMediaQuery("(max-width: 500px)");
 

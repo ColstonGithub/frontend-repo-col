@@ -5,7 +5,7 @@ import CheckCircleSharpIcon from "@mui/icons-material/CheckCircleSharp";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import WarningRoundedIcon from "@mui/icons-material/WarningRounded";
-import Slide from "@mui/material/Slide";
+import {Slide} from "@mui/material";
 
 import {
   BLACK,

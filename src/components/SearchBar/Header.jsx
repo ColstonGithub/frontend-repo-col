@@ -14,8 +14,8 @@ import {
 import "./HeaderBootstrapMenu.css";
 import FMButton from "components/FMButton/FMButton";
 import SearchBar from "components/SearchBar/SearchBar";
-import ColstonLogo from "../../assets/ColstonLogo.png";
-import WorldIcon from "../../assets/WorldIcon.svg";
+import ColstonLogo from "assets/ColstonLogo.png";
+import WorldIcon from "assets/WorldIcon.svg";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { LANDING_PAGE } from "Routes/Routes";

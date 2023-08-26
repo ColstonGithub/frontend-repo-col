@@ -6,7 +6,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 
 import Header from "components/SearchBar/Header";
 import FMTypography from "components/FMTypography/FMTypography";
@@ -56,7 +56,6 @@ const ProductDetail = () => {
     const uploadFormData = new FormData();
   };
 
-  const navigate = useNavigate();
 
   console.log(productDetail);
 

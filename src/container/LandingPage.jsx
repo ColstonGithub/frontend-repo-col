@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Banner from "../components/HomePage/Banner";
+import React, { useEffect } from "react";
+import Banner from "components/HomePage/Banner";
 import Header from "components/SearchBar/Header";
 import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import CategorySlider from "../components/HomePage/CategorySlider";
+import CategorySlider from "components/HomePage/CategorySlider";
 import Footer from "components/Footer";
 import { useNavigate } from "react-router-dom";
 import { postCategoryBanner } from "Redux/Slices/GetCategoryBanners/GetCategoryBanners";
@@ -12,7 +12,7 @@ import { postExploreCategory } from "Redux/Slices/ExploreCategory/ExploreCategor
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "@mui/material";
-import finalCorporateBanner from "../assets/homepage/colston-timeline-banner.png";
+import finalCorporateBanner from "assets/homepage/colston-timeline-banner.png";
 
 const LandingPage = () => {
   const dispatch = useDispatch();

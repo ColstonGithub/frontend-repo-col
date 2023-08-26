@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick-slider";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getProductPageDetail } from "Redux/Slices/GetProducts/ProductPageDetails";
-import { Grid, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { CircularProgress } from "@mui/material";
 
 const loadingWrapper = {

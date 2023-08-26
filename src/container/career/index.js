@@ -4,7 +4,6 @@ import Footer from "components/Footer";
 import { useParams } from "react-router-dom";
 import { Box, Grid, InputBase, useMediaQuery } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import careerBanner from "../../assets/DisplayBanner.jpg";
 import FMButton from "components/FMButton/FMButton";
 import FMTypography from "components/FMTypography/FMTypography";
 import { commonStyle } from "Styles/commonStyles";

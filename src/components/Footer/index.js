@@ -1,20 +1,18 @@
-import { React, useState, useEffect } from "react";
+import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
-import ColstonLogo from "../../assets/ColstonLogo.png";
+import ColstonLogo from "assets/ColstonLogo.png";
 import "./Footer.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 
 import { useMediaQuery } from "@mui/material";
-import { wrap } from "@sentry/react";
 import { LANDING_PAGE } from "Routes/Routes";
 import { HeaderStyle } from "../SearchBar/HeaderStyle";
 import { commonStyle } from "../../Styles/commonStyles";
 const Footer = () => {
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
-  //  const navigate = useNavigate();
   const reply = useSelector((state) => state?.getCategoryList);
   const accountDetailData = reply.category.categoryList;
 
@@ -236,9 +234,12 @@ const Footer = () => {
                   <Link to="/faq">
                     <div className="footer-content">FAQ</div>
                   </Link>{" "}
-                  <Link to="/virtual-tour">
+                  <Link
+                    to="https://my.matterport.com/show/?m=qR6V1k73wja"
+                    target="_blank"
+                  >
                     <div className="footer-content">Virtual Tour</div>
-                  </Link>{" "}
+                  </Link>
                   <Link to="/orientation-centre">
                     <div className="footer-content">Orientation Centre</div>
                   </Link>{" "}

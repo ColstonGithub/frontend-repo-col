@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
 
 import {
   Box,
-  Grid,
-  IconButton,
-  InputAdornment,
+
   InputBase,
-  OutlinedInput,
 } from "@mui/material";
 
 import FMButton from "components/FMButton/FMButton";
@@ -19,14 +15,11 @@ import FMTypography from "components/FMTypography/FMTypography";
 import { commonStyle } from "Styles/commonStyles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { enquiryFormSchema } from "validationSchema/enquiryFormSchema";
-import FMInputLabel from "components/FMInputLabel/FMInputLabel";
-//import { notify } from "components/FMToaster/FMToaster";
 import Cross from "../../assets/ProductPage/Vector.png";
 import { Row, Col, Container } from "react-bootstrap";
 import { useMediaQuery } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { postContactUs } from "Redux/Slices/Forms/postContactUs";

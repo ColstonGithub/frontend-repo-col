@@ -25,7 +25,6 @@ import FMTypography from "components/FMTypography/FMTypography";
 import { SearchStyle } from "../../components/SearchBar/searchBarStyles";
 import "../../components/SearchBar/searchBarMedia.css";
 import Footer from "components/Footer";
-import { postSearchFaq } from "Redux/Slices/SearchFaq/SearchFaq";
 import { Col, Row } from "react-bootstrap";
 import { makeStyles } from "@mui/styles";
 import "./faq.css";
