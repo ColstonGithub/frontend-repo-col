@@ -1,23 +1,38 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14-alpine
+# Use an official Node.js runtime as the base image
+FROM node:14
 
-# Set the working directory to /frontend
+RUN apt-get update
+RUN apt-get install nginx -y
+#RUN service nginx start 
+RUN apt-get install nano -y
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the working directory
+# Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
-# Install app dependencies
-RUN npm install --silent
+# Install frontend dependencies
+RUN npm install
 
-# Copy the rest of the application code to the working directory
+#Create a build
+#RUN npm build
+
+#RUN cp -r ./build /var/www/html/
+# Copy the rest of the frontend application code to the container
 COPY . .
 
 # Add a command to run the clean script before starting the server
-RUN npm run clean
+#RUN npm run clean
 
-# Build the frontend app
-RUN npm run build
 
-# Set the command to start the server
+# Expose port 3000 for the frontend servic
+EXPOSE 3000
+# Command to start the frontend service
 CMD ["npm", "start"]
+RUN cp /app/nginx/colstonconcepts.com.conf /etc/nginx/sites-available/
+RUN mv /app/nginx/nginx.conf /etc/nginx/ 
+RUN mv /app/nginx/cert.conf /etc/nginx/snippets/
+RUN mv /app/nginx/ssl-params.conf /etc/nginx/snippets
+RUN ln -s /etc/nginx/sites-available/colstonconcepts.com.conf /etc/nginx/sites-enabled/colstonconcepts.com.conf
+RUN service nginx stop
+#RUN service nginx start
