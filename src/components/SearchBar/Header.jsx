@@ -11,19 +11,19 @@ import {
   NavLink,
   Row,
 } from "react-bootstrap";
-import "./HeaderBootstrapMenu.css";
 import FMButton from "components/FMButton/FMButton";
 import SearchBar from "components/SearchBar/SearchBar";
-import ColstonLogo from "assets/ColstonLogo.png";
-import WorldIcon from "assets/WorldIcon.svg";
+//import ColstonLogo from "assets/ColstonLogo.png";
+//import WorldIcon from "assets/WorldIcon.svg";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { LANDING_PAGE } from "Routes/Routes";
 import { HeaderStyle } from "./HeaderStyle";
-import { commonStyle } from "../../Styles/commonStyles";
+import { commonStyle } from "Styles/commonStyles";
 import CircularProgress from "@mui/material/CircularProgress";
 import { getCategoryProduct } from "Redux/Slices/CategoryProduct/CategoryProductSlice";
-
+import "./HeaderBootstrapMenu.css";
+import { getInitialImages } from "Redux/Slices/InitialImages/InitialImagesSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,6 +40,16 @@ const Header = () => {
 
   const reply = useSelector((state) => state?.getCategoryList);
   const accountDetailData = reply.category.categoryList;
+
+  useEffect(() => {
+    dispatch(getInitialImages());
+  }, [dispatch]);
+
+  const initialImages = useSelector(
+    (state) => state?.InitialImages?.initialImages?.initialImages
+  );
+  const WorldIcon = initialImages && initialImages[0]?.image;
+  const ColstonLogo = initialImages && initialImages[2]?.image;
 
   useEffect(() => {
     const updatedSubCategories = [];
@@ -140,18 +150,20 @@ const Header = () => {
                 padding: "8px 3.125rem",
               }}
             >
-              <FMTypography
-                displayText={"Colston World"}
-                sx={{
-                  fontFamily: "Rajdhani",
-                  fontWeight: "500",
-                  fontSize: "16px",
-                  color: "#FFFFFF",
-                  marginRight: "8px",
-                }}
-              />
+              <Link to={"/orientation-centre"}>
+                <FMTypography
+                  displayText={"Colston World"}
+                  sx={{
+                    fontFamily: "Rajdhani",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    color: "#FFFFFF",
+                    marginRight: "8px",
+                  }}
+                />
+              </Link>
               <div>
-                <img src={WorldIcon} alt="WorldIcon" />
+                <img width={30} src={WorldIcon} alt="WorldIcon" />
               </div>
             </Col>
 
@@ -277,9 +289,6 @@ const Header = () => {
                                     }}
                                     onClick={() => onCompanyCardClick(i)}
                                   />
-                                  {/* <h3 onClick={() => onCompanyCardClick(i)}>
-                                    {elem}
-                                  </h3> */}
                                 </div>
                               </Row>
                             ))}
@@ -313,7 +322,14 @@ const Header = () => {
                                   style={{ padding: "2rem 1.2rem" }}
                                 >
                                   <Col sm={6}>
-                                    <div className="cate_area">
+                                    <div
+                                      className="cate_area"
+                                      style={{
+                                        flexDirection: responsiveMobile
+                                          ? "column"
+                                          : "row",
+                                      }}
+                                    >
                                       <FMTypography
                                         displayText={elem?.name}
                                         sx={{

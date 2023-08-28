@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
-
 import {
   Box,
   Card,
@@ -12,14 +11,11 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { getCategoryProduct } from "Redux/Slices/CategoryProduct/CategoryProductSlice";
-
-import "./productPage.css";
 import Footer from "components/Footer";
+import "./productPage.css";
 
 const CategoryPage = () => {
   const navigate = useNavigate();
@@ -125,7 +121,8 @@ const CategoryPage = () => {
                           fontSize: "18px",
                           color: "#2b2a29",
                           fontWeight: "600",
-                          width: "320px",                            textTransform: "capitalize",
+                          width: "320px",
+                          textTransform: "capitalize",
                         }}
                       >
                         {elem?.name}

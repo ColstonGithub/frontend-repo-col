@@ -1,15 +1,15 @@
 import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
-import ColstonLogo from "assets/ColstonLogo.png";
 import "./Footer.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
-
 import { useMediaQuery } from "@mui/material";
 import { LANDING_PAGE } from "Routes/Routes";
 import { HeaderStyle } from "../SearchBar/HeaderStyle";
 import { commonStyle } from "../../Styles/commonStyles";
+import { getInitialImages } from "Redux/Slices/InitialImages/InitialImagesSlice";
+
 const Footer = () => {
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const dispatch = useDispatch();
@@ -19,6 +19,15 @@ const Footer = () => {
   useEffect(() => {
     dispatch(getCategory());
   }, []);
+
+  useEffect(() => {
+    dispatch(getInitialImages());
+  }, [dispatch]);
+
+  const initialImages = useSelector(
+    (state) => state?.InitialImages?.initialImages?.initialImages
+  );
+  const ColstonLogo = initialImages && initialImages[2]?.image;
 
   return (
     <>
@@ -128,9 +137,6 @@ const Footer = () => {
                   <div className="footer-content">Virtual Tour</div>
                 </Link>
                 <Link to="/orientation-centre">
-                  <div className="footer-content">Orientation Centre</div>
-                </Link>
-                <Link to="/orientation-centre">
                   <div className="footer-content">Live Display Centre</div>
                 </Link>
                 <Link to="/contact-us">
@@ -194,7 +200,7 @@ const Footer = () => {
                   <Link to="/about-us">
                     <div className="footer-content">About Us</div>
                   </Link>{" "}
-                  <Link to="/orientation-center">
+                  <Link to="/where-to-buy">
                     <div className="footer-content">Where to Buy</div>
                   </Link>{" "}
                   <Link to="/">
@@ -218,9 +224,9 @@ const Footer = () => {
 
                   {accountDetailData?.map((displayCategory) => {
                     return (
-                      <Link to={`/category-page/${displayCategory._id}`}>
+                      <Link to={`/category-page/${displayCategory?._id}`}>
                         <div className="footer-content">
-                          {displayCategory.name}
+                          {displayCategory?.name}
                         </div>
                       </Link>
                     );
@@ -241,7 +247,7 @@ const Footer = () => {
                     <div className="footer-content">Virtual Tour</div>
                   </Link>
                   <Link to="/orientation-centre">
-                    <div className="footer-content">Orientation Centre</div>
+                    <div className="footer-content">Live Display Center</div>
                   </Link>{" "}
                   <Link to="/contact-us">
                     <div className="footer-content">Book an Appointment</div>

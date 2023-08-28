@@ -51,6 +51,8 @@ import whereToBuySlice from "Redux/Slices/WhereToBuy/WhereToBuySlice";
 import ExhibitionProductSlice from "Redux/Slices/Exhibition/ExhibitionProductSlice";
 import ExhibitionDetailSlice from "Redux/Slices/Exhibition/ExhibitionDetailSlice";
 import CareerDetailsSlice from "Redux/Slices/CareerDeatils/CareerDetailsSlice";
+import InitialImagesSlice from "Redux/Slices/InitialImages/InitialImagesSlice";
+
 const rootReducer = combineReducers({
   menuList: menuListSlice,
   blogs: blogsSlice,
@@ -100,6 +102,7 @@ const rootReducer = combineReducers({
   exhibitionProduct: ExhibitionProductSlice,
   exhibitionDetail: ExhibitionDetailSlice,
   CareerDetails: CareerDetailsSlice,
+  InitialImages:InitialImagesSlice,
 });
 
 const initializeStore = () =>

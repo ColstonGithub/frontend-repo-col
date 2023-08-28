@@ -1,5 +1,5 @@
-import React from "react";
-import SearchIcon from "../../assets/SearchIcon.svg";
+import React, { useEffect } from "react";
+//import SearchIcon from "assets/SearchIcon.svg";
 import Input from "@mui/material/Input";
 import Box from "@mui/material/Box";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
@@ -11,6 +11,7 @@ import "./searchBarMedia.css";
 
 // import { useHistory } from "react-router-dom";
 import { Table, TableBody, TableCell, TableRow } from "@mui/material";
+import { getInitialImages } from "Redux/Slices/InitialImages/InitialImagesSlice";
 
 const SearchBar = ({
   placeholder,
@@ -32,6 +33,16 @@ const SearchBar = ({
   // if (history.location.pathname !== history.listen.pathname) {
   //   searchResult = [];
   // }
+
+  useEffect(() => {
+    dispatch(getInitialImages());
+  }, [dispatch]);
+
+  const initialImages = useSelector(
+    (state) => state?.InitialImages?.initialImages?.initialImages
+  );
+  const SearchIcon = initialImages && initialImages[1]?.image;
+
   return (
     <Box sx={SearchStyle.searchBoxWrapper} className="searchBoxWrapper">
       <Input
@@ -46,7 +57,7 @@ const SearchBar = ({
       />
       {/* <SearchIcon sx={SearchStyle.searchIcon} /> */}
       <div>
-        <img src={SearchIcon} alt="Search" />
+        <img width={30} src={SearchIcon} alt="Search" />
       </div>{" "}
       <div
         style={{
