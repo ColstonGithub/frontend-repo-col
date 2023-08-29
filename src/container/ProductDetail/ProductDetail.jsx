@@ -6,7 +6,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Header from "components/SearchBar/Header";
 import FMTypography from "components/FMTypography/FMTypography";
@@ -29,7 +29,7 @@ const ProductDetail = () => {
   const [color, setColor] = useState();
   const [open, setOpen] = useState(false);
   const [apiImgs, setApiImgs] = useState([]);
-  const responsiveMobile = useMediaQuery("(max-width: 500px)");
+  const responsiveMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     dispatch(getProductPageDetail(params));
@@ -55,7 +55,6 @@ const ProductDetail = () => {
   const onSubmit = async (data) => {
     const uploadFormData = new FormData();
   };
-
 
   console.log(productDetail);
 
@@ -393,6 +392,7 @@ const ProductDetail = () => {
                 />
                 <ul
                   style={{
+                    textDecoration: "none",
                     fontFamily: "Rajdhani",
                     fontStyle: "normal",
                     fontWeight: "500",
@@ -402,9 +402,7 @@ const ProductDetail = () => {
                   }}
                 >
                   {/* {productDetail?.product?.description} */}
-                  {productDetail?.product?.description.split(";").map((sp) => {
-                    if (sp) return <li>{sp}</li>;
-                  })}
+                  <li>{productDetail?.product?.description}</li>
                 </ul>
               </Box>
 
