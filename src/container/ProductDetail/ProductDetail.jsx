@@ -401,7 +401,6 @@ const ProductDetail = () => {
                     color: "#717171",
                   }}
                 >
-                  {/* {productDetail?.product?.description} */}
                   <li>{productDetail?.product?.description}</li>
                 </ul>
               </Box>
