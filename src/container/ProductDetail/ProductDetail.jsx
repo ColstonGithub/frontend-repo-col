@@ -1,27 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import ImageGallery from "react-image-gallery";
-
 import "react-image-gallery/styles/css/image-gallery.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
 import Header from "components/SearchBar/Header";
 import FMTypography from "components/FMTypography/FMTypography";
 import FMButton from "components/FMButton/FMButton";
-
-import "./ProductDetail.css";
-
 import { signUpSchema } from "validationSchema/signupSchema";
 import { Col, Container, Row } from "react-bootstrap";
-
 import SimilarProduct from "./SimilarProduct";
 import Footer from "../../components/Footer";
 import Form from "./Form";
 import { useMediaQuery } from "@mui/material";
 import { getProductPageDetail } from "Redux/Slices/GetProducts/ProductPageDetails";
+import "./ProductDetail.css";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -55,8 +50,6 @@ const ProductDetail = () => {
   const onSubmit = async (data) => {
     const uploadFormData = new FormData();
   };
-
-  console.log(productDetail);
 
   let firstImgs = productDetail?.product?.productPictures?.map((elem) => ({
     original: elem?.img,
@@ -392,7 +385,7 @@ const ProductDetail = () => {
                 />
                 <ul
                   style={{
-                    textDecoration: "none",
+                    listStyle: "none",
                     fontFamily: "Rajdhani",
                     fontStyle: "normal",
                     fontWeight: "500",
