@@ -321,15 +321,7 @@ const Header = () => {
                         show={show === 321}
                       >
                         <Nav sm={1} className="" navbarScroll>
-                          {loadingSubcategories && loadingSubcategories ? (
-                            <Col
-                              md={6}
-                              style={{ textAlign: "center", marginTop: "1rem" }}
-                            >
-                              <CircularProgress />
-                            </Col>
-                          ) : (
-                            accountDetailData &&
+                          {accountDetailData &&
                             accountDetailData?.map((elem) => {
                               return elem?.children?.length > 0 ? (
                                 <Row
@@ -453,8 +445,7 @@ const Header = () => {
                                   {elem?.name}
                                 </NavLink>
                               );
-                            })
-                          )}
+                            })}
                         </Nav>
                       </NavDropdown>
 
