@@ -75,6 +75,8 @@ const Header = () => {
         });
       };
       fetchSubcategories();
+    } else {
+      setLoadingSubcategories(false);
     }
   }, [accountDetailData, dispatch]);
 
@@ -320,62 +322,108 @@ const Header = () => {
                         onMouseLeave={hideDropdown}
                         show={show === 321}
                       >
-                        <Nav sm={1} className="" navbarScroll>
-                          {accountDetailData &&
-                            accountDetailData?.map((elem) => {
-                              return elem?.children?.length > 0 ? (
-                                <Row
-                                  className="rowOnHover"
-                                  style={{ padding: "2rem 1.2rem" }}
-                                >
-                                  <Col sm={6}>
-                                    <div
-                                      className="cate_area"
-                                      style={{
-                                        flexDirection: responsiveMobile
-                                          ? "column"
-                                          : "row",
-                                      }}
-                                    >
-                                      <FMTypography
-                                        displayText={elem?.name}
-                                        sx={{
-                                          fontFamily: "Rajdhani",
-                                          fontStyle: "normal",
-                                          fontWeight: "600",
-                                          fontSize: "18px",
-                                          lineHeight: "22px",
-                                          cursor: "pointer",
-                                          color: "#2b2a29",
-                                          marginBottom: "8px",
-                                          textTransform: "capitalize",
+                        {loadingSubcategories && loadingSubcategories ? (
+                          <Col
+                            md={6}
+                            style={{ textAlign: "center", marginTop: "1rem" }}
+                          >
+                            <CircularProgress />
+                          </Col>
+                        ) : (
+                          <Nav sm={1} className="" navbarScroll>
+                            {accountDetailData &&
+                              accountDetailData?.map((elem) => {
+                                return elem?.children?.length > 0 ? (
+                                  <Row
+                                    className="rowOnHover"
+                                    style={{ padding: "2rem 1.2rem" }}
+                                  >
+                                    <Col sm={6}>
+                                      <div
+                                        className="cate_area"
+                                        style={{
+                                          flexDirection: responsiveMobile
+                                            ? "column"
+                                            : "row",
                                         }}
-                                        onClick={() =>
-                                          onCategoryCardClick(elem?._id)
-                                        }
-                                      />
+                                      >
+                                        <FMTypography
+                                          displayText={elem?.name}
+                                          sx={{
+                                            fontFamily: "Rajdhani",
+                                            fontStyle: "normal",
+                                            fontWeight: "600",
+                                            fontSize: "18px",
+                                            lineHeight: "22px",
+                                            cursor: "pointer",
+                                            color: "#2b2a29",
+                                            marginBottom: "8px",
+                                            textTransform: "capitalize",
+                                          }}
+                                          onClick={() =>
+                                            onCategoryCardClick(elem?._id)
+                                          }
+                                        />
 
-                                      {subCategories &&
-                                        subCategories
-                                          ?.slice()
-                                          .reverse()
-                                          .map((secElem) => {
-                                            return secElem?.subCategoryList
-                                              ?.filter(
-                                                (filterElem) =>
-                                                  filterElem?.parentId ===
-                                                  elem?._id
-                                              )
-                                              .map((childElem) => (
-                                                <Col
-                                                  md={12}
-                                                  key={childElem?._id}
-                                                >
-                                                  <div>
+                                        {subCategories &&
+                                          subCategories
+                                            ?.slice()
+                                            .reverse()
+                                            .map((secElem) => {
+                                              return secElem?.subCategoryList
+                                                ?.filter(
+                                                  (filterElem) =>
+                                                    filterElem?.parentId ===
+                                                    elem?._id
+                                                )
+                                                .map((childElem) => (
+                                                  <Col
+                                                    md={12}
+                                                    key={childElem?._id}
+                                                  >
+                                                    <div>
+                                                      <FMTypography
+                                                        className="link-hover"
+                                                        displayText={
+                                                          childElem?.name
+                                                        }
+                                                        sx={{
+                                                          fontFamily:
+                                                            "Rajdhani",
+                                                          fontStyle: "normal",
+                                                          fontWeight: "500",
+                                                          fontSize: "18px",
+                                                          cursor: "pointer",
+                                                          lineHeight: "22px",
+                                                          color: "#2b2a29",
+                                                          textTransform:
+                                                            "capitalize",
+                                                        }}
+                                                        onClick={() =>
+                                                          onProductCardClick(
+                                                            childElem?._id
+                                                          )
+                                                        }
+                                                      />
+                                                    </div>
+                                                  </Col>
+                                                ));
+                                            })}
+
+                                        {subCategories &&
+                                          subCategories
+                                            ?.filter(
+                                              (secElem) =>
+                                                secElem?.parentId === elem?._id
+                                            )
+                                            .map((secElem) =>
+                                              secElem?.subCategoryList?.map(
+                                                (childCat) => (
+                                                  <div key={childCat?._id}>
                                                     <FMTypography
                                                       className="link-hover"
                                                       displayText={
-                                                        childElem?.name
+                                                        childCat?.name
                                                       }
                                                       sx={{
                                                         fontFamily: "Rajdhani",
@@ -390,63 +438,29 @@ const Header = () => {
                                                       }}
                                                       onClick={() =>
                                                         onProductCardClick(
-                                                          childElem?._id
+                                                          childCat?._id
                                                         )
                                                       }
                                                     />
                                                   </div>
-                                                </Col>
-                                              ));
-                                          })}
-
-                                      {subCategories &&
-                                        subCategories
-                                          ?.filter(
-                                            (secElem) =>
-                                              secElem?.parentId === elem?._id
-                                          )
-                                          .map((secElem) =>
-                                            secElem?.subCategoryList?.map(
-                                              (childCat) => (
-                                                <div key={childCat?._id}>
-                                                  <FMTypography
-                                                    className="link-hover"
-                                                    displayText={childCat?.name}
-                                                    sx={{
-                                                      fontFamily: "Rajdhani",
-                                                      fontStyle: "normal",
-                                                      fontWeight: "500",
-                                                      fontSize: "18px",
-                                                      cursor: "pointer",
-                                                      lineHeight: "22px",
-                                                      color: "#2b2a29",
-                                                      textTransform:
-                                                        "capitalize",
-                                                    }}
-                                                    onClick={() =>
-                                                      onProductCardClick(
-                                                        childCat?._id
-                                                      )
-                                                    }
-                                                  />
-                                                </div>
+                                                )
                                               )
-                                            )
-                                          )}
-                                    </div>
-                                  </Col>
-                                </Row>
-                              ) : (
-                                <NavLink
-                                  className="link-hover"
-                                  title={elem?.name}
-                                  style={{ textTransform: "capitalize" }}
-                                >
-                                  {elem?.name}
-                                </NavLink>
-                              );
-                            })}
-                        </Nav>
+                                            )}
+                                      </div>
+                                    </Col>
+                                  </Row>
+                                ) : (
+                                  <NavLink
+                                    className="link-hover"
+                                    title={elem?.name}
+                                    style={{ textTransform: "capitalize" }}
+                                  >
+                                    {elem?.name}
+                                  </NavLink>
+                                );
+                              })}
+                          </Nav>
+                        )}
                       </NavDropdown>
 
                       <NavDropdown
