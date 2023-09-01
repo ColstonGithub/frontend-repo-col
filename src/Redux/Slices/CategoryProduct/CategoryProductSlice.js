@@ -6,9 +6,9 @@ export const getCategoryProduct = createAsyncThunk(
   GET_CATEGORY_PRODUCTS,
   async (payload, thunkAPI) => {
     try {
-      const response = await axiosInstance.get(
-        `api/category/${payload.id}/children`
-      );
+      const response = await axiosInstance.post(`api/category/id/children`, {
+        id: payload?.id,
+      });
       //   console.log("response",response.data);
       return response.data;
     } catch (error) {

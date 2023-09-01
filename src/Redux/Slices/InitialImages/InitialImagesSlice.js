@@ -9,7 +9,6 @@ export const getInitialImages = createAsyncThunk(
       const response = await axiosInstance.get(
         `api/initialImage/getInitialImages`
       );
-       console.log("response ss", response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error });

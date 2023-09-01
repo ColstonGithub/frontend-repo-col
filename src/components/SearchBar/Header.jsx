@@ -13,8 +13,6 @@ import {
 } from "react-bootstrap";
 import FMButton from "components/FMButton/FMButton";
 import SearchBar from "components/SearchBar/SearchBar";
-//import ColstonLogo from "assets/ColstonLogo.png";
-//import WorldIcon from "assets/WorldIcon.svg";
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { LANDING_PAGE } from "Routes/Routes";
@@ -30,49 +28,68 @@ const Header = () => {
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [subCategories, setSubCategories] = React.useState([]);
+
   const [loadingSubcategories, setLoadingSubcategories] = useState(true);
+  const [categoryFetched, setCategoryFetched] = useState(false);
+  const [initialImagesFetched, setInitialImagesFetched] = useState(false);
+  const [subCategoriesFetched, setSubCategoriesFetched] = useState(false);
 
   const open = Boolean(anchorEl);
 
   useEffect(() => {
-    dispatch(getCategory());
-  }, [dispatch]);
+    if (!categoryFetched) {
+      dispatch(getCategory());
+      setCategoryFetched(true);
+    }
+  }, [dispatch, categoryFetched]);
 
   const reply = useSelector((state) => state?.getCategoryList);
   const accountDetailData = reply.category.categoryList;
 
   useEffect(() => {
-    dispatch(getInitialImages());
-  }, [dispatch]);
+    // Set loading to true when a redirection happens
+    setLoadingSubcategories(true);
+  }, [accountDetailData]); // Reset loading when params change (redirection)
+
+  useEffect(() => {
+    if (!subCategoriesFetched) {
+      const fetchSubcategories = async () => {
+        const updatedSubCategories = [];
+        accountDetailData?.map(async (elem) => {
+          if (elem?.children && elem?.children?.length > 0) {
+            await dispatch(getCategoryProduct({ id: elem?._id }))
+              .then((response) => {
+                const data = response?.payload;
+                updatedSubCategories.push(data);
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                setSubCategoriesFetched(true);
+              })
+              .finally(() => {
+                setSubCategories(updatedSubCategories);
+                setLoadingSubcategories(false); // Set loading state to false when data is ready
+                setSubCategoriesFetched(true);
+              });
+          }
+        });
+      };
+      fetchSubcategories();
+    }
+  }, [accountDetailData, dispatch]);
+
+  useEffect(() => {
+    if (!initialImagesFetched) {
+      dispatch(getInitialImages());
+      setInitialImagesFetched(true);
+    }
+  }, [dispatch, initialImagesFetched]);
 
   const initialImages = useSelector(
     (state) => state?.InitialImages?.initialImages?.initialImages
   );
   const WorldIcon = initialImages && initialImages[0]?.image;
   const ColstonLogo = initialImages && initialImages[2]?.image;
-
-  useEffect(() => {
-    const updatedSubCategories = [];
-
-    const fetchSubcategories = async () => {
-      accountDetailData?.map(async (elem) => {
-        if (elem?.children && elem?.children?.length > 0) {
-          dispatch(getCategoryProduct({ id: elem?._id }))
-            .then((response) => {
-              const data = response.payload;
-              updatedSubCategories.push(data);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        }
-      });
-      setSubCategories(updatedSubCategories);
-      setLoadingSubcategories(false); // Set loading state to false when data is ready
-    };
-
-    fetchSubcategories();
-  }, [accountDetailData, dispatch]);
 
   const [show, setShow] = useState("");
   const showDropdown = (id) => {
@@ -163,7 +180,7 @@ const Header = () => {
                 />
               </Link>
               <div>
-                <img width={30} src={WorldIcon} alt="WorldIcon" />
+                <img width={20} src={WorldIcon} alt="WorldIcon" />
               </div>
             </Col>
 
@@ -304,7 +321,6 @@ const Header = () => {
                         show={show === 321}
                       >
                         <Nav sm={1} className="" navbarScroll>
-                          {/* Conditionally render the loader */}
                           {loadingSubcategories && loadingSubcategories ? (
                             <Col
                               md={6}
@@ -313,7 +329,6 @@ const Header = () => {
                               <CircularProgress />
                             </Col>
                           ) : (
-                            // Render the actual category and sub-category items
                             accountDetailData &&
                             accountDetailData?.map((elem) => {
                               return elem?.children?.length > 0 ? (
@@ -353,43 +368,79 @@ const Header = () => {
                                           ?.slice()
                                           .reverse()
                                           .map((secElem) => {
-                                            return elem?._id ===
-                                              secElem?.parentId ? (
-                                              secElem?.subCategoryList?.map(
-                                                (childCat) => (
-                                                  <Col md={12}>
-                                                    <div>
-                                                      <FMTypography
-                                                        className="link-hover"
-                                                        displayText={
-                                                          childCat?.name
-                                                        }
-                                                        sx={{
-                                                          fontFamily:
-                                                            "Rajdhani",
-                                                          fontStyle: "normal",
-                                                          fontWeight: "500",
-                                                          fontSize: "18px",
-                                                          cursor: "pointer",
-                                                          lineHeight: "22px",
-                                                          color: "#2b2a29",
-                                                          textTransform:
-                                                            "capitalize",
-                                                        }}
-                                                        onClick={() =>
-                                                          onProductCardClick(
-                                                            childCat?._id
-                                                          )
-                                                        }
-                                                      />
-                                                    </div>
-                                                  </Col>
-                                                )
+                                            return secElem?.subCategoryList
+                                              ?.filter(
+                                                (filterElem) =>
+                                                  filterElem?.parentId ===
+                                                  elem?._id
                                               )
-                                            ) : (
-                                              <></>
-                                            );
+                                              .map((childElem) => (
+                                                <Col
+                                                  md={12}
+                                                  key={childElem?._id}
+                                                >
+                                                  <div>
+                                                    <FMTypography
+                                                      className="link-hover"
+                                                      displayText={
+                                                        childElem?.name
+                                                      }
+                                                      sx={{
+                                                        fontFamily: "Rajdhani",
+                                                        fontStyle: "normal",
+                                                        fontWeight: "500",
+                                                        fontSize: "18px",
+                                                        cursor: "pointer",
+                                                        lineHeight: "22px",
+                                                        color: "#2b2a29",
+                                                        textTransform:
+                                                          "capitalize",
+                                                      }}
+                                                      onClick={() =>
+                                                        onProductCardClick(
+                                                          childElem?._id
+                                                        )
+                                                      }
+                                                    />
+                                                  </div>
+                                                </Col>
+                                              ));
                                           })}
+
+                                      {subCategories &&
+                                        subCategories
+                                          ?.filter(
+                                            (secElem) =>
+                                              secElem?.parentId === elem?._id
+                                          )
+                                          .map((secElem) =>
+                                            secElem?.subCategoryList?.map(
+                                              (childCat) => (
+                                                <div key={childCat?._id}>
+                                                  <FMTypography
+                                                    className="link-hover"
+                                                    displayText={childCat?.name}
+                                                    sx={{
+                                                      fontFamily: "Rajdhani",
+                                                      fontStyle: "normal",
+                                                      fontWeight: "500",
+                                                      fontSize: "18px",
+                                                      cursor: "pointer",
+                                                      lineHeight: "22px",
+                                                      color: "#2b2a29",
+                                                      textTransform:
+                                                        "capitalize",
+                                                    }}
+                                                    onClick={() =>
+                                                      onProductCardClick(
+                                                        childCat?._id
+                                                      )
+                                                    }
+                                                  />
+                                                </div>
+                                              )
+                                            )
+                                          )}
                                     </div>
                                   </Col>
                                 </Row>

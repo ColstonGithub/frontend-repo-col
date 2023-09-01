@@ -52,13 +52,13 @@ const App = () => {
               element={<WarrantyRegisteration />}
             />
 
-            <Route path="product-page/:id" element={<ProductPage />} />
+            <Route path="/product-page/:id" element={<ProductPage />} />
 
-            <Route path="category-page/:id" element={<CategoryPage />} />
+            <Route path="/category-page/:id" element={<CategoryPage />} />
 
-            <Route path="product-detail/:id" element={<ProductDetail />} />
+            <Route path="/product-detail/:id" element={<ProductDetail />} />
 
-            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
             <Route path="/brand-page" element={<BrandPage />} />
 

@@ -12,7 +12,7 @@ import { postExploreCategory } from "Redux/Slices/ExploreCategory/ExploreCategor
 import { getCategory } from "Redux/Slices/GetCategory/GetCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "@mui/material";
-import finalCorporateBanner from "assets/homepage/colston-timeline-banner.png";
+import finalCorporateBanner from "assets/homepage/colston-timeline-banner.jpg";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -65,8 +65,8 @@ const LandingPage = () => {
 
   window.addEventListener("scroll", reveal);
 
-  const onCatClick = (e) => {
-    navigate(`/category-page/${e}`);
+  const onCatClick = (categoryId) => {
+    navigate(`/category-page/${categoryId}`);
   };
   useEffect(() => {
     window.scrollTo({
@@ -188,7 +188,7 @@ const LandingPage = () => {
             <img
               src={finalCorporateBanner}
               alt={"Corporate Banner"}
-              style={{ width: "100%" }}
+              style={{ width: "100%", borderRadius: "20px" }}
             />
           </Col>
         </Row>
