@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "components/SearchBar/Header";
 import Footer from "components/Footer";
 import orientationCentre from "../../assets/orientationCentre/OrientationCentre.png";
-import { Box, Grid, useMediaQuery } from "@mui/material";
+import { Box, CircularProgress, Grid, useMediaQuery } from "@mui/material";
 import FMTypography from "components/FMTypography/FMTypography";
 import { Link } from "react-router-dom";
 import DirectionsIcon from "@mui/icons-material/Directions";
@@ -25,13 +25,20 @@ const WhereToBuy = () => {
 
   const responsiveTablet = useMediaQuery("(max-width: 1000px)");
   const responsiveMobile = useMediaQuery("(max-width: 600px)");
+  const [loading, setLoading] = useState(true); // State to track loading status
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getWhereToBuyData());
+    dispatch(getWhereToBuyData())
+      .then(() => {
+        setLoading(false); // Set loading to false when the API call finishes
+      })
+      .catch((error) => {
+        toast.error(error?.message);
+        setLoading(false); // Set loading to false in case of an error
+      });
   }, [dispatch]);
-
   const WhereToBuyData = useSelector(
     (state) => state?.whereToBuy?.getWhereToBuyListData?.whereToBuyProducts
   );
@@ -203,77 +210,85 @@ const WhereToBuy = () => {
                 : "0px 1.4rem 5rem",
             }}
           >
-            {filteredWhereToBuyListData && filteredWhereToBuyListData
-              ? filteredWhereToBuyListData?.map((elem) => (
-                  <Box
-                    sx={{
-                      padding: "24px",
-                      background: "#FFFFFF",
-                      boxShadow:
-                        "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
-                      borderRadius: "20px",
-                      fontFamily: "Rajdhani",
-                      fontStyle: "normal",
-                      fontSize: !responsiveMobile ? "1rem" : "1.4rem",
-                      fontColor: "#717171",
-                      margin: !responsiveMobile ? "1.5rem" : "1rem 0",
-                      width: !responsiveMobile ? "350px" : "300px",
-                      height: "350px",
-                    }}
-                  >
-                    <h3>{elem?.city.toUpperCase()}</h3>
-                    <p>{elem?.centerName}</p>
-                    <p>{elem?.centerAddress}</p>
-                    <p>
-                      <b>Email</b> : {elem?.email}
-                    </p>
-                    <p>
-                      <b>Location</b> : &nbsp;
-                      <Link to={elem?.location} target="_blank">
-                        <DirectionsIcon
-                          style={{ width: "25px", height: "25px" }}
-                        />
-                        Get Directions
-                      </Link>
-                    </p>
-                  </Box>
-                ))
-              : whereToBuyListData &&
-                whereToBuyListData?.map((elem) => (
-                  <Box
-                    sx={{
-                      padding: "24px",
-                      background: "#FFFFFF",
-                      boxShadow:
-                        "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
-                      borderRadius: "20px",
-                      fontFamily: "Rajdhani",
-                      fontStyle: "normal",
-                      fontSize: !responsiveMobile ? "1rem" : "1.4rem",
-                      fontColor: "#717171",
-                      margin: !responsiveMobile ? "1.5rem" : "1rem 0",
-                      height: "350px",
-                      width: !responsiveMobile ? "350px" : "300px",
-                    }}
-                  >
-                    <h3>{elem?.city.toUpperCase()}</h3>
-                    <p>{elem?.centerName}</p>
+            {" "}
+            {loading ? (
+              // Display a loader while loading data
+              <div style={{ textAlign: "center", marginTop: "2rem" }}>
+                <CircularProgress />
+              </div>
+            ) : filteredWhereToBuyListData && filteredWhereToBuyListData ? (
+              filteredWhereToBuyListData?.map((elem) => (
+                <Box
+                  sx={{
+                    padding: "24px",
+                    background: "#FFFFFF",
+                    boxShadow:
+                      "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
+                    borderRadius: "20px",
+                    fontFamily: "Rajdhani",
+                    fontStyle: "normal",
+                    fontSize: !responsiveMobile ? "1rem" : "1.4rem",
+                    fontColor: "#717171",
+                    margin: !responsiveMobile ? "1.5rem" : "1rem 0",
+                    width: !responsiveMobile ? "350px" : "300px",
+                    height: "350px",
+                  }}
+                >
+                  <h3>{elem?.city.toUpperCase()}</h3>
+                  <p>{elem?.centerName}</p>
+                  <p>{elem?.centerAddress}</p>
+                  <p>
+                    <b>Email</b> : {elem?.email}
+                  </p>
+                  <p>
+                    <b>Location</b> : &nbsp;
+                    <Link to={elem?.location} target="_blank">
+                      <DirectionsIcon
+                        style={{ width: "25px", height: "25px" }}
+                      />
+                      Get Directions
+                    </Link>
+                  </p>
+                </Box>
+              ))
+            ) : (
+              whereToBuyListData &&
+              whereToBuyListData?.map((elem) => (
+                <Box
+                  sx={{
+                    padding: "24px",
+                    background: "#FFFFFF",
+                    boxShadow:
+                      "0px -1px 12px rgba(180, 181, 181, 0.12), 0px 1px 12px rgba(180, 181, 181, 0.12)",
+                    borderRadius: "20px",
+                    fontFamily: "Rajdhani",
+                    fontStyle: "normal",
+                    fontSize: !responsiveMobile ? "1rem" : "1.4rem",
+                    fontColor: "#717171",
+                    margin: !responsiveMobile ? "1.5rem" : "1rem 0",
+                    height: "350px",
+                    width: !responsiveMobile ? "350px" : "300px",
+                  }}
+                >
+                  <h3>{elem?.city.toUpperCase()}</h3>
+                  <p>{elem?.centerName}</p>
 
-                    <p>{elem?.centerAddress}</p>
-                    <p>
-                      <b>Email</b> : {elem?.email}
-                    </p>
-                    <p>
-                      <b>Location</b> : &nbsp;
-                      <Link to={elem?.location} target="_blank">
-                        <DirectionsIcon
-                          style={{ width: "25px", height: "25px" }}
-                        />
-                        Get Directions
-                      </Link>
-                    </p>
-                  </Box>
-                ))}
+                  <p>{elem?.centerAddress}</p>
+                  <p>
+                    <b>Email</b> : {elem?.email}
+                  </p>
+                  <p>
+                    <b>Location</b> : &nbsp;
+                    <Link to={elem?.location} target="_blank">
+                      <DirectionsIcon
+                        style={{ width: "25px", height: "25px" }}
+                      />
+                      Get Directions
+                    </Link>
+                  </p>
+                </Box>
+              ))
+            )}
           </Grid>
         </Grid>
         <ToastContainer />
