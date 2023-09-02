@@ -101,8 +101,9 @@ const LandingPage = () => {
                               width: "255px",
                               height: "150px",
                               marginLeft: "20px",
+                              borderRadius: "20px",
                             }
-                          : { width: "100%" }
+                          : { width: "100%", borderRadius: "20px" }
                       }
                     />
                   </Col>
@@ -119,7 +120,7 @@ const LandingPage = () => {
                       src={item?.bannerImageText}
                       alt={item?.bannerImageTextAltText}
                       className="banner-image-text"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", borderRadius: "20px" }}
                     />
                   </div>
                 </Col>
@@ -136,10 +137,12 @@ const LandingPage = () => {
                               width: "255px",
                               height: "150px",
                               marginLeft: "80px",
+                              borderRadius: "20px",
                             }
                           : {
                               width: "100%",
                               cursor: "pointer",
+                              borderRadius: "20px",
                             }
                       }
                     />

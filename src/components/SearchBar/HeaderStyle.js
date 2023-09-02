@@ -1,17 +1,20 @@
 export const HeaderStyle = {
-  headerFullStyle: { background: "#FFFFFF",boxShadow: "0px 1px 12px rgba(181, 180, 180, 0.12)",},
-  
+  headerFullStyle: {
+    background: "#FFFFFF",
+    boxShadow: "0px 1px 12px rgba(181, 180, 180, 0.12)",
+  },
+
   topHeader: {
     background: "#c02121",
+    transition: "0.5s all ease-in-out",
   },
-  
+
   iconGridContainer: {
     padding: "27px 3.125rem",
-
   },
 
   colstonLogoStyle: { marginTop: "1rem" },
-  
+
   cartStyle: {
     width: "20px",
     height: "18px",

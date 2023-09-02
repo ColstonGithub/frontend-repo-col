@@ -90,8 +90,8 @@ const Header = () => {
   const initialImages = useSelector(
     (state) => state?.InitialImages?.initialImages?.initialImages
   );
-  const WorldIcon = initialImages && initialImages[0]?.image;
-  const ColstonLogo = initialImages && initialImages[2]?.image;
+  const WorldIcon = initialImages ? initialImages[0]?.image : "";
+  const ColstonLogo = initialImages ? initialImages[2]?.image : "";
 
   const [show, setShow] = useState("");
   const showDropdown = (id) => {
@@ -147,7 +147,7 @@ const Header = () => {
     "Videos",
     "News & Press Release",
     "Privacy Policy",
-    "Blog",
+    "Blogs",
     "Live Display Centre",
   ];
   const services = [
@@ -162,30 +162,35 @@ const Header = () => {
       <Grid style={{ ...HeaderStyle.headerFullStyle }}>
         {!responsiveMobile ? (
           <Row style={{ ...HeaderStyle.topHeader, margin: "0" }}>
-            <Col
-              style={{
-                display: "flex",
-                alignItems: "center",
-                padding: "8px 3.125rem",
-              }}
-            >
-              <Link to={"/orientation-centre"}>
-                <FMTypography
-                  displayText={"Colston World"}
-                  sx={{
-                    fontFamily: "Rajdhani",
-                    fontWeight: "500",
-                    fontSize: "16px",
-                    color: "#FFFFFF",
-                    marginRight: "8px",
-                  }}
-                />
-              </Link>
-              <div>
-                <img width={20} src={WorldIcon} alt="WorldIcon" />
-              </div>
-            </Col>
-
+            {WorldIcon && (
+              <Col
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "8px 3.125rem",
+                }}
+              >
+                <Link to={"/orientation-centre"}>
+                  <FMTypography
+                    displayText={"Colston World"}
+                    sx={{
+                      fontFamily: "Rajdhani",
+                      fontWeight: "500",
+                      fontSize: "16px",
+                      color: "#FFFFFF",
+                      marginRight: "8px",
+                    }}
+                  />
+                </Link>
+                <div>
+                  <img
+                    width={20}
+                    src={WorldIcon ? WorldIcon : ""}
+                    alt="WorldIcon"
+                  />
+                </div>
+              </Col>
+            )}
             <Col
               style={{
                 display: "flex",
@@ -252,11 +257,14 @@ const Header = () => {
           >
             <Link to={LANDING_PAGE}>
               <div style={{}}>
-                <img
-                  src={ColstonLogo}
-                  alt="ColstonLogo"
-                  style={{ ...HeaderStyle.imageStyle }}
-                />
+                {" "}
+                {ColstonLogo && (
+                  <img
+                    src={ColstonLogo ? ColstonLogo : ""}
+                    alt="ColstonLogo"
+                    style={{ ...HeaderStyle.imageStyle }}
+                  />
+                )}
               </div>
             </Link>
           </Col>
