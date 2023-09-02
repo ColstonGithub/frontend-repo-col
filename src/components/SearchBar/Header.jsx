@@ -134,7 +134,7 @@ const Header = () => {
     } else if (e === 5) {
       navigate(`/privacy-policy`);
     } else if (e === 6) {
-      navigate(`/blogs`);
+      window.open(`http://Blog.colstonconcepts.com`, '_blank');
     } else if (e === 7) {
       navigate(`/orientation-centre`);
     }

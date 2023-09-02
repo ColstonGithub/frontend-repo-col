@@ -108,7 +108,7 @@ const Footer = () => {
                 <Link to="/where-to-buy">
                   <div className="footer-content">Where to Buy</div>
                 </Link>
-                <Link to="/">
+                <Link to="/colstonconcept">
                   <div className="footer-content">Concepts by Colston</div>
                 </Link>
                 <Link to="/newspress">
@@ -120,8 +120,8 @@ const Footer = () => {
                 {/* <Link to="/">
                   <div className="footer-content">Site Map</div>
                 </Link> */}
-                <Link to="/blogs">
-                  <div className="footer-content">Blog</div>
+                <Link to="http://Blog.colstonconcepts.com" target="_blank">
+                  <div className="footer-content">Blogs</div>
                 </Link>
               </Col>
 
@@ -203,7 +203,7 @@ const Footer = () => {
                   <Link to="/where-to-buy">
                     <div className="footer-content">Where to Buy</div>
                   </Link>{" "}
-                  <Link to="/">
+                  <Link to="/colstonconcept">
                     <div className="footer-content">Concepts by Colston</div>
                   </Link>{" "}
                   <Link to="/newspress">
@@ -215,8 +215,8 @@ const Footer = () => {
                   <Link to="/site-map">
                     <div className="footer-content">Site Map</div>
                   </Link>{" "}
-                  <Link to="/blogs">
-                    <div className="footer-content">Blog</div>
+                  <Link to="http://Blog.colstonconcepts.com" target="_blank">
+                    <div className="footer-content">Blogs</div>
                   </Link>
                 </Col>
                 <Col xs={5} style={{ padding: 0 }}>

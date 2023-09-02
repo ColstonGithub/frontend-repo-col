@@ -44,9 +44,11 @@ const App = () => {
 
             {/* private routes below */}
             <Route path="/about-us" element={<AboutUs />} />
+
             <Route path="/Career" element={<Career />} />
 
             <Route path="/Quotation" element={<Quotation />} />
+
             <Route
               path="/warranty-registration"
               element={<WarrantyRegisteration />}
@@ -69,7 +71,7 @@ const App = () => {
             <Route path="/corporate-page/:id" element={<CorporateDetail />} />
 
             <Route path="/orientation-centre" element={<OrientationCentre />} />
-            
+
             <Route path="/where-to-buy" element={<WhereToBuy />} />
 
             <Route path="/virtual-tour" element={<VirtualTour />} />
@@ -77,14 +79,16 @@ const App = () => {
             <Route path="/care-cleaning" element={<CareCleaning />} />
 
             <Route path="/exhibition" element={<Exhibition />} />
+
             <Route path="/exhibition/:id" element={<ExhibitionDetail />} />
+
             <Route path="/contact-us" element={<ContactUs />} />
 
             <Route path="/faq" element={<Faq />} />
 
             <Route path="/videos" element={<Videos />} />
 
-            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/colstonconcept" element={<Blogs />} />
 
             <Route path="/blogs/:id" element={<BlogDetail />} />
 
