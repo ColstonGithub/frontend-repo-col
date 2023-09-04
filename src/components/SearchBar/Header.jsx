@@ -134,7 +134,7 @@ const Header = () => {
     } else if (e === 5) {
       navigate(`/privacy-policy`);
     } else if (e === 6) {
-      window.open(`http://Blog.colstonconcepts.com`, '_blank');
+      window.open(`http://Blog.colstonconcepts.com`, "_blank");
     } else if (e === 7) {
       navigate(`/orientation-centre`);
     }
@@ -176,7 +176,7 @@ const Header = () => {
                     sx={{
                       fontFamily: "Rajdhani",
                       fontWeight: "500",
-                      fontSize: "16px",
+                      fontSize: "1rem",
                       color: "#FFFFFF",
                       marginRight: "8px",
                     }}
@@ -204,7 +204,7 @@ const Header = () => {
                 sx={{
                   fontFamily: "Rajdhani",
                   fontWeight: "500",
-                  fontSize: "16px",
+                  fontSize: "1rem",
                   color: "#FFFFFF",
                   marginRight: "24px",
                 }}
@@ -344,28 +344,21 @@ const Header = () => {
                                 return elem?.children?.length > 0 ? (
                                   <Row
                                     className="rowOnHover"
-                                    style={{ padding: "2rem 1.2rem" }}
+                                    style={{ padding: "2rem 1rem" }}
                                   >
-                                    <Col sm={6}>
-                                      <div
-                                        className="cate_area"
-                                        style={{
-                                          flexDirection: responsiveMobile
-                                            ? "column"
-                                            : "row",
-                                        }}
-                                      >
+                                    <Col sm={6} style={{ width: "8.5rem" }}>
+                                      <div>
                                         <FMTypography
                                           displayText={elem?.name}
                                           sx={{
                                             fontFamily: "Rajdhani",
                                             fontStyle: "normal",
                                             fontWeight: "600",
-                                            fontSize: "18px",
+                                            fontSize: "1.1rem",
                                             lineHeight: "22px",
                                             cursor: "pointer",
                                             color: "#2b2a29",
-                                            marginBottom: "8px",
+                                            paddingBottom: "1.2rem",
                                             textTransform: "capitalize",
                                           }}
                                           onClick={() =>
@@ -388,6 +381,7 @@ const Header = () => {
                                                   <Col
                                                     md={12}
                                                     key={childElem?._id}
+                                                    style={{ width: "7rem" }}
                                                   >
                                                     <div>
                                                       <FMTypography
@@ -398,9 +392,10 @@ const Header = () => {
                                                         sx={{
                                                           fontFamily:
                                                             "Rajdhani",
+                                                          paddingBottom: "10px",
                                                           fontStyle: "normal",
                                                           fontWeight: "500",
-                                                          fontSize: "18px",
+                                                          fontSize: "1.1rem",
                                                           cursor: "pointer",
                                                           lineHeight: "22px",
                                                           color: "#2b2a29",
@@ -417,43 +412,6 @@ const Header = () => {
                                                   </Col>
                                                 ));
                                             })}
-
-                                        {subCategories &&
-                                          subCategories
-                                            ?.filter(
-                                              (secElem) =>
-                                                secElem?.parentId === elem?._id
-                                            )
-                                            .map((secElem) =>
-                                              secElem?.subCategoryList?.map(
-                                                (childCat) => (
-                                                  <div key={childCat?._id}>
-                                                    <FMTypography
-                                                      className="link-hover"
-                                                      displayText={
-                                                        childCat?.name
-                                                      }
-                                                      sx={{
-                                                        fontFamily: "Rajdhani",
-                                                        fontStyle: "normal",
-                                                        fontWeight: "500",
-                                                        fontSize: "18px",
-                                                        cursor: "pointer",
-                                                        lineHeight: "22px",
-                                                        color: "#2b2a29",
-                                                        textTransform:
-                                                          "capitalize",
-                                                      }}
-                                                      onClick={() =>
-                                                        onProductCardClick(
-                                                          childCat?._id
-                                                        )
-                                                      }
-                                                    />
-                                                  </div>
-                                                )
-                                              )
-                                            )}
                                       </div>
                                     </Col>
                                   </Row>
@@ -461,7 +419,16 @@ const Header = () => {
                                   <NavLink
                                     className="link-hover"
                                     title={elem?.name}
-                                    style={{ textTransform: "capitalize" }}
+                                    style={{
+                                      textTransform: "capitalize",
+                                      fontFamily: "Rajdhani",
+                                      fontStyle: "normal",
+                                      fontWeight: "500",
+                                      fontSize: "1rem",
+                                      cursor: "pointer",
+                                      lineHeight: "22px",
+                                      color: "#2b2a29",
+                                    }}
                                   >
                                     {elem?.name}
                                   </NavLink>
