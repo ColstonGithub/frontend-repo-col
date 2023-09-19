@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Slider from "react-slick-slider";
 import { Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { postHomepageBanner } from "Redux/Slices/HomePageBanner/HomePageBannerSlice";
 
 const Banner = () => {
@@ -36,9 +36,16 @@ const Banner = () => {
           <Slider {...settings}>
             {finalData &&
               finalData?.map((imageName, index) => (
-                <div key={index} className="banner_img">
-                  <img src={imageName} className="img-fluid" alt="" />
-                </div>
+                <Box className="banner_img">
+                  <img
+                    src={imageName}
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: !responsiveMobile ? "auto" : "62vw",
+                    }}
+                  />
+                </Box>
               ))}
           </Slider>
         </Col>

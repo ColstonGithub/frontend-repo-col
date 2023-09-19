@@ -59,7 +59,7 @@ const Footer = () => {
               </Link>
             </Col>
             <div style={{ paddingTop: "25px" }}>
-              DELHI Colston FLC (Flagship Live Centre)
+              Colston FLC (Flagship Live Centre)
             </div>
             <div
               className="footer-content-address"
@@ -69,7 +69,7 @@ const Footer = () => {
               <br />
               Lower Ground, New Delhi, Delhi 110024
             </div>
-            <div>MUMBAI Colston Design Centre (DC) Shakti mills</div>{" "}
+            <div>Colston Design Centre (DC) Shakti mills</div>{" "}
             <div
               className="footer-content-address"
               style={{ padding: "5px 0px 15px" }}
@@ -101,18 +101,24 @@ const Footer = () => {
           {!responsiveMobile ? (
             <>
               <Col md={2}>
-                <div className="footer-title">About</div>
+                <div className="footer-title">Resources</div>
                 <Link to="/about-us">
                   <div className="footer-content">About Us</div>
+                </Link>
+                <Link to="/orientation-centre">
+                  <div className="footer-content">Live Display Centre</div>
+                </Link>
+                <Link
+                  to="https://my.matterport.com/show/?m=qR6V1k73wja"
+                  target="_blank"
+                >
+                  <div className="footer-content">Virtual Tour</div>
                 </Link>
                 <Link to="/where-to-buy">
                   <div className="footer-content">Where to Buy</div>
                 </Link>
                 <Link to="/colstonconcept">
                   <div className="footer-content">Concepts by Colston</div>
-                </Link>
-                <Link to="/newspress">
-                  <div className="footer-content">Press Release</div>
                 </Link>
                 <Link to="/career">
                   <div className="footer-content">Career</div>
@@ -123,6 +129,9 @@ const Footer = () => {
                 <Link to="http://Blog.colstonconcepts.com" target="_blank">
                   <div className="footer-content">Blogs</div>
                 </Link>
+                <Link to="/newspress">
+                  <div className="footer-content">Press Release</div>
+                </Link>
               </Col>
 
               <Col md={2}>
@@ -130,15 +139,6 @@ const Footer = () => {
                 <Link to="/faq">
                   <div className="footer-content">FAQ</div>
                 </Link>{" "}
-                <Link
-                  to="https://my.matterport.com/show/?m=qR6V1k73wja"
-                  target="_blank"
-                >
-                  <div className="footer-content">Virtual Tour</div>
-                </Link>
-                <Link to="/orientation-centre">
-                  <div className="footer-content">Live Display Centre</div>
-                </Link>
                 <Link to="/contact-us">
                   <div className="footer-content">Book an Appointment</div>
                 </Link>
@@ -196,28 +196,37 @@ const Footer = () => {
             <>
               <Row style={{ paddingTop: "20px" }}>
                 <Col xs={7} style={{ padding: 0 }}>
-                  <div className="footer-title">About</div>
+                  <div className="footer-title">Resources</div>
                   <Link to="/about-us">
                     <div className="footer-content">About Us</div>
                   </Link>{" "}
+                  <Link to="/orientation-centre">
+                    <div className="footer-content">Live Display Center</div>
+                  </Link>{" "}
+                  <Link
+                    to="https://my.matterport.com/show/?m=qR6V1k73wja"
+                    target="_blank"
+                  >
+                    <div className="footer-content">Virtual Tour</div>
+                  </Link>
                   <Link to="/where-to-buy">
                     <div className="footer-content">Where to Buy</div>
                   </Link>{" "}
                   <Link to="/colstonconcept">
                     <div className="footer-content">Concepts by Colston</div>
                   </Link>{" "}
-                  <Link to="/newspress">
-                    <div className="footer-content">Press Release</div>
-                  </Link>{" "}
                   <Link to="/career">
                     <div className="footer-content">Career</div>
                   </Link>{" "}
-                  <Link to="/site-map">
+                  {/* <Link to="/site-map">
                     <div className="footer-content">Site Map</div>
-                  </Link>{" "}
+                  </Link>{" "} */}
                   <Link to="http://Blog.colstonconcepts.com" target="_blank">
                     <div className="footer-content">Blogs</div>
                   </Link>
+                  <Link to="/newspress">
+                    <div className="footer-content">Press Release</div>
+                  </Link>{" "}
                 </Col>
                 <Col xs={5} style={{ padding: 0 }}>
                   <div className="footer-title">Products</div>
@@ -239,15 +248,6 @@ const Footer = () => {
                   <div className="footer-title">Services</div>
                   <Link to="/faq">
                     <div className="footer-content">FAQ</div>
-                  </Link>{" "}
-                  <Link
-                    to="https://my.matterport.com/show/?m=qR6V1k73wja"
-                    target="_blank"
-                  >
-                    <div className="footer-content">Virtual Tour</div>
-                  </Link>
-                  <Link to="/orientation-centre">
-                    <div className="footer-content">Live Display Center</div>
                   </Link>{" "}
                   <Link to="/contact-us">
                     <div className="footer-content">Book an Appointment</div>

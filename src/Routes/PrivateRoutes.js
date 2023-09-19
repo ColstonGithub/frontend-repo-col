@@ -9,7 +9,7 @@ const PrivateRoutes = (props) => {
   useEffect(() => {
     let login = localStorage.getItem("AUTH_ACCESS_TOKEN");
     if (!login) {
-      navigate("/");
+      navigate(LANDING_PAGE);
     }
   });
 

@@ -89,29 +89,23 @@ const LandingPage = () => {
               onClick={() => onCatClick(item?.categoryId)}
             >
               <Row class="text-container">
-                {/* //If index is even image will render first */}
-                {index % 2 !== 0 ? (
-                  <Col xs={12} style={{ cursor: "pointer" }}>
-                    <img
-                      src={item?.bannerImage}
-                      alt={item?.bannerImageAltText}
-                      style={
-                        responsiveMobile
-                          ? {
-                              width: "255px",
-                              height: "150px",
-                              marginLeft: "20px",
-                              borderRadius: "20px",
-                            }
-                          : { width: "100%", borderRadius: "20px" }
-                      }
-                    />
-                  </Col>
-                ) : (
-                  ""
-                )}
+                <Col xs={12} style={{ cursor: "pointer", padding: "0px 30px" }}>
+                  <img
+                    src={item?.bannerImage}
+                    alt={item?.bannerImageAltText}
+                    style={
+                      responsiveMobile
+                        ? {
+                            width: "100%",
+                            height: "auto",
+                            borderRadius: "20px",
+                          }
+                        : { width: "100%", borderRadius: "20px" }
+                    }
+                  />
+                </Col>
 
-                <Col
+                {/* <Col
                   class="text-box"
                   style={index % 2 !== 0 ? Style.two : Style.one}
                 >
@@ -147,7 +141,7 @@ const LandingPage = () => {
                       }
                     />
                   </Col>
-                )}
+                )} */}
               </Row>
             </div>
           </section>
@@ -198,7 +192,7 @@ const LandingPage = () => {
       </Container>
 
       <div className="shopbyocca">
-        <Container fluid>
+        <Container fluid className="m-0 p-0">
           <Row style={{ margin: "0", marginTop: "80px" }}>
             <Col md={12}>
               <div className="heading_text">

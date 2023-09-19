@@ -54,7 +54,7 @@ const Blogs = () => {
 
   const onCardClick = (element) => {
     let pId = element?._id;
-    navigate(`/blogs/${pId}`);
+    navigate(`/colstonconcept/${pId}`);
   };
 
   const handleCategoryId = (id) => {

@@ -159,7 +159,7 @@ const Header = () => {
 
   return (
     <>
-      <Grid style={{ ...HeaderStyle.headerFullStyle }}>
+      <Grid style={{ ...HeaderStyle.headerFullStyle }} className="sticky-header">
         {!responsiveMobile ? (
           <Row style={{ ...HeaderStyle.topHeader, margin: "0" }}>
             {WorldIcon && (

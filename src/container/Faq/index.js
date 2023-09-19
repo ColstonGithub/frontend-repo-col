@@ -166,7 +166,12 @@ const Faq = () => {
     }
     setLoading(false); // Set loading state to false after searching
   };
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <Header />
@@ -187,29 +192,13 @@ const Faq = () => {
             textAlign: "center",
           }}
         />
-        <FMTypography
-          displayText={"Our FAQ's"}
-          styleData={{
-            fontWeight: "500",
-            fontSize: !responsiveMobile ? "1rem" : "1.2rem",
-            textAlign: "center",
-            padding: "1rem 0",
-          }}
-        />
-        <FMTypography
-          displayText={"Have any questions?"}
-          styleData={{
-            fontWeight: "500",
-            fontSize: !responsiveMobile ? "2rem" : "1.6rem",
-            textAlign: "center",
-          }}
-        />
+      
         <Row style={{ margin: "0" }}>
           <Col
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "40px",
+              marginTop: "20px",
             }}
           >
             <Box

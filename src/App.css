@@ -69,7 +69,6 @@ a {
   transform: scale(1.1);
 }
 
-
 .zoomin-img {
   overflow: hidden;
   margin: 0 auto;
@@ -82,7 +81,6 @@ a {
 .zoomin-img:hover img {
   transform: scale(1.05);
 }
-
 
 @media screen and (max-width: 500px) {
   .zoomin {
@@ -100,4 +98,13 @@ a {
 
 .category-hover:hover {
   opacity: 0.9;
+}
+
+/* Sticky Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* Customize the background color as needed */
+  z-index: 1000; /* Ensure the header is on top of other elements */
+  /* Add any other styles you want for your sticky header */
 }
