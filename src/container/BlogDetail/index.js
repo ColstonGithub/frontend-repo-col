@@ -88,6 +88,7 @@ const BlogDetail = () => {
                   height: !responsiveMobile ? "650px" : "62vw",
                 }}
                 alt="blog"
+                loading="lazy"
               />
             </div>
 

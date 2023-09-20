@@ -94,8 +94,16 @@ const Header = () => {
   const ColstonLogo = initialImages ? initialImages[2]?.image : "";
 
   const [show, setShow] = useState("");
+
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
+
   const showDropdown = (id) => {
-    setShow(id);
+    setShowMobileMenu(id);
+    setShow(!showMobileMenu);
   };
   const hideDropdown = () => {
     setShow("");
@@ -159,7 +167,10 @@ const Header = () => {
 
   return (
     <>
-      <Grid style={{ ...HeaderStyle.headerFullStyle }} className="sticky-header">
+      <Grid
+        style={{ ...HeaderStyle.headerFullStyle }}
+        className="sticky-header"
+      >
         {!responsiveMobile ? (
           <Row style={{ ...HeaderStyle.topHeader, margin: "0" }}>
             {WorldIcon && (
@@ -187,6 +198,7 @@ const Header = () => {
                     width={20}
                     src={WorldIcon ? WorldIcon : ""}
                     alt="WorldIcon"
+                    loading="lazy"
                   />
                 </div>
               </Col>
@@ -263,6 +275,7 @@ const Header = () => {
                     src={ColstonLogo ? ColstonLogo : ""}
                     alt="ColstonLogo"
                     style={{ ...HeaderStyle.imageStyle }}
+                    loading="lazy"
                   />
                 )}
               </div>
@@ -271,7 +284,13 @@ const Header = () => {
 
           <Col xs={2} md={6} style={{ ...commonStyle.flexDisplayStyle }}>
             <div className="main_header">
-              <Navbar bg="" expand="lg" className="p-0">
+              <Navbar
+                bg=""
+                expand="lg"
+                className="p-0"
+                expanded={showMobileMenu} // Set the expanded state
+                onToggle={toggleMobileMenu} // Handle toggle
+              >
                 <Container fluid>
                   <Navbar.Toggle aria-controls="navbarScroll" />
                   <Navbar.Collapse id="navbarScroll">
@@ -288,7 +307,11 @@ const Header = () => {
                         title="Company"
                         key={123}
                         id="123"
-                        onMouseEnter={() => showDropdown(123)}
+                        onMouseEnter={
+                          !responsiveMobile
+                            ? () => showDropdown(123)
+                            : () => toggleMobileMenu()
+                        }
                         onMouseLeave={hideDropdown}
                         show={show === 123}
                       >

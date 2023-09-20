@@ -40,9 +40,10 @@ const Banner = () => {
                   <img
                     src={imageName}
                     alt=""
+                    loading="lazy"
                     style={{
                       width: "100%",
-                      height: !responsiveMobile ? "auto" : "62vw",
+                      height: "auto",
                     }}
                   />
                 </Box>

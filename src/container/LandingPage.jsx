@@ -83,7 +83,15 @@ const LandingPage = () => {
 
       {banners &&
         banners?.map((item, index) => (
-          <section style={{ marginTop: "60px" }}>
+          <section
+            style={
+              responsiveMobile
+                ? {
+                    marginTop: "30px",
+                  }
+                : { marginTop: "60px" }
+            }
+          >
             <div
               class="container reveal"
               onClick={() => onCatClick(item?.categoryId)}
@@ -93,6 +101,7 @@ const LandingPage = () => {
                   <img
                     src={item?.bannerImage}
                     alt={item?.bannerImageAltText}
+                    loading="lazy"
                     style={
                       responsiveMobile
                         ? {
@@ -159,7 +168,7 @@ const LandingPage = () => {
               !responsiveMobile
                 ? { margin: "0", marginTop: "80px" }
                 : {
-                    margin: "10px",
+                    margin: "30px",
                   }
             }
           >
@@ -184,6 +193,7 @@ const LandingPage = () => {
           <Col style={{}}>
             <img
               src={finalCorporateBanner}
+              loading="lazy"
               alt={"Corporate Banner"}
               style={{ width: "100%", borderRadius: "20px" }}
             />
@@ -193,7 +203,15 @@ const LandingPage = () => {
 
       <div className="shopbyocca">
         <Container fluid className="m-0 p-0">
-          <Row style={{ margin: "0", marginTop: "80px" }}>
+          <Row
+            style={
+              responsiveMobile
+                ? {
+                    marginTop: "30px",
+                  }
+                : { margin: "0", marginTop: "80px" }
+            }
+          >
             <Col md={12}>
               <div className="heading_text">
                 <h3>Exclusive Design</h3>
@@ -231,7 +249,9 @@ const LandingPage = () => {
                       <img
                         src={item?.image}
                         className="img-fluid"
+                        loading="lazy"
                         alt={item?.imageAltText}
+                        style={{ width: "100%" }}
                       />
                       <p>{item?.imageTitle}</p>
                     </Link>

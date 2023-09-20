@@ -82,10 +82,12 @@ const NewsPress = () => {
           <img
             src={newsPressBanner?.bannerImage}
             style={{
+              width: "100%",
               height: !responsiveMobile ? "650px" : "62vw",
               borderRadius: "20px",
             }}
             alt={newsPressBanner?.bannerImageAltText}
+            loading="lazy"
           />
         </Box>
 

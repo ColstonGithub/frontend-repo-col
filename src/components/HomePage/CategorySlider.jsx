@@ -100,6 +100,7 @@ const CategorySlider = () => {
                       src={idata?.productPictures[0]?.img}
                       alt={idata?.productPictures[0]?.imageAltText}
                       style={{ paddingLeft: "12px" }}
+                      loading="lazy"
                     />
                     <div>
                       <h4 style={{ textAlign: "center" }}>{idata?.name}</h4>

@@ -192,7 +192,7 @@ const Faq = () => {
             textAlign: "center",
           }}
         />
-      
+
         <Row style={{ margin: "0" }}>
           <Col
             style={{
@@ -212,7 +212,7 @@ const Faq = () => {
                 disableUnderline
               />
               <div>
-                <img src={SearchIcon} alt="Search" />
+                <img src={SearchIcon} alt="Search" loading="lazy" />
               </div>
             </Box>
           </Col>
