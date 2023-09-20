@@ -102,8 +102,7 @@ const Header = () => {
   };
 
   const showDropdown = (id) => {
-    setShowMobileMenu(id);
-    setShow(!showMobileMenu);
+    setShow(id);
   };
   const hideDropdown = () => {
     setShow("");
@@ -282,227 +281,367 @@ const Header = () => {
             </Link>
           </Col>
 
-          <Col xs={2} md={6} style={{ ...commonStyle.flexDisplayStyle }}>
+          <Col xs={12} md={6}>
             <div className="main_header">
-              <Navbar
-                bg=""
-                expand="lg"
-                className="p-0"
-                expanded={showMobileMenu} // Set the expanded state
-                onToggle={toggleMobileMenu} // Handle toggle
-              >
-                <Container fluid>
-                  <Navbar.Toggle aria-controls="navbarScroll" />
-                  <Navbar.Collapse id="navbarScroll">
-                    <Nav className="" navbarScroll>
-                      <NavLink
-                        className="link-hover"
-                        title="Home"
-                        id="navbarScrollingDropdown"
-                        onClick={() => navigate("/")}
-                      >
-                        Home
-                      </NavLink>
-                      <NavDropdown
-                        title="Company"
-                        key={123}
-                        id="123"
-                        onMouseEnter={
-                          !responsiveMobile
-                            ? () => showDropdown(123)
-                            : () => toggleMobileMenu()
-                        }
-                        onMouseLeave={hideDropdown}
-                        show={show === 123}
-                      >
-                        <Nav className="" navbarScroll>
-                          <Row
-                            className="rowOnHover"
-                            style={{ padding: "2rem 1.2rem" }}
-                          >
-                            {company?.map((elem, i) => (
-                              <Row md={1}>
-                                <div className="cate_area">
-                                  <FMTypography
-                                    displayText={elem}
-                                    className="link-hover"
-                                    sx={{
-                                      fontFamily: "Rajdhani",
-                                      fontStyle: "normal",
-                                      fontWeight: "500",
-                                      fontSize: "18px",
-                                      lineHeight: "22px",
-                                      cursor: "pointer",
-                                      color: "#2b2a29",
-                                      marginBottom: "15px",
-                                      textTransform: "capitalize",
-                                    }}
-                                    onClick={() => onCompanyCardClick(i)}
-                                  />
-                                </div>
-                              </Row>
-                            ))}
-                          </Row>
-                        </Nav>
-                      </NavDropdown>
-                      <NavDropdown
-                        title="Products"
-                        key={321}
-                        id="321"
-                        onMouseEnter={() => showDropdown(321)}
-                        onMouseLeave={hideDropdown}
-                        show={show === 321}
-                      >
-                        {loadingSubcategories && loadingSubcategories ? (
-                          <Col
-                            md={6}
-                            style={{ textAlign: "center", marginTop: "1rem" }}
-                          >
-                            <CircularProgress />
-                          </Col>
-                        ) : (
-                          <Nav sm={1} className="" navbarScroll>
-                            {accountDetailData &&
-                              accountDetailData?.map((elem) => {
-                                return elem?.children?.length > 0 ? (
-                                  <Row
-                                    className="rowOnHover"
-                                    style={{ padding: "2rem 1rem" }}
-                                  >
-                                    <Col sm={6} style={{ width: "8.5rem" }}>
-                                      <div>
+              {responsiveMobile && responsiveMobile ? (
+                <Navbar
+                  bg=""
+                  expand="lg"
+                  className="p-0"
+                  expanded={showMobileMenu}
+                  onToggle={toggleMobileMenu}
+                >
+                  <Container fluid>
+                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Collapse id="navbarScroll">
+                      <Nav className="" navbarScroll>
+                        <NavLink
+                          className="link-hover"
+                          title="Home"
+                          id="navbarScrollingDropdown"
+                          onClick={() => navigate("/")}
+                        >
+                          Home
+                        </NavLink>
+                        <NavDropdown title="Company" key={123} id="123">
+                          <Nav className="" navbarScroll>
+                            <Row
+                              className="rowOnHover"
+                              style={{ padding: "2rem 1.2rem" }}
+                            >
+                              {company?.map((elem, i) => (
+                                <Row md={1}>
+                                  <div className="cate_area">
+                                    <FMTypography
+                                      displayText={elem}
+                                      className="link-hover"
+                                      sx={{
+                                        fontFamily: "Rajdhani",
+                                        fontStyle: "normal",
+                                        fontWeight: "500",
+                                        fontSize: "18px",
+                                        lineHeight: "22px",
+                                        cursor: "pointer",
+                                        color: "#2b2a29",
+                                        marginBottom: "15px",
+                                        textTransform: "capitalize",
+                                      }}
+                                      onClick={() => onCompanyCardClick(i)}
+                                    />
+                                  </div>
+                                </Row>
+                              ))}
+                            </Row>
+                          </Nav>
+                        </NavDropdown>
+
+                        <NavDropdown title="Products" key={321} id="321">
+                          <Nav className="" navbarScroll>
+                            <Row
+                              className="rowOnHover"
+                              style={{ padding: "2rem 1.2rem" }}
+                            >
+                              {accountDetailData &&
+                                accountDetailData?.map((elem) => {
+                                  return elem?.children?.length > 0 ? (
+                                    <Row md={1}>
+                                      <div className="cate_area">
                                         <FMTypography
                                           displayText={elem?.name}
+                                          className="link-hover"
                                           sx={{
                                             fontFamily: "Rajdhani",
                                             fontStyle: "normal",
-                                            fontWeight: "600",
-                                            fontSize: "1.1rem",
+                                            fontWeight: "500",
+                                            fontSize: "18px",
                                             lineHeight: "22px",
                                             cursor: "pointer",
                                             color: "#2b2a29",
-                                            paddingBottom: "1.2rem",
+                                            marginBottom: "15px",
                                             textTransform: "capitalize",
                                           }}
                                           onClick={() =>
                                             onCategoryCardClick(elem?._id)
                                           }
                                         />
-
-                                        {subCategories &&
-                                          subCategories
-                                            ?.slice()
-                                            .reverse()
-                                            .map((secElem) => {
-                                              return secElem?.subCategoryList
-                                                ?.filter(
-                                                  (filterElem) =>
-                                                    filterElem?.parentId ===
-                                                    elem?._id
-                                                )
-                                                .map((childElem) => (
-                                                  <Col
-                                                    md={12}
-                                                    key={childElem?._id}
-                                                    style={{ width: "7rem" }}
-                                                  >
-                                                    <div>
-                                                      <FMTypography
-                                                        className="link-hover"
-                                                        displayText={
-                                                          childElem?.name
-                                                        }
-                                                        sx={{
-                                                          fontFamily:
-                                                            "Rajdhani",
-                                                          paddingBottom: "10px",
-                                                          fontStyle: "normal",
-                                                          fontWeight: "500",
-                                                          fontSize: "1.1rem",
-                                                          cursor: "pointer",
-                                                          lineHeight: "22px",
-                                                          color: "#2b2a29",
-                                                          textTransform:
-                                                            "capitalize",
-                                                        }}
-                                                        onClick={() =>
-                                                          onProductCardClick(
-                                                            childElem?._id
-                                                          )
-                                                        }
-                                                      />
-                                                    </div>
-                                                  </Col>
-                                                ));
-                                            })}
                                       </div>
-                                    </Col>
-                                  </Row>
-                                ) : (
-                                  <NavLink
-                                    className="link-hover"
-                                    title={elem?.name}
-                                    style={{
-                                      textTransform: "capitalize",
-                                      fontFamily: "Rajdhani",
-                                      fontStyle: "normal",
-                                      fontWeight: "500",
-                                      fontSize: "1rem",
-                                      cursor: "pointer",
-                                      lineHeight: "22px",
-                                      color: "#2b2a29",
-                                    }}
-                                  >
-                                    {elem?.name}
-                                  </NavLink>
-                                );
-                              })}
+                                    </Row>
+                                  ) : (
+                                    <NavLink
+                                      className="link-hover"
+                                      title={elem?.name}
+                                      style={{
+                                        textTransform: "capitalize",
+                                        fontFamily: "Rajdhani",
+                                        fontStyle: "normal",
+                                        fontWeight: "500",
+                                        fontSize: "1rem",
+                                        cursor: "pointer",
+                                        lineHeight: "22px",
+                                        color: "#2b2a29",
+                                      }}
+                                    >
+                                      {elem?.name}
+                                    </NavLink>
+                                  );
+                                })}
+                            </Row>
                           </Nav>
-                        )}
-                      </NavDropdown>
+                        </NavDropdown>
 
-                      <NavDropdown
-                        title="Services & Support"
-                        key={333}
-                        id="333"
-                        onMouseEnter={() => showDropdown(333)}
-                        onMouseLeave={hideDropdown}
-                        show={show === 333}
-                      >
-                        <Nav className="" navbarScroll>
-                          <Row
-                            className="rowOnHover"
-                            style={{ padding: "2rem 1.2rem" }}
-                          >
-                            {services?.map((elem, i) => (
-                              <Row md={1}>
-                                <div className="cate_area">
-                                  <FMTypography
-                                    displayText={elem}
-                                    className="link-hover"
-                                    sx={{
-                                      fontFamily: "Rajdhani",
-                                      cursor: "pointer",
-                                      fontStyle: "normal",
-                                      fontWeight: "500",
-                                      fontSize: "18px",
-                                      lineHeight: "22px",
-                                      color: "#2b2a29",
-                                      marginBottom: "15px",
-                                      textTransform: "capitalize",
-                                    }}
-                                    onClick={() => onServiceCardClick(i)}
-                                  />
-                                </div>
-                              </Row>
-                            ))}
-                          </Row>
-                        </Nav>
-                      </NavDropdown>
-                    </Nav>
-                  </Navbar.Collapse>
-                </Container>
-              </Navbar>
+        
+
+                        <NavDropdown
+                          title="Services & Support"
+                          key={333}
+                          id="333"
+                        >
+                          <Nav className="" navbarScroll>
+                            <Row
+                              className="rowOnHover"
+                              style={{ padding: "2rem 1.2rem" }}
+                            >
+                              {services?.map((elem, i) => (
+                                <Row md={1}>
+                                  <div className="cate_area">
+                                    <FMTypography
+                                      displayText={elem}
+                                      className="link-hover"
+                                      sx={{
+                                        fontFamily: "Rajdhani",
+                                        cursor: "pointer",
+                                        fontStyle: "normal",
+                                        fontWeight: "500",
+                                        fontSize: "18px",
+                                        lineHeight: "22px",
+                                        color: "#2b2a29",
+                                        marginBottom: "15px",
+                                        textTransform: "capitalize",
+                                      }}
+                                      onClick={() => onServiceCardClick(i)}
+                                    />
+                                  </div>
+                                </Row>
+                              ))}
+                            </Row>
+                          </Nav>
+                        </NavDropdown>
+                      </Nav>
+                    </Navbar.Collapse>
+                  </Container>
+                </Navbar>
+              ) : (
+                <Navbar bg="" expand="lg" className="p-0">
+                  <Container fluid>
+                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Collapse id="navbarScroll">
+                      <Nav className="" navbarScroll>
+                        <NavLink
+                          className="link-hover"
+                          title="Home"
+                          id="navbarScrollingDropdown"
+                          onClick={() => navigate("/")}
+                        >
+                          Home
+                        </NavLink>
+                        <NavDropdown
+                          title="Company"
+                          key={123}
+                          id="123"
+                          onMouseEnter={() => showDropdown(123)}
+                          onMouseLeave={hideDropdown}
+                          show={show === 123}
+                        >
+                          <Nav className="" navbarScroll>
+                            <Row
+                              className="rowOnHover"
+                              style={{ padding: "2rem 1.2rem" }}
+                            >
+                              {company?.map((elem, i) => (
+                                <Row md={1}>
+                                  <div className="cate_area">
+                                    <FMTypography
+                                      displayText={elem}
+                                      className="link-hover"
+                                      sx={{
+                                        fontFamily: "Rajdhani",
+                                        fontStyle: "normal",
+                                        fontWeight: "500",
+                                        fontSize: "18px",
+                                        lineHeight: "22px",
+                                        cursor: "pointer",
+                                        color: "#2b2a29",
+                                        marginBottom: "15px",
+                                        textTransform: "capitalize",
+                                      }}
+                                      onClick={() => onCompanyCardClick(i)}
+                                    />
+                                  </div>
+                                </Row>
+                              ))}
+                            </Row>
+                          </Nav>
+                        </NavDropdown>
+                        <NavDropdown
+                          title="Products"
+                          key={321}
+                          id="321"
+                          onMouseEnter={() => showDropdown(321)}
+                          onMouseLeave={hideDropdown}
+                          show={show === 321}
+                        >
+                          {loadingSubcategories && loadingSubcategories ? (
+                            <Col
+                              md={6}
+                              style={{ textAlign: "center", marginTop: "1rem" }}
+                            >
+                              <CircularProgress />
+                            </Col>
+                          ) : (
+                            <Nav sm={1} className="" navbarScroll>
+                              {accountDetailData &&
+                                accountDetailData?.map((elem) => {
+                                  return elem?.children?.length > 0 ? (
+                                    <Row
+                                      className="rowOnHover"
+                                      style={{ padding: "2rem 1rem" }}
+                                    >
+                                      <Col sm={6} style={{ width: "8.5rem" }}>
+                                        <div>
+                                          <FMTypography
+                                            displayText={elem?.name}
+                                            sx={{
+                                              fontFamily: "Rajdhani",
+                                              fontStyle: "normal",
+                                              fontWeight: "600",
+                                              fontSize: "1.1rem",
+                                              lineHeight: "22px",
+                                              cursor: "pointer",
+                                              color: "#2b2a29",
+                                              paddingBottom: "1.2rem",
+                                              textTransform: "capitalize",
+                                            }}
+                                            onClick={() =>
+                                              onCategoryCardClick(elem?._id)
+                                            }
+                                          />
+
+                                          {subCategories &&
+                                            subCategories
+                                              ?.slice()
+                                              .reverse()
+                                              .map((secElem) => {
+                                                return secElem?.subCategoryList
+                                                  ?.filter(
+                                                    (filterElem) =>
+                                                      filterElem?.parentId ===
+                                                      elem?._id
+                                                  )
+                                                  .map((childElem) => (
+                                                    <Col
+                                                      md={12}
+                                                      key={childElem?._id}
+                                                      style={{ width: "7rem" }}
+                                                    >
+                                                      <div>
+                                                        <FMTypography
+                                                          className="link-hover"
+                                                          displayText={
+                                                            childElem?.name
+                                                          }
+                                                          sx={{
+                                                            fontFamily:
+                                                              "Rajdhani",
+                                                            paddingBottom:
+                                                              "10px",
+                                                            fontStyle: "normal",
+                                                            fontWeight: "500",
+                                                            fontSize: "1.1rem",
+                                                            cursor: "pointer",
+                                                            lineHeight: "22px",
+                                                            color: "#2b2a29",
+                                                            textTransform:
+                                                              "capitalize",
+                                                          }}
+                                                          onClick={() =>
+                                                            onProductCardClick(
+                                                              childElem?._id
+                                                            )
+                                                          }
+                                                        />
+                                                      </div>
+                                                    </Col>
+                                                  ));
+                                              })}
+                                        </div>
+                                      </Col>
+                                    </Row>
+                                  ) : (
+                                    <NavLink
+                                      className="link-hover"
+                                      title={elem?.name}
+                                      style={{
+                                        textTransform: "capitalize",
+                                        fontFamily: "Rajdhani",
+                                        fontStyle: "normal",
+                                        fontWeight: "500",
+                                        fontSize: "1rem",
+                                        cursor: "pointer",
+                                        lineHeight: "22px",
+                                        color: "#2b2a29",
+                                      }}
+                                    >
+                                      {elem?.name}
+                                    </NavLink>
+                                  );
+                                })}
+                            </Nav>
+                          )}
+                        </NavDropdown>
+
+                        <NavDropdown
+                          title="Services & Support"
+                          key={333}
+                          id="333"
+                          onMouseEnter={() => showDropdown(333)}
+                          onMouseLeave={hideDropdown}
+                          show={show === 333}
+                        >
+                          <Nav className="" navbarScroll>
+                            <Row
+                              className="rowOnHover"
+                              style={{ padding: "2rem 1.2rem" }}
+                            >
+                              {services?.map((elem, i) => (
+                                <Row md={1}>
+                                  <div className="cate_area">
+                                    <FMTypography
+                                      displayText={elem}
+                                      className="link-hover"
+                                      sx={{
+                                        fontFamily: "Rajdhani",
+                                        cursor: "pointer",
+                                        fontStyle: "normal",
+                                        fontWeight: "500",
+                                        fontSize: "18px",
+                                        lineHeight: "22px",
+                                        color: "#2b2a29",
+                                        marginBottom: "15px",
+                                        textTransform: "capitalize",
+                                      }}
+                                      onClick={() => onServiceCardClick(i)}
+                                    />
+                                  </div>
+                                </Row>
+                              ))}
+                            </Row>
+                          </Nav>
+                        </NavDropdown>
+                      </Nav>
+                    </Navbar.Collapse>
+                  </Container>
+                </Navbar>
+              )}
             </div>
           </Col>
 
