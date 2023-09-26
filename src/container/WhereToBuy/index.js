@@ -133,7 +133,7 @@ const WhereToBuy = () => {
             }}
           >
             <FMTypography
-              displayText={"Colston World & Showroom"}
+              displayText={"Colston & Showroom"}
               styleData={{
                 fontWeight: "600",
                 fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",
@@ -237,9 +237,15 @@ const WhereToBuy = () => {
                   <h3>{elem?.city.toUpperCase()}</h3>
                   <p>{elem?.centerName}</p>
                   <p>{elem?.centerAddress}</p>
-                  <p>
-                    <b>Email</b> : {elem?.email}
-                  </p>
+                  {elem?.email !== "" ||
+                  elem?.email !== undefined ||
+                  elem?.email !== " " ? (
+                    <p>
+                      <b>Email</b> : {elem?.email}
+                    </p>
+                  ) : (
+                    <></>
+                  )}
                   <p>
                     <b>Location</b> : &nbsp;
                     <Link to={elem?.location} target="_blank">
@@ -274,9 +280,16 @@ const WhereToBuy = () => {
                   <p>{elem?.centerName}</p>
 
                   <p>{elem?.centerAddress}</p>
-                  <p>
-                    <b>Email</b> : {elem?.email}
-                  </p>
+                  {elem?.email &&
+                  elem?.email !== "" &&
+                  elem?.email !== undefined &&
+                  elem?.email !== " " ? (
+                    <p>
+                      <b>Email</b> : {elem?.email}
+                    </p>
+                  ) : (
+                    <></>
+                  )}
                   <p>
                     <b>Location</b> : &nbsp;
                     <Link to={elem?.location} target="_blank">

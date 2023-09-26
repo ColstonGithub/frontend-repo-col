@@ -84,7 +84,7 @@ const OrientationCentre = () => {
             }}
           >
             <FMTypography
-              displayText={"Colston World & Showroom"}
+              displayText={"Colston & Showroom"}
               styleData={{
                 fontWeight: "600",
                 fontSize: !responsiveMobile ? "2.8rem" : "2.4rem",
