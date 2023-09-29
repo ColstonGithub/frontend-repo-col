@@ -35,20 +35,6 @@ const TermsAndConditions = () => {
       </Box>
 
       <Grid sx={{ padding: "0 3.125rem" }}>
-        <div
-          style={{
-            borderRadius: "20px",
-          }}
-        >
-          <img
-            src=""
-            style={{
-              width: "100%",
-              height: !responsiveMobile ? "650px" : "62vw",
-              borderRadius: "35px",
-            }}
-          />
-        </div>
 
         <Row
           style={{
@@ -56,7 +42,7 @@ const TermsAndConditions = () => {
           }}
         >
           <Col>
-            <div className="privacy_policy_heading pt-5 pb-2">
+            <div className="privacy_policy_heading pb-2">
               Terms and Conditions
             </div>
             <p className="privacy_policy_content">

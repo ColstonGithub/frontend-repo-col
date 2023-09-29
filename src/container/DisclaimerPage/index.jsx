@@ -35,20 +35,6 @@ const AboutUs = () => {
       </Box>
 
       <Grid sx={{ padding: "0 3.125rem" }}>
-        <div
-          style={{
-            borderRadius: "20px",
-          }}
-        >
-          <img
-            src=""
-            style={{
-              width: "100%",
-              height: !responsiveMobile ? "650px" : "62vw",
-              borderRadius: "35px",
-            }}
-          />
-        </div>
 
         <Row
           style={{
@@ -56,7 +42,7 @@ const AboutUs = () => {
           }}
         >
           <Col>
-            <div className="privacy_policy_heading pt-5 pb-2">Disclaimer</div>
+            <div className="privacy_policy_heading pb-2">Disclaimer</div>
             <p className="privacy_policy_content">
               Welcome to Colston Concepts (the "Website"). The information
               provided on this Website is for general informational purposes

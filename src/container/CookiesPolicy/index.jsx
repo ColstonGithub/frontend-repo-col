@@ -35,20 +35,6 @@ const CookiesPolicy = () => {
       </Box>
 
       <Grid sx={{ padding: "0 3.125rem" }}>
-        <div
-          style={{
-            borderRadius: "20px",
-          }}
-        >
-          <img
-            src=""
-            style={{
-              width: "100%",
-              height: !responsiveMobile ? "650px" : "62vw",
-              borderRadius: "35px",
-            }}
-          />
-        </div>
 
         <Row
           style={{
@@ -56,7 +42,7 @@ const CookiesPolicy = () => {
           }}
         >
           <Col>
-            <div className="privacy_policy_heading pt-5 pb-2">Cookies Policy</div>
+            <div className="privacy_policy_heading pb-2">Cookies Policy</div>
             <p className="privacy_policy_content">
               This Cookies Policy explains how Colston Concepts ("we," "us," or
               "our") uses cookies and similar tracking technologies on our
