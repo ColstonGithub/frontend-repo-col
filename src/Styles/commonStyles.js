@@ -75,7 +75,7 @@ export const commonStyle = {
   },
 
   inputFieldContactStyle: {
-    width: "265px",
+    width: "100%",
     height: "52px",
     border: "1px solid #E6E6E6",
     borderRadius: "10px",

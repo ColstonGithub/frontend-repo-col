@@ -217,7 +217,7 @@ const Blogs = () => {
                         sx={{
                           borderRadius: "20px",
                           height: "350px",
-                          width: "350px",
+                          width: "100%",
                         }}
                         image={elem?.image}
                         alt={elem?.imageAltText}

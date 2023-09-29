@@ -22,7 +22,7 @@ const loadingWrapper = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "200px" /* Adjust height as needed */,
+  height: "200px",
 };
 
 const CategoryPage = () => {
@@ -39,9 +39,8 @@ const CategoryPage = () => {
   };
 
   useEffect(() => {
-    // Set loading to true when a redirection happens
     setLoading(true);
-  }, [params]); // Reset loading when params change (redirection)
+  }, [params]);
 
   useEffect(() => {
     dispatch(getCategoryProduct(params))
@@ -52,10 +51,9 @@ const CategoryPage = () => {
         console.error("Error fetching data:", error);
       })
       .finally(() => {
-        // Set loading to false after data is fetched or an error occurs
         setLoading(false);
       });
-  }, [dispatch, params]); // Fetch data when params change
+  }, [dispatch, params]);
 
   useEffect(() => {
     window.scrollTo({
@@ -161,7 +159,7 @@ const CategoryPage = () => {
                 </Box>
               ))}
             </Grid>
-          </Grid>{" "}
+          </Grid>
         </div>
       )}
 

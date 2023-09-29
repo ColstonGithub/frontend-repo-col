@@ -33,6 +33,9 @@ import Career from "container/career";
 import Quotation from "container/Quotation";
 import WhereToBuy from "container/WhereToBuy";
 import ExhibitionDetail from "container/ExhibitionDetail";
+import Disclaimer from "container/DisclaimerPage";
+import CookiesPolicy from "container/CookiesPolicy";
+import TermsAndConditions from "container/TermsConditions";
 
 const App = () => {
   return (
@@ -61,6 +64,9 @@ const App = () => {
             <Route path="/product-detail/:id" element={<ProductDetail />} />
 
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/disclaimer-page" element={<Disclaimer />} />
+            <Route path="/cookies-policy" element={<CookiesPolicy />} />
+            <Route path="/terms-condition" element={<TermsAndConditions />} />
 
             <Route path="/brand-page" element={<BrandPage />} />
 

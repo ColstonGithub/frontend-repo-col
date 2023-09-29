@@ -181,13 +181,13 @@ const Footer = () => {
                 <Link to="/privacy-policy">
                   <div className="footer-content">Privacy Policy</div>
                 </Link>
-                <Link to="/">
+                <Link to="/cookies-policy">
                   <div className="footer-content">Cookies Policy</div>
                 </Link>
-                <Link to="/">
+                <Link to="/terms-condition">
                   <div className="footer-content">Terms & Conditions</div>
                 </Link>
-                <Link to="/">
+                <Link to="/disclaimer-page">
                   <div className="footer-content">Disclaimer</div>
                 </Link>
               </Col>
@@ -261,7 +261,7 @@ const Footer = () => {
                   <Link to="/contact-us">
                     <div className="footer-content">Customer Care</div>
                   </Link>{" "}
-                  <Link to="//warranty-registration">
+                  <Link to="/warranty-registration">
                     <div className="footer-content">
                       Warranty and Registration
                     </div>
@@ -274,14 +274,14 @@ const Footer = () => {
                   <Link to="/privacy-policy">
                     <div className="footer-content">Privacy Policy</div>
                   </Link>
-                  <Link to="/">
+                  <Link to="/cookies-policy">
                     <div className="footer-content">Cookies Policy</div>
                   </Link>
-                  <Link to="/">
+                  <Link to="/terms-condition">
                     <div className="footer-content">Terms & Conditions</div>
                   </Link>
-                  <Link to="/">
-                    <div className="footer-content">Disclamier</div>
+                  <Link to="/disclaimer-page">
+                    <div className="footer-content">Disclaimer</div>
                   </Link>
                 </Col>
               </Row>

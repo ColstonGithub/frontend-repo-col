@@ -94,8 +94,6 @@ const AboutUs = () => {
 
         <Row
           style={{
-            marginLeft: "50px",
-            marginRight: "50px",
             paddingBottom: "40px",
           }}
         >
