@@ -257,7 +257,7 @@ const Header = () => {
           }}
         >
           <Col
-            xs={10}
+            xs={9}
             md={3}
             style={{
               ...commonStyle.flexDisplayStyle,
@@ -281,7 +281,7 @@ const Header = () => {
             </Link>
           </Col>
 
-          <Col xs={12} md={6}>
+          <Col xs={3} md={6}>
             <div className="main_header">
               {responsiveMobile && responsiveMobile ? (
                 <Navbar

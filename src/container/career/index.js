@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "components/SearchBar/Header";
 import Footer from "components/Footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Box, Grid, InputBase, useMediaQuery } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import FMButton from "components/FMButton/FMButton";
@@ -10,7 +10,7 @@ import { commonStyle } from "Styles/commonStyles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { careerFormSchema } from "validationSchema/careerFormSchema";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { postCareer } from "Redux/Slices/Forms/postCareer";
@@ -169,7 +169,82 @@ const Career = () => {
             {careerDetail?.contentText}
           </p>
         </Box>
+
         <Box sx={style}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Link
+              to={
+                "https://app.pyjamahr.com/careers?company=colston%20concepts&company_uuid=124A078763"
+              }
+              target="_blank"
+              style={{ paddingBottom: "40px" }}
+            >
+              <FMButton
+                displayText={"Apply Here"}
+                variant="outlined"
+                styleData={
+                  !responsiveMobile
+                    ? {
+                        fontFamily: "Rajdhani",
+                        fontStyle: "normal",
+                        fontWeight: "600",
+                        fontSize: "16px",
+                        lineHeight: "20px",
+                        background: "#c02121",
+                        width: "125px",
+                        height: "52px",
+                        borderRadius: "10px",
+                        /* identical to box height */
+                        color: "#FFFFFF",
+                        "&:hover": {
+                          border: "1px solid #222",
+                          color: "black",
+                          backgroundColor: "white",
+                        },
+                      }
+                    : {
+                        fontFamily: "Rajdhani",
+                        fontStyle: "normal",
+                        fontWeight: "600",
+                        fontSize: "16px",
+                        lineHeight: "20px",
+                        background: "#c02121",
+                        width: "265px",
+                        height: "44px",
+                        borderRadius: "10px",
+                        /* identical to box height */
+                        color: "#FFFFFF",
+                        "&:hover": {
+                          border: "1px solid #222",
+                          color: "black",
+                          backgroundColor: "white",
+                        },
+                      }
+                }
+              />
+            </Link>
+          </Box>
+          <FMTypography
+            displayText="OR"
+            styleData={{
+              fontFamily: "Rajdhani",
+              fontWeight: "600",
+              fontSize: "2rem",
+              textAlign: "center",
+              color: "#000000",
+            }}
+          />
+          <FMTypography
+            displayText="Fill the Form Below"
+            styleData={{
+              fontFamily: "Rajdhani",
+              fontWeight: "600",
+              fontSize: "2rem",
+              textAlign: "center",
+              color: "#000000",
+              paddingBottom: "40px",
+            }}
+          />
           <Container
             fluid
             style={

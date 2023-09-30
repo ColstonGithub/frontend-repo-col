@@ -117,22 +117,23 @@ const CategoryPage = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    <CardActionArea className="zoomin-img">
+                    <CardActionArea
+                      className="zoomin-img"
+                      style={{ borderBottom: "20px" }}
+                    >
                       <CardMedia
                         component="img"
                         sx={
                           responsiveMobile
                             ? {
-                                padding: "1rem",
-                                marginTop: "1rem",
-                                borderRadius: "30px",
-                                width: "360px",
+                                borderBottom: "30px",
+                                width: "100%",
                                 height: "360px",
                               }
                             : {
                                 borderBottom: "20px",
                                 height: "360px",
-                                width: "360px",
+                                width: "100%",
                               }
                         }
                         image={elem?.categoryImage}
@@ -147,7 +148,6 @@ const CategoryPage = () => {
                             fontSize: "18px",
                             color: "#2b2a29",
                             fontWeight: "600",
-                            width: "320px",
                             textTransform: "capitalize",
                           }}
                         >

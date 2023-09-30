@@ -96,7 +96,7 @@ export default function Form({ open, handleClose, setOpen }) {
                     style={{
                       display: "flex",
                       justifyContent: "space-between",
-                      padding: "35px 40px",
+                      padding: "35px 14px",
                     }}
                   >
                     <FMTypography

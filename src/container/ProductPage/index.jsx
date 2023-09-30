@@ -116,9 +116,9 @@ const ProductPage = () => {
                       <CardMedia
                         component="img"
                         sx={{
-                          borderRadius: "20px",
-                          height: "350px",
-                          width: "350px",
+                          borderBottom: "20px",
+                          height: "360px",
+                          width: "100%",
                         }}
                         image={elem?.productPictures[0]?.img}
                         alt="green iguana"
@@ -133,7 +133,6 @@ const ProductPage = () => {
                             color: "#2b2a29",
                             fontWeight: "600",
                             textAlign: "center",
-                            width: "325px",
                             textTransform: "capitalize",
                           }}
                         >
