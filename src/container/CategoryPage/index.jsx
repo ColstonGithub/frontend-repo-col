@@ -133,7 +133,7 @@ const CategoryPage = () => {
                             : {
                                 borderBottom: "20px",
                                 height: "360px",
-                                width: "100%",
+                                width: "360px",
                               }
                         }
                         image={elem?.categoryImage}

@@ -115,11 +115,19 @@ const ProductPage = () => {
                     <CardActionArea className="zoomin-img">
                       <CardMedia
                         component="img"
-                        sx={{
-                          borderBottom: "20px",
-                          height: "360px",
-                          width: "100%",
-                        }}
+                        sx={
+                          responsiveMobile
+                            ? {
+                                borderBottom: "30px",
+                                width: "100%",
+                                height: "360px",
+                              }
+                            : {
+                                borderBottom: "20px",
+                                height: "360px",
+                                width: "360px",
+                              }
+                        }
                         image={elem?.productPictures[0]?.img}
                         alt="green iguana"
                       />
