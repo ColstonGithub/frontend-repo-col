@@ -118,7 +118,10 @@ const Header = () => {
   };
   const onServiceCardClick = (e) => {
     if (e === 0) {
-      navigate(`/Career`);
+      window.open(
+        `https://app.pyjamahr.com/careers?company=colston%20concepts&company_uuid=124A078763`,
+        "_blank"
+      );
     } else if (e === 1) {
       navigate(`/care-cleaning`);
     } else if (e === 2) {
@@ -388,8 +391,6 @@ const Header = () => {
                             </Row>
                           </Nav>
                         </NavDropdown>
-
-        
 
                         <NavDropdown
                           title="Services & Support"
