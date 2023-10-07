@@ -612,7 +612,7 @@ section .text-container .text-box {
   .shopbyocca .heighautoimg a p {
     position: absolute;
 
-    left: 149px;
+    left: 50%;
     width: 141px;
     height: 38px;
 
@@ -646,7 +646,7 @@ section .text-container .text-box {
     position: absolute;
     width: 52px;
     height: 15px;
-    left: 66px;
+    left: 50%;
     font-family: "Rajdhani";
     font-style: normal;
     font-weight: 500;
