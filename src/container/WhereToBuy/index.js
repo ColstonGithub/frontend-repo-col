@@ -203,6 +203,7 @@ const WhereToBuy = () => {
               display: "flex",
               flexDirection: responsiveTablet ? "column" : "row",
               flexBasis: "30%",
+              flexWrap: "wrap",
               justifyContent: "space-evenly",
               alignItems: "center",
               padding: !responsiveMobile
