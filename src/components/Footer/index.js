@@ -120,7 +120,7 @@ const Footer = () => {
                 <Link to="/colstonconcept">
                   <div className="footer-content">Concepts by Colston</div>
                 </Link>
-                <Link to="/career">
+                <Link to="https://app.pyjamahr.com/careers?company=colston%20concepts&company_uuid=124A078763" target="_blabk">
                   <div className="footer-content">Career</div>
                 </Link>
                 {/* <Link to="/">
