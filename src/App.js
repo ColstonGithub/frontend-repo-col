@@ -48,9 +48,9 @@ const App = () => {
             {/* private routes below */}
             <Route path="/about-us" element={<AboutUs />} />
 
-            <Route path="/Career" element={<Career />} />
+            <Route path="/career" element={<Career />} />
 
-            <Route path="/Quotation" element={<Quotation />} />
+            <Route path="/quotation" element={<Quotation />} />
 
             <Route
               path="/warranty-registration"
